@@ -1,0 +1,23 @@
+{
+    "name": "Factory Teal",
+    "background": "#000000",
+    "foreground": "#f2efec",
+    "cursorColor": "#2ccfc0",
+    "selectionBackground": "#2a2623",
+    "black": "#0f0e0d",
+    "red": "#0f7a6e",
+    "green": "#7dd4cc",
+    "yellow": "#ddf4f2",
+    "blue": "#22b8ab",
+    "purple": "#1a9e91",
+    "cyan": "#a8ddd9",
+    "white": "#f2efec",
+    "brightBlack": "#817771",
+    "brightRed": "#22b8ab",
+    "brightGreen": "#7dd4cc",
+    "brightYellow": "#c5ebe8",
+    "brightBlue": "#2ccfc0",
+    "brightPurple": "#1a9e91",
+    "brightCyan": "#a8ddd9",
+    "brightWhite": "#f2efec"
+}

@@ -1,0 +1,61 @@
+# Random Access Theme — canonical palette
+# Single source of truth. All terminal exports are generated from this file.
+#
+# Run:  python3 scripts/generate.py
+# Check: python3 scripts/contrast_matrix.py
+
+meta:
+  name:         random-access-theme
+  display_name: "Random Access Theme"
+  description:  "OLED-black dark palette. Mint-forward, green-family syntax, minimal noise."
+  version:      "0.1.0"
+  author:       ssainz
+  github:       GITHUB_ORG/random-access-theme   # update before first release
+
+palette:
+  # ── Backgrounds ────────────────────────────────────────────────────────────
+  bg:      "#000000"   # pure black / absolute OLED
+  bg1:     "#090a0b"   # subtle step — used as ANSI black
+  bg2:     "#101214"   # visible panel border
+  surface: "#0b0c0e"   # card / message backgrounds
+  overlay: "#1a1c20"   # selection, popover, splits
+
+  # ── Text ───────────────────────────────────────────────────────────────────
+  text:    "#d8efe9"   # primary — green-tinted near-white
+  subtle:  "#9cb7af"   # secondary / labels / borders
+  dimText: "#6f8d86"   # muted / disabled / comments
+  cursor:  "#00ffb2"   # cursor (echoes hero accent)
+
+  # ── Accent family — all green-family, zero warm hues ───────────────────────
+  mint:    "#00ffb2"   # hero — electric mint, primary accent
+  cyan:    "#00ffb2"   # alias for mint — used for mdCode, mdLink, syntaxType
+  green:   "#4ade80"   # vivid green (success, functions)
+  teal:    "#35d5c5"   # cool teal (quotes, borders)
+  jade:    "#66e3c4"   # soft jade (thinking, keywords)
+  aqua:    "#8bf5dd"   # bright aqua (numbers, highlights)
+  emerald: "#26c994"   # deep emerald (errors in this palette — no warm red)
+  lime:    "#a2e5b8"   # muted lime (strings, warnings)
+
+# ── ANSI 16-color palette ───────────────────────────────────────────────────
+# Note: ANSI positions carry semantic meaning (ls, git, etc.).
+# This palette maps every position to a green-family shade.
+# Red position (1/9) uses emerald — the closest warm-free error signal.
+ansi:
+  normal:
+    black:   "#090a0b"   # bg1
+    red:     "#26c994"   # emerald  (no warm red — errors are emerald)
+    green:   "#4ade80"   # green
+    yellow:  "#a2e5b8"   # lime
+    blue:    "#00ffb2"   # mint (hero)
+    magenta: "#35d5c5"   # teal
+    cyan:    "#66e3c4"   # jade
+    white:   "#d8efe9"   # text
+  bright:
+    black:   "#6f8d86"   # dimText
+    red:     "#00ffb2"   # mint (hero, echoed at bright red)
+    green:   "#4ade80"   # green
+    yellow:  "#8bf5dd"   # aqua
+    blue:    "#00ffb2"   # mint
+    magenta: "#35d5c5"   # teal
+    cyan:    "#66e3c4"   # jade
+    white:   "#d8efe9"   # text

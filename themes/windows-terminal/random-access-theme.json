@@ -1,0 +1,23 @@
+{
+    "name": "Random Access Theme",
+    "background": "#000000",
+    "foreground": "#d8efe9",
+    "cursorColor": "#00ffb2",
+    "selectionBackground": "#1a1c20",
+    "black": "#090a0b",
+    "red": "#26c994",
+    "green": "#4ade80",
+    "yellow": "#a2e5b8",
+    "blue": "#00ffb2",
+    "purple": "#35d5c5",
+    "cyan": "#66e3c4",
+    "white": "#d8efe9",
+    "brightBlack": "#6f8d86",
+    "brightRed": "#00ffb2",
+    "brightGreen": "#4ade80",
+    "brightYellow": "#8bf5dd",
+    "brightBlue": "#00ffb2",
+    "brightPurple": "#35d5c5",
+    "brightCyan": "#66e3c4",
+    "brightWhite": "#d8efe9"
+}

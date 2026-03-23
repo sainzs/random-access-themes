@@ -1,0 +1,55 @@
+add_newline = false
+
+format = "$directory$git_branch$git_status$cmd_duration$line_break$character"
+
+[directory]
+truncation_length = 2
+truncate_to_repo = true
+read_only = ""
+format = "[$path](#f2efec)"
+style = "#f2efec"
+
+[git_branch]
+symbol = ""
+style = "#b1a8a2"
+format = " [· $branch]($style)"
+
+[git_status]
+style = "#817771"
+format = "[ $all_status$ahead_behind]($style)"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕"
+staged = "+${count}"
+modified = "~${count}"
+untracked = "?${count}"
+deleted = "-${count}"
+renamed = "»${count}"
+conflicted = "!${count}"
+stashed = "*${count}"
+up_to_date = ""
+
+[cmd_duration]
+min_time = 2000
+format = " [· $duration]($style)"
+style = "#817771"
+
+[character]
+success_symbol = "[›](#b1a8a2) "
+error_symbol = "[›](#00a878) "
+vimcmd_symbol = "[‹](#817771) "
+
+[status]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = true
+[golang]
+disabled = true
+[terraform]
+disabled = true
+[aws]
+disabled = true

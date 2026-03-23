@@ -1,0 +1,62 @@
+# Factory Indigo Theme — canonical palette
+# Single source of truth. All terminal exports are generated from this file.
+#
+# Aesthetic: Factory.ai warm-dark design language — brownish-black backgrounds,
+# cream near-white text, sparse and technical. Indigo accent family replaces
+# Factory's orange. Pure black base per user spec.
+#
+# Run:  python3 scripts/generate.py --palette palette/factory-indigo-theme.yaml
+
+meta:
+  name:         factory-indigo
+  display_name: "Factory Indigo"
+  description:  "Warm-black dark palette. Indigo accent, Factory.ai aesthetic."
+  version:      "0.1.0"
+  author:       ssainz
+  github:       GITHUB_ORG/random-access-theme
+
+palette:
+  # ── Backgrounds (warm dark, Factory.ai style) ───────────────────────────────
+  bg:      "#000000"   # pure black — absolute OLED
+  bg1:     "#0f0e0d"   # warm near-black — deepest panel
+  bg2:     "#1a1715"   # visible warm surface step
+  surface: "#141210"   # card / message backgrounds
+  overlay: "#2a2623"   # selection, popover, splits
+
+  # ── Text (crisper, higher-contrast for Retina MBP) ─────────────────────────
+  text:    "#f2efec"   # primary — brighter crisp off-white
+  subtle:  "#b1a8a2"   # secondary / labels — clearer warm grey
+  dimText: "#817771"   # muted / comments — readable taupe grey
+  cursor:  "#7b93ff"   # cursor — vibrant indigo hero
+
+  # ── Accent family — vibrant indigo / blue-violet ────────────────────────────
+  mint:    "#7b93ff"   # hero — vibrant indigo
+  cyan:    "#6b7ef5"   # saturated link/type indigo
+  green:   "#9baaf2"   # vivid muted violet (success, functions)
+  teal:    "#5c70d8"   # punchy deep indigo (quotes, borders)
+  jade:    "#b4bef0"   # crisp lavender (thinking, keywords)
+  aqua:    "#c8d2ff"   # vivid periwinkle (numbers, highlights)
+  emerald: "#4d5ec8"   # strong deep indigo (errors)
+  lime:    "#dce2ff"   # vivid soft indigo (strings, warnings)
+
+# ── ANSI 16-color palette ────────────────────────────────────────────────────
+# Warm-grey neutral base + vibrant indigo accent family.
+ansi:
+  normal:
+    black:   "#0f0e0d"   # bg1
+    red:     "#4d5ec8"   # strong deep indigo
+    green:   "#9baaf2"   # vivid muted violet (functions / success)
+    yellow:  "#dce2ff"   # vivid soft indigo
+    blue:    "#6b7ef5"   # saturated indigo (paths / links)
+    magenta: "#5c70d8"   # punchy deep indigo
+    cyan:    "#b4bef0"   # crisp lavender
+    white:   "#f2efec"   # text
+  bright:
+    black:   "#817771"   # dimText
+    red:     "#6b7ef5"   # saturated indigo
+    green:   "#9baaf2"   # vivid muted violet
+    yellow:  "#c8d2ff"   # vivid periwinkle
+    blue:    "#7b93ff"   # hero indigo
+    magenta: "#5c70d8"   # punchy deep
+    cyan:    "#b4bef0"   # crisp lavender
+    white:   "#f2efec"   # text

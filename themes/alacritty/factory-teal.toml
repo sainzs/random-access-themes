@@ -1,0 +1,35 @@
+# Random Access Theme — Alacritty
+# Warm-black dark palette. Vibrant electric teal accent, Factory.ai aesthetic.
+# https://github.com/GITHUB_ORG/random-access-theme
+
+[colors.primary]
+background = "#000000"
+foreground = "#f2efec"
+
+[colors.cursor]
+cursor = "#2ccfc0"
+text   = "#000000"
+
+[colors.selection]
+background = "#2a2623"
+text       = "#f2efec"
+
+[colors.normal]
+black    = "#0f0e0d"
+red      = "#0f7a6e"
+green    = "#7dd4cc"
+yellow   = "#ddf4f2"
+blue     = "#22b8ab"
+magenta  = "#1a9e91"
+cyan     = "#a8ddd9"
+white    = "#f2efec"
+
+[colors.bright]
+black    = "#817771"
+red      = "#22b8ab"
+green    = "#7dd4cc"
+yellow   = "#c5ebe8"
+blue     = "#2ccfc0"
+magenta  = "#1a9e91"
+cyan     = "#a8ddd9"
+white    = "#f2efec"

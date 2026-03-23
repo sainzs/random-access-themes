@@ -1,0 +1,21 @@
+# Random Access Theme — WezTerm color scheme
+# Warm-black dark palette. Indigo accent, Factory.ai aesthetic.
+# https://github.com/GITHUB_ORG/random-access-theme
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "Factory Indigo"
+
+[colors]
+foreground    = "#f2efec"
+background    = "#000000"
+cursor_bg     = "#7b93ff"
+cursor_border = "#7b93ff"
+cursor_fg     = "#000000"
+selection_bg  = "#2a2623"
+selection_fg  = "#f2efec"
+ansi          = ["#0f0e0d", "#4d5ec8", "#9baaf2", "#dce2ff", "#6b7ef5", "#5c70d8", "#b4bef0", "#f2efec"]
+brights       = ["#817771", "#6b7ef5", "#9baaf2", "#c8d2ff", "#7b93ff", "#5c70d8", "#b4bef0", "#f2efec"]
+
+[metadata]
+name       = "Factory Indigo"
+origin_url = "https://github.com/GITHUB_ORG/random-access-theme"

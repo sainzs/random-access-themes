@@ -1,0 +1,35 @@
+# Random Access Theme — Alacritty
+# OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.
+# https://github.com/GITHUB_ORG/random-access-theme
+
+[colors.primary]
+background = "#000000"
+foreground = "#d8efe9"
+
+[colors.cursor]
+cursor = "#00ffb2"
+text   = "#000000"
+
+[colors.selection]
+background = "#1a1c20"
+text       = "#d8efe9"
+
+[colors.normal]
+black    = "#090a0b"
+red      = "#26c994"
+green    = "#4ade80"
+yellow   = "#a2e5b8"
+blue     = "#00ffb2"
+magenta  = "#35d5c5"
+cyan     = "#66e3c4"
+white    = "#d8efe9"
+
+[colors.bright]
+black    = "#6f8d86"
+red      = "#00ffb2"
+green    = "#4ade80"
+yellow   = "#8bf5dd"
+blue     = "#00ffb2"
+magenta  = "#35d5c5"
+cyan     = "#66e3c4"
+white    = "#d8efe9"

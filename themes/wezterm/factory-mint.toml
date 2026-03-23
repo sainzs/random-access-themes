@@ -1,0 +1,21 @@
+# Random Access Theme — WezTerm color scheme
+# Warm-black dark palette. Electric mint accent, Factory.ai aesthetic.
+# https://github.com/GITHUB_ORG/random-access-theme
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "Factory Mint"
+
+[colors]
+foreground    = "#f2efec"
+background    = "#000000"
+cursor_bg     = "#00ffb2"
+cursor_border = "#00ffb2"
+cursor_fg     = "#000000"
+selection_bg  = "#2a2623"
+selection_fg  = "#f2efec"
+ansi          = ["#0f0e0d", "#00a878", "#4de8c0", "#d0f7ec", "#00e0a0", "#00c490", "#7adec8", "#f2efec"]
+brights       = ["#817771", "#00e0a0", "#4de8c0", "#a8f0de", "#00ffb2", "#00c490", "#7adec8", "#f2efec"]
+
+[metadata]
+name       = "Factory Mint"
+origin_url = "https://github.com/GITHUB_ORG/random-access-theme"

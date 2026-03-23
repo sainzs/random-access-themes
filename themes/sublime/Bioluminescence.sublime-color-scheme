@@ -1,0 +1,429 @@
+{
+  "name": "Bioluminescence",
+  "author": "ssainz",
+  "variables": {
+    "bg":          "#010405",
+    "bg1":         "#03090C",
+    "bg2":         "#071215",
+    "selection":   "#0A1A22",
+    "selBorder":   "#12333C",
+    "findHi":      "#D8B860",
+    "findHiFg":    "#010405",
+
+    "text":        "#D0E8E2",
+    "textFaded":   "#90B3AD",
+    "comment":     "#2A4949",
+    "gutterNum":   "#223D3D",
+    "punctuation": "#4E6D6D",
+
+    "keyword":     "#00F0E0",
+    "function":    "#30E8C8",
+    "type":        "#00B8AE",
+    "string":      "#6CE8A8",
+    "stringEsc":   "#B8F0D0",
+    "number":      "#A0F0E8",
+    "constant":    "#B4F0D8",
+    "operator":    "#00A09A",
+    "tag":         "#00D0C0",
+    "attribute":   "#5CE0C0",
+    "param":       "#8CD8D0",
+    "property":    "#7CBCB4",
+    "objKey":      "#5CC8B8",
+    "regex":       "#D8B860",
+    "amber":       "#E0A050",
+    "violet":      "#A48CFF",
+    "embedded":    "#071316"
+  },
+  "globals": {
+    "foreground": "var(text)",
+    "background": "var(bg)",
+    "caret": "var(keyword)",
+    "block_caret": "var(keyword)",
+    "block_caret_border": "var(keyword)",
+    "line_highlight": "var(bg1)",
+    "misspelling": "var(amber)",
+    "selection": "var(selection)",
+    "selection_border": "var(selBorder)",
+    "inactive_selection": "color(var(selection) alpha(0.6))",
+    "find_highlight": "var(findHi)",
+    "find_highlight_foreground": "var(findHiFg)",
+    "guide": "var(bg2)",
+    "active_guide": "var(punctuation)",
+    "stack_guide": "var(bg2)",
+    "brackets_options": "underline",
+    "brackets_foreground": "var(keyword)",
+    "bracket_contents_options": "underline",
+    "bracket_contents_foreground": "var(function)",
+    "tags_options": "stippled_underline",
+    "tags_foreground": "var(tag)",
+    "gutter": "var(bg)",
+    "gutter_foreground": "var(gutterNum)",
+    "line_diff_added": "var(string)",
+    "line_diff_modified": "var(keyword)",
+    "line_diff_deleted": "var(amber)"
+  },
+  "rules": [
+    {
+      "name": "Comments",
+      "scope": "comment, punctuation.definition.comment",
+      "foreground": "var(comment)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Doc Comments",
+      "scope": "comment.block.documentation",
+      "foreground": "var(punctuation)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Doc Tags",
+      "scope": "comment.block.documentation keyword, comment.block.documentation storage.type",
+      "foreground": "var(textFaded)",
+      "font_style": "bold italic"
+    },
+
+    {
+      "name": "Keywords",
+      "scope": "keyword, keyword.control",
+      "foreground": "var(keyword)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Keyword Return / Throw / Yield",
+      "scope": "keyword.control.flow.return, keyword.control.flow.throw, keyword.control.flow.yield, keyword.control.return",
+      "foreground": "var(keyword)",
+      "font_style": "bold italic"
+    },
+    {
+      "name": "Storage (function, class, let, const, var)",
+      "scope": "storage, storage.type, storage.modifier",
+      "foreground": "var(keyword)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Import / Export / From",
+      "scope": "keyword.control.import, keyword.control.export, keyword.control.from",
+      "foreground": "var(keyword)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Operators",
+      "scope": "keyword.operator",
+      "foreground": "var(operator)"
+    },
+    {
+      "name": "Assignment Operators",
+      "scope": "keyword.operator.assignment",
+      "foreground": "var(operator)"
+    },
+
+    {
+      "name": "Functions — Definitions",
+      "scope": "entity.name.function, meta.function entity.name",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Functions — Calls",
+      "scope": "meta.function-call variable.function, support.function, meta.function-call entity.name.function",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "Constructors",
+      "scope": "meta.instance.constructor entity.name, variable.type",
+      "foreground": "var(type)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Function Parameters",
+      "scope": "variable.parameter, meta.function.parameters variable",
+      "foreground": "var(param)",
+      "font_style": "italic"
+    },
+
+    {
+      "name": "Types / Classes — Definition",
+      "scope": "entity.name.type, entity.name.class, entity.name.struct, entity.name.enum, entity.name.interface, entity.name.trait",
+      "foreground": "var(type)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Types — Usage",
+      "scope": "support.type, support.class, meta.type",
+      "foreground": "var(type)"
+    },
+    {
+      "name": "Inherited Class",
+      "scope": "entity.other.inherited-class",
+      "foreground": "var(type)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Namespace / Module",
+      "scope": "entity.name.namespace, entity.name.module, support.other.namespace",
+      "foreground": "var(type)",
+      "font_style": "italic"
+    },
+
+    {
+      "name": "Strings",
+      "scope": "string, punctuation.definition.string",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "String Escape Characters",
+      "scope": "constant.character.escape, string constant.other.placeholder",
+      "foreground": "var(stringEsc)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Template Strings — Interpolation",
+      "scope": "punctuation.section.interpolation, punctuation.definition.template-expression",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "Template Strings — Content",
+      "scope": "meta.interpolation, meta.template.expression",
+      "foreground": "var(text)"
+    },
+    {
+      "name": "Regex",
+      "scope": "string.regexp",
+      "foreground": "var(regex)"
+    },
+    {
+      "name": "Regex Operators",
+      "scope": "string.regexp keyword.operator, string.regexp constant.other",
+      "foreground": "var(amber)"
+    },
+
+    {
+      "name": "Numbers",
+      "scope": "constant.numeric",
+      "foreground": "var(number)"
+    },
+    {
+      "name": "Booleans & Null",
+      "scope": "constant.language",
+      "foreground": "var(constant)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Other Constants",
+      "scope": "variable.other.constant",
+      "foreground": "var(constant)"
+    },
+
+    {
+      "name": "Variables",
+      "scope": "variable, variable.other",
+      "foreground": "var(text)"
+    },
+    {
+      "name": "Language Variables (this, self, super)",
+      "scope": "variable.language",
+      "foreground": "var(keyword)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Object Properties (access via dot)",
+      "scope": "variable.other.property, variable.other.member, support.variable.property, meta.property.object",
+      "foreground": "var(property)"
+    },
+    {
+      "name": "Object Keys (literal keys, JSON keys)",
+      "scope": "meta.object-literal.key, string.unquoted.label, meta.mapping.key string, meta.mapping.key, source.json string.quoted.double meta.mapping.key string, source.json meta.mapping.key.json string",
+      "foreground": "var(objKey)"
+    },
+    {
+      "name": "Config Keys (YAML / TOML / INI)",
+      "scope": "source.yaml meta.mapping.key, source.toml support.type.property-name, source.ini support.type.property-name",
+      "foreground": "var(objKey)"
+    },
+    {
+      "name": "Enum Members & Named Constants",
+      "scope": "variable.other.enummember, entity.name.constant",
+      "foreground": "var(constant)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Support Variables (JSON, Math, console)",
+      "scope": "support.variable, support.constant",
+      "foreground": "var(type)"
+    },
+
+    {
+      "name": "Punctuation — General",
+      "scope": "punctuation, punctuation.separator, punctuation.terminator, meta.brace",
+      "foreground": "var(punctuation)"
+    },
+    {
+      "name": "Punctuation — Brackets",
+      "scope": "punctuation.section, punctuation.definition.block, meta.group punctuation",
+      "foreground": "var(punctuation)"
+    },
+    {
+      "name": "Punctuation — Accessor (dots)",
+      "scope": "punctuation.accessor, keyword.operator.accessor",
+      "foreground": "var(punctuation)"
+    },
+
+    {
+      "name": "HTML / XML Tags",
+      "scope": "entity.name.tag, punctuation.definition.tag",
+      "foreground": "var(tag)"
+    },
+    {
+      "name": "HTML / XML Attributes",
+      "scope": "entity.other.attribute-name",
+      "foreground": "var(attribute)",
+      "font_style": "italic"
+    },
+    {
+      "name": "HTML Entities",
+      "scope": "constant.character.entity",
+      "foreground": "var(stringEsc)"
+    },
+
+    {
+      "name": "CSS Properties",
+      "scope": "support.type.property-name.css, meta.property-name",
+      "foreground": "var(param)"
+    },
+    {
+      "name": "CSS Values",
+      "scope": "support.constant.property-value, meta.property-value",
+      "foreground": "var(text)"
+    },
+    {
+      "name": "CSS Selectors",
+      "scope": "entity.other.attribute-name.class.css, entity.other.attribute-name.id.css",
+      "foreground": "var(function)"
+    },
+    {
+      "name": "CSS Pseudo",
+      "scope": "entity.other.pseudo-class, entity.other.pseudo-element",
+      "foreground": "var(type)",
+      "font_style": "italic"
+    },
+    {
+      "name": "CSS Units",
+      "scope": "keyword.other.unit",
+      "foreground": "var(number)"
+    },
+
+    {
+      "name": "Decorators / Annotations",
+      "scope": "meta.annotation, punctuation.definition.annotation, variable.annotation, storage.type.annotation",
+      "foreground": "var(attribute)",
+      "font_style": "italic"
+    },
+
+    {
+      "name": "Shebang",
+      "scope": "comment.line.shebang, punctuation.definition.comment.shebang",
+      "foreground": "var(comment)",
+      "font_style": "italic"
+    },
+
+    {
+      "name": "Embedded Source",
+      "scope": "meta.embedded",
+      "foreground": "var(text)",
+      "background": "var(embedded)"
+    },
+
+    {
+      "name": "Diff Header",
+      "scope": "meta.diff.header, meta.separator.diff",
+      "foreground": "var(keyword)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Diff Added",
+      "scope": "markup.inserted, meta.diff.header.to-file",
+      "foreground": "var(string)"
+    },
+    {
+      "name": "Diff Removed",
+      "scope": "markup.deleted, meta.diff.header.from-file",
+      "foreground": "var(amber)"
+    },
+    {
+      "name": "Diff Changed",
+      "scope": "markup.changed",
+      "foreground": "var(keyword)"
+    },
+
+    {
+      "name": "Markup Headings",
+      "scope": "markup.heading, punctuation.definition.heading",
+      "foreground": "var(keyword)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markup Bold",
+      "scope": "markup.bold",
+      "foreground": "var(text)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markup Italic",
+      "scope": "markup.italic",
+      "foreground": "var(textFaded)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Markup Links",
+      "scope": "markup.underline.link",
+      "foreground": "var(function)",
+      "font_style": "underline"
+    },
+    {
+      "name": "Markup Code",
+      "scope": "markup.raw.inline, markup.raw.block",
+      "foreground": "var(param)"
+    },
+    {
+      "name": "Markup Lists",
+      "scope": "markup.list punctuation.definition.list_item",
+      "foreground": "var(keyword)"
+    },
+    {
+      "name": "Markup Quote",
+      "scope": "markup.quote",
+      "foreground": "var(textFaded)",
+      "font_style": "italic"
+    },
+
+    {
+      "name": "Diagnostics — Error",
+      "scope": "markup.error, invalid.error, message.error",
+      "foreground": "var(violet)",
+      "font_style": "underline"
+    },
+    {
+      "name": "Diagnostics — Warning",
+      "scope": "markup.warning, invalid.warning, message.warning",
+      "foreground": "var(amber)",
+      "font_style": "underline"
+    },
+    {
+      "name": "Diagnostics — Info / Hint",
+      "scope": "markup.info, markup.hint, message.info",
+      "foreground": "var(type)"
+    },
+
+    {
+      "name": "Invalid",
+      "scope": "invalid, invalid.illegal",
+      "foreground": "var(bg)",
+      "background": "var(amber)"
+    },
+    {
+      "name": "Deprecated",
+      "scope": "invalid.deprecated",
+      "foreground": "var(text)",
+      "background": "color(var(amber) alpha(0.3))"
+    }
+  ]
+}

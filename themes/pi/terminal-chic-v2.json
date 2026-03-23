@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "terminal-chic-v2",
+  "vars": {
+    "bg":         "#080A0F",
+    "bg1":        "#0B0E14",
+    "bg2":        "#11151C",
+    "surface":    "#0E1219",
+    "overlay":    "#161B25",
+    
+    "text":       "#E4ECEC",
+    "subtle":     "#6B7D8F",
+    "dimText":    "#4B596A",
+    
+    "cyan":       "#00F0D8",
+    "teal":       "#00C2BA",
+    "blue":       "#61AFEF",
+    "mint":       "#4EEDAE",
+    "lavender":   "#B4BCED",
+    "amethyst":   "#CBA6F7",
+    "champagne":  "#E5C07B"
+  },
+  "colors": {
+    "accent":            "cyan",
+    "border":            "subtle",
+    "borderAccent":      "cyan",
+    "borderMuted":       "dimText",
+    "success":           "mint",
+    "error":             "amethyst",
+    "warning":           "champagne",
+    "muted":             "subtle",
+    "dim":               "dimText",
+    "text":              "text",
+    "thinkingText":      "teal",
+
+    "selectedBg":        "overlay",
+    "userMessageBg":     "surface",
+    "userMessageText":   "text",
+    "customMessageBg":   "surface",
+    "customMessageText": "text",
+    "customMessageLabel":"cyan",
+    "toolPendingBg":     "bg",
+    "toolSuccessBg":     "bg1",
+    "toolErrorBg":       "bg",
+    "toolTitle":         "cyan",
+    "toolOutput":        "text",
+
+    "mdHeading":         "cyan",
+    "mdLink":            "blue",
+    "mdLinkUrl":         "subtle",
+    "mdCode":            "blue",
+    "mdCodeBlock":       "text",
+    "mdCodeBlockBorder": "subtle",
+    "mdQuote":           "subtle",
+    "mdQuoteBorder":     "blue",
+    "mdHr":              "subtle",
+    "mdListBullet":      "cyan",
+
+    "toolDiffAdded":     "mint",
+    "toolDiffRemoved":   "amethyst",
+    "toolDiffContext":   "subtle",
+
+    "syntaxComment":     "dimText",
+    "syntaxKeyword":     "cyan",
+    "syntaxFunction":    "blue",
+    "syntaxVariable":    "text",
+    "syntaxString":      "mint",
+    "syntaxNumber":      "lavender",
+    "syntaxType":        "teal",
+    "syntaxOperator":    "teal",
+    "syntaxPunctuation": "subtle",
+
+    "thinkingOff":       "dimText",
+    "thinkingMinimal":   "subtle",
+    "thinkingLow":       "teal",
+    "thinkingMedium":    "blue",
+    "thinkingHigh":      "cyan",
+    "thinkingXhigh":     "amethyst",
+
+    "bashMode":          "champagne"
+  },
+  "export": {
+    "pageBg": "#080A0F",
+    "cardBg": "#0E1219",
+    "infoBg": "#161B25"
+  }
+}

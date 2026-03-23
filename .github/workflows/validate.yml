@@ -1,0 +1,32 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Generate + Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Generate themes from palette
+        run: python3 scripts/generate.py
+
+      - name: Validate all assets
+        run: python3 scripts/validate_theme.py --skip-installed
+
+      - name: WCAG contrast check (informational)
+        run: python3 scripts/contrast_matrix.py

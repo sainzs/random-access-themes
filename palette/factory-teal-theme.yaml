@@ -1,0 +1,61 @@
+# Factory Teal Theme — canonical palette
+# Single source of truth. All terminal exports are generated from this file.
+#
+# Aesthetic: Factory.ai warm-dark design language — brownish-black backgrounds,
+# cream near-white text, sparse and technical. Vibrant electric teal accent.
+#
+# Run:  python3 scripts/generate.py --palette palette/factory-teal-theme.yaml
+
+meta:
+  name:         factory-teal
+  display_name: "Factory Teal"
+  description:  "Warm-black dark palette. Vibrant electric teal accent, Factory.ai aesthetic."
+  version:      "0.1.0"
+  author:       ssainz
+  github:       GITHUB_ORG/random-access-theme
+
+palette:
+  # ── Backgrounds (warm dark, Factory.ai style) ───────────────────────────────
+  bg:      "#000000"   # pure black — absolute OLED
+  bg1:     "#0f0e0d"   # warm near-black — deepest panel
+  bg2:     "#1a1715"   # visible warm surface step
+  surface: "#141210"   # card / message backgrounds
+  overlay: "#2a2623"   # selection, popover, splits
+
+  # ── Text (crisp for Retina MBP) ─────────────────────────────────────────────
+  text:    "#f2efec"   # primary — crisp off-white
+  subtle:  "#b1a8a2"   # secondary / labels — warm muted grey
+  dimText: "#817771"   # muted / comments — readable taupe grey
+  cursor:  "#2ccfc0"   # cursor — vibrant electric teal
+
+  # ── Accent family — vibrant electric teal ───────────────────────────────────
+  mint:    "#2ccfc0"   # hero — vibrant electric teal
+  cyan:    "#22b8ab"   # saturated teal (links / type)
+  green:   "#7dd4cc"   # muted teal (success / functions)
+  teal:    "#1a9e91"   # deep teal (quotes / borders)
+  jade:    "#a8ddd9"   # soft teal-grey (thinking / keywords)
+  aqua:    "#c5ebe8"   # pale teal (numbers / highlights)
+  emerald: "#0f7a6e"   # dark teal (errors)
+  lime:    "#ddf4f2"   # teal-white (strings / warnings)
+
+# ── ANSI 16-color palette ────────────────────────────────────────────────────
+# Warm-grey neutral base + vibrant teal accent family.
+ansi:
+  normal:
+    black:   "#0f0e0d"   # bg1
+    red:     "#0f7a6e"   # dark teal (error signal)
+    green:   "#7dd4cc"   # muted teal (success)
+    yellow:  "#ddf4f2"   # teal-white (strings)
+    blue:    "#22b8ab"   # saturated teal (paths / links)
+    magenta: "#1a9e91"   # deep teal
+    cyan:    "#a8ddd9"   # soft teal-grey
+    white:   "#f2efec"   # text
+  bright:
+    black:   "#817771"   # dimText
+    red:     "#22b8ab"   # saturated teal
+    green:   "#7dd4cc"   # muted teal
+    yellow:  "#c5ebe8"   # pale teal
+    blue:    "#2ccfc0"   # hero teal
+    magenta: "#1a9e91"   # deep teal
+    cyan:    "#a8ddd9"   # soft teal-grey
+    white:   "#f2efec"   # text

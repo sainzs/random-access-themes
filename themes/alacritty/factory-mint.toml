@@ -1,0 +1,35 @@
+# Random Access Theme — Alacritty
+# Warm-black dark palette. Electric mint accent, Factory.ai aesthetic.
+# https://github.com/GITHUB_ORG/random-access-theme
+
+[colors.primary]
+background = "#000000"
+foreground = "#f2efec"
+
+[colors.cursor]
+cursor = "#00ffb2"
+text   = "#000000"
+
+[colors.selection]
+background = "#2a2623"
+text       = "#f2efec"
+
+[colors.normal]
+black    = "#0f0e0d"
+red      = "#00a878"
+green    = "#4de8c0"
+yellow   = "#d0f7ec"
+blue     = "#00e0a0"
+magenta  = "#00c490"
+cyan     = "#7adec8"
+white    = "#f2efec"
+
+[colors.bright]
+black    = "#817771"
+red      = "#00e0a0"
+green    = "#4de8c0"
+yellow   = "#a8f0de"
+blue     = "#00ffb2"
+magenta  = "#00c490"
+cyan     = "#7adec8"
+white    = "#f2efec"
