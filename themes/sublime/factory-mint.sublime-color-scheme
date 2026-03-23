@@ -1,0 +1,233 @@
+{
+  "name": "Factory Mint",
+  "author": "ssainz",
+  "variables": {
+    "bg":      "#000000",
+    "bg1":     "#0f0e0d",
+    "bg2":     "#1a1715",
+    "surface": "#141210",
+    "overlay": "#2a2623",
+    "text":    "#f2efec",
+    "subtle":  "#b1a8a2",
+    "dim":     "#817771",
+    "mint":    "#00ffb2",
+    "cyan":    "#00e0a0",
+    "green":   "#4de8c0",
+    "teal":    "#00c490",
+    "jade":    "#7adec8",
+    "aqua":    "#a8f0de",
+    "emerald": "#00a878",
+    "lime":    "#d0f7ec"
+  },
+  "globals": {
+    "foreground":                   "var(text)",
+    "background":                   "var(bg)",
+    "caret":                        "var(mint)",
+    "block_caret":                  "var(mint)",
+    "block_caret_border":           "var(teal)",
+    "line_highlight":               "var(bg1)",
+    "misspelling":                  "var(emerald)",
+    "selection":                    "var(overlay)",
+    "selection_border":             "var(bg2)",
+    "inactive_selection":           "color(var(overlay) alpha(0.5))",
+    "find_highlight":               "var(mint)",
+    "find_highlight_foreground":    "var(bg)",
+    "guide":                        "var(bg2)",
+    "active_guide":                 "var(overlay)",
+    "stack_guide":                  "var(bg1)",
+    "brackets_options":             "underline",
+    "brackets_foreground":          "var(mint)",
+    "bracket_contents_options":     "underline",
+    "bracket_contents_foreground":  "var(cyan)",
+    "tags_options":                 "stippled_underline",
+    "tags_foreground":              "var(teal)",
+    "gutter":                       "var(bg)",
+    "gutter_foreground":            "var(dim)",
+    "gutter_foreground_highlight":  "var(subtle)",
+    "rulers":                       "color(var(overlay) alpha(0.5))",
+    "shadow":                       "color(var(bg) alpha(0.0))",
+    "shadow_width":                 "0"
+  },
+  "rules": [
+
+    // ── Prose & Plain Text ──────────────────────────────────────────────────
+    { "scope": "text.plain", "foreground": "var(text)" },
+
+    // ── Markdown: Structure ─────────────────────────────────────────────────
+    {
+      "scope": "markup.heading, entity.name.section",
+      "foreground": "var(mint)",
+      "font_style": "bold"
+    },
+    {
+      "scope": "markup.heading.1, entity.name.section.1",
+      "foreground": "var(mint)",
+      "font_style": "bold",
+      "font_size_delta": 4
+    },
+    {
+      "scope": "markup.heading.2, entity.name.section.2",
+      "foreground": "var(mint)",
+      "font_style": "bold",
+      "font_size_delta": 2
+    },
+    {
+      "scope": "markup.heading.3, entity.name.section.3",
+      "foreground": "var(cyan)",
+      "font_style": "bold"
+    },
+    {
+      "scope": "markup.heading.4, markup.heading.5, markup.heading.6",
+      "foreground": "var(teal)",
+      "font_style": "bold"
+    },
+    {
+      "scope": "punctuation.definition.heading",
+      "foreground": "var(dim)"
+    },
+
+    // ── Markdown: Emphasis ──────────────────────────────────────────────────
+    {
+      "scope": "markup.bold",
+      "foreground": "var(text)",
+      "font_style": "bold"
+    },
+    {
+      "scope": "markup.italic",
+      "foreground": "var(subtle)",
+      "font_style": "italic"
+    },
+    {
+      "scope": "markup.bold_italic, markup.italic markup.bold, markup.bold markup.italic",
+      "foreground": "var(text)",
+      "font_style": "bold italic"
+    },
+    {
+      "scope": "punctuation.definition.bold, punctuation.definition.italic",
+      "foreground": "var(dim)"
+    },
+
+    // ── Markdown: Links ─────────────────────────────────────────────────────
+    {
+      "scope": "markup.underline.link, meta.link.reference.literal",
+      "foreground": "var(cyan)",
+      "font_style": "underline"
+    },
+    {
+      "scope": "meta.link.inline string.other.link.title",
+      "foreground": "var(mint)"
+    },
+    {
+      "scope": "punctuation.definition.link, meta.link.inline punctuation",
+      "foreground": "var(dim)"
+    },
+    {
+      "scope": "constant.other.reference.link",
+      "foreground": "var(jade)"
+    },
+
+    // ── Markdown: Code ──────────────────────────────────────────────────────
+    {
+      "scope": "markup.raw.inline, markup.raw.inline.content",
+      "foreground": "var(jade)",
+      "background": "var(surface)"
+    },
+    {
+      "scope": "markup.raw.block, markup.raw.code-fence",
+      "foreground": "var(text)",
+      "background": "var(bg1)"
+    },
+    {
+      "scope": "punctuation.definition.raw, fenced_code.block.language",
+      "foreground": "var(dim)"
+    },
+
+    // ── Markdown: Blockquote ────────────────────────────────────────────────
+    {
+      "scope": "markup.quote",
+      "foreground": "var(subtle)",
+      "font_style": "italic"
+    },
+    {
+      "scope": "punctuation.definition.blockquote",
+      "foreground": "var(teal)"
+    },
+
+    // ── Markdown: Lists ─────────────────────────────────────────────────────
+    {
+      "scope": "markup.list",
+      "foreground": "var(text)"
+    },
+    {
+      "scope": "punctuation.definition.list_item, markup.list.numbered.bullet",
+      "foreground": "var(teal)"
+    },
+
+    // ── Markdown: HR / Thematic Break ───────────────────────────────────────
+    {
+      "scope": "meta.separator, punctuation.definition.thematic-break",
+      "foreground": "var(overlay)"
+    },
+
+    // ── Markdown: Frontmatter / Metadata ───────────────────────────────────
+    {
+      "scope": "meta.block-level.markdown entity.name",
+      "foreground": "var(subtle)"
+    },
+
+    // ── Markdown: Strikethrough ─────────────────────────────────────────────
+    {
+      "scope": "markup.strikethrough",
+      "foreground": "var(dim)",
+      "font_style": "italic"
+    },
+
+    // ── Code Syntax ─────────────────────────────────────────────────────────
+    { "scope": "comment, punctuation.definition.comment",
+      "foreground": "var(dim)", "font_style": "italic" },
+    { "scope": "keyword, keyword.operator.word",
+      "foreground": "var(jade)" },
+    { "scope": "keyword.operator",
+      "foreground": "var(teal)" },
+    { "scope": "keyword.control.import, keyword.control.export",
+      "foreground": "var(jade)" },
+    { "scope": "storage.type, storage.modifier",
+      "foreground": "var(jade)" },
+    { "scope": "entity.name.function, support.function, meta.function-call",
+      "foreground": "var(cyan)" },
+    { "scope": "entity.name.type, entity.name.class, support.type, support.class",
+      "foreground": "var(mint)" },
+    { "scope": "variable.parameter",
+      "foreground": "var(aqua)" },
+    { "scope": "variable.other",
+      "foreground": "var(text)" },
+    { "scope": "string, string.quoted",
+      "foreground": "var(lime)" },
+    { "scope": "string.regexp",
+      "foreground": "var(green)" },
+    { "scope": "constant.numeric",
+      "foreground": "var(aqua)" },
+    { "scope": "constant.language, constant.character",
+      "foreground": "var(jade)" },
+    { "scope": "punctuation",
+      "foreground": "var(subtle)" },
+    { "scope": "entity.name.tag",
+      "foreground": "var(mint)" },
+    { "scope": "entity.other.attribute-name",
+      "foreground": "var(jade)" },
+    { "scope": "invalid, invalid.illegal",
+      "foreground": "var(text)", "background": "var(emerald)" },
+    { "scope": "invalid.deprecated",
+      "foreground": "var(subtle)", "font_style": "italic" },
+
+    // ── Diff ────────────────────────────────────────────────────────────────
+    { "scope": "markup.inserted, diff.inserted",
+      "foreground": "var(mint)" },
+    { "scope": "markup.deleted, diff.deleted",
+      "foreground": "var(emerald)" },
+    { "scope": "markup.changed, diff.changed",
+      "foreground": "var(jade)" },
+    { "scope": "diff.header, meta.diff.header",
+      "foreground": "var(subtle)", "font_style": "italic" }
+  ]
+}
