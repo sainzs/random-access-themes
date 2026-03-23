@@ -1,6 +1,6 @@
 # Random Access Theme — Alacritty
 # Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac.
-# https://github.com/ssainz/random-access-themes
+# https://github.com/sainzs/random-access-themes
 
 [colors.primary]
 background = "#000000"

@@ -1,6 +1,6 @@
 # Random Access Themes
 
-[![CI](https://github.com/ssainz/random-access-themes/actions/workflows/validate.yml/badge.svg)](https://github.com/ssainz/random-access-themes/actions/workflows/validate.yml)
+[![CI](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml/badge.svg)](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ffb2.svg)](LICENSE)
 
 > OLED-black dark themes for terminals and editors. Named after Daft Punk and Radiohead deep cuts.

@@ -108,7 +108,7 @@ install_ghostty() {
   local config
   config=$(cat << 'GHOSTTY_EOF'
 # Random Access Theme — Ghostty config
-# Source: https://github.com/ssainz/random-access-themes
+# Source: https://github.com/sainzs/random-access-themes
 
 # ── Font ──────────────────────────────────────────────────────────────────────
 font-family = Berkeley Mono Variable

@@ -1,6 +1,6 @@
 # Random Access Theme — Alacritty
 # Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager.
-# https://github.com/ssainz/random-access-themes
+# https://github.com/sainzs/random-access-themes
 
 [colors.primary]
 background = "#000000"

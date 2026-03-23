@@ -1,6 +1,6 @@
 # Random Access Theme — WezTerm color scheme
 # Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac.
-# https://github.com/ssainz/random-access-themes
+# https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
 # Then set: config.color_scheme = "Amnesiac"
@@ -18,4 +18,4 @@ brights       = ["#817771", "#6b7ef5", "#9baaf2", "#c8d2ff", "#7b93ff", "#5c70d8
 
 [metadata]
 name       = "Amnesiac"
-origin_url = "https://github.com/ssainz/random-access-themes"
+origin_url = "https://github.com/sainzs/random-access-themes"

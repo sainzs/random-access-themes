@@ -11,8 +11,8 @@ meta:
   display_name: "Amnesiac"
   description:  "Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac."
   version:      "0.1.0"
-  author:       ssainz
-  github:       ssainz/random-access-themes
+  author:       sainzs
+  github:       sainzs/random-access-themes
 
 palette:
   # ── Backgrounds (warm dark) ────────────────────────────────────────────────
