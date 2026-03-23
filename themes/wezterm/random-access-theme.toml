@@ -1,6 +1,6 @@
 # Random Access Theme — WezTerm color scheme
 # OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.
-# https://github.com/GITHUB_ORG/random-access-theme
+# https://github.com/ssainz/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
 # Then set: config.color_scheme = "Random Access Theme"
@@ -18,4 +18,4 @@ brights       = ["#6f8d86", "#00ffb2", "#4ade80", "#8bf5dd", "#00ffb2", "#35d5c5
 
 [metadata]
 name       = "Random Access Theme"
-origin_url = "https://github.com/GITHUB_ORG/random-access-theme"
+origin_url = "https://github.com/ssainz/random-access-themes"

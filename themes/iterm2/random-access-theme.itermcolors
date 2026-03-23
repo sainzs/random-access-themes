@@ -3,7 +3,7 @@
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!-- Random Access Theme — iTerm2 -->
 <!-- OLED-black dark palette. Mint-forward, green-family syntax, minimal noise. -->
-<!-- https://github.com/GITHUB_ORG/random-access-theme -->
+<!-- https://github.com/ssainz/random-access-themes -->
 <plist version="1.0">
 <dict>
 	<key>Ansi 0 Color</key>

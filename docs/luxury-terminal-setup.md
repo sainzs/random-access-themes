@@ -1,4 +1,4 @@
-# Factory Luxury Terminal Setup
+# Luxury Terminal Setup
 
 This guide documents the settings required to achieve the "Luxury App" terminal aesthetic (no visible chrome, pure OLED blacks, precise margins, and true ANSI inheritance).
 
@@ -18,7 +18,7 @@ Instead of drawing from the bottom up, `fzf` is configured to look like a floati
 ```
 
 ## 3. Toolchain ANSI Inheritance
-Instead of relying on hardcoded third-party themes (like "GitHub Dark"), `bat` and `delta` are forced to inherit the exact Factory Mint/Teal/Indigo palette from the terminal emulator.
+Instead of relying on hardcoded third-party themes (like "GitHub Dark"), `bat` and `delta` are forced to inherit the exact Veridis/Voyager/Amnesiac palette from the terminal emulator.
 * **bat:** `--theme=ansi` in `~/.config/bat/config`
 * **delta:** `syntax-theme = ansi` in `~/.gitconfig`
 
