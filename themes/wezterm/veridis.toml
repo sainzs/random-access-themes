@@ -1,6 +1,6 @@
 # Random Access Theme — WezTerm color scheme
 # Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo.
-# https://github.com/ssainz/random-access-themes
+# https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
 # Then set: config.color_scheme = "Veridis"
@@ -18,4 +18,4 @@ brights       = ["#817771", "#00e0a0", "#4de8c0", "#a8f0de", "#00ffb2", "#00c490
 
 [metadata]
 name       = "Veridis"
-origin_url = "https://github.com/ssainz/random-access-themes"
+origin_url = "https://github.com/sainzs/random-access-themes"

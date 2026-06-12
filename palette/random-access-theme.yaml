@@ -9,8 +9,8 @@ meta:
   display_name: "Random Access Theme"
   description:  "OLED-black dark palette. Mint-forward, green-family syntax, minimal noise."
   version:      "0.1.0"
-  author:       ssainz
-  github:       ssainz/random-access-themes
+  author:       sainzs
+  github:       sainzs/random-access-themes
 
 palette:
   # ── Backgrounds ────────────────────────────────────────────────────────────

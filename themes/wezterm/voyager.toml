@@ -1,6 +1,6 @@
 # Random Access Theme — WezTerm color scheme
 # Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager.
-# https://github.com/ssainz/random-access-themes
+# https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
 # Then set: config.color_scheme = "Voyager"
@@ -18,4 +18,4 @@ brights       = ["#817771", "#22b8ab", "#7dd4cc", "#c5ebe8", "#2ccfc0", "#1a9e91
 
 [metadata]
 name       = "Voyager"
-origin_url = "https://github.com/ssainz/random-access-themes"
+origin_url = "https://github.com/sainzs/random-access-themes"

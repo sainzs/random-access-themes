@@ -11,8 +11,8 @@ meta:
   display_name: "Voyager"
   description:  "Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager."
   version:      "0.1.0"
-  author:       ssainz
-  github:       ssainz/random-access-themes
+  author:       sainzs
+  github:       sainzs/random-access-themes
 
 palette:
   # ── Backgrounds (warm dark) ────────────────────────────────────────────────
