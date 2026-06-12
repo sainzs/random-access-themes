@@ -1,35 +1,64 @@
-# Random Access Theme — palette preview
-# OLED-black background, mint-forward, green-family syntax
+# Random Access Themes — richer preview sample
+# Useful when generating screenshots with freeze or testing syntax color balance.
 
 from dataclasses import dataclass
-from typing import Optional
+from pathlib import Path
+from typing import Literal
 
-@dataclass
-class Theme:
-    """A terminal color scheme with zero warm hues."""
-    name: str
-    accent: str = "#00ffb2"  # electric mint
-    background: str = "#000000"  # pure OLED black
-    version: Optional[int] = None
-
-    def contrast_ratio(self, fg: str, bg: str) -> float:
-        """WCAG 2.1 contrast ratio between two hex colors."""
-        lum_fg = self._luminance(fg)
-        lum_bg = self._luminance(bg)
-        hi, lo = max(lum_fg, lum_bg), min(lum_fg, lum_bg)
-        return (hi + 0.05) / (lo + 0.05)
-
-    def _luminance(self, hex_color: str) -> float:
-        r, g, b = (int(hex_color[i:i+2], 16) / 255 for i in (1, 3, 5))
-        return 0.2126 * r + 0.7152 * g + 0.0722 * b
-
-    def passes_aa(self, fg: str) -> bool:
-        return self.contrast_ratio(fg, self.background) >= 4.5
+FlavorName = Literal["random-access-theme", "veridis", "voyager", "amnesiac"]
 
 
-flavors = ["random-access", "veridis", "voyager", "amnesiac"]
-theme = Theme(name="random-access", version=1)
+@dataclass(frozen=True)
+class PreviewTheme:
+    name: FlavorName
+    accent: str
+    background: str
+    contrast_ratio: float
+    terminals: tuple[str, ...]
+    editors: tuple[str, ...]
 
-for flavor in flavors:
-    ratio = theme.contrast_ratio(theme.accent, theme.background)
-    print(f"{flavor}: {ratio:.1f}:1 contrast")
+    def summary(self) -> dict[str, object]:
+        return {
+            "flavor": self.name,
+            "accent": self.accent,
+            "contrast": round(self.contrast_ratio, 2),
+            "ports": len(self.terminals),
+            "editors": list(self.editors),
+        }
+
+
+THEMES: list[PreviewTheme] = [
+    PreviewTheme(
+        name="random-access-theme",
+        accent="#00ffb2",
+        background="#000000",
+        contrast_ratio=17.44,
+        terminals=("ghostty", "wezterm", "kitty", "alacritty"),
+        editors=("vscode", "zed"),
+    ),
+    PreviewTheme(
+        name="amnesiac",
+        accent="#7b93ff",
+        background="#0f0e0d",
+        contrast_ratio=15.10,
+        terminals=("ghostty", "wezterm", "windows-terminal"),
+        editors=("neovim",),
+    ),
+]
+
+
+def render_status(theme: PreviewTheme) -> str:
+    status = "ready" if theme.contrast_ratio >= 7 else "tune"
+    target = Path("themes") / "ghostty" / f"{theme.name}.conf"
+    return (
+        f"{theme.name:<20} accent={theme.accent} "
+        f"contrast={theme.contrast_ratio:>5.2f} status={status:<5} "
+        f"target={target}"
+    )
+
+
+if __name__ == "__main__":
+    print("# visual smoke test")
+    for theme in THEMES:
+        print(render_status(theme))
+        print(theme.summary())

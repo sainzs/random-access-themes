@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Generated README visuals: `assets/flavors.svg` and `assets/palette-strips.svg`
+- Visual renderer: `scripts/render_repo_visuals.py`
+- `make visuals` target for regenerating repo presentation assets
+
+### Changed
+
+- README refreshed with a stronger visual hierarchy, hero gallery, and palette overview
+- Release packaging now includes README SVG assets used by the repo landing page
+- Contributing guide updated to document generated visuals and palette-driven workflow
+
 ## [0.1.0] - 2026-03-23
 
 ### Added

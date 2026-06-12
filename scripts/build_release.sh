@@ -23,14 +23,19 @@ if [[ "$SKIP_GENERATE" -eq 0 ]]; then
   echo ""
 fi
 
+echo "Rendering README visuals..."
+python3 "$ROOT/scripts/render_repo_visuals.py"
+echo ""
+
 # ── Validate ──────────────────────────────────────────────────────────────────
 echo "Validating..."
 python3 "$ROOT/scripts/validate_theme.py" --skip-installed
 echo ""
 
 # ── Package ───────────────────────────────────────────────────────────────────
-mkdir -p "$DIST"
+mkdir -p "$DIST/assets"
 rm -f "$DIST"/*.zip "$DIST"/*.json "$DIST"/*.md "$DIST/SHA256SUMS"
+rm -f "$DIST/assets"/*
 
 # Copy theme files
 cp "$ROOT/themes/pi/random-access-theme.json"               "$DIST/"
@@ -40,6 +45,8 @@ cp "$ROOT/themes/kitty/random-access-theme.conf"            "$DIST/random-access
 cp "$ROOT/themes/wezterm/random-access-theme.toml"          "$DIST/random-access-theme-wezterm.toml"
 cp "$ROOT/themes/windows-terminal/random-access-theme.json" "$DIST/random-access-theme-windows-terminal.json"
 cp "$ROOT/README.md"                                        "$DIST/"
+cp "$ROOT/assets/flavors.svg"                               "$DIST/assets/"
+cp "$ROOT/assets/palette-strips.svg"                        "$DIST/assets/"
 
 # iTerm2 — single .itermcolors file
 cp "$ROOT/themes/iterm2/random-access-theme.itermcolors"    "$DIST/"
@@ -48,7 +55,7 @@ cp "$ROOT/themes/iterm2/random-access-theme.itermcolors"    "$DIST/"
 echo "Building checksums..."
 (
   cd "$DIST"
-  shasum -a 256 * > SHA256SUMS
+  find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 shasum -a 256 | sed 's# ./##' > SHA256SUMS
 )
 
 echo "Done. Release artifacts:"

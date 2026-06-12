@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820" fill="none">
+<rect x="0" y="0" width="1600" height="820" fill="#050607" />
+<rect x="36" y="36" width="1528" height="748" fill="#06080a" stroke="#101214" stroke-width="2" rx="28" />
+<text x="88" y="118" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="38" font-weight="700" fill="#f2efec">Flavor palette strips</text>
+<text x="88" y="156" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="400" fill="#9cb7af">A quick visual read of the four flavors: neutral base, text color, and core accent family.</text>
+<rect x="88" y="214" width="1424" height="104" fill="#0b0c0e" stroke="#101214" stroke-width="2" rx="20" />
+<text x="116" y="253" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#d8efe9">Random Access Theme</text>
+<text x="116" y="282" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#9cb7af">OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.</text>
+<rect x="520" y="240" width="92" height="30" fill="#000000" rx="10" />
+<text x="524" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">bg</text>
+<rect x="624" y="240" width="92" height="30" fill="#d8efe9" rx="10" />
+<text x="628" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">text</text>
+<rect x="728" y="240" width="92" height="30" fill="#00ffb2" rx="10" />
+<text x="732" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">mint</text>
+<rect x="832" y="240" width="92" height="30" fill="#4ade80" rx="10" />
+<text x="836" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">green</text>
+<rect x="936" y="240" width="92" height="30" fill="#35d5c5" rx="10" />
+<text x="940" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">teal</text>
+<rect x="1040" y="240" width="92" height="30" fill="#66e3c4" rx="10" />
+<text x="1044" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">jade</text>
+<rect x="1144" y="240" width="92" height="30" fill="#8bf5dd" rx="10" />
+<text x="1148" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">aqua</text>
+<rect x="1248" y="240" width="92" height="30" fill="#26c994" rx="10" />
+<text x="1252" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">emerald</text>
+<rect x="1352" y="240" width="92" height="30" fill="#a2e5b8" rx="10" />
+<text x="1356" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">lime</text>
+<rect x="88" y="348" width="1424" height="104" fill="#141210" stroke="#1a1715" stroke-width="2" rx="20" />
+<text x="116" y="387" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#f2efec">Veridis</text>
+<text x="116" y="416" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#b1a8a2">Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo.</text>
+<rect x="520" y="374" width="92" height="30" fill="#000000" rx="10" />
+<text x="524" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">bg</text>
+<rect x="624" y="374" width="92" height="30" fill="#f2efec" rx="10" />
+<text x="628" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">text</text>
+<rect x="728" y="374" width="92" height="30" fill="#00ffb2" rx="10" />
+<text x="732" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">mint</text>
+<rect x="832" y="374" width="92" height="30" fill="#4de8c0" rx="10" />
+<text x="836" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">green</text>
+<rect x="936" y="374" width="92" height="30" fill="#00c490" rx="10" />
+<text x="940" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">teal</text>
+<rect x="1040" y="374" width="92" height="30" fill="#7adec8" rx="10" />
+<text x="1044" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">jade</text>
+<rect x="1144" y="374" width="92" height="30" fill="#a8f0de" rx="10" />
+<text x="1148" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">aqua</text>
+<rect x="1248" y="374" width="92" height="30" fill="#00a878" rx="10" />
+<text x="1252" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">emerald</text>
+<rect x="1352" y="374" width="92" height="30" fill="#d0f7ec" rx="10" />
+<text x="1356" y="436" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">lime</text>
+<rect x="88" y="482" width="1424" height="104" fill="#141210" stroke="#1a1715" stroke-width="2" rx="20" />
+<text x="116" y="521" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#f2efec">Voyager</text>
+<text x="116" y="550" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#b1a8a2">Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager.</text>
+<rect x="520" y="508" width="92" height="30" fill="#000000" rx="10" />
+<text x="524" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">bg</text>
+<rect x="624" y="508" width="92" height="30" fill="#f2efec" rx="10" />
+<text x="628" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">text</text>
+<rect x="728" y="508" width="92" height="30" fill="#2ccfc0" rx="10" />
+<text x="732" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">mint</text>
+<rect x="832" y="508" width="92" height="30" fill="#7dd4cc" rx="10" />
+<text x="836" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">green</text>
+<rect x="936" y="508" width="92" height="30" fill="#1a9e91" rx="10" />
+<text x="940" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">teal</text>
+<rect x="1040" y="508" width="92" height="30" fill="#a8ddd9" rx="10" />
+<text x="1044" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">jade</text>
+<rect x="1144" y="508" width="92" height="30" fill="#c5ebe8" rx="10" />
+<text x="1148" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">aqua</text>
+<rect x="1248" y="508" width="92" height="30" fill="#0f7a6e" rx="10" />
+<text x="1252" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">emerald</text>
+<rect x="1352" y="508" width="92" height="30" fill="#ddf4f2" rx="10" />
+<text x="1356" y="570" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">lime</text>
+<rect x="88" y="616" width="1424" height="104" fill="#141210" stroke="#1a1715" stroke-width="2" rx="20" />
+<text x="116" y="655" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#f2efec">Amnesiac</text>
+<text x="116" y="684" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#b1a8a2">Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac.</text>
+<rect x="520" y="642" width="92" height="30" fill="#000000" rx="10" />
+<text x="524" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">bg</text>
+<rect x="624" y="642" width="92" height="30" fill="#f2efec" rx="10" />
+<text x="628" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">text</text>
+<rect x="728" y="642" width="92" height="30" fill="#7b93ff" rx="10" />
+<text x="732" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">mint</text>
+<rect x="832" y="642" width="92" height="30" fill="#9baaf2" rx="10" />
+<text x="836" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">green</text>
+<rect x="936" y="642" width="92" height="30" fill="#5c70d8" rx="10" />
+<text x="940" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">teal</text>
+<rect x="1040" y="642" width="92" height="30" fill="#b4bef0" rx="10" />
+<text x="1044" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">jade</text>
+<rect x="1144" y="642" width="92" height="30" fill="#c8d2ff" rx="10" />
+<text x="1148" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">aqua</text>
+<rect x="1248" y="642" width="92" height="30" fill="#4d5ec8" rx="10" />
+<text x="1252" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">emerald</text>
+<rect x="1352" y="642" width="92" height="30" fill="#dce2ff" rx="10" />
+<text x="1356" y="704" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">lime</text>
+<text x="88" y="744" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="400" fill="#6f8d86">Tip: lead with the hero gallery in the README, then use these strips to explain how the flavors differ at a glance.</text>
+</svg>

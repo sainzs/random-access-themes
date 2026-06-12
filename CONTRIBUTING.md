@@ -1,27 +1,31 @@
 # Contributing
 
-Thanks for helping improve Random Access Theme.
+Thanks for helping improve Random Access Themes.
 
-## One source of truth
+## Sources of truth
 
-**Only edit `palette/random-access-theme.yaml`.**
+- **Palettes:** edit `palette/*.yaml`
+- **Repo visuals:** generated from palette data by `scripts/render_repo_visuals.py`
+- **Theme outputs:** generated into `themes/`
 
-All files in `themes/` are generated. Do not edit them directly — your changes
-will be overwritten the next time the generator runs.
+Do not hand-edit generated files in `themes/` or generated README visuals in `assets/*.svg` unless you are also updating the generator.
 
 ## Local workflow
 
 ```bash
-# 1. Edit the palette
+# 1. Edit one or more palettes
 $EDITOR palette/random-access-theme.yaml
 
-# 2. Regenerate
+# 2. Regenerate theme outputs
 python3 scripts/generate.py
 
-# 3. Validate
+# 3. Regenerate README visuals
+python3 scripts/render_repo_visuals.py
+
+# 4. Validate structure and freshness
 python3 scripts/validate_theme.py
 
-# 4. Check contrast
+# 5. Check contrast
 python3 scripts/contrast_matrix.py
 ```
 
@@ -35,12 +39,12 @@ python3 scripts/contrast_matrix.py
 - All colors must be lowercase hex (`#rrggbb`)
 - All foreground colors must pass WCAG AA (≥ 4.5:1) vs `bg`
 - ANSI black (position 0) is exempt — it is a background color, not text
-- Palette hue must stay in the green family — no orange, purple, or warm red in syntax roles
+- Palette hue families should remain intentional and coherent per flavor
 
 ## Pull request checklist
 
-- [ ] Only `palette/random-access-theme.yaml` is manually edited
-- [ ] `python3 scripts/generate.py` was run
+- [ ] Only palette YAML, docs, or generator scripts were edited manually
+- [ ] Generated files were refreshed where needed
 - [ ] `python3 scripts/validate_theme.py` passes
-- [ ] `CHANGELOG.md` updated
-- [ ] README updated if behavior changed
+- [ ] `CHANGELOG.md` updated if needed
+- [ ] `README.md` updated if behavior or visuals changed

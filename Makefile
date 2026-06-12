@@ -1,4 +1,4 @@
-.PHONY: all generate validate contrast install check release clean
+.PHONY: all generate visuals validate contrast install check release clean
 
 # Default: regenerate + validate
 all: generate validate
@@ -6,6 +6,10 @@ all: generate validate
 # Regenerate all theme files from palette
 generate:
 	python3 scripts/generate.py
+
+# Regenerate README visuals from palette
+visuals:
+	python3 scripts/render_repo_visuals.py
 
 # Structural + freshness + drift validation
 validate:
