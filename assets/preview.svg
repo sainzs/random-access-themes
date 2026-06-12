@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1050" viewBox="0 0 1680 1050" fill="none">
+<defs>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+<feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.45" />
+</filter>
+</defs>
+<rect x="0" y="0" width="1680" height="1050" fill="#070809" />
+<rect x="80" y="72" width="1520" height="906" fill="#0b0c0e" stroke="#101214" stroke-width="2" rx="28"  filter="url(#shadow)" />
+<rect x="81" y="73" width="1518" height="64" fill="#090a0b" rx="28" />
+<rect x="81" y="113" width="1518" height="24" fill="#090a0b" />
+<circle cx="116" cy="105" r="7" fill="#ff5f57" />
+<circle cx="140" cy="105" r="7" fill="#febc2e" />
+<circle cx="164" cy="105" r="7" fill="#28c840" />
+<text x="198" y="112" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#d8efe9">Random Access Theme — flagship terminal preview</text>
+<text x="120" y="174" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="17" font-weight="400" fill="#9cb7af">Exact colors from palette/random-access-theme.yaml / rendered without external syntax theme guessing</text>
+<rect x="120" y="214" width="1440" height="528" fill="#000000" stroke="#1a1c20" stroke-width="1" rx="18" />
+<text x="144" y="248" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#6f8d86">$ cat preview.py</text>
+<text x="144" y="288" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#6f8d86"># Random Access Theme — OLED-black, mint-forward, zero warm hues</tspan></text>
+<text x="144" y="338" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">from</tspan><tspan fill="#d8efe9"> dataclasses </tspan><tspan fill="#66e3c4">import</tspan><tspan fill="#d8efe9"> dataclass</tspan></text>
+<text x="144" y="366" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">from</tspan><tspan fill="#d8efe9"> typing </tspan><tspan fill="#66e3c4">import</tspan><tspan fill="#d8efe9"> Literal</tspan></text>
+<text x="144" y="416" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#00ffb2">Flavor</tspan><tspan fill="#9cb7af"> = </tspan><tspan fill="#35d5c5">Literal</tspan><tspan fill="#9cb7af">[</tspan><tspan fill="#a2e5b8">"random-access"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"veridis"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"voyager"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"amnesiac"</tspan><tspan fill="#9cb7af">]</tspan></text>
+<text x="144" y="466" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#35d5c5">@dataclass</tspan><tspan fill="#d8efe9">(frozen=</tspan><tspan fill="#00ffb2">True</tspan><tspan fill="#d8efe9">)</tspan></text>
+<text x="144" y="494" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">class</tspan><tspan fill="#00ffb2"> PreviewTheme</tspan><tspan fill="#9cb7af">:</tspan></text>
+<text x="144" y="522" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#d8efe9">    name</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#35d5c5">Flavor</tspan></text>
+<text x="144" y="550" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#d8efe9">    accent</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#35d5c5">str</tspan><tspan fill="#9cb7af"> = </tspan><tspan fill="#a2e5b8">"#00ffb2"</tspan></text>
+<text x="144" y="578" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#d8efe9">    background</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#35d5c5">str</tspan><tspan fill="#9cb7af"> = </tspan><tspan fill="#a2e5b8">"#000000"</tspan></text>
+<text x="144" y="606" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#d8efe9">    contrast_ratio</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#35d5c5">float</tspan><tspan fill="#9cb7af"> = </tspan><tspan fill="#8bf5dd">17.44</tspan></text>
+<text x="144" y="656" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">    def</tspan><tspan fill="#00ffb2"> passes_aa</tspan><tspan fill="#d8efe9">(self, ratio</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#35d5c5">float</tspan><tspan fill="#9cb7af"> = </tspan><tspan fill="#8bf5dd">17.44</tspan><tspan fill="#9cb7af">) -&gt; </tspan><tspan fill="#35d5c5">bool</tspan><tspan fill="#9cb7af">:</tspan></text>
+<text x="144" y="684" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">        return</tspan><tspan fill="#d8efe9"> ratio &gt;= </tspan><tspan fill="#8bf5dd">4.5</tspan></text>
+<rect x="120" y="774" width="1440" height="152" fill="#090a0b" stroke="#1a1c20" stroke-width="1" rx="18" />
+<text x="144" y="808" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#00ffb2">$ make check</text>
+<text x="144" y="842" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#4ade80">[OK]</text>
+<text x="202" y="842" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#d8efe9"> palette YAML is valid</text>
+<text x="144" y="870" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#4ade80">[OK]</text>
+<text x="202" y="870" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#d8efe9"> contrast(text, bg) = 17.44</text>
+<text x="144" y="898" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#4ade80">[OK]</text>
+<text x="202" y="898" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#d8efe9"> all 7 generated theme files present</text>
+<text x="144" y="926" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#4ade80">[OK]</text>
+<text x="202" y="926" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#d8efe9"> release assets ready / WCAG AA+ / MIT</text>
+<text x="120" y="973" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="400" fill="#6f8d86">Generated from the canonical palette so the preview matches the actual exported terminal theme.</text>
+</svg>

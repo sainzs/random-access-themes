@@ -47,6 +47,8 @@ cp "$ROOT/themes/windows-terminal/random-access-theme.json" "$DIST/random-access
 cp "$ROOT/README.md"                                        "$DIST/"
 cp "$ROOT/assets/flavors.svg"                               "$DIST/assets/"
 cp "$ROOT/assets/palette-strips.svg"                        "$DIST/assets/"
+cp "$ROOT/assets/preview.svg"                               "$DIST/assets/"
+cp "$ROOT/assets/preview.png"                               "$DIST/assets/"
 
 # iTerm2 — single .itermcolors file
 cp "$ROOT/themes/iterm2/random-access-theme.itermcolors"    "$DIST/"

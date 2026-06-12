@@ -2,6 +2,8 @@
 
 Thanks for helping improve Random Access Themes.
 
+See [docs/manifest.md](docs/manifest.md) for the canonical palette map and generated-vs-curated file split.
+
 ## Sources of truth
 
 - **Palettes:** edit `palette/*.yaml`

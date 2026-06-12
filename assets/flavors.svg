@@ -31,38 +31,12 @@
 <rect x="422" y="384" width="54" height="16" fill="#8bf5dd" rx="8" />
 <rect x="112" y="420" width="628" height="148" fill="#000000" stroke="#1a1c20" stroke-width="1" rx="16" />
 <text x="130" y="448" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#6f8d86">$ palette preview.py</text>
-<text x="130" y="478" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#6f8d86"># OLED-black themes / generated ports</text>
-<text x="130" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#66e3c4">flavor</text>
-<text x="191.2" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d8efe9"> = </text>
-<text x="221.79999999999998" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"Random Access Theme"</text>
-<text x="130" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#66e3c4">accent</text>
-<text x="191.2" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d8efe9"> = </text>
-<text x="221.79999999999998" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#8bf5dd">"#00ffb2"</text>
-<text x="313.59999999999997" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#6f8d86">  # hero accent</text>
-<text x="130" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#66e3c4">ports</text>
-<text x="181.0" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d8efe9"> = </text>
-<text x="211.6" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">[</text>
-<text x="221.79999999999998" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"ghostty"</text>
-<text x="313.59999999999997" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">, </text>
-<text x="333.99999999999994" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"wezterm"</text>
-<text x="425.79999999999995" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">, </text>
-<text x="446.19999999999993" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"kitty"</text>
-<text x="517.5999999999999" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">]</text>
-<text x="130" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#66e3c4">contrast</text>
-<text x="211.6" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d8efe9"> = </text>
-<text x="242.2" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#8bf5dd">17.4</text>
-<text x="283.0" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#6f8d86">  # flagship text/bg</text>
-<text x="130" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#66e3c4">status</text>
-<text x="191.2" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d8efe9"> = </text>
-<text x="221.79999999999998" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">{</text>
-<text x="231.99999999999997" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"wcag"</text>
-<text x="293.2" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">: </text>
-<text x="313.59999999999997" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#4ade80">"AA+"</text>
-<text x="364.59999999999997" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">, </text>
-<text x="384.99999999999994" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a2e5b8">"release"</text>
-<text x="476.79999999999995" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">: </text>
-<text x="497.19999999999993" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#00ffb2">True</text>
-<text x="537.9999999999999" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9cb7af">}</text>
+<text x="130" y="478" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#6f8d86"># OLED-black themes / generated ports</tspan></text>
+<text x="130" y="500" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">flavor</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#a2e5b8">"Random Access Theme"</tspan></text>
+<text x="130" y="522" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">accent</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#8bf5dd">"#00ffb2"</tspan><tspan fill="#6f8d86">  # hero accent</tspan></text>
+<text x="130" y="544" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">ports</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#9cb7af">[</tspan><tspan fill="#a2e5b8">"ghostty"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"wezterm"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"kitty"</tspan><tspan fill="#9cb7af">]</tspan></text>
+<text x="130" y="566" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">contrast</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#8bf5dd">17.4</tspan><tspan fill="#6f8d86">  # flagship text/bg</tspan></text>
+<text x="130" y="588" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">status</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#9cb7af">{</tspan><tspan fill="#a2e5b8">"wcag"</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#4ade80">"AA+"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"release"</tspan><tspan fill="#9cb7af">: </tspan><tspan fill="#00ffb2">True</tspan><tspan fill="#9cb7af">}</tspan></text>
 <rect x="812" y="272" width="676" height="324" fill="#141210" stroke="#1a1715" stroke-width="2" rx="24" />
 <rect x="813" y="273" width="674" height="62" fill="#0f0e0d" rx="24" />
 <rect x="813" y="312" width="674" height="22" fill="#0f0e0d" />
@@ -79,38 +53,12 @@
 <rect x="1146" y="384" width="54" height="16" fill="#a8f0de" rx="8" />
 <rect x="836" y="420" width="628" height="148" fill="#000000" stroke="#2a2623" stroke-width="1" rx="16" />
 <text x="854" y="448" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#817771">$ palette preview.py</text>
-<text x="854" y="478" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771"># OLED-black themes / generated ports</text>
-<text x="854" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7adec8">flavor</text>
-<text x="915.2" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"Veridis"</text>
-<text x="854" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7adec8">accent</text>
-<text x="915.2" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8f0de">"#00ffb2"</text>
-<text x="1037.6000000000001" y="522" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # hero accent</text>
-<text x="854" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7adec8">ports</text>
-<text x="905.0" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="935.6" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">[</text>
-<text x="945.8000000000001" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"ghostty"</text>
-<text x="1037.6000000000001" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1058.0000000000002" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"wezterm"</text>
-<text x="1149.8000000000002" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1170.2000000000003" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"kitty"</text>
-<text x="1241.6000000000004" y="544" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">]</text>
-<text x="854" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7adec8">contrast</text>
-<text x="935.6" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="966.2" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8f0de">17.4</text>
-<text x="1007.0" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # flagship text/bg</text>
-<text x="854" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7adec8">status</text>
-<text x="915.2" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">{</text>
-<text x="956.0000000000001" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"wcag"</text>
-<text x="1017.2000000000002" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="1037.6000000000001" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#4de8c0">"AA+"</text>
-<text x="1088.6000000000001" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1109.0000000000002" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#d0f7ec">"release"</text>
-<text x="1200.8000000000002" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="1221.2000000000003" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#00ffb2">True</text>
-<text x="1262.0000000000002" y="588" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">}</text>
+<text x="854" y="478" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#817771"># OLED-black themes / generated ports</tspan></text>
+<text x="854" y="500" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#7adec8">flavor</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#d0f7ec">"Veridis"</tspan></text>
+<text x="854" y="522" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#7adec8">accent</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#a8f0de">"#00ffb2"</tspan><tspan fill="#817771">  # hero accent</tspan></text>
+<text x="854" y="544" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#7adec8">ports</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">[</tspan><tspan fill="#d0f7ec">"ghostty"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#d0f7ec">"wezterm"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#d0f7ec">"kitty"</tspan><tspan fill="#b1a8a2">]</tspan></text>
+<text x="854" y="566" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#7adec8">contrast</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#a8f0de">17.4</tspan><tspan fill="#817771">  # flagship text/bg</tspan></text>
+<text x="854" y="588" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#7adec8">status</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">{</tspan><tspan fill="#d0f7ec">"wcag"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#4de8c0">"AA+"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#d0f7ec">"release"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#00ffb2">True</tspan><tspan fill="#b1a8a2">}</tspan></text>
 <rect x="88" y="644" width="676" height="324" fill="#141210" stroke="#1a1715" stroke-width="2" rx="24" />
 <rect x="89" y="645" width="674" height="62" fill="#0f0e0d" rx="24" />
 <rect x="89" y="684" width="674" height="22" fill="#0f0e0d" />
@@ -127,38 +75,12 @@
 <rect x="422" y="756" width="54" height="16" fill="#c5ebe8" rx="8" />
 <rect x="112" y="792" width="628" height="148" fill="#000000" stroke="#2a2623" stroke-width="1" rx="16" />
 <text x="130" y="820" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#817771">$ palette preview.py</text>
-<text x="130" y="850" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771"># OLED-black themes / generated ports</text>
-<text x="130" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8ddd9">flavor</text>
-<text x="191.2" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="221.79999999999998" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"Voyager"</text>
-<text x="130" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8ddd9">accent</text>
-<text x="191.2" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="221.79999999999998" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#c5ebe8">"#2ccfc0"</text>
-<text x="313.59999999999997" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # hero accent</text>
-<text x="130" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8ddd9">ports</text>
-<text x="181.0" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="211.6" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">[</text>
-<text x="221.79999999999998" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"ghostty"</text>
-<text x="313.59999999999997" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="333.99999999999994" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"wezterm"</text>
-<text x="425.79999999999995" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="446.19999999999993" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"kitty"</text>
-<text x="517.5999999999999" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">]</text>
-<text x="130" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8ddd9">contrast</text>
-<text x="211.6" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="242.2" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#c5ebe8">17.4</text>
-<text x="283.0" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # flagship text/bg</text>
-<text x="130" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#a8ddd9">status</text>
-<text x="191.2" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="221.79999999999998" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">{</text>
-<text x="231.99999999999997" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"wcag"</text>
-<text x="293.2" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="313.59999999999997" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7dd4cc">"AA+"</text>
-<text x="364.59999999999997" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="384.99999999999994" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#ddf4f2">"release"</text>
-<text x="476.79999999999995" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="497.19999999999993" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#2ccfc0">True</text>
-<text x="537.9999999999999" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">}</text>
+<text x="130" y="850" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#817771"># OLED-black themes / generated ports</tspan></text>
+<text x="130" y="872" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#a8ddd9">flavor</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#ddf4f2">"Voyager"</tspan></text>
+<text x="130" y="894" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#a8ddd9">accent</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#c5ebe8">"#2ccfc0"</tspan><tspan fill="#817771">  # hero accent</tspan></text>
+<text x="130" y="916" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#a8ddd9">ports</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">[</tspan><tspan fill="#ddf4f2">"ghostty"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#ddf4f2">"wezterm"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#ddf4f2">"kitty"</tspan><tspan fill="#b1a8a2">]</tspan></text>
+<text x="130" y="938" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#a8ddd9">contrast</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#c5ebe8">17.4</tspan><tspan fill="#817771">  # flagship text/bg</tspan></text>
+<text x="130" y="960" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#a8ddd9">status</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">{</tspan><tspan fill="#ddf4f2">"wcag"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#7dd4cc">"AA+"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#ddf4f2">"release"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#2ccfc0">True</tspan><tspan fill="#b1a8a2">}</tspan></text>
 <rect x="812" y="644" width="676" height="324" fill="#141210" stroke="#1a1715" stroke-width="2" rx="24" />
 <rect x="813" y="645" width="674" height="62" fill="#0f0e0d" rx="24" />
 <rect x="813" y="684" width="674" height="22" fill="#0f0e0d" />
@@ -175,37 +97,11 @@
 <rect x="1146" y="756" width="54" height="16" fill="#c8d2ff" rx="8" />
 <rect x="836" y="792" width="628" height="148" fill="#000000" stroke="#2a2623" stroke-width="1" rx="16" />
 <text x="854" y="820" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#817771">$ palette preview.py</text>
-<text x="854" y="850" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771"># OLED-black themes / generated ports</text>
-<text x="854" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b4bef0">flavor</text>
-<text x="915.2" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="872" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"Amnesiac"</text>
-<text x="854" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b4bef0">accent</text>
-<text x="915.2" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#c8d2ff">"#7b93ff"</text>
-<text x="1037.6000000000001" y="894" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # hero accent</text>
-<text x="854" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b4bef0">ports</text>
-<text x="905.0" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="935.6" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">[</text>
-<text x="945.8000000000001" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"ghostty"</text>
-<text x="1037.6000000000001" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1058.0000000000002" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"wezterm"</text>
-<text x="1149.8000000000002" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1170.2000000000003" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"kitty"</text>
-<text x="1241.6000000000004" y="916" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">]</text>
-<text x="854" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b4bef0">contrast</text>
-<text x="935.6" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="966.2" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#c8d2ff">17.4</text>
-<text x="1007.0" y="938" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#817771">  # flagship text/bg</text>
-<text x="854" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b4bef0">status</text>
-<text x="915.2" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#f2efec"> = </text>
-<text x="945.8000000000001" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">{</text>
-<text x="956.0000000000001" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"wcag"</text>
-<text x="1017.2000000000002" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="1037.6000000000001" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#9baaf2">"AA+"</text>
-<text x="1088.6000000000001" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">, </text>
-<text x="1109.0000000000002" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#dce2ff">"release"</text>
-<text x="1200.8000000000002" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">: </text>
-<text x="1221.2000000000003" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#7b93ff">True</text>
-<text x="1262.0000000000002" y="960" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400" fill="#b1a8a2">}</text>
+<text x="854" y="850" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#817771"># OLED-black themes / generated ports</tspan></text>
+<text x="854" y="872" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#b4bef0">flavor</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#dce2ff">"Amnesiac"</tspan></text>
+<text x="854" y="894" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#b4bef0">accent</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#c8d2ff">"#7b93ff"</tspan><tspan fill="#817771">  # hero accent</tspan></text>
+<text x="854" y="916" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#b4bef0">ports</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">[</tspan><tspan fill="#dce2ff">"ghostty"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#dce2ff">"wezterm"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#dce2ff">"kitty"</tspan><tspan fill="#b1a8a2">]</tspan></text>
+<text x="854" y="938" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#b4bef0">contrast</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#c8d2ff">17.4</tspan><tspan fill="#817771">  # flagship text/bg</tspan></text>
+<text x="854" y="960" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#b4bef0">status</tspan><tspan fill="#f2efec"> = </tspan><tspan fill="#b1a8a2">{</tspan><tspan fill="#dce2ff">"wcag"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#9baaf2">"AA+"</tspan><tspan fill="#b1a8a2">, </tspan><tspan fill="#dce2ff">"release"</tspan><tspan fill="#b1a8a2">: </tspan><tspan fill="#7b93ff">True</tspan><tspan fill="#b1a8a2">}</tspan></text>
 <text x="88" y="1036" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="400" fill="#6f8d86">Generated from palette/*.yaml / visual identity matches the actual source of truth</text>
 </svg>

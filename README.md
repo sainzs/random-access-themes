@@ -15,6 +15,9 @@
 
 ![Random Access Themes palette strips](assets/palette-strips.svg)
 
+See the [demo preview](docs/demo.md) for the flagship terminal render and
+rebuild commands.
+
 ---
 
 ## Flavors
@@ -180,6 +183,9 @@ pip install pyyaml
 | `make contrast` | Full WCAG contrast report |
 | `make check` | Generate + validate + contrast |
 | `make release` | Build release artifacts to `dist/` |
+
+The source-of-truth map lives in [docs/manifest.md](docs/manifest.md), and the
+public preview flow is documented in [docs/demo.md](docs/demo.md).
 
 Each flavor has its own palette file in `palette/`. Edit the YAML, then regenerate the assets you changed.
 
