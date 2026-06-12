@@ -1,0 +1,23 @@
+{
+    "name": "Factory Indigo",
+    "background": "#000000",
+    "foreground": "#f2efec",
+    "cursorColor": "#7b93ff",
+    "selectionBackground": "#2a2623",
+    "black": "#0f0e0d",
+    "red": "#4d5ec8",
+    "green": "#9baaf2",
+    "yellow": "#dce2ff",
+    "blue": "#6b7ef5",
+    "purple": "#5c70d8",
+    "cyan": "#b4bef0",
+    "white": "#f2efec",
+    "brightBlack": "#817771",
+    "brightRed": "#6b7ef5",
+    "brightGreen": "#9baaf2",
+    "brightYellow": "#c8d2ff",
+    "brightBlue": "#7b93ff",
+    "brightPurple": "#5c70d8",
+    "brightCyan": "#b4bef0",
+    "brightWhite": "#f2efec"
+}

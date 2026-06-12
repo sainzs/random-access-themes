@@ -1,0 +1,61 @@
+# Factory Mint Theme — canonical palette
+# Single source of truth. All terminal exports are generated from this file.
+#
+# Aesthetic: Factory.ai warm-dark design language — brownish-black backgrounds,
+# cream near-white text, sparse and technical. Electric mint accent.
+#
+# Run:  python3 scripts/generate.py --palette palette/factory-mint-theme.yaml
+
+meta:
+  name:         factory-mint
+  display_name: "Factory Mint"
+  description:  "Warm-black dark palette. Electric mint accent, Factory.ai aesthetic."
+  version:      "0.1.0"
+  author:       ssainz
+  github:       GITHUB_ORG/random-access-theme
+
+palette:
+  # ── Backgrounds (warm dark, Factory.ai style) ───────────────────────────────
+  bg:      "#000000"   # pure black — absolute OLED
+  bg1:     "#0f0e0d"   # warm near-black — deepest panel
+  bg2:     "#1a1715"   # visible warm surface step
+  surface: "#141210"   # card / message backgrounds
+  overlay: "#2a2623"   # selection, popover, splits
+
+  # ── Text (crisp for Retina MBP) ─────────────────────────────────────────────
+  text:    "#f2efec"   # primary — crisp off-white
+  subtle:  "#b1a8a2"   # secondary / labels — warm muted grey
+  dimText: "#817771"   # muted / comments — readable taupe grey
+  cursor:  "#00ffb2"   # cursor — electric mint
+
+  # ── Accent family — electric mint ───────────────────────────────────────────
+  mint:    "#00ffb2"   # hero — electric mint
+  cyan:    "#00e0a0"   # deeper mint (links / type)
+  green:   "#4de8c0"   # vivid mint-green (success / functions)
+  teal:    "#00c490"   # deep mint (quotes / borders)
+  jade:    "#7adec8"   # soft mint-grey (thinking / keywords)
+  aqua:    "#a8f0de"   # pale mint (numbers / highlights)
+  emerald: "#00a878"   # dark mint (errors)
+  lime:    "#d0f7ec"   # mint-white (strings / warnings)
+
+# ── ANSI 16-color palette ────────────────────────────────────────────────────
+# Warm-grey neutral base + electric mint accent family.
+ansi:
+  normal:
+    black:   "#0f0e0d"   # bg1
+    red:     "#00a878"   # dark mint (error signal)
+    green:   "#4de8c0"   # vivid mint-green (success)
+    yellow:  "#d0f7ec"   # mint-white (strings)
+    blue:    "#00e0a0"   # deeper mint (paths / links)
+    magenta: "#00c490"   # deep mint
+    cyan:    "#7adec8"   # soft mint-grey
+    white:   "#f2efec"   # text
+  bright:
+    black:   "#817771"   # dimText
+    red:     "#00e0a0"   # deeper mint
+    green:   "#4de8c0"   # vivid mint-green
+    yellow:  "#a8f0de"   # pale mint
+    blue:    "#00ffb2"   # hero mint
+    magenta: "#00c490"   # deep mint
+    cyan:    "#7adec8"   # soft mint-grey
+    white:   "#f2efec"   # text

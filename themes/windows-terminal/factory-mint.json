@@ -1,0 +1,23 @@
+{
+    "name": "Factory Mint",
+    "background": "#000000",
+    "foreground": "#f2efec",
+    "cursorColor": "#00ffb2",
+    "selectionBackground": "#2a2623",
+    "black": "#0f0e0d",
+    "red": "#00a878",
+    "green": "#4de8c0",
+    "yellow": "#d0f7ec",
+    "blue": "#00e0a0",
+    "purple": "#00c490",
+    "cyan": "#7adec8",
+    "white": "#f2efec",
+    "brightBlack": "#817771",
+    "brightRed": "#00e0a0",
+    "brightGreen": "#4de8c0",
+    "brightYellow": "#a8f0de",
+    "brightBlue": "#00ffb2",
+    "brightPurple": "#00c490",
+    "brightCyan": "#7adec8",
+    "brightWhite": "#f2efec"
+}

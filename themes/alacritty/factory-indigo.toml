@@ -1,0 +1,35 @@
+# Random Access Theme — Alacritty
+# Warm-black dark palette. Indigo accent, Factory.ai aesthetic.
+# https://github.com/GITHUB_ORG/random-access-theme
+
+[colors.primary]
+background = "#000000"
+foreground = "#f2efec"
+
+[colors.cursor]
+cursor = "#7b93ff"
+text   = "#000000"
+
+[colors.selection]
+background = "#2a2623"
+text       = "#f2efec"
+
+[colors.normal]
+black    = "#0f0e0d"
+red      = "#4d5ec8"
+green    = "#9baaf2"
+yellow   = "#dce2ff"
+blue     = "#6b7ef5"
+magenta  = "#5c70d8"
+cyan     = "#b4bef0"
+white    = "#f2efec"
+
+[colors.bright]
+black    = "#817771"
+red      = "#6b7ef5"
+green    = "#9baaf2"
+yellow   = "#c8d2ff"
+blue     = "#7b93ff"
+magenta  = "#5c70d8"
+cyan     = "#b4bef0"
+white    = "#f2efec"

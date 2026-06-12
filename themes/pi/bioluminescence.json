@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "bioluminescence",
+  "vars": {
+    "bg":         "#060A0C",
+    "bg1":        "#090E11",
+    "bg2":        "#0D1418",
+    "surface":    "#0A1014",
+    "overlay":    "#111A20",
+    
+    "text":       "#E0F8F5",
+    "subtle":     "#648C8C",
+    "dimText":    "#426666",
+    
+    "cyanBright": "#00FFFF",
+    "cyan":       "#00E5E5",
+    "turquoise":  "#15F2D6",
+    "tealBright": "#00CDBD",
+    "teal":       "#00A398",
+    "mint":       "#69F0AE",
+    "ice":        "#99F2F2",
+    
+    "gold":       "#E6C35C",
+    "amber":      "#E89A4F"
+  },
+  "colors": {
+    "accent":            "cyan",
+    "border":            "subtle",
+    "borderAccent":      "cyan",
+    "borderMuted":       "dimText",
+    "success":           "mint",
+    "error":             "amber",
+    "warning":           "gold",
+    "muted":             "subtle",
+    "dim":               "dimText",
+    "text":              "text",
+    "thinkingText":      "tealBright",
+
+    "selectedBg":        "overlay",
+    "userMessageBg":     "surface",
+    "userMessageText":   "text",
+    "customMessageBg":   "surface",
+    "customMessageText": "text",
+    "customMessageLabel":"cyan",
+    "toolPendingBg":     "bg",
+    "toolSuccessBg":     "bg1",
+    "toolErrorBg":       "bg",
+    "toolTitle":         "cyan",
+    "toolOutput":        "text",
+
+    "mdHeading":         "cyanBright",
+    "mdLink":            "turquoise",
+    "mdLinkUrl":         "subtle",
+    "mdCode":            "turquoise",
+    "mdCodeBlock":       "text",
+    "mdCodeBlockBorder": "subtle",
+    "mdQuote":           "subtle",
+    "mdQuoteBorder":     "teal",
+    "mdHr":              "subtle",
+    "mdListBullet":      "cyan",
+
+    "toolDiffAdded":     "mint",
+    "toolDiffRemoved":   "amber",
+    "toolDiffContext":   "subtle",
+
+    "syntaxComment":     "dimText",
+    "syntaxKeyword":     "cyan",
+    "syntaxFunction":    "turquoise",
+    "syntaxVariable":    "text",
+    "syntaxString":      "mint",
+    "syntaxNumber":      "ice",
+    "syntaxType":        "tealBright",
+    "syntaxOperator":    "teal",
+    "syntaxPunctuation": "subtle",
+
+    "thinkingOff":       "dimText",
+    "thinkingMinimal":   "subtle",
+    "thinkingLow":       "teal",
+    "thinkingMedium":    "turquoise",
+    "thinkingHigh":      "cyan",
+    "thinkingXhigh":     "cyanBright",
+
+    "bashMode":          "gold"
+  },
+  "export": {
+    "pageBg": "#060A0C",
+    "cardBg": "#0A1014",
+    "infoBg": "#111A20"
+  }
+}
