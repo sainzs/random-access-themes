@@ -1,22 +1,21 @@
-# Factory Indigo Theme — canonical palette
+# Amnesiac Theme — canonical palette
 # Single source of truth. All terminal exports are generated from this file.
 #
-# Aesthetic: Factory.ai warm-dark design language — brownish-black backgrounds,
-# cream near-white text, sparse and technical. Indigo accent family replaces
-# Factory's orange. Pure black base per user spec.
+# Named after Radiohead's "Amnesiac" (2001).
+# Warm-dark backgrounds, cream near-white text, indigo accent family.
 #
-# Run:  python3 scripts/generate.py --palette palette/factory-indigo-theme.yaml
+# Run:  python3 scripts/generate.py --palette palette/amnesiac-theme.yaml
 
 meta:
-  name:         factory-indigo
-  display_name: "Factory Indigo"
-  description:  "Warm-black dark palette. Indigo accent, Factory.ai aesthetic."
+  name:         amnesiac
+  display_name: "Amnesiac"
+  description:  "Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac."
   version:      "0.1.0"
   author:       ssainz
-  github:       GITHUB_ORG/random-access-theme
+  github:       ssainz/random-access-themes
 
 palette:
-  # ── Backgrounds (warm dark, Factory.ai style) ───────────────────────────────
+  # ── Backgrounds (warm dark) ────────────────────────────────────────────────
   bg:      "#000000"   # pure black — absolute OLED
   bg1:     "#0f0e0d"   # warm near-black — deepest panel
   bg2:     "#1a1715"   # visible warm surface step

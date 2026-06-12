@@ -1,6 +1,6 @@
 # Random Access Theme — Alacritty
-# Warm-black dark palette. Indigo accent, Factory.ai aesthetic.
-# https://github.com/GITHUB_ORG/random-access-theme
+# Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac.
+# https://github.com/ssainz/random-access-themes
 
 [colors.primary]
 background = "#000000"

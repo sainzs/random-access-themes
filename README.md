@@ -1,27 +1,49 @@
-# Random Access Theme
+# Random Access Themes
 
-> A dark terminal palette built around a single constraint: no warm hues.
+[![CI](https://github.com/ssainz/random-access-themes/actions/workflows/validate.yml/badge.svg)](https://github.com/ssainz/random-access-themes/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-00ffb2.svg)](LICENSE)
 
-OLED-black background. Mint-forward accent. Green-family syntax — no orange, no purple, no warm red. Minimal noise, maximum clarity.
+> OLED-black dark themes for terminals and editors. Named after Daft Punk and Radiohead deep cuts.
 
-<!--
-  TODO: add hero screenshot here
-  ![Random Access Theme preview](assets/preview.png)
--->
+![Random Access Themes preview](assets/preview.png)
 
 ---
 
-## Terminal Support
+## Flavors
 
-| Terminal        | File                                                                      |
-|-----------------|---------------------------------------------------------------------------|
-| Ghostty         | [`themes/ghostty/random-access-theme.conf`](themes/ghostty/random-access-theme.conf) |
-| WezTerm         | [`themes/wezterm/random-access-theme.toml`](themes/wezterm/random-access-theme.toml) |
-| iTerm2          | [`themes/iterm2/random-access-theme.itermcolors`](themes/iterm2/random-access-theme.itermcolors) |
-| Alacritty       | [`themes/alacritty/random-access-theme.toml`](themes/alacritty/random-access-theme.toml) |
-| kitty           | [`themes/kitty/random-access-theme.conf`](themes/kitty/random-access-theme.conf) |
-| Windows Terminal | [`themes/windows-terminal/random-access-theme.json`](themes/windows-terminal/random-access-theme.json) |
-| Pi              | [`themes/pi/random-access-theme.json`](themes/pi/random-access-theme.json) |
+Four variants, one philosophy — every accent lives in the cool spectrum.
+
+| Flavor | Named after | Accent | Background | Description |
+|--------|-------------|--------|------------|-------------|
+| **Random Access** | Daft Punk — *Random Access Memories* | `#00ffb2` mint | `#000000` cool black | Flagship. Green-family syntax, no warm hues at all |
+| **Veridis** | Daft Punk — *Veridis Quo* | `#00ffb2` mint | `#0f0e0d` warm black | Warm-dark base, electric mint accent |
+| **Voyager** | Daft Punk — *Voyager* | `#2ccfc0` teal | `#0f0e0d` warm black | Warm-dark base, vibrant electric teal |
+| **Amnesiac** | Radiohead — *Amnesiac* | `#7b93ff` indigo | `#0f0e0d` warm black | Warm-dark base, cool indigo accent |
+
+---
+
+## Supported Ports
+
+### Terminals
+
+| Terminal | Random Access | Veridis | Voyager | Amnesiac |
+|----------|:---:|:---:|:---:|:---:|
+| Ghostty | [conf](themes/ghostty/random-access-theme.conf) | [conf](themes/ghostty/veridis.conf) | [conf](themes/ghostty/voyager.conf) | [conf](themes/ghostty/amnesiac.conf) |
+| WezTerm | [toml](themes/wezterm/random-access-theme.toml) | [toml](themes/wezterm/veridis.toml) | [toml](themes/wezterm/voyager.toml) | [toml](themes/wezterm/amnesiac.toml) |
+| iTerm2 | [itermcolors](themes/iterm2/random-access-theme.itermcolors) | [itermcolors](themes/iterm2/veridis.itermcolors) | [itermcolors](themes/iterm2/voyager.itermcolors) | [itermcolors](themes/iterm2/amnesiac.itermcolors) |
+| Alacritty | [toml](themes/alacritty/random-access-theme.toml) | [toml](themes/alacritty/veridis.toml) | [toml](themes/alacritty/voyager.toml) | [toml](themes/alacritty/amnesiac.toml) |
+| kitty | [conf](themes/kitty/random-access-theme.conf) | [conf](themes/kitty/veridis.conf) | [conf](themes/kitty/voyager.conf) | [conf](themes/kitty/amnesiac.conf) |
+| Windows Terminal | [json](themes/windows-terminal/random-access-theme.json) | [json](themes/windows-terminal/veridis.json) | [json](themes/windows-terminal/voyager.json) | [json](themes/windows-terminal/amnesiac.json) |
+| Pi | [json](themes/pi/random-access-theme.json) | [json](themes/pi/veridis.json) | [json](themes/pi/voyager.json) | [json](themes/pi/amnesiac.json) |
+
+### Editors
+
+| Editor | Flavor |
+|--------|--------|
+| VS Code | [Veridis](themes/vscode/veridis-color-theme.json) |
+| Sublime Text | [Veridis](themes/sublime/veridis.sublime-color-scheme) |
+| Zed | [Veridis](themes/zed/veridis.json) |
+| Neovim | [Veridis](themes/neovim/veridis.lua) |
 
 ---
 
@@ -29,23 +51,19 @@ OLED-black background. Mint-forward accent. Green-family syntax — no orange, n
 
 ### Ghostty
 
-Recommended (safe, no duplicate entries):
-
 ```bash
 bash scripts/install.sh ghostty
 ```
 
-This writes the full config to `~/.config/ghostty/config` and stubs the macOS
-Library config so Ghostty doesn't merge/duplicate entries.
+Writes the full config to `~/.config/ghostty/config` and stubs the macOS Library config to prevent duplicate entries.
 
 ### WezTerm
 
 ```bash
-# Place in WezTerm's color scheme directory
 cp themes/wezterm/random-access-theme.toml ~/.config/wezterm/colors/
 ```
 
-Then in your `wezterm.lua`:
+Then in `wezterm.lua`:
 
 ```lua
 config.color_scheme = "Random Access Theme"
@@ -53,23 +71,11 @@ config.color_scheme = "Random Access Theme"
 
 ### iTerm2
 
-No dynamic profile required.
-
 ```bash
 bash scripts/install.sh iterm2
 ```
 
-Then in iTerm2:
-
-1. **Profiles → Colors → Color Presets → Import**
-2. Select `~/Library/Application Support/iTerm2/random-access-theme.itermcolors`
-3. Select **Random Access Theme** from the preset list
-
-Optional cleanup (only if you want to archive old dynamic profiles):
-
-```bash
-bash scripts/install.sh iterm2 --clean-dynamic
-```
+Then: **Profiles > Colors > Color Presets > Import** and select the `.itermcolors` file.
 
 ### Alacritty
 
@@ -82,14 +88,12 @@ paths = ["/path/to/themes/alacritty/random-access-theme.toml"]
 ### kitty
 
 ```bash
-# Append to kitty.conf
 echo "include /path/to/themes/kitty/random-access-theme.conf" >> ~/.config/kitty/kitty.conf
 ```
 
 ### Windows Terminal
 
-Open Settings → **Open JSON file** and add the scheme object from
-`themes/windows-terminal/random-access-theme.json` into the `"schemes"` array.
+Add the scheme from `themes/windows-terminal/random-access-theme.json` into the `"schemes"` array in your settings JSON.
 
 ### Pi
 
@@ -97,28 +101,44 @@ Open Settings → **Open JSON file** and add the scheme object from
 cp themes/pi/random-access-theme.json ~/.pi/agent/themes/
 ```
 
-Then in Pi: `/settings` → select `random-access-theme` → `/reload`
+Then: `/settings` > select `random-access-theme` > `/reload`
 
 ---
 
-## Design
+## Integrations
 
-The palette is defined in one place:
+Bonus configs for tools that inherit ANSI colors or benefit from explicit theming:
 
-```
-palette/random-access-theme.yaml
-```
+| Tool | File | What it does |
+|------|------|-------------|
+| tmux | [`integrations/tmux.conf`](integrations/tmux.conf) | Status bar and pane border colors |
+| fzf | [`integrations/fzf-export.sh`](integrations/fzf-export.sh) | `FZF_DEFAULT_OPTS` color env vars |
+| bat | [`integrations/bat-config`](integrations/bat-config) | Syntax highlighting theme |
+| delta | [`integrations/gitconfig-delta`](integrations/gitconfig-delta) | Git diff colors |
+| Starship | [`integrations/starship.toml`](integrations/starship.toml) | Prompt styling |
+| eza | [`integrations/eza-export.sh`](integrations/eza-export.sh) | `EZA_COLORS` env vars |
 
-All terminal exports are generated from it. See [docs/design.md](docs/design.md)
-for the full design rationale, color role reference, and contrast targets.
+---
 
-**Key decisions:**
+## Palette
 
-- Background is true OLED black (`#060607`)
-- Mint (`#00ffb2`) is the single hero accent
-- All syntax colors live in the green family (mint, green, teal, jade, aqua, emerald, lime)
-- No warm red in syntax — errors use emerald (deepest green)
-- All foreground colors meet WCAG AA against bg; most reach AAA
+Random Access flagship palette — all colors green-family, zero warm hues.
+
+| Role | Hex | Purpose |
+|------|-----|---------|
+| bg | `#000000` | Pure OLED black |
+| text | `#d8efe9` | Primary text — green-tinted near-white |
+| subtle | `#9cb7af` | Secondary text, labels |
+| dimText | `#6f8d86` | Comments, disabled |
+| mint | `#00ffb2` | Hero accent, cursor |
+| green | `#4ade80` | Functions, success |
+| teal | `#35d5c5` | Quotes, borders |
+| jade | `#66e3c4` | Keywords |
+| aqua | `#8bf5dd` | Numbers, highlights |
+| emerald | `#26c994` | Errors (no warm red) |
+| lime | `#a2e5b8` | Strings, warnings |
+
+All foreground colors pass **WCAG AA** against `#000000`. Most reach **AAA**. See the full design rationale in [docs/design.md](docs/design.md).
 
 ---
 
@@ -130,71 +150,21 @@ for the full design rationale, color role reference, and contrast targets.
 pip install pyyaml
 ```
 
-### Regenerate all themes
+| Command | What it does |
+|---------|-------------|
+| `make generate` | Regenerate all themes from palette YAML |
+| `make validate` | Structural + freshness + drift checks |
+| `make contrast` | Full WCAG contrast report |
+| `make check` | All of the above |
+| `make release` | Build release artifacts to `dist/` |
 
-```bash
-python3 scripts/generate.py
-```
-
-### Validate
-
-```bash
-python3 scripts/validate_theme.py
-```
-
-### WCAG contrast matrix
-
-```bash
-python3 scripts/contrast_matrix.py
-```
-
-### Build release artifacts
-
-```bash
-bash scripts/build_release.sh
-# → dist/
-```
-
----
-
-## Project Layout
-
-```
-palette/
-  random-access-theme.yaml        # canonical palette — edit this
-
-themes/
-  alacritty/random-access-theme.toml
-  ghostty/random-access-theme.conf
-  iterm2/random-access-theme.itermcolors
-  kitty/random-access-theme.conf
-  pi/random-access-theme.json
-  wezterm/random-access-theme.toml
-  windows-terminal/random-access-theme.json
-
-scripts/
-  generate.py                     # palette → all themes
-  validate_theme.py               # structural + contrast checks
-  contrast_matrix.py              # full WCAG report
-  build_release.sh                # package dist/
-
-docs/
-  design.md                       # philosophy, color roles, rationale
-
-assets/                           # screenshots (TODO)
-```
+Each flavor has its own palette file in `palette/`. Edit the YAML, then `make generate` to propagate.
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-The only file that should be edited manually is `palette/random-access-theme.yaml`.
-All theme files in `themes/` are generated — run `python3 scripts/generate.py` after
-any palette change.
-
----
+See [CONTRIBUTING.md](CONTRIBUTING.md). The only files that should be edited manually are the palette YAML files in `palette/`. Everything in `themes/` is generated.
 
 ## License
 

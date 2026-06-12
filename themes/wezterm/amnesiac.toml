@@ -1,9 +1,9 @@
 # Random Access Theme — WezTerm color scheme
-# Warm-black dark palette. Indigo accent, Factory.ai aesthetic.
-# https://github.com/GITHUB_ORG/random-access-theme
+# Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac.
+# https://github.com/ssainz/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Factory Indigo"
+# Then set: config.color_scheme = "Amnesiac"
 
 [colors]
 foreground    = "#f2efec"
@@ -17,5 +17,5 @@ ansi          = ["#0f0e0d", "#4d5ec8", "#9baaf2", "#dce2ff", "#6b7ef5", "#5c70d8
 brights       = ["#817771", "#6b7ef5", "#9baaf2", "#c8d2ff", "#7b93ff", "#5c70d8", "#b4bef0", "#f2efec"]
 
 [metadata]
-name       = "Factory Indigo"
-origin_url = "https://github.com/GITHUB_ORG/random-access-theme"
+name       = "Amnesiac"
+origin_url = "https://github.com/ssainz/random-access-themes"

@@ -1,21 +1,21 @@
-# Factory Mint Theme — canonical palette
+# Veridis Theme — canonical palette
 # Single source of truth. All terminal exports are generated from this file.
 #
-# Aesthetic: Factory.ai warm-dark design language — brownish-black backgrounds,
-# cream near-white text, sparse and technical. Electric mint accent.
+# Named after Daft Punk's "Veridis Quo" (Discovery, 2001).
+# Warm-dark backgrounds, cream near-white text, electric mint accent.
 #
-# Run:  python3 scripts/generate.py --palette palette/factory-mint-theme.yaml
+# Run:  python3 scripts/generate.py --palette palette/veridis-theme.yaml
 
 meta:
-  name:         factory-mint
-  display_name: "Factory Mint"
-  description:  "Warm-black dark palette. Electric mint accent, Factory.ai aesthetic."
+  name:         veridis
+  display_name: "Veridis"
+  description:  "Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo."
   version:      "0.1.0"
   author:       ssainz
-  github:       GITHUB_ORG/random-access-theme
+  github:       ssainz/random-access-themes
 
 palette:
-  # ── Backgrounds (warm dark, Factory.ai style) ───────────────────────────────
+  # ── Backgrounds (warm dark) ────────────────────────────────────────────────
   bg:      "#000000"   # pure black — absolute OLED
   bg1:     "#0f0e0d"   # warm near-black — deepest panel
   bg2:     "#1a1715"   # visible warm surface step

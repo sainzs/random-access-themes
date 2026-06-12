@@ -1,6 +1,6 @@
 # Random Access Theme — Alacritty
 # OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.
-# https://github.com/GITHUB_ORG/random-access-theme
+# https://github.com/ssainz/random-access-themes
 
 [colors.primary]
 background = "#000000"

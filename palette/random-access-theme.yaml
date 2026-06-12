@@ -10,7 +10,7 @@ meta:
   description:  "OLED-black dark palette. Mint-forward, green-family syntax, minimal noise."
   version:      "0.1.0"
   author:       ssainz
-  github:       GITHUB_ORG/random-access-theme   # update before first release
+  github:       ssainz/random-access-themes
 
 palette:
   # ── Backgrounds ────────────────────────────────────────────────────────────

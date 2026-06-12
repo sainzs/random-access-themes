@@ -1,11 +1,11 @@
--- Factory Mint — Neovim Colorscheme
--- Warm-black dark palette. Electric mint accent, Factory.ai aesthetic.
--- Install: copy to ~/.config/nvim/colors/factory-mint.lua
--- Usage:   :colorscheme factory-mint  |  vim.cmd.colorscheme("factory-mint")
+-- Veridis — Neovim Colorscheme
+-- Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo.
+-- Install: copy to ~/.config/nvim/colors/veridis.lua
+-- Usage:   :colorscheme veridis  |  vim.cmd.colorscheme("veridis")
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
-vim.g.colors_name   = "factory-mint"
+vim.g.colors_name   = "veridis"
 vim.o.termguicolors = true
 vim.o.background    = "dark"
 

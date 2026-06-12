@@ -1,9 +1,9 @@
 # Random Access Theme — WezTerm color scheme
-# Warm-black dark palette. Vibrant electric teal accent, Factory.ai aesthetic.
-# https://github.com/GITHUB_ORG/random-access-theme
+# Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager.
+# https://github.com/ssainz/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Factory Teal"
+# Then set: config.color_scheme = "Voyager"
 
 [colors]
 foreground    = "#f2efec"
@@ -17,5 +17,5 @@ ansi          = ["#0f0e0d", "#0f7a6e", "#7dd4cc", "#ddf4f2", "#22b8ab", "#1a9e91
 brights       = ["#817771", "#22b8ab", "#7dd4cc", "#c5ebe8", "#2ccfc0", "#1a9e91", "#a8ddd9", "#f2efec"]
 
 [metadata]
-name       = "Factory Teal"
-origin_url = "https://github.com/GITHUB_ORG/random-access-theme"
+name       = "Voyager"
+origin_url = "https://github.com/ssainz/random-access-themes"
