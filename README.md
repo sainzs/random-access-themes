@@ -75,6 +75,18 @@ See the full rationale in [docs/design.md](docs/design.md).
 
 ## Install
 
+### One-line install (no clone)
+
+Fetch a generated theme straight to its standard location — no clone, no Python, no build step:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- ghostty
+```
+
+Targets: `alacritty` · `wezterm` · `ghostty` · `kitty` · `iterm2` · `windows-terminal` · `pi` · `all`. Add `--dry-run` to preview, or pin a release with `RAT_REF=v0.1.1`. Existing files are backed up before they are overwritten. See [`scripts/get.sh`](scripts/get.sh).
+
+### From a clone
+
 ### Ghostty
 
 ```bash
