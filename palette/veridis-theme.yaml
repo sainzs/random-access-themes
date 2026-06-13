@@ -10,7 +10,7 @@ meta:
   name:         veridis
   display_name: "Veridis"
   description:  "Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo."
-  version:      "0.1.0"
+  version:      "0.1.1"
   author:       sainzs
   github:       sainzs/random-access-themes
 

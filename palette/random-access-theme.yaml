@@ -8,7 +8,7 @@ meta:
   name:         random-access-theme
   display_name: "Random Access Theme"
   description:  "OLED-black dark palette. Mint-forward, green-family syntax, minimal noise."
-  version:      "0.1.0"
+  version:      "0.1.1"
   author:       sainzs
   github:       sainzs/random-access-themes
 
