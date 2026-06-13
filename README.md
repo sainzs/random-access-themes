@@ -218,12 +218,16 @@ The canonical palette is also exported as reusable design tokens for web and UI 
 
 Run `make tokens` to regenerate them after editing a palette.
 
-## Used By
+## Portfolio
 
-This palette powers the visual identity of the broader Random Access open-source portfolio:
+random-access-themes is the **design system** of the Random Access agent toolchain — four small packages that compose into one maintainer surface:
 
-- [santiagosainz-skills](https://github.com/sainzs/santiagosainz-skills) — portable maintainer workflows for Codex, OpenCode, and Pi
-- [agent-workbench](https://github.com/sainzs/agent-workbench) — Reckoner, Registro, and OpenCode Anthropic Auth Plus
+| Package | Layer | What it does |
+| --- | --- | --- |
+| [santiagosainz-skills](https://github.com/sainzs/santiagosainz-skills) | Workflow | Portable maintainer skills: review, planning, debug, verify, handoff |
+| [reckoner](https://github.com/sainzs/reckoner) | Memory | Agent memory, auto-verification, and guardrails |
+| [registro](https://github.com/sainzs/registro) | Reporting | Agent work report CLI and dashboard |
+| **random-access-themes** | Design system | OLED-black themes and tokens shared across the toolchain |
 
 ## Contributing
 
