@@ -6,8 +6,9 @@ Checks:
   2. Generated themes are fresh (not stale vs palette).
   3. All expected theme files exist in themes/.
   4. Pi theme JSON has all required tokens with valid values.
-  5. Text/bg contrast meets WCAG AA.
-  6. Installed Pi theme matches generated (drift detection).
+  5. Preview PNG export is fresh vs preview SVG.
+  6. Text/bg contrast meets WCAG AA.
+  7. Installed Pi theme matches generated (drift detection).
 
 Usage:
     python3 scripts/validate_theme.py
@@ -29,6 +30,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PALETTE_FILE  = ROOT / "palette" / "random-access-theme.yaml"
 THEMES_DIR    = ROOT / "themes"
 CHECKSUM_FILE = THEMES_DIR / ".checksum"
+PREVIEW_SVG      = ROOT / "assets" / "preview.svg"
+PREVIEW_PNG      = ROOT / "assets" / "preview.png"
+PREVIEW_CHECKSUM = ROOT / "assets" / ".preview-checksum"
 INSTALLED_PI  = Path.home() / ".pi" / "agent" / "themes" / "random-access-theme.json"
 
 RE_HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
@@ -203,7 +207,33 @@ def validate_pi_theme() -> None:
     ok(f"Pi theme valid ({len(colors)} tokens)")
 
 
-# ── Check 5: Installed drift ───────────────────────────────────────────────────
+# ── Check 5: Preview PNG freshness ─────────────────────────────────────────────
+
+def validate_preview_png() -> None:
+    if not PREVIEW_PNG.exists():
+        fail(
+            "assets/preview.png not found.\n"
+            "       Run: python3 scripts/render_repo_visuals.py"
+        )
+    if not PREVIEW_CHECKSUM.exists():
+        fail(
+            "assets/.preview-checksum not found — preview.png may be stale.\n"
+            "       Run: python3 scripts/render_repo_visuals.py"
+        )
+
+    stored  = PREVIEW_CHECKSUM.read_text().split()[0]
+    current = hashlib.sha256(PREVIEW_SVG.read_bytes()).hexdigest()
+
+    if stored != current:
+        fail(
+            "assets/preview.svg changed since preview.png was last exported.\n"
+            "       Run: python3 scripts/render_repo_visuals.py\n"
+            "       (requires rsvg-convert, inkscape, magick, or cairosvg)"
+        )
+    ok("preview PNG is up-to-date with preview SVG")
+
+
+# ── Check 6: Installed drift ───────────────────────────────────────────────────
 
 def validate_installed(skip: bool) -> None:
     if skip:
@@ -245,6 +275,7 @@ def main() -> None:
     validate_freshness()
     validate_generated_themes()
     validate_pi_theme()
+    validate_preview_png()
     validate_installed(skip=args.skip_installed)
     print("\nAll checks passed.")
 

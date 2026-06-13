@@ -22,7 +22,7 @@ These files are generated from the palettes and should not be edited by hand:
 - Terminal exports in `themes/alacritty/`, `themes/ghostty/`, `themes/iterm2/`, `themes/kitty/`, `themes/pi/`, `themes/wezterm/`, and `themes/windows-terminal/`
 - Repo visuals in `assets/flavors.svg`, `assets/palette-strips.svg`, and `assets/preview.svg`
 - Portable preview export in `assets/preview.png`, derived from `assets/preview.svg`
-- Freshness metadata in `themes/.checksum`
+- Freshness metadata in `themes/.checksum` and `assets/.preview-checksum`
 - Release bundle contents in `dist/` when `scripts/build_release.sh` runs
 
 ## Curated repo files

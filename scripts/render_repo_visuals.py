@@ -5,10 +5,14 @@ Outputs:
 - assets/flavors.svg
 - assets/palette-strips.svg
 - assets/preview.svg
+- assets/preview.png (when an SVG renderer is available)
 """
 
 from __future__ import annotations
 
+import hashlib
+import shutil
+import subprocess
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -16,6 +20,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
+PREVIEW_CHECKSUM = ASSETS / ".preview-checksum"
 PALETTES = [
     ROOT / "palette" / "random-access-theme.yaml",
     ROOT / "palette" / "veridis-theme.yaml",
@@ -272,6 +277,35 @@ def render_preview_svg(data: dict) -> str:
     return "".join(out)
 
 
+def export_preview_png() -> None:
+    """Export assets/preview.png from assets/preview.svg and record the source checksum."""
+    svg = ASSETS / "preview.svg"
+    png = ASSETS / "preview.png"
+    converters = [
+        ("rsvg-convert", ["rsvg-convert", "--width", "1680", "--height", "1050", "-o", str(png), str(svg)]),
+        ("inkscape", ["inkscape", str(svg), "--export-type=png", f"--export-filename={png}"]),
+        ("magick", ["magick", str(svg), str(png)]),
+    ]
+    used = None
+    for name, cmd in converters:
+        if shutil.which(name) is None:
+            continue
+        subprocess.run(cmd, check=True, capture_output=True)
+        used = name
+        break
+    if used is None:
+        try:
+            import cairosvg
+        except ImportError:
+            print("[WARN] no SVG renderer found (rsvg-convert / inkscape / magick / cairosvg)")
+            print("[WARN] assets/preview.png not refreshed — validate_theme.py will flag it if stale")
+            return
+        cairosvg.svg2png(url=str(svg), write_to=str(png), output_width=1680, output_height=1050)
+        used = "cairosvg"
+    PREVIEW_CHECKSUM.write_text(hashlib.sha256(svg.read_bytes()).hexdigest() + "\n")
+    print(f"[OK] assets/preview.png (via {used})")
+
+
 def main() -> None:
     palettes = load_palettes()
     ASSETS.mkdir(parents=True, exist_ok=True)
@@ -281,6 +315,7 @@ def main() -> None:
     print("[OK] assets/flavors.svg")
     print("[OK] assets/palette-strips.svg")
     print("[OK] assets/preview.svg")
+    export_preview_png()
 
 
 if __name__ == "__main__":
