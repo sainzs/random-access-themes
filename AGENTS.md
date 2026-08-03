@@ -63,9 +63,13 @@ Scripts can be invoked directly, e.g.
   in the built-in dark theme with no warning, so an unresolvable name looks
   exactly like a working install of a dark theme. This family has hit it twice:
   `/tone random` asks for `random-access`, which is registered as
-  `random-access-theme` (`PLAN.md` task 0), and a `settings.json` holding
-  `tokyo-night/reckoner-scope` — a package-qualified form pi does not support —
-  which kept every phosphor theme invisible outside one repo. After any install,
+  `random-access-theme` (`PLAN.md` task 0). A second value, a `settings.json`
+  holding `tokyo-night/reckoner-scope`, was recorded here as a package-qualified
+  form pi does not support. It is not — verified against pi 0.83.0: a single
+  slash is pi's light/dark pair syntax, so that value resolves to `tokyo-night`
+  on a light terminal and `reckoner-scope` on a dark one. It never hit the
+  fallback. What pi rejects is two or more slashes, which make
+  `resolveThemeSetting` return `undefined`; that is the form to avoid. After any install,
   confirm the active name appears in `ls ~/.pi/agent/themes/`. `install.sh` warns
   when a file's name and stem disagree, but nothing can warn about the fallback.
 - **`scripts/install.sh` writes to this machine and backs up what it replaces**

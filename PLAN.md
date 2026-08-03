@@ -79,11 +79,15 @@ Facts that will save time:
 
 ## Task 0 — `/tone random` cannot work, and it is the default
 
-**This is a class, not an incident.** The same failure has now been found twice.
-The second was a `settings.json` holding `tokyo-night/reckoner-scope`, a
-package-qualified name pi does not support; `initTheme` caught the error, swapped
-in the built-in `dark`, and said nothing, so the phosphor family was invisible in
-every session outside one repo for as long as that value sat there. Whatever
+**This is a class, not an incident** — but only one of the two cases once listed
+here belongs to it. `/tone random` asks for `random-access` while the theme
+registers as `random-access-theme`, and that does fall through to a silent
+`dark`. The second case, a `settings.json` holding `tokyo-night/reckoner-scope`,
+was recorded as a package-qualified name pi does not support; verified against pi
+0.83.0, it is not. A single slash is the light/dark pair syntax, so that value
+resolved as designed — `tokyo-night` on a light terminal, `reckoner-scope` on a
+dark one. The phosphor family went missing because the pair selected its light
+half, not because resolution failed. Whatever
 fixes the `/tone` case should also make a bad theme name *observable* — the
 missing thing is not the fix, it is that nothing anywhere says "the theme you
 asked for is not the theme you got".
