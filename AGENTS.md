@@ -7,6 +7,10 @@ phosphor tubes, one colour each, whose pi themes are hand-authored and canonical
 and four OLED-black flavors generated from palette YAML. The canonical pipeline/architecture map is `docs/manifest.md` —
 read it before changing anything structural; do not restate it here.
 
+**Done and frozen 2026-08-02** (`~/Code/PLAN.md` Phase 5.2): maintenance only — keeping
+the existing six tubes and four flavors generating correctly. No new families, no new
+flavors, no new output targets.
+
 ## Commands
 
 Requirements: Python 3.9+, `pyyaml`. Uses project `.venv/bin/python3` if
