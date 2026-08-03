@@ -1,9 +1,9 @@
-# Reckoner Dusk — WezTerm color scheme
+# Violet Dusk — WezTerm color scheme
 # Violet on blue-black — late light, cold screen.
 # https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Reckoner Dusk"
+# Then set: config.color_scheme = "Violet Dusk"
 
 [colors]
 foreground    = "#d8d9e6"
@@ -17,5 +17,5 @@ ansi          = ["#2c2b38", "#f49ab5", "#67d4ff", "#e7c76b", "#8b90b3", "#d8d9e6
 brights       = ["#494954", "#f49ab5", "#67d4ff", "#e7c76b", "#a489d8", "#c099ff", "#c099ff", "#c099ff"]
 
 [metadata]
-name       = "Reckoner Dusk"
+name       = "Violet Dusk"
 origin_url = "https://github.com/sainzs/random-access-themes"

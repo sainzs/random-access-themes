@@ -1,9 +1,9 @@
-# Reckoner Darkspace — WezTerm color scheme
+# Teal Darkspace — WezTerm color scheme
 # dark.spaceAMP — teal wireframe on blackest glass.
 # https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Reckoner Darkspace"
+# Then set: config.color_scheme = "Teal Darkspace"
 
 [colors]
 foreground    = "#3ce6da"
@@ -17,5 +17,5 @@ ansi          = ["#062226", "#ff5f7a", "#58ffb2", "#e8d25f", "#1e8c85", "#3ce6da
 brights       = ["#0f4d53", "#ff5f7a", "#58ffb2", "#e8d25f", "#7dfff2", "#d2fffa", "#d2fffa", "#d2fffa"]
 
 [metadata]
-name       = "Reckoner Darkspace"
+name       = "Teal Darkspace"
 origin_url = "https://github.com/sainzs/random-access-themes"

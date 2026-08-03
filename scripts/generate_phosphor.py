@@ -59,23 +59,32 @@ OUTPUTS = {
 # What each tube is, for the export headers. The pi themes carry no prose.
 #
 # The display name is not decoration: WezTerm selects a scheme by this exact
-# string and Windows Terminal shows it in a dropdown, both in a namespace shared
-# with every other scheme the user has installed. The first version used bare
-# words — Scope, Dusk, Factory — which said nothing about where they came from and
-# would sit in that list waiting to collide with someone else's Dusk. They carry
-# the family now, matching the pi theme ids they are generated from.
+# string and Windows Terminal shows it in a dropdown, in a namespace shared with
+# every other scheme the user has installed. So the name has one job — to be
+# picked correctly from a sorted list — and it is written for that.
 #
-# The descriptions for dusk and factory used to say what those two are not ("the
-# one that is not a tube"). That reads fine in a design note where the contrast is
-# the point and badly as the one line a stranger meets at the top of a config
-# file.
+# Colour first, identity second. The colour is what you are choosing by; the
+# identity is what the theme is. Two earlier attempts failed the same list test:
+#
+#   Bare words (Scope, Dusk, Factory) said nothing about where they came from and
+#   sat waiting to collide with somebody else's Dusk.
+#
+#   Prefixing the family (Reckoner Scope, Reckoner Dusk, ...) fixed collisions and
+#   created a worse problem: all six began with the same nine characters, so they
+#   collapsed into one indistinguishable block in the dropdown and you had to read
+#   to the tenth character to tell an amber tube from a violet one. One distinct
+#   first word across six themes.
+#
+# These give six distinct first words that sort into a spread rather than a wall,
+# none of which anyone else is shipping, and every identity is the one it always
+# had. The tube itself stays in the description, where there is room for it.
 TUBES = {
-    "reckoner-exect": ("Reckoner EXECT", "EXECT-100 / DEC VT520 — amber phosphor on warm near-black."),
-    "reckoner-scope": ("Reckoner Scope", "DEC VT640 radar — P1 green on green glass."),
-    "reckoner-wopr": ("Reckoner WOPR", "VT100 blue screen — cyan and white-blue, the war room."),
-    "reckoner-darkspace": ("Reckoner Darkspace", "dark.spaceAMP — teal wireframe on blackest glass."),
-    "reckoner-dusk": ("Reckoner Dusk", "Violet on blue-black — late light, cold screen."),
-    "reckoner-factory": ("Reckoner Factory", "Safety orange on true black — machine-shop signage under work lights."),
+    "reckoner-exect": ("Amber EXECT", "EXECT-100 / DEC VT520 — amber phosphor on warm near-black."),
+    "reckoner-scope": ("Green Scope", "DEC VT640 radar — P1 green on green glass."),
+    "reckoner-wopr": ("Cyan WOPR", "VT100 blue screen — cyan and white-blue, the war room."),
+    "reckoner-darkspace": ("Teal Darkspace", "dark.spaceAMP — teal wireframe on blackest glass."),
+    "reckoner-dusk": ("Violet Dusk", "Violet on blue-black — late light, cold screen."),
+    "reckoner-factory": ("Orange Factory", "Safety orange on true black — machine-shop signage under work lights."),
 }
 
 

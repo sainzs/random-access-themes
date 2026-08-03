@@ -1,9 +1,9 @@
-# Reckoner WOPR — WezTerm color scheme
+# Cyan WOPR — WezTerm color scheme
 # VT100 blue screen — cyan and white-blue, the war room.
 # https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Reckoner WOPR"
+# Then set: config.color_scheme = "Cyan WOPR"
 
 [colors]
 foreground    = "#d9ecff"
@@ -17,5 +17,5 @@ ansi          = ["#14294d", "#ff7a8a", "#7de0a8", "#ffd75f", "#6f9cd0", "#d9ecff
 brights       = ["#31548a", "#ff7a8a", "#7de0a8", "#ffd75f", "#6fc4ff", "#c4e6ff", "#c4e6ff", "#c4e6ff"]
 
 [metadata]
-name       = "Reckoner WOPR"
+name       = "Cyan WOPR"
 origin_url = "https://github.com/sainzs/random-access-themes"
