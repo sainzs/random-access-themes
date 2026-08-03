@@ -1,0 +1,23 @@
+{
+    "name": "Darkspace",
+    "background": "#020b0c",
+    "foreground": "#3ce6da",
+    "cursorColor": "#7dfff2",
+    "selectionBackground": "#062226",
+    "black": "#062226",
+    "red": "#ff5f7a",
+    "green": "#58ffb2",
+    "yellow": "#e8d25f",
+    "blue": "#1e8c85",
+    "purple": "#3ce6da",
+    "cyan": "#7dfff2",
+    "white": "#3ce6da",
+    "brightBlack": "#0f4d53",
+    "brightRed": "#ff5f7a",
+    "brightGreen": "#58ffb2",
+    "brightYellow": "#e8d25f",
+    "brightBlue": "#7dfff2",
+    "brightPurple": "#d2fffa",
+    "brightCyan": "#d2fffa",
+    "brightWhite": "#d2fffa"
+}

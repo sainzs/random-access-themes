@@ -1,0 +1,35 @@
+# WOPR — Alacritty
+# VT100 blue screen — cyan and white-blue, the war room.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#0b1d3a"
+foreground = "#d9ecff"
+
+[colors.cursor]
+cursor = "#6fc4ff"
+text   = "#0b1d3a"
+
+[colors.selection]
+background = "#14294d"
+text       = "#d9ecff"
+
+[colors.normal]
+black    = "#14294d"
+red      = "#ff7a8a"
+green    = "#7de0a8"
+yellow   = "#ffd75f"
+blue     = "#6f9cd0"
+magenta  = "#d9ecff"
+cyan     = "#6fc4ff"
+white    = "#d9ecff"
+
+[colors.bright]
+black    = "#31548a"
+red      = "#ff7a8a"
+green    = "#7de0a8"
+yellow   = "#ffd75f"
+blue     = "#6fc4ff"
+magenta  = "#c4e6ff"
+cyan     = "#c4e6ff"
+white    = "#c4e6ff"

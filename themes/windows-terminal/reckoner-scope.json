@@ -1,0 +1,23 @@
+{
+    "name": "Scope",
+    "background": "#0a120c",
+    "foreground": "#6fe392",
+    "cursorColor": "#a8ffc2",
+    "selectionBackground": "#14231a",
+    "black": "#14231a",
+    "red": "#ff7a5c",
+    "green": "#6fe392",
+    "yellow": "#e8d25f",
+    "blue": "#55a06b",
+    "purple": "#6fe392",
+    "cyan": "#a8ffc2",
+    "white": "#6fe392",
+    "brightBlack": "#2e5038",
+    "brightRed": "#ff7a5c",
+    "brightGreen": "#6fe392",
+    "brightYellow": "#e8d25f",
+    "brightBlue": "#a8ffc2",
+    "brightPurple": "#dcffe7",
+    "brightCyan": "#dcffe7",
+    "brightWhite": "#dcffe7"
+}

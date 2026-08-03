@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import colorsys
 import hashlib
+import re
 import json
 import re
 import sys
@@ -347,6 +348,71 @@ def validate_thinking_ramps() -> None:
     ok(f"thinking ramps climb in-hue across all {len(paths)} pi themes")
 
 
+# ── Check 6: Phosphor exports ──────────────────────────────────────────────────
+
+PHOSPHOR_FORMATS = {
+    "ghostty": "{name}.conf",
+    "wezterm": "{name}.toml",
+    "iterm2": "{name}.itermcolors",
+    "alacritty": "{name}.toml",
+    "kitty": "{name}.conf",
+    "windows-terminal": "{name}.json",
+}
+
+
+def validate_phosphor_exports() -> None:
+    """
+    The phosphor family's terminal exports exist and are legible.
+
+    These run the pipeline backwards — `themes/pi/reckoner-*.json` is the source
+    and the terminal files are derived, because those six themes arrived finished
+    and a generator built for four cool-spectrum flavors would only have made them
+    worse. So the freshness question is different too: not "does this match the
+    palette" but "does this match the pi theme it came from".
+
+    The contrast floor is here because a monochrome tube has eight ANSI slots and
+    one colour to spend on them. The first mapping put `dim` on normal magenta —
+    1.2:1 against the background on all six themes — so any tool colouring real
+    output magenta wrote it in invisible ink. Black is exempt: it is the
+    background's own step, and every flavor here does the same.
+    """
+    sources = sorted((THEMES_DIR / "pi").glob("reckoner-*.json"))
+    if not sources:
+        fail("no phosphor pi themes found")
+
+    missing = []
+    for source in sources:
+        name = json.loads(source.read_text())["name"]
+        for directory, template in PHOSPHOR_FORMATS.items():
+            path = THEMES_DIR / directory / template.format(name=name)
+            if not path.exists():
+                missing.append(f"themes/{directory}/{template.format(name=name)}")
+    if missing:
+        fail(
+            "missing phosphor exports — run: python3 scripts/generate_phosphor.py\n"
+            + "\n".join(f"  {m}" for m in missing)
+        )
+
+    offenders = []
+    for path in sorted((THEMES_DIR / "ghostty").glob("reckoner-*.conf")):
+        text = path.read_text()
+        background = "#" + re.search(r"background = #?(\w{6})", text).group(1)
+        for match in re.finditer(r"palette = (\d+)=#?(\w{6})", text):
+            slot, colour = int(match.group(1)), "#" + match.group(2)
+            if slot in (0, 8):
+                continue
+            ratio = contrast(colour, background)
+            if ratio < 3.0:
+                offenders.append(f"{path.name} slot {slot} ({colour}): {ratio:.2f}:1")
+    if offenders:
+        fail(
+            "phosphor ANSI slots below 3:1 against their own background:\n"
+            + "\n".join(f"       {o}" for o in offenders)
+        )
+
+    ok(f"phosphor exports present and legible ({len(sources)} themes x {len(PHOSPHOR_FORMATS)} formats)")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -362,6 +428,7 @@ def main() -> None:
     validate_generated_themes()
     validate_pi_theme()
     validate_thinking_ramps()
+    validate_phosphor_exports()
     validate_preview_png()
     validate_installed(skip=args.skip_installed)
     print("\nAll checks passed.")

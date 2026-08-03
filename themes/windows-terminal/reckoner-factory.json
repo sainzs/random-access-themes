@@ -1,0 +1,23 @@
+{
+    "name": "Factory",
+    "background": "#020202",
+    "foreground": "#eeeeee",
+    "cursorColor": "#ef6f2e",
+    "selectionBackground": "#1f1d1c",
+    "black": "#1f1d1c",
+    "red": "#e54048",
+    "green": "#6fab78",
+    "yellow": "#d8a657",
+    "blue": "#8a8380",
+    "purple": "#eeeeee",
+    "cyan": "#ef6f2e",
+    "white": "#eeeeee",
+    "brightBlack": "#5c5855",
+    "brightRed": "#e54048",
+    "brightGreen": "#6fab78",
+    "brightYellow": "#d8a657",
+    "brightBlue": "#ef6f2e",
+    "brightPurple": "#ef6f2e",
+    "brightCyan": "#ef6f2e",
+    "brightWhite": "#ef6f2e"
+}

@@ -1,0 +1,35 @@
+# Scope — Alacritty
+# DEC VT640 radar — P1 green on green glass.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#0a120c"
+foreground = "#6fe392"
+
+[colors.cursor]
+cursor = "#a8ffc2"
+text   = "#0a120c"
+
+[colors.selection]
+background = "#14231a"
+text       = "#6fe392"
+
+[colors.normal]
+black    = "#14231a"
+red      = "#ff7a5c"
+green    = "#6fe392"
+yellow   = "#e8d25f"
+blue     = "#55a06b"
+magenta  = "#6fe392"
+cyan     = "#a8ffc2"
+white    = "#6fe392"
+
+[colors.bright]
+black    = "#2e5038"
+red      = "#ff7a5c"
+green    = "#6fe392"
+yellow   = "#e8d25f"
+blue     = "#a8ffc2"
+magenta  = "#dcffe7"
+cyan     = "#dcffe7"
+white    = "#dcffe7"

@@ -1,0 +1,21 @@
+# Scope — WezTerm color scheme
+# DEC VT640 radar — P1 green on green glass.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "Scope"
+
+[colors]
+foreground    = "#6fe392"
+background    = "#0a120c"
+cursor_bg     = "#a8ffc2"
+cursor_border = "#a8ffc2"
+cursor_fg     = "#0a120c"
+selection_bg  = "#14231a"
+selection_fg  = "#6fe392"
+ansi          = ["#14231a", "#ff7a5c", "#6fe392", "#e8d25f", "#55a06b", "#6fe392", "#a8ffc2", "#6fe392"]
+brights       = ["#2e5038", "#ff7a5c", "#6fe392", "#e8d25f", "#a8ffc2", "#dcffe7", "#dcffe7", "#dcffe7"]
+
+[metadata]
+name       = "Scope"
+origin_url = "https://github.com/sainzs/random-access-themes"

@@ -1,0 +1,21 @@
+# EXECT — WezTerm color scheme
+# EXECT-100 / DEC VT520 — amber phosphor on warm near-black.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "EXECT"
+
+[colors]
+foreground    = "#ffb753"
+background    = "#16100a"
+cursor_bg     = "#ffd280"
+cursor_border = "#ffd280"
+cursor_fg     = "#16100a"
+selection_bg  = "#241a0e"
+selection_fg  = "#ffb753"
+ansi          = ["#241a0e", "#ff6242", "#9acc63", "#ffdf6b", "#b07f33", "#ffb753", "#ffd280", "#ffb753"]
+brights       = ["#5a3f1a", "#ff6242", "#9acc63", "#ffdf6b", "#ffd280", "#ffe9bd", "#ffe9bd", "#ffe9bd"]
+
+[metadata]
+name       = "EXECT"
+origin_url = "https://github.com/sainzs/random-access-themes"

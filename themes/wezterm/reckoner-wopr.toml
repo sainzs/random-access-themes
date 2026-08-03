@@ -1,0 +1,21 @@
+# WOPR — WezTerm color scheme
+# VT100 blue screen — cyan and white-blue, the war room.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "WOPR"
+
+[colors]
+foreground    = "#d9ecff"
+background    = "#0b1d3a"
+cursor_bg     = "#6fc4ff"
+cursor_border = "#6fc4ff"
+cursor_fg     = "#0b1d3a"
+selection_bg  = "#14294d"
+selection_fg  = "#d9ecff"
+ansi          = ["#14294d", "#ff7a8a", "#7de0a8", "#ffd75f", "#6f9cd0", "#d9ecff", "#6fc4ff", "#d9ecff"]
+brights       = ["#31548a", "#ff7a8a", "#7de0a8", "#ffd75f", "#6fc4ff", "#c4e6ff", "#c4e6ff", "#c4e6ff"]
+
+[metadata]
+name       = "WOPR"
+origin_url = "https://github.com/sainzs/random-access-themes"

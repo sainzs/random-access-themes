@@ -4,20 +4,59 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ffb2.svg)](LICENSE)
 [![Release](https://img.shields.io/badge/release-v0.1.2-00ffb2.svg)](https://github.com/sainzs/random-access-themes/releases)
 
-> OLED-black dark themes for terminals and editors — four flavors, zero warm syntax hues.
+> Dark themes for terminals and editors — six phosphor tubes and four OLED-black flavors.
 
 ![Random Access Themes flavor gallery](assets/flavors.svg)
 
 **At a glance**
-- 4 flavors: **Random Access**, **Veridis**, **Voyager**, **Amnesiac**
-- 7 terminal ports per flavor: Ghostty, WezTerm, iTerm2, Alacritty, kitty, Windows Terminal, Pi
+- **6 phosphor themes** — one terminal tube each, hierarchy from brightness alone
+- 4 OLED-black flavors: **Random Access**, **Veridis**, **Voyager**, **Amnesiac**
+- 6–7 terminal ports each: Ghostty, WezTerm, iTerm2, Alacritty, kitty, Windows Terminal, Pi
 - Editor ports today: VS Code, Sublime Text, Zed, Neovim (**Veridis**)
-- Palette-first workflow: edit YAML, regenerate themes, validate contrast
+- Two pipelines, both validated: flavors generate from palette YAML, phosphors
+  generate *from their pi theme* — see the [manifest](docs/manifest.md)
+- Every thinking ramp is derived and enforced: escalation is chroma, not lightness
 
 ![Random Access Themes palette strips](assets/palette-strips.svg)
 
 See the [demo preview](docs/demo.md) for the flagship terminal render and
 rebuild commands.
+
+---
+
+## The phosphor family
+
+Six themes, one terminal tube each. A real CRT could not show many hues, so it
+built hierarchy out of luminance — dim for what is resting, bright for what
+matters, a hot peak for what is happening now — and these spend a single phosphor
+the same way. Love letters to specific hardware: a VT520 under amber, a VT640
+radar scope, the WOPR's blue room.
+
+They are the refined half of this repo and they set its standards. The
+thinking-ramp rule every flavor now uses came from here, along with the validator
+that enforces it, and nothing in the family blinks — which the Ghostty exports now
+state outright rather than having the generator overrule.
+
+Their pi themes are hand-authored and canonical: the terminal exports are derived
+*from* that JSON rather than the other way round, because these arrived finished
+and a pipeline built to spread a cool-spectrum palette across four flavors would
+only have made them worse.
+
+| Theme | Tube | Glow | Ports |
+|---|---|---|---|
+| `reckoner-exect` | EXECT-100 / DEC VT520 | amber phosphor | pi + 6 terminals |
+| `reckoner-scope` | DEC VT640 | P1 green | pi + 6 terminals |
+| `reckoner-wopr` | VT100 | navy + cyan | pi + 6 terminals |
+| `reckoner-darkspace` | dark.spaceAMP | teal wireframe | pi + 6 terminals |
+| `reckoner-dusk` | — | violet on blue-black | pi + 6 terminals |
+| `reckoner-factory` | — | safety orange on true black | pi + 6 terminals |
+
+<p align="center"><img src="assets/phosphor/reckoner-exect.png" alt="reckoner-exect — amber phosphor" width="760"/></p>
+
+Full descriptions, the brightness ladder, and the harness-footer vocabulary they
+were tuned against: **[docs/phosphor-themes.md](docs/phosphor-themes.md)**.
+
+They also brought the thinking-ramp rule the generator now uses — see below.
 
 ---
 
@@ -31,33 +70,6 @@ Four variants, one philosophy: dark surfaces, restrained UI chrome, and a cool-s
 | **Veridis** | Daft Punk — *Veridis Quo* | `#00ffb2` mint | `#0f0e0d` warm black | Warm-dark base with crisp cream text and electric mint |
 | **Voyager** | Daft Punk — *Voyager* | `#2ccfc0` teal | `#0f0e0d` warm black | Warm-dark base with a brighter teal-led accent family |
 | **Amnesiac** | Radiohead — *Amnesiac* | `#7b93ff` indigo | `#0f0e0d` warm black | Warm-dark base with cool indigo contrast and sharper separation |
-
----
-
-## The phosphor family
-
-Six more themes sit alongside the four flavors, and they break the house rule on
-purpose: one phosphor each, hierarchy from brightness alone, no accent family at
-all. They are love letters to specific hardware — a VT520 under amber, a VT640
-radar scope, the WOPR's blue room — and they are hand-authored rather than
-generated, because a pipeline built to spread a cool-spectrum palette across four
-flavors has nothing useful to say about a monochrome tube.
-
-| Theme | Tube | Glow |
-|---|---|---|
-| `reckoner-exect` | EXECT-100 / DEC VT520 | amber phosphor |
-| `reckoner-scope` | DEC VT640 | P1 green |
-| `reckoner-wopr` | VT100 | navy + cyan |
-| `reckoner-darkspace` | dark.spaceAMP | teal wireframe |
-| `reckoner-dusk` | — | violet on blue-black |
-| `reckoner-factory` | — | safety orange on true black |
-
-<p align="center"><img src="assets/phosphor/reckoner-exect.png" alt="reckoner-exect — amber phosphor" width="760"/></p>
-
-Full descriptions, the brightness ladder, and the harness-footer vocabulary they
-were tuned against: **[docs/phosphor-themes.md](docs/phosphor-themes.md)**.
-
-They also brought the thinking-ramp rule the generator now uses — see below.
 
 ---
 
@@ -77,7 +89,21 @@ See the full rationale in [docs/design.md](docs/design.md).
 
 ## Supported Ports
 
-### Terminals
+### Terminals — phosphor family
+
+| Terminal | exect | scope | wopr | darkspace | dusk | factory |
+|----------|:---:|:---:|:---:|:---:|:---:|:---:|
+| Ghostty | [conf](themes/ghostty/reckoner-exect.conf) | [conf](themes/ghostty/reckoner-scope.conf) | [conf](themes/ghostty/reckoner-wopr.conf) | [conf](themes/ghostty/reckoner-darkspace.conf) | [conf](themes/ghostty/reckoner-dusk.conf) | [conf](themes/ghostty/reckoner-factory.conf) |
+| WezTerm | [toml](themes/wezterm/reckoner-exect.toml) | [toml](themes/wezterm/reckoner-scope.toml) | [toml](themes/wezterm/reckoner-wopr.toml) | [toml](themes/wezterm/reckoner-darkspace.toml) | [toml](themes/wezterm/reckoner-dusk.toml) | [toml](themes/wezterm/reckoner-factory.toml) |
+| iTerm2 | [itermcolors](themes/iterm2/reckoner-exect.itermcolors) | [itermcolors](themes/iterm2/reckoner-scope.itermcolors) | [itermcolors](themes/iterm2/reckoner-wopr.itermcolors) | [itermcolors](themes/iterm2/reckoner-darkspace.itermcolors) | [itermcolors](themes/iterm2/reckoner-dusk.itermcolors) | [itermcolors](themes/iterm2/reckoner-factory.itermcolors) |
+| Alacritty | [toml](themes/alacritty/reckoner-exect.toml) | [toml](themes/alacritty/reckoner-scope.toml) | [toml](themes/alacritty/reckoner-wopr.toml) | [toml](themes/alacritty/reckoner-darkspace.toml) | [toml](themes/alacritty/reckoner-dusk.toml) | [toml](themes/alacritty/reckoner-factory.toml) |
+| kitty | [conf](themes/kitty/reckoner-exect.conf) | [conf](themes/kitty/reckoner-scope.conf) | [conf](themes/kitty/reckoner-wopr.conf) | [conf](themes/kitty/reckoner-darkspace.conf) | [conf](themes/kitty/reckoner-dusk.conf) | [conf](themes/kitty/reckoner-factory.conf) |
+| Windows Terminal | [json](themes/windows-terminal/reckoner-exect.json) | [json](themes/windows-terminal/reckoner-scope.json) | [json](themes/windows-terminal/reckoner-wopr.json) | [json](themes/windows-terminal/reckoner-darkspace.json) | [json](themes/windows-terminal/reckoner-dusk.json) | [json](themes/windows-terminal/reckoner-factory.json) |
+| Pi | [json](themes/pi/reckoner-exect.json) | [json](themes/pi/reckoner-scope.json) | [json](themes/pi/reckoner-wopr.json) | [json](themes/pi/reckoner-darkspace.json) | [json](themes/pi/reckoner-dusk.json) | [json](themes/pi/reckoner-factory.json) |
+
+Pi is the source for these six; the terminal rows are derived from it.
+
+### Terminals — flavors
 
 | Terminal | Random Access | Veridis | Voyager | Amnesiac |
 |----------|:---:|:---:|:---:|:---:|

@@ -1,0 +1,35 @@
+# Dusk — Alacritty
+# Violet on blue-black — the one that is not a tube.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#1c1b29"
+foreground = "#d8d9e6"
+
+[colors.cursor]
+cursor = "#a489d8"
+text   = "#1c1b29"
+
+[colors.selection]
+background = "#2c2b38"
+text       = "#d8d9e6"
+
+[colors.normal]
+black    = "#2c2b38"
+red      = "#f49ab5"
+green    = "#67d4ff"
+yellow   = "#e7c76b"
+blue     = "#8b90b3"
+magenta  = "#d8d9e6"
+cyan     = "#a489d8"
+white    = "#d8d9e6"
+
+[colors.bright]
+black    = "#494954"
+red      = "#f49ab5"
+green    = "#67d4ff"
+yellow   = "#e7c76b"
+blue     = "#a489d8"
+magenta  = "#c099ff"
+cyan     = "#c099ff"
+white    = "#c099ff"

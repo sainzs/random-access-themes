@@ -10,6 +10,10 @@ all: generate validate
 generate:
 	$(PYTHON) scripts/generate.py
 
+# Derive the phosphor family's terminal exports from its pi themes
+phosphor-exports:
+	$(PYTHON) scripts/generate_phosphor.py
+
 # Regenerate the phosphor-family screenshots (themes/pi/reckoner-*.json)
 # Needs Pillow, which the project .venv does not carry; the system interpreter
 # does. Nothing else in the pipeline draws raster images.
@@ -37,7 +41,7 @@ install:
 	bash scripts/install.sh
 
 # Full check: generate, validate, contrast, tokens
-check: generate validate contrast tokens
+check: generate phosphor-exports validate contrast tokens
 
 # Build release artifacts into dist/
 release:

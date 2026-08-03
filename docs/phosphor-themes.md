@@ -5,12 +5,16 @@ each one a love letter to a real terminal tube, tuned to modern reading light.
 
 > The case is printed, the values are the phosphor.
 
-They are the odd ones out in this repo, deliberately. The four flavors spread a
-cool-spectrum accent family across dark surfaces; these spend a single phosphor
-and build hierarchy out of brightness alone, the way the hardware had to. They
-are hand-authored rather than generated — see [manifest.md](manifest.md) — and
-they arrived from the reckoner project, along with the thinking-ramp rule the
-generator now uses.
+These set the standards in this repo. The thinking-ramp rule every flavor now
+uses came from here, along with the validator that enforces it across all ten pi
+themes, and the rule that nothing blinks — which the Ghostty exports now state
+outright instead of having the generator overrule them.
+
+The four flavors spread a cool-spectrum accent family across dark surfaces; these
+spend a single phosphor and build hierarchy out of brightness alone, the way the
+hardware had to. Their pi themes are hand-authored and canonical, with the six
+terminal exports derived from that JSON — the opposite direction to the flavors,
+for the reasons in [manifest.md](manifest.md).
 
 ## The philosophy
 

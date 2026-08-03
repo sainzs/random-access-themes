@@ -1,0 +1,23 @@
+{
+    "name": "EXECT",
+    "background": "#16100a",
+    "foreground": "#ffb753",
+    "cursorColor": "#ffd280",
+    "selectionBackground": "#241a0e",
+    "black": "#241a0e",
+    "red": "#ff6242",
+    "green": "#9acc63",
+    "yellow": "#ffdf6b",
+    "blue": "#b07f33",
+    "purple": "#ffb753",
+    "cyan": "#ffd280",
+    "white": "#ffb753",
+    "brightBlack": "#5a3f1a",
+    "brightRed": "#ff6242",
+    "brightGreen": "#9acc63",
+    "brightYellow": "#ffdf6b",
+    "brightBlue": "#ffd280",
+    "brightPurple": "#ffe9bd",
+    "brightCyan": "#ffe9bd",
+    "brightWhite": "#ffe9bd"
+}

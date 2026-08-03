@@ -1,0 +1,35 @@
+# Darkspace — Alacritty
+# dark.spaceAMP — teal wireframe on blackest glass.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#020b0c"
+foreground = "#3ce6da"
+
+[colors.cursor]
+cursor = "#7dfff2"
+text   = "#020b0c"
+
+[colors.selection]
+background = "#062226"
+text       = "#3ce6da"
+
+[colors.normal]
+black    = "#062226"
+red      = "#ff5f7a"
+green    = "#58ffb2"
+yellow   = "#e8d25f"
+blue     = "#1e8c85"
+magenta  = "#3ce6da"
+cyan     = "#7dfff2"
+white    = "#3ce6da"
+
+[colors.bright]
+black    = "#0f4d53"
+red      = "#ff5f7a"
+green    = "#58ffb2"
+yellow   = "#e8d25f"
+blue     = "#7dfff2"
+magenta  = "#d2fffa"
+cyan     = "#d2fffa"
+white    = "#d2fffa"

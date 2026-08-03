@@ -1,0 +1,21 @@
+# Darkspace — WezTerm color scheme
+# dark.spaceAMP — teal wireframe on blackest glass.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "Darkspace"
+
+[colors]
+foreground    = "#3ce6da"
+background    = "#020b0c"
+cursor_bg     = "#7dfff2"
+cursor_border = "#7dfff2"
+cursor_fg     = "#020b0c"
+selection_bg  = "#062226"
+selection_fg  = "#3ce6da"
+ansi          = ["#062226", "#ff5f7a", "#58ffb2", "#e8d25f", "#1e8c85", "#3ce6da", "#7dfff2", "#3ce6da"]
+brights       = ["#0f4d53", "#ff5f7a", "#58ffb2", "#e8d25f", "#7dfff2", "#d2fffa", "#d2fffa", "#d2fffa"]
+
+[metadata]
+name       = "Darkspace"
+origin_url = "https://github.com/sainzs/random-access-themes"

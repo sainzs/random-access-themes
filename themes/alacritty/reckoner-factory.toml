@@ -1,0 +1,35 @@
+# Factory — Alacritty
+# Safety orange on true black — a room, not a tube.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#020202"
+foreground = "#eeeeee"
+
+[colors.cursor]
+cursor = "#ef6f2e"
+text   = "#020202"
+
+[colors.selection]
+background = "#1f1d1c"
+text       = "#eeeeee"
+
+[colors.normal]
+black    = "#1f1d1c"
+red      = "#e54048"
+green    = "#6fab78"
+yellow   = "#d8a657"
+blue     = "#8a8380"
+magenta  = "#eeeeee"
+cyan     = "#ef6f2e"
+white    = "#eeeeee"
+
+[colors.bright]
+black    = "#5c5855"
+red      = "#e54048"
+green    = "#6fab78"
+yellow   = "#d8a657"
+blue     = "#ef6f2e"
+magenta  = "#ef6f2e"
+cyan     = "#ef6f2e"
+white    = "#ef6f2e"

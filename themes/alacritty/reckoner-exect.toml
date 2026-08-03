@@ -1,0 +1,35 @@
+# EXECT — Alacritty
+# EXECT-100 / DEC VT520 — amber phosphor on warm near-black.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#16100a"
+foreground = "#ffb753"
+
+[colors.cursor]
+cursor = "#ffd280"
+text   = "#16100a"
+
+[colors.selection]
+background = "#241a0e"
+text       = "#ffb753"
+
+[colors.normal]
+black    = "#241a0e"
+red      = "#ff6242"
+green    = "#9acc63"
+yellow   = "#ffdf6b"
+blue     = "#b07f33"
+magenta  = "#ffb753"
+cyan     = "#ffd280"
+white    = "#ffb753"
+
+[colors.bright]
+black    = "#5a3f1a"
+red      = "#ff6242"
+green    = "#9acc63"
+yellow   = "#ffdf6b"
+blue     = "#ffd280"
+magenta  = "#ffe9bd"
+cyan     = "#ffe9bd"
+white    = "#ffe9bd"

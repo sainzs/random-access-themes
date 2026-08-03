@@ -2,8 +2,9 @@
 
 ## Purpose
 
-Design/theme system generating terminal and editor themes from palette
-sources. The canonical pipeline/architecture map is `docs/manifest.md` —
+Design/theme system generating terminal and editor themes. Two families: six
+phosphor tubes, one colour each, whose pi themes are hand-authored and canonical;
+and four OLED-black flavors generated from palette YAML. The canonical pipeline/architecture map is `docs/manifest.md` —
 read it before changing anything structural; do not restate it here.
 
 ## Commands
@@ -34,10 +35,17 @@ Scripts can be invoked directly, e.g.
   `tokens/`, `assets/` visuals) are produced by the pipeline — change them
   by regenerating, never by hand.
 - Curated hand-authored exceptions: `integrations/`,
-  `themes/{vscode,sublime,zed,neovim,opencode}/`, and the six phosphor pi themes
-  `themes/pi/reckoner-*.json` — monochrome by design, outside the palette
-  pipeline, documented in `docs/phosphor-themes.md`. Promoting them to palettes
-  (and so to all thirteen exports) is the open question in `PLAN.md`.
+  `themes/{vscode,sublime,zed,neovim,opencode}/`.
+- **There are two pipelines and they run in opposite directions.** The flavors
+  generate everything from `palette/*.yaml`. The phosphor family generates its
+  terminal exports **from** `themes/pi/reckoner-*.json`, which is hand-authored
+  and canonical — `scripts/generate_phosphor.py`, `make phosphor-exports`, and pi
+  is deliberately excluded from its output set. Never run the palette pipeline
+  over a phosphor theme: it would overwrite the source with a worse derivation.
+  Full reasoning in `docs/manifest.md`.
+- **The phosphor family sets the standards here and the flavors follow them.**
+  The derived thinking ramp and the validator enforcing it both came from those
+  six themes. Where the two families disagree, the phosphors are the reference.
 - **The thinking ramp is derived, not assigned.** `thinking_ramp()` in
   `scripts/generate.py` interpolates in HSL from the palette's `dimText` to its
   `mint`, holding the accent's hue. Do not go back to naming palette slots: that

@@ -112,7 +112,7 @@ def gen_ghostty(p: dict) -> str:
     order = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 
     lines = [
-        f"# Random Access Theme — Ghostty",
+        f"# {meta['display_name']} — Ghostty",
         f"# {meta['description']}",
         f"# https://github.com/{meta['github']}",
         f"",
@@ -122,7 +122,10 @@ def gen_ghostty(p: dict) -> str:
         f"cursor-color = {strip(c['cursor'])}",
         f"cursor-text  = {strip(c['bg'])}",
         f"cursor-style       = block",
-        f"cursor-style-blink = true",
+        # A blinking cursor is a decision the theme gets to make. The phosphor
+        # family says nothing on the screen ever blinks — stillness is severity —
+        # and a generator that hardcodes it overrules the theme it is exporting.
+        f"cursor-style-blink = {'true' if meta.get('cursor_blink', True) else 'false'}",
         f"",
         f"selection-background = {strip(c['overlay'])}",
         f"selection-foreground = {strip(c['text'])}",
@@ -151,7 +154,7 @@ def gen_wezterm(p: dict) -> str:
     bright_list = ", ".join(f'"{ab[n]}"' for n in order)
 
     return textwrap.dedent(f"""\
-        # Random Access Theme — WezTerm color scheme
+        # {meta['display_name']} — WezTerm color scheme
         # {meta['description']}
         # https://github.com/{meta['github']}
         #
@@ -207,7 +210,7 @@ def gen_iterm2(p: dict) -> str:
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"',
         '    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
-        "<!-- Random Access Theme — iTerm2 -->",
+        f"<!-- {meta['display_name']} — iTerm2 -->",
         f"<!-- {meta['description']} -->",
         f"<!-- https://github.com/{meta['github']} -->",
         '<plist version="1.0">',
@@ -244,7 +247,7 @@ def gen_alacritty(p: dict) -> str:
     order = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 
     lines = [
-        f"# Random Access Theme — Alacritty",
+        f"# {meta['display_name']} — Alacritty",
         f"# {meta['description']}",
         f"# https://github.com/{meta['github']}",
         f"",
@@ -281,7 +284,7 @@ def gen_kitty(p: dict) -> str:
     order = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 
     lines = [
-        f"# Random Access Theme — kitty",
+        f"# {meta['display_name']} — kitty",
         f"# {meta['description']}",
         f"# https://github.com/{meta['github']}",
         f"",
