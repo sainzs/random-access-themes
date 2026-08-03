@@ -9,13 +9,20 @@ changes Apache-2.0 requires are in [`NOTICE`](../NOTICE).
 |---|---|---|---|---|
 | `madrugada` | before dawn | blue-violet night | [Tokyo Night](https://github.com/folke/tokyonight.nvim) | **Apache-2.0** |
 | `amanecer` | dawn | rose and gold | [Rosé Pine](https://github.com/rose-pine/neovim) | MIT |
+| `mediodia` | noon | Latte, ink on paper | Catppuccin | MIT |
 | `atardecer` | late afternoon | burnt ochre, olive | [Gruvbox Material](https://github.com/sainnhe/gruvbox-material) | MIT |
 | `ocaso` | sundown | amber on ink | none identified | — |
 | `anochecer` | nightfall | mauve | [Catppuccin](https://github.com/catppuccin/catppuccin) | MIT |
 
-`mediodía` is missing on purpose. The cycle wants a light theme at its peak and
-this repo has none; naming one after noon and shipping it dark would make the
-name lie.
+`mediodia` closes the cycle and is the repo's **only light theme**. It is
+Catppuccin Latte to `anochecer`'s Mocha — the two ends of the day sharing one
+palette, which is why noon reads as the same design seen in daylight rather than
+as a stranger among the five.
+
+Its ramp **descends**. On paper, escalation is ink: a ramp that climbed would
+fade toward its own background exactly when the model is working hardest. That
+cost a change to `validate_thinking_ramps`, which until then assumed every theme
+was painted on black — see `scripts/validate_theme.py`.
 
 ### madrugada
 

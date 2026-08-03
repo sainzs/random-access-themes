@@ -53,11 +53,14 @@ Source:  https://github.com/sainnhe/gruvbox-material
 License: MIT
 
 --------------------------------------------------------------------------------
-Catppuccin — themes/pi/anochecer.json
+Catppuccin — themes/pi/anochecer.json, themes/pi/mediodia.json
 --------------------------------------------------------------------------------
 Copyright (c) 2021 Catppuccin
 Source:  https://github.com/catppuccin/catppuccin
 License: MIT
+
+anochecer is the Mocha flavour; mediodia is Latte, the same project's light
+counterpart. Both carry the same two changes as the other ports.
 
 --------------------------------------------------------------------------------
 

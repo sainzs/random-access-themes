@@ -82,6 +82,7 @@ colours belong to upstream projects and are reproduced unchanged.
 |---|---|---|---|---|
 | `madrugada` | before dawn | blue-violet night | Tokyo Night | **Apache-2.0** |
 | `amanecer` | dawn | rose and gold | Rosé Pine | MIT |
+| `mediodia` | noon | Latte, ink on paper | Catppuccin | MIT |
 | `atardecer` | late afternoon | burnt ochre, olive | Gruvbox Material | MIT |
 | `ocaso` | sundown | amber on ink | none identified | — |
 | `anochecer` | nightfall | mauve | Catppuccin | MIT |

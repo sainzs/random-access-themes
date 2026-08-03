@@ -328,15 +328,32 @@ def validate_thinking_ramps() -> None:
         if unresolved:
             fail(f"{path.name}: {', '.join(unresolved)} does not resolve to a colour")
 
+        # Which way "more" points depends on what the theme is painted on. The
+        # rule is that escalation reads as more of the theme's own colour, and
+        # on ink-on-paper that means getting *darker*: a light theme whose ramp
+        # climbed would fade toward its own background exactly when the model is
+        # working hardest. `userMessageBg` is a real pi background token, so it
+        # says which world we are in without guessing from free-form var names.
+        ground = resolve("userMessageBg")
+        ground_light = _hsl(ground)[2] if ground else 0.0
+        on_paper = ground_light > 50.0
+        floor = 100.0 - PALE
+
         problems, previous = [], None
         hues = []
         for name, hex_colour in levels:
             hue, _sat, light = _hsl(hex_colour)
             hues.append(hue)
-            if light > PALE:
-                problems.append(f"{name} is washed out ({light:.0f}% lightness, limit {PALE:.0f}%)")
-            if previous is not None and light < previous - 0.01:
-                problems.append(f"{name} is darker than the level below it; the ramp must climb")
+            if on_paper:
+                if light < floor:
+                    problems.append(f"{name} is crushed ({light:.0f}% lightness, floor {floor:.0f}%)")
+                if previous is not None and light > previous + 0.01:
+                    problems.append(f"{name} is lighter than the level below it; on paper the ramp must descend")
+            else:
+                if light > PALE:
+                    problems.append(f"{name} is washed out ({light:.0f}% lightness, limit {PALE:.0f}%)")
+                if previous is not None and light < previous - 0.01:
+                    problems.append(f"{name} is darker than the level below it; the ramp must climb")
             previous = light
         span = max(hues) - min(hues)
         if span > HUE_SPAN:
@@ -345,7 +362,7 @@ def validate_thinking_ramps() -> None:
         if problems:
             fail(f"{path.name} thinking ramp:\n" + "\n".join(f"       {p}" for p in problems))
 
-    ok(f"thinking ramps climb in-hue across all {len(paths)} pi themes")
+    ok(f"thinking ramps hold hue and leave the ground across all {len(paths)} pi themes")
 
 
 # ── Check 6: Phosphor exports ──────────────────────────────────────────────────

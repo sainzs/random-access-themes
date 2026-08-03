@@ -37,6 +37,13 @@ Scripts can be invoked directly, e.g.
 
 ## Gotchas
 
+- **`mediodia` is the only light theme, and it is why the ramp rule has two
+  halves.** `validate_thinking_ramps` reads `userMessageBg` to decide which way
+  "more" points: on a dark ground the ramp climbs and is capped at 74% lightness,
+  on paper it descends and is floored at 26%. Before it did that, a correctly
+  built light theme failed on every level. Do not "simplify" it back to a single
+  direction.
+
 - **The five day-cycle themes are ports; their colours are not ours to tune.**
   `themes/pi/{madrugada,amanecer,atardecer,ocaso,anochecer}.json` reproduce
   upstream palettes byte for byte. Never run the palette pipeline over them and
