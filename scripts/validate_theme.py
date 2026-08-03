@@ -291,6 +291,30 @@ def _hsl(hex_colour: str) -> tuple[float, float, float]:
     return h * 360, s * 100, l * 100
 
 
+def validate_pi_index() -> None:
+    """
+    `scripts/get.sh` installs the pi family by reading themes/pi/index.txt,
+    because raw.githubusercontent.com cannot list a directory. A manifest that
+    drifts from the directory it describes is worse than no manifest: the
+    installer would silently skip whatever was added and 404 on whatever was
+    removed, and the person installing would have no way to tell.
+    """
+    index = THEMES_DIR / "pi" / "index.txt"
+    if not index.exists():
+        fail(f"pi theme index missing: {index}")
+    listed = [ln.strip() for ln in index.read_text().splitlines() if ln.strip()]
+    actual = sorted(p.stem for p in (THEMES_DIR / "pi").glob("*.json"))
+    if listed != actual:
+        missing = sorted(set(actual) - set(listed))
+        extra   = sorted(set(listed) - set(actual))
+        detail  = []
+        if missing: detail.append(f"not listed: {', '.join(missing)}")
+        if extra:   detail.append(f"listed but absent: {', '.join(extra)}")
+        if not detail: detail.append("same names, wrong order")
+        fail("themes/pi/index.txt is stale — " + "; ".join(detail))
+    ok(f"pi theme index lists all {len(actual)} themes")
+
+
 def validate_thinking_ramps() -> None:
     """
     The six thinking levels say how hard the model is being driven, and the
@@ -444,6 +468,7 @@ def main() -> None:
     validate_freshness()
     validate_generated_themes()
     validate_pi_theme()
+    validate_pi_index()
     validate_thinking_ramps()
     validate_phosphor_exports()
     validate_preview_png()

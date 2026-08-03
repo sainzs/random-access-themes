@@ -125,9 +125,27 @@ install_windows_terminal() {
 
 install_pi() {
   section "Pi"
-  fetch "$BASE/pi/random-access-theme.json" | place "$HOME/.pi/agent/themes/random-access-theme.json"
+  # This used to fetch one file, which meant installing from a repo of sixteen
+  # themes and coming away with one. raw.githubusercontent cannot list a
+  # directory, so the family ships a manifest; validate_theme.py fails if it
+  # drifts from themes/pi/, so it cannot silently go stale.
+  local index
+  index="$(fetch "$BASE/pi/index.txt")" || {
+    echo "get.sh: could not fetch the theme index — is RAT_REF=$REF valid?" >&2
+    exit 1
+  }
+  local count=0
+  while IFS= read -r name; do
+    [ -n "$name" ] || continue
+    fetch "$BASE/pi/$name.json" | place "$HOME/.pi/agent/themes/$name.json"
+    count=$((count + 1))
+  done <<EOF
+$index
+EOF
   [ "$DRY" -eq 1 ] && return
-  echo "  → Set in ~/.pi/agent/settings.json:  \"theme\": \"random-access-theme\""
+  info "$count themes installed"
+  echo "  → Set in ~/.pi/agent/settings.json:  \"theme\": \"mediodia/anochecer\""
+  echo "    Any one of them works alone; a single / is a light/dark pair."
   echo "    Then run /reload in Pi."
 }
 
