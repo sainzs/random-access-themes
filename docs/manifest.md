@@ -81,6 +81,23 @@ ladder — which is not a limitation of the mapping, it is what the hardware did
 across all ten pi themes, and a 3:1 floor on every ANSI slot in the phosphor
 exports against its own background.
 
+## The third family — day cycle
+
+Five hand-held pi themes, `themes/pi/{madrugada,amanecer,atardecer,ocaso,anochecer}.json`,
+absorbed from what used to be a separate `reckoner-themes` repo.
+
+They have **no pipeline at all** — neither direction. They are not generated from
+`palette/*.yaml` and nothing is generated from them:
+
+- no terminal exports, because the upstream projects publish their own and a
+  second-hand copy would silently drift from them
+- no palette YAML, because the colours are not ours to parameterise
+
+The only thing this repo authors in them is the six `thinking*` colours, and the
+only check that applies is `validate_thinking_ramps`, which globs all of
+`themes/pi/` and therefore covers them for free. Provenance lives in `NOTICE`;
+the reasoning lives in `docs/day-cycle.md`.
+
 ## Operating rule
 
 If a change affects the palette story, prefer updating the canonical YAML first, then refresh the generated outputs with:

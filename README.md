@@ -73,6 +73,24 @@ Four variants, one philosophy: dark surfaces, restrained UI chrome, and a cool-s
 
 ---
 
+## The day cycle
+
+Five themes named for the hours, darkest to brightest. Four are **ports** — their
+colours belong to upstream projects and are reproduced unchanged.
+
+| Theme | Hour | Palette | Upstream | Licence |
+|---|---|---|---|---|
+| `madrugada` | before dawn | blue-violet night | Tokyo Night | **Apache-2.0** |
+| `amanecer` | dawn | rose and gold | Rosé Pine | MIT |
+| `atardecer` | late afternoon | burnt ochre, olive | Gruvbox Material | MIT |
+| `ocaso` | sundown | amber on ink | none identified | — |
+| `anochecer` | nightfall | mauve | Catppuccin | MIT |
+
+Only pi's thinking ramp was rebuilt, because that ramp is not something those
+projects define and every port arrived with one that ended on its own error
+colour. Full detail, and the statement of changes Apache-2.0 requires, in
+[`docs/day-cycle.md`](docs/day-cycle.md) and [`NOTICE`](NOTICE).
+
 ## Why it looks different
 
 Most dark themes spread warm accents across the screen. Random Access Themes deliberately compress the visual range:
@@ -352,4 +370,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). The only files that should be edited man
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) for everything original here.
+
+The five day-cycle themes are ports and keep their upstream licences — Tokyo
+Night is **Apache-2.0**, the rest MIT. See [`NOTICE`](NOTICE) for the copyright
+holders and the record of what was changed.

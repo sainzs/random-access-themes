@@ -2,14 +2,17 @@
 
 ## Purpose
 
-Design/theme system generating terminal and editor themes. Two families: six
+Design/theme system generating terminal and editor themes. Three families: six
 phosphor tubes, one colour each, whose pi themes are hand-authored and canonical;
-and four OLED-black flavors generated from palette YAML. The canonical pipeline/architecture map is `docs/manifest.md` —
+four OLED-black flavors generated from palette YAML; and the five-theme day
+cycle, hand-held ports of upstream palettes with no exports of their own. The canonical pipeline/architecture map is `docs/manifest.md` —
 read it before changing anything structural; do not restate it here.
 
-**Done and frozen 2026-08-02** (`~/Code/PLAN.md` Phase 5.2): maintenance only — keeping
-the existing six tubes and four flavors generating correctly. No new families, no new
-flavors, no new output targets.
+**Frozen 2026-08-02, reopened once** (`~/Code/PLAN.md` Phase 5.2). The freeze
+still holds for the tubes and the flavors: maintenance only, no new flavors, no
+new output targets. The day cycle was folded in afterwards on the owner's
+instruction, consolidating what had been a second theme repo; that is the one
+exception, and it is not a precedent for a fourth family.
 
 ## Commands
 
@@ -33,6 +36,15 @@ Scripts can be invoked directly, e.g.
 `python3 scripts/generate.py --palette palette/random-access-theme.yaml --dry-run`.
 
 ## Gotchas
+
+- **The five day-cycle themes are ports; their colours are not ours to tune.**
+  `themes/pi/{madrugada,amanecer,atardecer,ocaso,anochecer}.json` reproduce
+  upstream palettes byte for byte. Never run the palette pipeline over them and
+  never "fix" a colour to match house contrast — the fidelity is the point. Only
+  the six `thinking*` values are ours, rebuilt because pi's ramp is not a concept
+  those projects define. `madrugada` is **Apache-2.0** (Tokyo Night), so any
+  change to it must be recorded in `NOTICE` under section 4(b); the other three
+  are MIT.
 
 - **Palette-first:** hand-edit only `palette/*.yaml`. Generated outputs
   (`themes/{alacritty,ghostty,iterm2,kitty,pi,wezterm,windows-terminal}/`,
