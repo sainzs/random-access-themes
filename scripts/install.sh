@@ -2,18 +2,24 @@
 # Install Random Access Theme to local system locations.
 #
 # Installs:
-#   Pi       → ~/.pi/agent/themes/random-access-theme.json
+#   Pi       → every theme into ~/.pi/agent/themes/, and sets the active one
 #   Ghostty  → ~/.config/ghostty/config (authoritative)
 #              ~/Library/Application Support/com.mitchellh.ghostty/config (stub)
-#   iTerm2   → ~/Library/Application Support/iTerm2/random-access-theme.itermcolors
+#   iTerm2   → ~/Library/Application Support/iTerm2/<theme>.itermcolors
 #
 # Usage:
-#   bash scripts/install.sh                     # install all
-#   bash scripts/install.sh --dry-run           # preview without writing
-#   bash scripts/install.sh pi                  # install Pi only
-#   bash scripts/install.sh ghostty             # install Ghostty only
-#   bash scripts/install.sh iterm2              # install iTerm2 only
-#   bash scripts/install.sh iterm2 --clean-dynamic  # archive ALL dynamic profiles
+#   bash scripts/install.sh                          # all, theme reckoner-scope
+#   bash scripts/install.sh --theme reckoner-wopr    # pick the active theme
+#   bash scripts/install.sh --dry-run                # preview without writing
+#   bash scripts/install.sh pi                       # Pi only
+#   bash scripts/install.sh ghostty                  # Ghostty only
+#   bash scripts/install.sh iterm2                   # iTerm2 only
+#   bash scripts/install.sh iterm2 --clean-dynamic   # archive ALL dynamic profiles
+#
+# The Ghostty colours are read from themes/ghostty/<theme>.conf rather than
+# written out here. They used to be a heredoc in this file — a second copy of the
+# flagship palette that no generator touched and nothing checked, which is the
+# drift this repo exists to prevent.
 
 set -euo pipefail
 
@@ -22,12 +28,25 @@ PALETTE="$ROOT/palette/random-access-theme.yaml"
 DRY=0
 TARGET="all"
 CLEAN_DYNAMIC=0
+# The phosphor family is the reference here, and this is the one the harness
+# footer was tuned against.
+THEME="reckoner-scope"
 
+prev=""
 for arg in "$@"; do
   [[ "$arg" == "--dry-run" ]] && DRY=1
   [[ "$arg" == "--clean-dynamic" ]] && CLEAN_DYNAMIC=1
   [[ "$arg" =~ ^(pi|ghostty|iterm2|all)$ ]] && TARGET="$arg"
+  [[ "$prev" == "--theme" ]] && THEME="$arg"
+  prev="$arg"
 done
+
+[[ -f "$ROOT/themes/pi/$THEME.json" ]] || {
+  echo "[FAIL] no such theme: $THEME" >&2
+  echo "       available:" >&2
+  for f in "$ROOT"/themes/pi/*.json; do echo "         $(basename "$f" .json)" >&2; done
+  exit 1
+}
 
 ok()      { echo "[OK]   $*"; }
 info()    { echo "[INFO] $*"; }
@@ -56,12 +75,20 @@ install_file() {
 }
 
 # ── Freshness ────────────────────────────────────────────────────────────────
+# themes/.checksum carries one line per palette — "<sha>  <file>". It used to
+# hold a single hash, and reading it with a bare awk over column one now yields
+# four, so this compared four hashes against one and aborted every install.
 CHECKSUM_FILE="$ROOT/themes/.checksum"
 if [[ -f "$CHECKSUM_FILE" ]]; then
-  STORED=$(awk '{print $1}' "$CHECKSUM_FILE")
-  CURRENT=$(shasum -a 256 "$PALETTE" | awk '{print $1}')
-  [[ "$STORED" == "$CURRENT" ]] || fail "palette changed since last generate — run: python3 scripts/generate.py"
-  ok "themes are up-to-date with palette"
+  stale=""
+  for pal in "$ROOT"/palette/*.yaml; do
+    name="$(basename "$pal")"
+    stored=$(awk -v n="$name" '$2 == n {print $1}' "$CHECKSUM_FILE")
+    current=$(shasum -a 256 "$pal" | awk '{print $1}')
+    [[ "$stored" == "$current" ]] || stale="$stale $name"
+  done
+  [[ -z "$stale" ]] || fail "palette(s) changed since last generate —$stale — run: make generate"
+  ok "themes are up-to-date with all palettes"
 fi
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -69,29 +96,48 @@ fi
 # ════════════════════════════════════════════════════════════════════════════
 install_pi() {
   section "Pi"
-  local src="$ROOT/themes/pi/random-access-theme.json"
-  local dst="$HOME/.pi/agent/themes/random-access-theme.json"
   local settings="$HOME/.pi/agent/settings.json"
+  local dir="$HOME/.pi/agent/themes"
 
-  python3 -c "import json; json.load(open('$src'))" 2>/dev/null \
-    || fail "Pi theme is invalid JSON: $src"
-  ok "Pi theme source is valid"
+  # Every theme, not just the flagship. A theme you cannot switch to is not
+  # installed, and /theme lists what is in this directory.
+  local count=0
+  for src in "$ROOT"/themes/pi/*.json; do
+    python3 -c "import json; json.load(open('$src'))" 2>/dev/null \
+      || fail "Pi theme is invalid JSON: $src"
+    # Symlink rather than copy: a copy is how a fork of this repo's own generated
+    # theme ended up six colours adrift in another project.
+    if [[ "$DRY" -eq 1 ]]; then
+      info "[dry-run] link $(basename "$src") → $dir/"
+    else
+      mkdir -p "$dir"
+      ln -sf "$src" "$dir/$(basename "$src")"
+    fi
+    count=$((count + 1))
+  done
+  ok "$count Pi themes linked into $dir"
 
-  install_file "$src" "$dst"
+  # A theme registers under its JSON "name", which is not always its filename.
+  local registered
+  registered=$(python3 -c "import json;print(json.load(open('$ROOT/themes/pi/$THEME.json'))['name'])")
+  if [[ "$registered" != "$THEME" ]]; then
+    info "note: $THEME.json registers as \"$registered\" — using that"
+  fi
 
   if [[ -f "$settings" ]] && command -v jq >/dev/null 2>&1; then
     local active
     active=$(jq -r '.theme // ""' "$settings")
-    if [[ "$active" != "random-access-theme" ]]; then
+    if [[ "$active" != "$registered" ]]; then
       if [[ "$DRY" -eq 0 ]]; then
-        jq '.theme = "random-access-theme"' "$settings" > "${settings}.tmp" \
+        cp "$settings" "$settings.bak-$(date +%Y%m%d-%H%M%S)"
+        jq --arg t "$registered" '.theme = $t' "$settings" > "${settings}.tmp" \
           && mv "${settings}.tmp" "$settings"
-        ok "settings.json → random-access-theme"
+        ok "settings.json theme: \"$active\" → \"$registered\""
       else
-        info "[dry-run] settings.json theme: $active → random-access-theme"
+        info "[dry-run] settings.json theme: \"$active\" → \"$registered\""
       fi
     else
-      ok "settings.json theme already correct"
+      ok "settings.json theme already \"$registered\""
     fi
   fi
 
@@ -104,11 +150,14 @@ install_pi() {
 install_ghostty() {
   section "Ghostty"
 
-  # Complete merged config — colors from palette + personal font/window/UX settings
-  local config
-  config=$(cat << 'GHOSTTY_EOF'
-# Random Access Theme — Ghostty config
-# Source: https://github.com/sainzs/random-access-themes
+  local colours="$ROOT/themes/ghostty/$THEME.conf"
+  [[ -f "$colours" ]] || fail "no Ghostty export for $THEME — run: make phosphor-exports"
+
+  # Colours come from the generated export; everything below is personal
+  # preference that no palette should own. The two used to be one heredoc here,
+  # which meant the installer carried its own copy of the flagship palette.
+  local personal
+  personal=$(cat << 'GHOSTTY_EOF'
 
 # ── Font ──────────────────────────────────────────────────────────────────────
 font-family = Berkeley Mono Variable
@@ -126,39 +175,6 @@ font-feature = liga
 font-feature = calt
 font-feature = zero
 
-# ── Colors — Random Access Theme ──────────────────────────────────────────────
-background = 060607
-foreground = d8efe9
-
-cursor-color = 00ffb2
-cursor-text  = 060607
-cursor-style       = block
-cursor-style-blink = true
-
-selection-background = 1a1c20
-selection-foreground = d8efe9
-split-divider-color  = 101214
-
-minimum-contrast = 1.2
-
-# ANSI 16-color palette
-palette = 0=#090a0b
-palette = 1=#26c994
-palette = 2=#4ade80
-palette = 3=#a2e5b8
-palette = 4=#00ffb2
-palette = 5=#35d5c5
-palette = 6=#66e3c4
-palette = 7=#d8efe9
-palette = 8=#6f8d86
-palette = 9=#00ffb2
-palette = 10=#4ade80
-palette = 11=#8bf5dd
-palette = 12=#00ffb2
-palette = 13=#35d5c5
-palette = 14=#66e3c4
-palette = 15=#d8efe9
-
 # ── Window ────────────────────────────────────────────────────────────────────
 window-padding-x = 22
 window-padding-y = 14,10
@@ -174,7 +190,6 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 resize-overlay = never
 unfocused-split-opacity = 0.92
-unfocused-split-fill = 060607
 faint-opacity = 0.95
 
 # ── UX ────────────────────────────────────────────────────────────────────────
@@ -198,6 +213,18 @@ quick-terminal-animation-duration = 0.2
 quick-terminal-autohide = true
 GHOSTTY_EOF
 )
+
+  # Two window colours that follow the theme rather than preference: the split
+  # divider and the fill behind an unfocused split both read as chrome, so they
+  # take the theme's own background.
+  local bg
+  bg=$(awk '/^background = /{print $3; exit}' "$colours")
+
+  local config
+  config="$(cat "$colours")
+split-divider-color  = $bg
+unfocused-split-fill = $bg
+$personal"
 
   local xdg="$HOME/.config/ghostty/config"
   local lib="$HOME/Library/Application Support/com.mitchellh.ghostty/config"
@@ -246,8 +273,8 @@ GHOSTTY_EOF
 install_iterm2() {
   section "iTerm2"
 
-  local src="$ROOT/themes/iterm2/random-access-theme.itermcolors"
-  local dst="$HOME/Library/Application Support/iTerm2/random-access-theme.itermcolors"
+  local src="$ROOT/themes/iterm2/$THEME.itermcolors"
+  local dst="$HOME/Library/Application Support/iTerm2/$THEME.itermcolors"
   local dprofiles="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 
   [[ -f "$src" ]] || fail "iTerm2 theme not found: $src — run: python3 scripts/generate.py"
@@ -275,13 +302,13 @@ install_iterm2() {
     [[ "$cleared" -gt 0 ]] && ok "archived $cleared dynamic profile(s)" \
                             || ok "no dynamic profiles found"
   else
-    for f in "$dprofiles"/random-access-theme.json "$dprofiles"/random-access-memories.json; do
+    for f in "$dprofiles"/$THEME.json "$dprofiles"/random-access-theme.json "$dprofiles"/random-access-memories.json; do
       [[ -f "$f" ]] || continue
       mv "$f" "$dprofiles/backups/$(basename "$f").$(date +%Y%m%d-%H%M%S)"
       (( cleared++ )) || true
     done
-    [[ "$cleared" -gt 0 ]] && ok "archived $cleared Random Access dynamic profile(s)" \
-                            || ok "no Random Access dynamic profiles found"
+    [[ "$cleared" -gt 0 ]] && ok "archived $cleared matching dynamic profile(s)" \
+                            || ok "no matching dynamic profiles found"
   fi
 
   # Copy .itermcolors to a stable location for easy re-import
