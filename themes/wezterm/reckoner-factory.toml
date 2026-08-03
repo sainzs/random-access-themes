@@ -1,9 +1,9 @@
-# Factory — WezTerm color scheme
-# Safety orange on true black — a room, not a tube.
+# Reckoner Factory — WezTerm color scheme
+# Safety orange on true black — machine-shop signage under work lights.
 # https://github.com/sainzs/random-access-themes
 #
 # Place in ~/.config/wezterm/colors/
-# Then set: config.color_scheme = "Factory"
+# Then set: config.color_scheme = "Reckoner Factory"
 
 [colors]
 foreground    = "#eeeeee"
@@ -17,5 +17,5 @@ ansi          = ["#1f1d1c", "#e54048", "#6fab78", "#d8a657", "#8a8380", "#eeeeee
 brights       = ["#5c5855", "#e54048", "#6fab78", "#d8a657", "#ef6f2e", "#ef6f2e", "#ef6f2e", "#ef6f2e"]
 
 [metadata]
-name       = "Factory"
+name       = "Reckoner Factory"
 origin_url = "https://github.com/sainzs/random-access-themes"

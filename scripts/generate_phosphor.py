@@ -57,13 +57,25 @@ OUTPUTS = {
 }
 
 # What each tube is, for the export headers. The pi themes carry no prose.
+#
+# The display name is not decoration: WezTerm selects a scheme by this exact
+# string and Windows Terminal shows it in a dropdown, both in a namespace shared
+# with every other scheme the user has installed. The first version used bare
+# words — Scope, Dusk, Factory — which said nothing about where they came from and
+# would sit in that list waiting to collide with someone else's Dusk. They carry
+# the family now, matching the pi theme ids they are generated from.
+#
+# The descriptions for dusk and factory used to say what those two are not ("the
+# one that is not a tube"). That reads fine in a design note where the contrast is
+# the point and badly as the one line a stranger meets at the top of a config
+# file.
 TUBES = {
-    "reckoner-exect": ("EXECT", "EXECT-100 / DEC VT520 — amber phosphor on warm near-black."),
-    "reckoner-scope": ("Scope", "DEC VT640 radar — P1 green on green glass."),
-    "reckoner-wopr": ("WOPR", "VT100 blue screen — cyan and white-blue, the war room."),
-    "reckoner-darkspace": ("Darkspace", "dark.spaceAMP — teal wireframe on blackest glass."),
-    "reckoner-dusk": ("Dusk", "Violet on blue-black — the one that is not a tube."),
-    "reckoner-factory": ("Factory", "Safety orange on true black — a room, not a tube."),
+    "reckoner-exect": ("Reckoner EXECT", "EXECT-100 / DEC VT520 — amber phosphor on warm near-black."),
+    "reckoner-scope": ("Reckoner Scope", "DEC VT640 radar — P1 green on green glass."),
+    "reckoner-wopr": ("Reckoner WOPR", "VT100 blue screen — cyan and white-blue, the war room."),
+    "reckoner-darkspace": ("Reckoner Darkspace", "dark.spaceAMP — teal wireframe on blackest glass."),
+    "reckoner-dusk": ("Reckoner Dusk", "Violet on blue-black — late light, cold screen."),
+    "reckoner-factory": ("Reckoner Factory", "Safety orange on true black — machine-shop signage under work lights."),
 }
 
 

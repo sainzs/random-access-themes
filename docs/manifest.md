@@ -62,6 +62,10 @@ the same generator functions the palettes use.
 - Never generated: the pi themes themselves. They are the input, and
   `generate_phosphor.py` excludes pi from its output set on purpose.
 - Regenerate with `make phosphor-exports`; screenshots with `make phosphor`
+- Display names live in `TUBES` in `scripts/generate_phosphor.py` and are
+  user-visible: WezTerm selects a scheme by that exact string and Windows
+  Terminal lists it. They carry the family — `Reckoner Scope`, not `Scope` —
+  because that namespace is shared with every scheme the user has installed.
 
 Why not palettes: these six arrived finished, hand-tuned against a real harness,
 with a thinking ramp rebuilt in HSL and a brightness ladder that is the entire

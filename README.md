@@ -91,7 +91,7 @@ See the full rationale in [docs/design.md](docs/design.md).
 
 ### Terminals — phosphor family
 
-| Terminal | exect | scope | wopr | darkspace | dusk | factory |
+| Terminal | Reckoner EXECT | Reckoner Scope | Reckoner WOPR | Reckoner Darkspace | Reckoner Dusk | Reckoner Factory |
 |----------|:---:|:---:|:---:|:---:|:---:|:---:|
 | Ghostty | [conf](themes/ghostty/reckoner-exect.conf) | [conf](themes/ghostty/reckoner-scope.conf) | [conf](themes/ghostty/reckoner-wopr.conf) | [conf](themes/ghostty/reckoner-darkspace.conf) | [conf](themes/ghostty/reckoner-dusk.conf) | [conf](themes/ghostty/reckoner-factory.conf) |
 | WezTerm | [toml](themes/wezterm/reckoner-exect.toml) | [toml](themes/wezterm/reckoner-scope.toml) | [toml](themes/wezterm/reckoner-wopr.toml) | [toml](themes/wezterm/reckoner-darkspace.toml) | [toml](themes/wezterm/reckoner-dusk.toml) | [toml](themes/wezterm/reckoner-factory.toml) |
