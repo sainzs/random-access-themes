@@ -79,6 +79,15 @@ Facts that will save time:
 
 ## Task 0 — `/tone random` cannot work, and it is the default
 
+**This is a class, not an incident.** The same failure has now been found twice.
+The second was a `settings.json` holding `tokyo-night/reckoner-scope`, a
+package-qualified name pi does not support; `initTheme` caught the error, swapped
+in the built-in `dark`, and said nothing, so the phosphor family was invisible in
+every session outside one repo for as long as that value sat there. Whatever
+fixes the `/tone` case should also make a bad theme name *observable* — the
+missing thing is not the fix, it is that nothing anywhere says "the theme you
+asked for is not the theme you got".
+
 Verify this first; the rest of the plan documents a system that is broken at its
 default setting.
 

@@ -54,6 +54,22 @@ Scripts can be invoked directly, e.g.
 - **`themes/.checksum` holds one line per palette.** It used to hold only the
   palette most recently generated, so building any flavor other than the default
   left `make validate` reporting the default as stale.
+- **pi resolves a theme by the `name` inside the JSON, not the filename, and
+  fails to `dark` silently.** `initTheme` catches any resolution error and swaps
+  in the built-in dark theme with no warning, so an unresolvable name looks
+  exactly like a working install of a dark theme. This family has hit it twice:
+  `/tone random` asks for `random-access`, which is registered as
+  `random-access-theme` (`PLAN.md` task 0), and a `settings.json` holding
+  `tokyo-night/reckoner-scope` — a package-qualified form pi does not support —
+  which kept every phosphor theme invisible outside one repo. After any install,
+  confirm the active name appears in `ls ~/.pi/agent/themes/`. `install.sh` warns
+  when a file's name and stem disagree, but nothing can warn about the fallback.
+- **`scripts/install.sh` writes to this machine and backs up what it replaces**
+  (`~/.config/ghostty/backups/`, `settings.json.bak-<stamp>`). It takes
+  `--theme <name>`, links every pi theme rather than one, and reads Ghostty
+  colours from `themes/ghostty/<theme>.conf` — never hand-write colours into it
+  again; that heredoc was a silent second copy of the flagship palette. Always
+  offer `--dry-run` output before running it against someone's config.
 - **`make phosphor` uses the system interpreter**, not `.venv`: it needs Pillow
   and nothing else in the pipeline draws raster images. Its footer animation
   frames come from `scripts/footer-frames.json`, a committed snapshot from the

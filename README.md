@@ -189,18 +189,30 @@ Add the scheme from `themes/windows-terminal/random-access-theme.json` into the 
 ### Pi
 
 ```bash
-cp themes/pi/random-access-theme.json ~/.pi/agent/themes/
+bash scripts/install.sh pi --theme reckoner-scope
 ```
 
-Then: `/settings` > select `random-access-theme` > `/reload`
-
-`themes/pi/` holds ten themes: the four flavors, and the six phosphor tubes
-described in [docs/phosphor-themes.md](docs/phosphor-themes.md). Symlink rather
-than copy if you want them to track the repo:
+Links all ten themes into `~/.pi/agent/themes/` and sets that one active. Then
+`/reload`. By hand, if you prefer:
 
 ```bash
 for t in themes/pi/*.json; do ln -sf "$PWD/$t" ~/.pi/agent/themes/; done
 ```
+
+**Check that the theme actually took.** pi resolves a theme by the `name` field
+inside the JSON, not by filename, and if the name in `settings.json` does not
+resolve `initTheme` falls back to its built-in `dark` **silently** — no warning,
+no log line, and a dark theme is plausible enough that you can look straight at
+the fallback for weeks. A theme with a `/` in it, a package-qualified name, a
+typo: all identical from the outside.
+
+```bash
+python3 -c "import json;print(json.load(open('$HOME/.pi/agent/settings.json'))['theme'])"
+ls ~/.pi/agent/themes/ | sed 's/.json$//'
+```
+
+The first must appear in the second. `themes/pi/` holds ten: the four flavors and
+the six phosphor tubes in [docs/phosphor-themes.md](docs/phosphor-themes.md).
 
 ---
 
@@ -283,7 +295,24 @@ pip install pyyaml
 | `make validate` | Structural + freshness + drift checks |
 | `make contrast` | Full WCAG contrast report |
 | `make check` | Generate + validate + contrast |
+| `make phosphor-exports` | Derive phosphor terminal exports from `themes/pi/reckoner-*.json` |
+| `make phosphor` | Regenerate the phosphor screenshots in `assets/phosphor/` |
 | `make release` | Build release artifacts to `dist/` |
+
+Installing to this machine is `scripts/install.sh`, which takes `--theme <name>`
+(default `reckoner-scope`), links every pi theme, writes the Ghostty config from
+`themes/ghostty/<theme>.conf`, and backs up anything it replaces:
+
+```bash
+bash scripts/install.sh --dry-run          # see it first
+bash scripts/install.sh --theme reckoner-wopr
+bash scripts/install.sh pi                 # one target only
+```
+
+Ghostty colours are read from the generated export rather than written into the
+installer. They used to be a heredoc in that script — a second copy of the
+flagship palette that no generator touched and no check compared, in the one file
+whose job is to be the last word on what lands on a machine.
 
 The source-of-truth map lives in [docs/manifest.md](docs/manifest.md), and the
 public preview flow is documented in [docs/demo.md](docs/demo.md).
