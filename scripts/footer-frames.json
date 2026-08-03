@@ -1,0 +1,253 @@
+{
+  "activities": [
+    {
+      "kind": "idle",
+      "verb": "idle",
+      "note": "still — the loop is torn down, zero renders",
+      "frames": [
+        "⣀  "
+      ],
+      "cycleFrames": 1
+    },
+    {
+      "kind": "thinking",
+      "verb": "thinking",
+      "note": "a bead pools, swells, and the ring drifts outward",
+      "frames": [
+        " ⡀ ",
+        " ⣄ ",
+        " ⣦ ",
+        " ⣷ ",
+        "⡀⣷⡀",
+        "⣄⣦⣄",
+        "⣦⣄⣦",
+        "⣷⡀⣷",
+        "⣷ ⣷",
+        "⣦ ⣦",
+        "⣄ ⣄",
+        "⡀ ⡀"
+      ],
+      "cycleFrames": 23
+    },
+    {
+      "kind": "answering",
+      "verb": "answering",
+      "note": "a shift register, one frame per token chunk",
+      "frames": [
+        "⡀ ⠈",
+        "⡄⡀ ",
+        "⡇⡆⡄",
+        "⣇⡇⡆",
+        "⣧⣇⡇",
+        "⣿⣷⣧",
+        "⣾⣿⣷",
+        "⣸⣼⣾",
+        "⢸⣸⣼",
+        "⠸⢸⣸",
+        "⠈⠘⠸",
+        " ⠈⠘"
+      ],
+      "cycleFrames": 16
+    },
+    {
+      "kind": "reading",
+      "verb": "reading",
+      "note": "a mid-height dot crosses, then carriage-returns",
+      "frames": [
+        "⣂⣀⣀",
+        "⣐⣀⣀",
+        "⣀⣂⣀",
+        "⣀⣐⣀",
+        "⣀⣀⣂",
+        "⣀⣀⣐",
+        "⣄⣀⣀"
+      ],
+      "cycleFrames": 7
+    },
+    {
+      "kind": "searching",
+      "verb": "searching",
+      "note": "a scanner line sweeps back and forth, never resting",
+      "frames": [
+        "⣆⣀⣀",
+        "⣰⣀⣀",
+        "⣀⣆⣀",
+        "⣀⣰⣀",
+        "⣀⣀⣆",
+        "⣀⣀⣰",
+        "⣀⣀⣆",
+        "⣀⣰⣀",
+        "⣀⣆⣀",
+        "⣰⣀⣀"
+      ],
+      "cycleFrames": 10
+    },
+    {
+      "kind": "fetching",
+      "verb": "fetching",
+      "note": "out to the wire, silence, then a reply returns",
+      "frames": [
+        "⡤⠤⠤",
+        "⢤⠤⠤",
+        "⠤⡤⠤",
+        "⠤⠤⡤",
+        "⠤⠤⢤",
+        "⣤⠤⠤",
+        "⠤⠤⠬",
+        "⠤⠤⠥",
+        "⠤⠬⠤",
+        "⠬⠤⠤",
+        "⠥⠤⠤",
+        "⣤⠤⠤"
+      ],
+      "cycleFrames": 14
+    },
+    {
+      "kind": "editing",
+      "verb": "editing",
+      "note": "the stylus lays ink down, then the line dries",
+      "frames": [
+        "⡀  ",
+        "⣤  ",
+        "⣶  ",
+        "⣿⡀ ",
+        "⣿⣤ ",
+        "⣿⣷ ",
+        "⣿⣿⡀",
+        "⣿⣿⣤",
+        "⣿⣿⣷",
+        "⣶⣶⣶",
+        "⣤⣤⣤",
+        "⡀⡀⡀"
+      ],
+      "cycleFrames": 31
+    },
+    {
+      "kind": "running",
+      "verb": "running",
+      "note": "pistons reciprocating — a machine, not a fluid",
+      "frames": [
+        "⣿⡀⣿",
+        "⣷⣀⣷",
+        "⣶⣄⣶",
+        "⣤⣦⣤",
+        "⣄⣶⣄",
+        "⣀⣷⣀",
+        "⡀⣿⡀",
+        "⣀⣷⣀",
+        "⣄⣶⣄",
+        "⣦⣤⣦",
+        "⣶⣄⣶",
+        "⣷⣀⣷"
+      ],
+      "cycleFrames": 14
+    },
+    {
+      "kind": "recalling",
+      "verb": "recalling",
+      "note": "a crest arrives from the far side",
+      "frames": [
+        "⣤⡀⣶",
+        "⣄⡀⣷",
+        "⡀⣄⣷",
+        "⡀⣤⣶",
+        "⡀⣶⣤",
+        "⡀⣷⣄",
+        "⣄⣶⡀",
+        "⣦⣦⡀",
+        "⣶⣄⡀",
+        "⣿⣀⣀",
+        "⣶⡀⣄",
+        "⣦⡀⣦"
+      ],
+      "cycleFrames": 24
+    },
+    {
+      "kind": "settling",
+      "verb": "settling",
+      "note": "a trough of depletion sweeps the field",
+      "frames": [
+        "⣤⣿⣤",
+        "⣀⣿⣦",
+        " ⣷⣷",
+        "⣀⣦⣿",
+        "⣤⣤⣿",
+        "⣦⣀⣿",
+        "⣿⡀⣶",
+        "⣿⣄⣤",
+        "⣿⣤⣄",
+        "⣿⣶⡀",
+        "⣶⣿⡀",
+        "⣤⣿⣄"
+      ],
+      "cycleFrames": 24
+    }
+  ],
+  "well": [
+    {
+      "remaining": 84,
+      "glyphs": "⣿⣿⣿⣿⣶⣀",
+      "inks": [
+        "muted",
+        "muted",
+        "muted",
+        "muted",
+        "muted",
+        "dim"
+      ]
+    },
+    {
+      "remaining": 62,
+      "glyphs": "⣿⣿⣿⣶⣀⣀",
+      "inks": [
+        "muted",
+        "muted",
+        "muted",
+        "muted",
+        "dim",
+        "dim"
+      ]
+    },
+    {
+      "remaining": 28,
+      "glyphs": "⣿⣶⣀⣀⣀⣀",
+      "inks": [
+        "warning",
+        "warning",
+        "dim",
+        "dim",
+        "dim",
+        "dim"
+      ]
+    },
+    {
+      "remaining": 7,
+      "glyphs": "⣶⣀⣀⣀⣀⣀",
+      "inks": [
+        "error",
+        "dim",
+        "dim",
+        "dim",
+        "dim",
+        "dim"
+      ]
+    },
+    {
+      "remaining": null,
+      "glyphs": "⠄⠄⠄⠄⠄⠄",
+      "inks": [
+        "dim",
+        "dim",
+        "dim",
+        "dim",
+        "dim",
+        "dim"
+      ]
+    }
+  ],
+  "trail": {
+    "done": 2,
+    "total": 5,
+    "glyphs": "⣿⣿⣿⣀⣀⣀⣀⣀"
+  }
+}

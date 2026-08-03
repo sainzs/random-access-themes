@@ -34,7 +34,22 @@ Scripts can be invoked directly, e.g.
   `tokens/`, `assets/` visuals) are produced by the pipeline — change them
   by regenerating, never by hand.
 - Curated hand-authored exceptions: `integrations/`,
-  `themes/{vscode,sublime,zed,neovim,opencode}/`.
+  `themes/{vscode,sublime,zed,neovim,opencode}/`, and the six phosphor pi themes
+  `themes/pi/reckoner-*.json` — monochrome by design, outside the palette
+  pipeline, documented in `docs/phosphor-themes.md`. Promoting them to palettes
+  (and so to all thirteen exports) is the open question in `PLAN.md`.
+- **The thinking ramp is derived, not assigned.** `thinking_ramp()` in
+  `scripts/generate.py` interpolates in HSL from the palette's `dimText` to its
+  `mint`, holding the accent's hue. Do not go back to naming palette slots: that
+  is what produced ramps which fell twice and finished at 89% lightness across
+  208° of hue. `validate_thinking_ramps()` rejects it now.
+- **`themes/.checksum` holds one line per palette.** It used to hold only the
+  palette most recently generated, so building any flavor other than the default
+  left `make validate` reporting the default as stale.
+- **`make phosphor` uses the system interpreter**, not `.venv`: it needs Pillow
+  and nothing else in the pipeline draws raster images. Its footer animation
+  frames come from `scripts/footer-frames.json`, a committed snapshot from the
+  reckoner package — refresh with `npx tsx scripts/dump-ink-frames.ts` there.
 - There is no pytest suite and no linter/formatter configured — correctness
   is enforced by `scripts/validate_theme.py` and `scripts/contrast_matrix.py`.
 - Definition of done: `make check` passes (generate + validate + WCAG

@@ -34,6 +34,33 @@ Four variants, one philosophy: dark surfaces, restrained UI chrome, and a cool-s
 
 ---
 
+## The phosphor family
+
+Six more themes sit alongside the four flavors, and they break the house rule on
+purpose: one phosphor each, hierarchy from brightness alone, no accent family at
+all. They are love letters to specific hardware — a VT520 under amber, a VT640
+radar scope, the WOPR's blue room — and they are hand-authored rather than
+generated, because a pipeline built to spread a cool-spectrum palette across four
+flavors has nothing useful to say about a monochrome tube.
+
+| Theme | Tube | Glow |
+|---|---|---|
+| `reckoner-exect` | EXECT-100 / DEC VT520 | amber phosphor |
+| `reckoner-scope` | DEC VT640 | P1 green |
+| `reckoner-wopr` | VT100 | navy + cyan |
+| `reckoner-darkspace` | dark.spaceAMP | teal wireframe |
+| `reckoner-dusk` | — | violet on blue-black |
+| `reckoner-factory` | — | safety orange on true black |
+
+<p align="center"><img src="assets/phosphor/reckoner-exect.png" alt="reckoner-exect — amber phosphor" width="760"/></p>
+
+Full descriptions, the brightness ladder, and the harness-footer vocabulary they
+were tuned against: **[docs/phosphor-themes.md](docs/phosphor-themes.md)**.
+
+They also brought the thinking-ramp rule the generator now uses — see below.
+
+---
+
 ## Why it looks different
 
 Most dark themes spread warm accents across the screen. Random Access Themes deliberately compress the visual range:
@@ -141,6 +168,14 @@ cp themes/pi/random-access-theme.json ~/.pi/agent/themes/
 
 Then: `/settings` > select `random-access-theme` > `/reload`
 
+`themes/pi/` holds ten themes: the four flavors, and the six phosphor tubes
+described in [docs/phosphor-themes.md](docs/phosphor-themes.md). Symlink rather
+than copy if you want them to track the repo:
+
+```bash
+for t in themes/pi/*.json; do ln -sf "$PWD/$t" ~/.pi/agent/themes/; done
+```
+
 ---
 
 ## Integrations
@@ -177,6 +212,33 @@ Flagship Random Access palette — all colors stay in a green-family range, incl
 | lime | `#a2e5b8` | Strings, warnings |
 
 All foreground colors pass **WCAG AA** against `#000000`. Most reach **AAA**.
+
+### Thinking levels
+
+Pi shows how hard the model is being driven as one escalating colour, six levels
+of it. **Escalation is chroma, not lightness.** Each ramp is derived in HSL from
+the palette's quiet text up to its hero accent, holds the accent's hue for the
+whole climb, and stops at the accent — never past it. A phosphor driven harder
+gets more vivid, not more white.
+
+It used to be six fixed palette slots — `subtle`, `emerald`, `teal`, `jade`,
+`mint`, `aqua` — the same list for every flavor, which was not a ramp at all: it
+fell at `minimal`, fell again at `high`, and finished on `aqua` at 75% lightness.
+Amnesiac was worse, ending at 89% having crossed 208° of hue, so asking for more
+reasoning turned the indicator pale and then a different colour entirely.
+
+| flavor | off | xhigh | hue held |
+|---|---|---|---|
+| Random Access | `#6f8d84` | `#00ffb2` | 0° |
+| Veridis | `#71817c` | `#00ffb2` | 1° |
+| Voyager | `#718180` | `#2ccfc0` | 2° |
+| Amnesiac | `#717481` | `#7a93ff` | 1° |
+
+`make validate` enforces it across every theme in `themes/pi/`, flavors and
+phosphors alike: no level above 74% lightness, none darker than the level below
+it, and no more than 40° of hue across the ramp. The check came from the reckoner
+project, where it was written after watching the top level go white on a screen
+recording.
 
 ---
 

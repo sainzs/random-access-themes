@@ -64,12 +64,12 @@
     "syntaxType": "cyan",
     "syntaxOperator": "emerald",
     "syntaxPunctuation": "subtle",
-    "thinkingOff": "subtle",
-    "thinkingMinimal": "emerald",
-    "thinkingLow": "teal",
-    "thinkingMedium": "jade",
-    "thinkingHigh": "mint",
-    "thinkingXhigh": "aqua",
+    "thinkingOff": "#71817c",
+    "thinkingMinimal": "#5b9987",
+    "thinkingLow": "#45b291",
+    "thinkingMedium": "#2fcb9c",
+    "thinkingHigh": "#18e5a7",
+    "thinkingXhigh": "#00ffb2",
     "bashMode": "lime"
   },
   "export": {

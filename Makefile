@@ -10,6 +10,12 @@ all: generate validate
 generate:
 	$(PYTHON) scripts/generate.py
 
+# Regenerate the phosphor-family screenshots (themes/pi/reckoner-*.json)
+# Needs Pillow, which the project .venv does not carry; the system interpreter
+# does. Nothing else in the pipeline draws raster images.
+phosphor:
+	python3 scripts/render_phosphor_screenshots.py
+
 # Regenerate README visuals from palette
 visuals:
 	$(PYTHON) scripts/render_repo_visuals.py

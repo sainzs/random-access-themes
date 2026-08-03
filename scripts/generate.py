@@ -13,6 +13,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import colorsys
 import hashlib
 import json
 import sys
@@ -20,6 +21,52 @@ import textwrap
 from pathlib import Path
 
 import yaml
+
+# ── Thinking ramp ─────────────────────────────────────────────────────────────
+
+PALE = 74.0  # lightness ceiling; above this a phosphor has stopped being itself
+
+
+def _hsl(hex_colour: str) -> tuple[float, float, float]:
+    r, g, bl = (int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    h, l, s = colorsys.rgb_to_hls(r, g, bl)
+    return h * 360, s * 100, l * 100
+
+
+def _hex(h: float, s: float, l: float) -> str:
+    r, g, b = colorsys.hls_to_rgb((h % 360) / 360, l / 100, s / 100)
+    return "#%02x%02x%02x" % (round(r * 255), round(g * 255), round(b * 255))
+
+
+def thinking_ramp(low: str, high: str, steps: int = 6) -> list[str]:
+    """
+    The six thinking levels, from resting to driven hardest.
+
+    Derived rather than assigned. This used to be six fixed palette slots —
+    subtle, emerald, teal, jade, mint, aqua — the same list for every flavor,
+    and the result was not a ramp: it fell at minimal, fell again at high, and
+    finished on aqua at 75% lightness. Asking the model to think harder made the
+    indicator paler until it left the palette entirely and turned white.
+
+    Escalation is **chroma, not lightness**. The whole ramp is drawn in the
+    accent's own hue: it starts at the quiet text's saturation and lightness,
+    climbs saturation to the accent's, and stops there.
+
+    Holding the hue is not a refinement, it is the point. A first version
+    interpolated hue from `dimText` up to the accent, which works only where the
+    two already agree — in this palette they sit 4° apart. Where the quiet text
+    is a neutral grey the ramp swept the long way through foreign colour:
+    amnesiac spanned 208°, so driving the model harder walked its indicator
+    across the wheel and out of the theme.
+    """
+    _, s0, l0 = _hsl(low)
+    hue, s1, l1 = _hsl(high)
+    ceiling = min(max(l0, l1), PALE)
+    out = []
+    for i in range(steps):
+        t = i / (steps - 1)
+        out.append(_hex(hue, s0 + (s1 - s0) * t, l0 + (ceiling - l0) * t))
+    return out
 
 ROOT = Path(__file__).resolve().parents[1]
 THEMES_DIR = ROOT / "themes"
@@ -292,6 +339,7 @@ def gen_windows_terminal(p: dict) -> str:
 def gen_pi(p: dict) -> str:
     c = p["palette"]
     meta = p["meta"]
+    ramp = thinking_ramp(c["dimText"], c["mint"])
 
     theme = {
         "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
@@ -359,12 +407,13 @@ def gen_pi(p: dict) -> str:
             "syntaxType":         "cyan",
             "syntaxOperator":     "emerald",
             "syntaxPunctuation":  "subtle",
-            "thinkingOff":        "subtle",
-            "thinkingMinimal":    "emerald",
-            "thinkingLow":        "teal",
-            "thinkingMedium":     "jade",
-            "thinkingHigh":       "mint",
-            "thinkingXhigh":      "aqua",
+            # Derived, not assigned — see thinking_ramp() for why.
+            "thinkingOff":        ramp[0],
+            "thinkingMinimal":    ramp[1],
+            "thinkingLow":        ramp[2],
+            "thinkingMedium":     ramp[3],
+            "thinkingHigh":       ramp[4],
+            "thinkingXhigh":      ramp[5],
             "bashMode":           "lime",
         },
         "export": {
@@ -396,7 +445,7 @@ def main() -> None:
     parser.add_argument("--target", choices=list(TARGETS), help="Generate a single target only")
     args = parser.parse_args()
 
-    palette_path = Path(args.palette)
+    palette_path = Path(args.palette).resolve()
     if not palette_path.exists():
         print(f"[FAIL] palette not found: {palette_path}", file=sys.stderr)
         raise SystemExit(1)
@@ -414,10 +463,20 @@ def main() -> None:
         write_or_print(out_path, content, args.dry_run)
 
     if not args.dry_run:
-        # Write palette checksum so validate_theme.py can detect stale themes
-        checksum = hashlib.sha256(palette_path.read_bytes()).hexdigest()
+        # Write a checksum per palette so validate_theme.py can detect stale
+        # themes. One line per file, rewritten in place: the previous version
+        # stored only the palette it had just built, so generating any flavor
+        # other than the default left the gate reporting the default as stale —
+        # an order dependency between commands that nothing declared.
         checksum_file = THEMES_DIR / ".checksum"
-        checksum_file.write_text(f"{checksum}  {palette_path.name}\n")
+        sums = {}
+        if checksum_file.exists():
+            for line in checksum_file.read_text().splitlines():
+                if line.strip():
+                    digest, _, name = line.partition("  ")
+                    sums[name.strip()] = digest.strip()
+        sums[palette_path.name] = hashlib.sha256(palette_path.read_bytes()).hexdigest()
+        checksum_file.write_text("".join(f"{d}  {n}\n" for n, d in sorted(sums.items())))
         print(f"\nGenerated {len(targets)} theme(s) → themes/")
 
 

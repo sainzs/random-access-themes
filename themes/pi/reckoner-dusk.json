@@ -65,12 +65,12 @@
     "syntaxType": "cyan",
     "syntaxOperator": "accent",
     "syntaxPunctuation": "muted1",
-    "thinkingOff": "bg3",
-    "thinkingMinimal": "muted1",
-    "thinkingLow": "accent3",
-    "thinkingMedium": "accent",
-    "thinkingHigh": "accent2",
-    "thinkingXhigh": "pink",
+    "thinkingOff": "#494954",
+    "thinkingMinimal": "#555371",
+    "thinkingLow": "#615992",
+    "thinkingMedium": "#7262b0",
+    "thinkingHigh": "#8a74c6",
+    "thinkingXhigh": "#a489d8",
     "bashMode": "accent3"
   },
   "export": {

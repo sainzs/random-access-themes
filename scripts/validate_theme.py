@@ -18,6 +18,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import colorsys
 import hashlib
 import json
 import re
@@ -28,6 +29,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PALETTE_FILE  = ROOT / "palette" / "random-access-theme.yaml"
+PALETTE_DIR   = ROOT / "palette"
 THEMES_DIR    = ROOT / "themes"
 CHECKSUM_FILE = THEMES_DIR / ".checksum"
 PREVIEW_SVG      = ROOT / "assets" / "preview.svg"
@@ -145,15 +147,25 @@ def validate_freshness() -> None:
             "       Run: python3 scripts/generate.py"
         )
 
-    stored  = CHECKSUM_FILE.read_text().split()[0]
-    current = hashlib.sha256(PALETTE_FILE.read_bytes()).hexdigest()
+    stored = {}
+    for line in CHECKSUM_FILE.read_text().splitlines():
+        if line.strip():
+            digest, _, name = line.partition("  ")
+            stored[name.strip()] = digest.strip()
 
-    if stored != current:
+    stale = []
+    for palette in sorted(PALETTE_DIR.glob("*.yaml")):
+        current = hashlib.sha256(palette.read_bytes()).hexdigest()
+        if stored.get(palette.name) != current:
+            stale.append(palette.name)
+
+    if stale:
         fail(
-            "palette changed since themes were last generated.\n"
-            "       Run: python3 scripts/generate.py"
+            "palette changed since themes were last generated: "
+            + ", ".join(stale)
+            + "\n       Run: python3 scripts/generate.py --palette palette/<name>.yaml"
         )
-    ok("themes are up-to-date with palette")
+    ok(f"themes are up-to-date with all {len(stored)} palettes")
 
 
 # ── Check 3: Generated files ───────────────────────────────────────────────────
@@ -261,6 +273,80 @@ def validate_installed(skip: bool) -> None:
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 
+# ── Check 5: Thinking ramps, every pi theme ────────────────────────────────────
+
+PALE = 74.0     # a level above this has stopped being the theme's colour
+HUE_SPAN = 40.0 # degrees the escalation may wander before it is a different hue
+
+THINKING = [
+    "thinkingOff", "thinkingMinimal", "thinkingLow",
+    "thinkingMedium", "thinkingHigh", "thinkingXhigh",
+]
+
+
+def _hsl(hex_colour: str) -> tuple[float, float, float]:
+    r, g, b = (int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    return h * 360, s * 100, l * 100
+
+
+def validate_thinking_ramps() -> None:
+    """
+    The six thinking levels say how hard the model is being driven, and the
+    escalation must read as more of the theme's own colour — not as more white,
+    and not as a different colour.
+
+    This check arrives from the reckoner-themes project, where it was written
+    after watching a recording of the footer: at the top thinking level the
+    indicator had gone white, and on two themes it had changed hue entirely and
+    landed on their error colour, so asking for more reasoning looked like
+    something had gone wrong. Three of the four flavors here failed it on the day
+    it was added — amnesiac finished at 89% lightness having crossed 208° of hue.
+
+    Applied to every theme in themes/pi/, generated or hand-authored, because
+    the previous pi check looked at one file by name and the family has seven.
+    """
+    paths = sorted((THEMES_DIR / "pi").glob("*.json"))
+    if not paths:
+        fail("no pi themes found to check")
+
+    for path in paths:
+        theme = json.loads(path.read_text())
+        colors, vars_map = theme.get("colors", {}), theme.get("vars", {})
+
+        def resolve(key: str) -> str | None:
+            val = colors.get(key)
+            for _ in range(4):
+                if isinstance(val, str) and val.startswith("#"):
+                    return val
+                val = vars_map.get(val, colors.get(val)) if isinstance(val, str) else None
+            return None
+
+        levels = [(name, resolve(name)) for name in THINKING]
+        unresolved = [n for n, v in levels if v is None]
+        if unresolved:
+            fail(f"{path.name}: {', '.join(unresolved)} does not resolve to a colour")
+
+        problems, previous = [], None
+        hues = []
+        for name, hex_colour in levels:
+            hue, _sat, light = _hsl(hex_colour)
+            hues.append(hue)
+            if light > PALE:
+                problems.append(f"{name} is washed out ({light:.0f}% lightness, limit {PALE:.0f}%)")
+            if previous is not None and light < previous - 0.01:
+                problems.append(f"{name} is darker than the level below it; the ramp must climb")
+            previous = light
+        span = max(hues) - min(hues)
+        if span > HUE_SPAN:
+            problems.append(f"the ramp wanders {span:.0f}° of hue (limit {HUE_SPAN:.0f}°)")
+
+        if problems:
+            fail(f"{path.name} thinking ramp:\n" + "\n".join(f"       {p}" for p in problems))
+
+    ok(f"thinking ramps climb in-hue across all {len(paths)} pi themes")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -275,6 +361,7 @@ def main() -> None:
     validate_freshness()
     validate_generated_themes()
     validate_pi_theme()
+    validate_thinking_ramps()
     validate_preview_png()
     validate_installed(skip=args.skip_installed)
     print("\nAll checks passed.")
