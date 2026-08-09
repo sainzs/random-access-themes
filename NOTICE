@@ -35,8 +35,18 @@ Statement of changes, as section 4(b) of the License requires:
      fault rather than as escalation. They are now derived from the palette's
      own blue at a fixed hue, climbing in lightness and saturation.
   3. The optional `thinkingMax` token was removed.
+  4. `bashMode` was repointed from the palette's `green` to its `yellow`. Bash
+     mode is a pi register indicator, not a concept Tokyo Night defines; it read
+     as `success` because both resolved to the same green. The value is still
+     the upstream palette's own.
+  5. pi/Prime background roles that Tokyo Night does not define were given
+     dedicated values: `toolPanelBg`, `toolDiffAddedBg`, `toolDiffRemovedBg`,
+     `toolDiffText`, `selectedBg`, `userMessageBg`, `customMessageBg`,
+     `toolPendingBg`, `toolSuccessBg`, `toolErrorBg`. These are surfaces the
+     agent draws behind its own UI; the palette's colours are unchanged and
+     remain in `vars`.
 
-  No other colour was altered.
+  No syntax or interface colour was altered.
 
 --------------------------------------------------------------------------------
 Rosé Pine — themes/pi/amanecer.json
@@ -64,9 +74,12 @@ counterpart. Both carry the same two changes as the other ports.
 
 --------------------------------------------------------------------------------
 
-Each of the three MIT ports above carries the same two changes as Tokyo Night:
-renamed, and the pi thinking ramp rebuilt from its own signature hue. No syntax
-or interface colour was altered in any of them.
+Each of the three MIT ports above carries the same changes as Tokyo Night:
+renamed, the pi thinking ramp rebuilt from its own signature hue, `bashMode`
+repointed to a warmer colour from the same palette so it stops colliding with
+`success`, and the pi/Prime background roles listed above given dedicated
+surfaces. No syntax or interface colour was altered in any of them, and every
+value used is the upstream palette's own.
 
 themes/pi/ocaso.json has no upstream that could be identified and appears to be
 original work.

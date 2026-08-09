@@ -1,7 +1,7 @@
 # The day cycle
 
-Five pi themes named for the hours, darkest to brightest. Unlike the other two
-families in this repo, four of these are **ports**: their colours belong to
+Six pi themes named for the hours, in the order the day runs. Unlike the other
+two families in this repo, five of these are **ports**: their colours belong to
 upstream projects and are reproduced unchanged. Attribution and the statement of
 changes Apache-2.0 requires are in [`NOTICE`](../NOTICE).
 
@@ -51,9 +51,10 @@ JSON in `themes/pi/`, not generated from `palette/*.yaml`. Never run the palette
 pipeline over them — it would overwrite the upstream colours that are the whole
 point of a port.
 
-They also have no exports. The phosphor family generates six terminal formats
-from its pi themes; the day cycle does not, because the upstream projects already
+The day cycle also has no exports. The phosphor family generates six terminal
+formats from its pi themes; these do not, because the upstream projects already
 publish their own terminal builds and a second-hand copy would drift from them.
+`ocaso`, the one theme with no identified upstream, keeps the rule anyway.
 
 ## What was changed, and why
 
@@ -80,7 +81,10 @@ recording of the footer.
 
 Each ramp is now derived from its own palette's signature hue on the curve
 `reckoner-scope` established: lightness 24.7 → 66.3%, saturation 27 → 67.4%, hue
-held. The optional `thinkingMax` token was dropped, as no theme in this repo
-carries it.
+held. The optional `thinkingMax` token was dropped throughout.
 
-Syntax and interface colours are untouched and still match upstream exactly.
+Syntax and interface colours are untouched and still match upstream exactly. The
+one other role that moved is `bashMode`, repointed within each palette's own
+colours so it stops colliding with `success`; `NOTICE` records it. pi/Prime
+background roles the upstream palettes do not define — tool, diff, selection and
+message surfaces — are authored here.

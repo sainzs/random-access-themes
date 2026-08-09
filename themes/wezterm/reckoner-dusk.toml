@@ -11,10 +11,10 @@ background    = "#1c1b29"
 cursor_bg     = "#a489d8"
 cursor_border = "#a489d8"
 cursor_fg     = "#1c1b29"
-selection_bg  = "#2c2b38"
+selection_bg  = "#454155"
 selection_fg  = "#d8d9e6"
-ansi          = ["#2c2b38", "#f49ab5", "#67d4ff", "#e7c76b", "#8b90b3", "#d8d9e6", "#a489d8", "#d8d9e6"]
-brights       = ["#494954", "#f49ab5", "#67d4ff", "#e7c76b", "#a489d8", "#c099ff", "#c099ff", "#c099ff"]
+ansi          = ["#454155", "#f49ab5", "#67d4ff", "#e7c76b", "#8b90b3", "#d8d9e6", "#a489d8", "#d8d9e6"]
+brights       = ["#706985", "#f49ab5", "#67d4ff", "#e7c76b", "#a489d8", "#c099ff", "#c099ff", "#c099ff"]
 
 [metadata]
 name       = "Violet Dusk"

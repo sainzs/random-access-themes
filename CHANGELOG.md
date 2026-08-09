@@ -8,12 +8,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Prime Agent support: `themes/theme-schema.json`, the union of pi's and Prime's
+  contracts, and `bash scripts/install.sh prime`. One file set serves both agents
+- Agent surfaces in every pi theme — `toolPanelBg`, `toolDiffAddedBg`,
+  `toolDiffRemovedBg`, `toolDiffText`, and dedicated tool, selection and message
+  beds — derived in `pi_surfaces()` for the flavors and hand-held for the rest
 - Generated README visuals: `assets/flavors.svg` and `assets/palette-strips.svg`
 - Visual renderer: `scripts/render_repo_visuals.py`
 - `make visuals` target for regenerating repo presentation assets
 
 ### Changed
 
+- `toolPendingBg`, `toolSuccessBg` and `toolErrorBg` no longer all resolve to the
+  background, so a tool call now shows its state; diff rows read green and red
+  even where the palette names no red
 - README refreshed with a stronger visual hierarchy, hero gallery, and palette overview
 - Release packaging now includes README SVG assets used by the repo landing page
 - Contributing guide updated to document generated visuals and palette-driven workflow

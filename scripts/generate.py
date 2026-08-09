@@ -89,6 +89,86 @@ def strip(hex_color: str) -> str:
     return hex_color.lstrip("#")
 
 
+# ── Agent surfaces ─────────────────────────────────────────────────────────────
+
+# Hues for the two states an agent surface has to state outright. They are fixed
+# rather than taken from the palette because these beds are semantics before they
+# are decoration: "removed" that is not red is not readable as removed, and three
+# of the four flavors name a `green` that is really a teal (166°, 175°) or, in
+# amnesiac, a blue (231°). A diff drawn in the palette's own "green" therefore
+# read as two shades of the same colour. Everything else here — tint, elevation,
+# the pending bed — still comes from the flavor's own accent.
+SIGNAL_GREEN = 135.0
+SIGNAL_RED = 2.0
+
+# The footer's dim keys have to be readable at a glance while staying quiet.
+# `dimText` clears WCAG AA on its own in one flavor and misses the mark in the
+# other three, which is why the four footers did not look like one family.
+DIM_FLOOR = 5.8
+
+
+def _luminance(hex_colour: str) -> float:
+    def channel(v: float) -> float:   # hf() already returns 0..1
+        return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+    return sum(k * channel(v) for k, v in zip((0.2126, 0.7152, 0.0722), hf(hex_colour)))
+
+
+def contrast(fg: str, bg: str) -> float:
+    a, b = _luminance(fg), _luminance(bg)
+    hi, lo = max(a, b), min(a, b)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def lift(colour: str, bg: str, floor: float) -> str:
+    """Raise `colour`'s lightness, holding hue and saturation, until it clears
+    `floor` against `bg`. Returns it unchanged when it already does."""
+    h, s, l = _hsl(colour)
+    while contrast(_hex(h, s, l), bg) < floor and l < 100:
+        l += 0.5
+    return _hex(h, s, min(l, 100.0))
+
+
+def pi_surfaces(c: dict) -> dict:
+    """
+    The backgrounds pi and Prime Agent draw their own UI on: tool beds, diff
+    rows, the panel, the selection, message blocks.
+
+    The palettes do not name them, and the first version simply reused `bg`,
+    `surface` and `overlay` for all of them. That made running, done and failed
+    the same colour, so a tool call never announced its result, and it left the
+    diff rows with no beds at all.
+
+    They are derived here, all of it from three facts about the flavor: the
+    accent's hue and chroma, the background's lightness, and the two signal hues
+    above. Elevation is lightness — ground +3.5 for a panel, +9.5 for a selection
+    — and tint is the accent's, scaled by the accent's own saturation so a vivid
+    flavor gets a tinted plate and a muted one gets something closer to grey.
+    """
+    accent_h, accent_s, _ = _hsl(c["mint"])
+    ground_l = _hsl(c["bg"])[2]
+    tint = min(36.0, accent_s * 0.36)
+
+    # Where the accent is itself a green, an accent-tinted "pending" collides
+    # with "success" by construction — running and done would differ only in
+    # lightness. Pending goes neutral there, so finishing is a change of hue.
+    hue_gap = abs(((accent_h - SIGNAL_GREEN + 180) % 360) - 180)
+    pending_s = 8.0 if hue_gap < 45 else tint * 0.5
+
+    return {
+        "paToolPendingBg":   _hex(accent_h,    pending_s,  ground_l + 12.0),
+        "paToolSuccessBg":   _hex(SIGNAL_GREEN, 26.0,      ground_l + 10.0),
+        "paToolErrorBg":     _hex(SIGNAL_RED,   20.0,      ground_l + 12.0),
+        "paUserMessageBg":   _hex(accent_h,    tint,        ground_l + 5.0),
+        "paCustomMessageBg": _hex(accent_h,    tint * 0.92, ground_l + 4.0),
+        "paToolPanelBg":     _hex(accent_h,    tint * 0.95, ground_l + 8.5),
+        "paSelectedBg":      _hex(accent_h,    tint * 0.90, ground_l + 14.5),
+        "paDiffAddedBg":     _hex(SIGNAL_GREEN, 30.0,       ground_l + 14.0),
+        "paDiffRemovedBg":   _hex(SIGNAL_RED,   26.0,       ground_l + 14.0),
+        "paDiffText":        c["text"],
+    }
+
+
 def write_or_print(path: Path, content: str, dry_run: bool) -> None:
     if dry_run:
         print(f"\n{'─'*60}")
@@ -343,9 +423,14 @@ def gen_pi(p: dict) -> str:
     c = p["palette"]
     meta = p["meta"]
     ramp = thinking_ramp(c["dimText"], c["mint"])
+    surfaces = pi_surfaces(c)
+    dim_keys = lift(c["dimText"], c["bg"], DIM_FLOOR)
 
     theme = {
-        "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+        # themes/theme-schema.json is the union of pi's and Prime Agent's contracts:
+        # Prime's 55 tokens required, pi's scrollbarThumb/thinkingMax optional. One file
+        # set serves both runtimes, so there is no second copy to drift.
+        "$schema": "../theme-schema.json",
         "name": meta["name"],
         "vars": {
             "bg":      c["bg"],
@@ -364,6 +449,8 @@ def gen_pi(p: dict) -> str:
             "aqua":    c["aqua"],
             "emerald": c["emerald"],
             "lime":    c["lime"],
+            **({"paDimKeys": dim_keys} if dim_keys != c["dimText"] else {}),
+            **surfaces,
         },
         "colors": {
             "accent":             "mint",
@@ -374,18 +461,21 @@ def gen_pi(p: dict) -> str:
             "error":              "emerald",
             "warning":            "lime",
             "muted":              "subtle",
-            "dim":                "dimText",
+            "dim":                "paDimKeys" if dim_keys != c["dimText"] else "dimText",
             "text":               "text",
             "thinkingText":       "jade",
-            "selectedBg":         "overlay",
-            "userMessageBg":      "surface",
+            "selectedBg":         "paSelectedBg",
+            "userMessageBg":      "paUserMessageBg",
             "userMessageText":    "text",
-            "customMessageBg":    "surface",
+            "customMessageBg":    "paCustomMessageBg",
             "customMessageText":  "text",
             "customMessageLabel": "mint",
-            "toolPendingBg":      "bg",
-            "toolSuccessBg":      "bg",
-            "toolErrorBg":        "bg",
+            "toolPendingBg":      "paToolPendingBg",
+            "toolSuccessBg":      "paToolSuccessBg",
+            "toolErrorBg":        "paToolErrorBg",
+            "toolDiffAddedBg":    "paDiffAddedBg",
+            "toolDiffRemovedBg":  "paDiffRemovedBg",
+            "toolPanelBg":        "paToolPanelBg",
             "toolTitle":          "mint",
             "toolOutput":         "text",
             "mdHeading":          "mint",
@@ -400,6 +490,7 @@ def gen_pi(p: dict) -> str:
             "mdListBullet":       "mint",
             "toolDiffAdded":      "green",
             "toolDiffRemoved":    "emerald",
+            "toolDiffText":       "paDiffText",
             "toolDiffContext":    "subtle",
             "syntaxComment":      "dimText",
             "syntaxKeyword":      "jade",

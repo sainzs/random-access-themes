@@ -3,6 +3,10 @@
 #
 # Installs:
 #   Pi       → every theme into ~/.pi/agent/themes/, and sets the active one
+#   Prime    → every theme into ~/.prime/agent/themes/, and sets the active one.
+#              That path is Prime's *global* custom theme directory
+#              (getCustomThemesDir() = <agent dir>/themes), so the themes are
+#              available in every session rather than one project.
 #   Ghostty  → ~/.config/ghostty/config (authoritative)
 #              ~/Library/Application Support/com.mitchellh.ghostty/config (stub)
 #   iTerm2   → ~/Library/Application Support/iTerm2/<theme>.itermcolors
@@ -12,6 +16,7 @@
 #   bash scripts/install.sh --theme reckoner-wopr    # pick the active theme
 #   bash scripts/install.sh --dry-run                # preview without writing
 #   bash scripts/install.sh pi                       # Pi only
+#   bash scripts/install.sh prime                    # Prime Agent only
 #   bash scripts/install.sh ghostty                  # Ghostty only
 #   bash scripts/install.sh iterm2                   # iTerm2 only
 #   bash scripts/install.sh iterm2 --clean-dynamic   # archive ALL dynamic profiles
@@ -36,7 +41,7 @@ prev=""
 for arg in "$@"; do
   [[ "$arg" == "--dry-run" ]] && DRY=1
   [[ "$arg" == "--clean-dynamic" ]] && CLEAN_DYNAMIC=1
-  [[ "$arg" =~ ^(pi|ghostty|iterm2|all)$ ]] && TARGET="$arg"
+  [[ "$arg" =~ ^(pi|prime|ghostty|iterm2|all)$ ]] && TARGET="$arg"
   [[ "$prev" == "--theme" ]] && THEME="$arg"
   prev="$arg"
 done
@@ -142,6 +147,62 @@ install_pi() {
   fi
 
   echo "  → Run /reload in Pi to activate."
+}
+
+# ════════════════════════════════════════════════════════════════════════════
+# Prime Agent
+# ════════════════════════════════════════════════════════════════════════════
+install_prime() {
+  section "Prime Agent"
+  local settings="$HOME/.prime/agent/settings.json"
+  local dir="$HOME/.prime/agent/themes"
+  local src_dir="$ROOT/themes/pi"
+
+  # One file set serves both agents. The themes carry all 55 tokens Prime requires;
+  # pi ignores the four it does not define (toolPanelBg, toolDiffAddedBg,
+  # toolDiffRemovedBg, toolDiffText) because its runtime validator is non-strict.
+  # A second themes/prime/ copy existed briefly and differed by exactly one line —
+  # the $schema — which is now themes/theme-schema.json, the union of both contracts.
+  [[ -d "$src_dir" ]] || fail "themes/pi missing"
+
+  local count=0
+  for src in "$src_dir"/*.json; do
+    python3 -c "import json; json.load(open('$src'))" 2>/dev/null \
+      || fail "Prime theme is invalid JSON: $src"
+    if [[ "$DRY" -eq 1 ]]; then
+      info "[dry-run] link $(basename "$src") → $dir/"
+    else
+      mkdir -p "$dir"
+      ln -sf "$src" "$dir/$(basename "$src")"
+    fi
+    count=$((count + 1))
+  done
+  ok "$count Prime themes linked into $dir (global)"
+
+  local registered
+  registered=$(python3 -c "import json;print(json.load(open('$src_dir/$THEME.json'))['name'])")
+  if [[ "$registered" != "$THEME" ]]; then
+    info "note: $THEME.json registers as \"$registered\" — using that"
+  fi
+
+  if [[ -f "$settings" ]] && command -v jq >/dev/null 2>&1; then
+    local active
+    active=$(jq -r '.theme // ""' "$settings")
+    if [[ "$active" != "$registered" ]]; then
+      if [[ "$DRY" -eq 0 ]]; then
+        cp "$settings" "$settings.bak-$(date +%Y%m%d-%H%M%S)"
+        jq --arg t "$registered" '.theme = $t' "$settings" > "${settings}.tmp" \
+          && mv "${settings}.tmp" "$settings"
+        ok "settings.json theme: \"$active\" → \"$registered\""
+      else
+        info "[dry-run] settings.json theme: \"$active\" → \"$registered\""
+      fi
+    else
+      ok "settings.json theme already \"$registered\""
+    fi
+  fi
+
+  echo "  → Restart Prime Agent (or reopen the session) to activate."
 }
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -327,9 +388,10 @@ install_iterm2() {
 # ════════════════════════════════════════════════════════════════════════════
 case "$TARGET" in
   pi)      install_pi ;;
+  prime)   install_prime ;;
   ghostty) install_ghostty ;;
   iterm2)  install_iterm2 ;;
-  all)     install_pi; install_ghostty; install_iterm2 ;;
+  all)     install_pi; install_prime; install_ghostty; install_iterm2 ;;
 esac
 
 echo ""

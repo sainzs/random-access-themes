@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "$schema": "../theme-schema.json",
   "name": "atardecer",
   "vars": {
     "fg": "#d4be98",
@@ -16,7 +16,17 @@
     "bg1": "#282828",
     "bg2": "#32302f",
     "bg3": "#3c3836",
-    "bgDim": "#1d2021"
+    "bgDim": "#1d2021",
+    "paToolPendingBg": "#454745",
+    "paToolSuccessBg": "#404c34",
+    "paToolErrorBg": "#633937",
+    "paUserMessageBg": "#2f302c",
+    "paCustomMessageBg": "#2c2d2a",
+    "paToolPanelBg": "#3a3a34",
+    "paSelectedBg": "#4b473f",
+    "paDiffAddedBg": "#4d593a",
+    "paDiffRemovedBg": "#79413e",
+    "paDiffText": "#dbc9a9"
   },
   "colors": {
     "accent": "yellow",
@@ -30,15 +40,18 @@
     "dim": "grey0",
     "text": "",
     "thinkingText": "grey1",
-    "selectedBg": "bg3",
-    "userMessageBg": "bg2",
+    "selectedBg": "paSelectedBg",
+    "userMessageBg": "paUserMessageBg",
     "userMessageText": "",
-    "customMessageBg": "bg2",
+    "customMessageBg": "paCustomMessageBg",
     "customMessageText": "",
     "customMessageLabel": "yellow",
-    "toolPendingBg": "bg1",
-    "toolSuccessBg": "bg1",
-    "toolErrorBg": "#2e2224",
+    "toolPendingBg": "paToolPendingBg",
+    "toolSuccessBg": "paToolSuccessBg",
+    "toolErrorBg": "paToolErrorBg",
+    "toolDiffAddedBg": "paDiffAddedBg",
+    "toolDiffRemovedBg": "paDiffRemovedBg",
+    "toolPanelBg": "paToolPanelBg",
     "toolTitle": "aqua",
     "toolOutput": "grey2",
     "mdHeading": "orange",
@@ -53,6 +66,7 @@
     "mdListBullet": "yellow",
     "toolDiffAdded": "green",
     "toolDiffRemoved": "red",
+    "toolDiffText": "paDiffText",
     "toolDiffContext": "grey1",
     "syntaxComment": "grey1",
     "syntaxKeyword": "red",
@@ -69,7 +83,7 @@
     "thinkingMedium": "#bf8d3e",
     "thinkingHigh": "#d3a254",
     "thinkingXhigh": "#e3b66f",
-    "bashMode": "green"
+    "bashMode": "orange"
   },
   "export": {
     "pageBg": "#1d2021",

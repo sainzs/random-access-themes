@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "$schema": "../theme-schema.json",
   "name": "amanecer",
   "vars": {
     "love": "#eb6f92",
@@ -15,7 +15,17 @@
     "overlay": "#26233a",
     "surface": "#1f1d2e",
     "base": "#191724",
-    "highlightLow": "#21202e"
+    "highlightLow": "#21202e",
+    "paToolPendingBg": "#282531",
+    "paToolSuccessBg": "#202d21",
+    "paToolErrorBg": "#36202a",
+    "paUserMessageBg": "#2a2733",
+    "paCustomMessageBg": "#272430",
+    "paToolPanelBg": "#35313c",
+    "paSelectedBg": "#443e48",
+    "paDiffAddedBg": "#2c392d",
+    "paDiffRemovedBg": "#452939",
+    "paDiffText": "#e0def4"
   },
   "colors": {
     "accent": "rose",
@@ -29,15 +39,18 @@
     "dim": "mutedv",
     "text": "",
     "thinkingText": "subtle",
-    "selectedBg": "highlightMed",
-    "userMessageBg": "overlay",
+    "selectedBg": "paSelectedBg",
+    "userMessageBg": "paUserMessageBg",
     "userMessageText": "",
-    "customMessageBg": "overlay",
+    "customMessageBg": "paCustomMessageBg",
     "customMessageText": "",
     "customMessageLabel": "iris",
-    "toolPendingBg": "surface",
-    "toolSuccessBg": "surface",
-    "toolErrorBg": "#2a1a24",
+    "toolPendingBg": "paToolPendingBg",
+    "toolSuccessBg": "paToolSuccessBg",
+    "toolErrorBg": "paToolErrorBg",
+    "toolDiffAddedBg": "paDiffAddedBg",
+    "toolDiffRemovedBg": "paDiffRemovedBg",
+    "toolPanelBg": "paToolPanelBg",
     "toolTitle": "foam",
     "toolOutput": "subtle",
     "mdHeading": "iris",
@@ -52,6 +65,7 @@
     "mdListBullet": "rose",
     "toolDiffAdded": "foam",
     "toolDiffRemoved": "love",
+    "toolDiffText": "paDiffText",
     "toolDiffContext": "subtle",
     "syntaxComment": "mutedv",
     "syntaxKeyword": "pine",
@@ -68,7 +82,7 @@
     "thinkingMedium": "#bf3e62",
     "thinkingHigh": "#d35478",
     "thinkingXhigh": "#e36f90",
-    "bashMode": "foam"
+    "bashMode": "gold"
   },
   "export": {
     "pageBg": "#191724",

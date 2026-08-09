@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "$schema": "../theme-schema.json",
   "name": "madrugada",
   "vars": {
     "blue": "#7aa2f7",
@@ -17,7 +17,17 @@
     "surface": "#292e42",
     "bgHighlight": "#1f2335",
     "bgDark": "#16161e",
-    "bgDarker": "#13131a"
+    "bgDarker": "#13131a",
+    "paToolPendingBg": "#1f212b",
+    "paToolSuccessBg": "#1a281b",
+    "paToolErrorBg": "#2d1d21",
+    "paUserMessageBg": "#21232d",
+    "paCustomMessageBg": "#1f202a",
+    "paToolPanelBg": "#2a2d3a",
+    "paSelectedBg": "#373c4b",
+    "paDiffAddedBg": "#263427",
+    "paDiffRemovedBg": "#3e2530",
+    "paDiffText": "#c0caf5"
   },
   "colors": {
     "accent": "blue",
@@ -31,15 +41,18 @@
     "dim": "dark3",
     "text": "",
     "thinkingText": "comment",
-    "selectedBg": "surface",
-    "userMessageBg": "bgHighlight",
+    "selectedBg": "paSelectedBg",
+    "userMessageBg": "paUserMessageBg",
     "userMessageText": "",
-    "customMessageBg": "bgHighlight",
+    "customMessageBg": "paCustomMessageBg",
     "customMessageText": "",
     "customMessageLabel": "blue",
-    "toolPendingBg": "bgDark",
-    "toolSuccessBg": "bgDark",
-    "toolErrorBg": "#2a1a22",
+    "toolPendingBg": "paToolPendingBg",
+    "toolSuccessBg": "paToolSuccessBg",
+    "toolErrorBg": "paToolErrorBg",
+    "toolDiffAddedBg": "paDiffAddedBg",
+    "toolDiffRemovedBg": "paDiffRemovedBg",
+    "toolPanelBg": "paToolPanelBg",
     "toolTitle": "cyan",
     "toolOutput": "fgDark",
     "mdHeading": "purple",
@@ -54,6 +67,7 @@
     "mdListBullet": "blue",
     "toolDiffAdded": "green",
     "toolDiffRemoved": "red",
+    "toolDiffText": "paDiffText",
     "toolDiffContext": "comment",
     "syntaxComment": "comment",
     "syntaxKeyword": "purple",
@@ -70,7 +84,7 @@
     "thinkingMedium": "#3e67bf",
     "thinkingHigh": "#547cd3",
     "thinkingXhigh": "#6f94e3",
-    "bashMode": "green"
+    "bashMode": "yellow"
   },
   "export": {
     "pageBg": "#13131a",

@@ -44,14 +44,22 @@ Scripts can be invoked directly, e.g.
   built light theme failed on every level. Do not "simplify" it back to a single
   direction.
 
-- **The five day-cycle themes are ports; their colours are not ours to tune.**
-  `themes/pi/{madrugada,amanecer,atardecer,ocaso,anochecer}.json` reproduce
-  upstream palettes byte for byte. Never run the palette pipeline over them and
-  never "fix" a colour to match house contrast — the fidelity is the point. Only
-  the six `thinking*` values are ours, rebuilt because pi's ramp is not a concept
-  those projects define. `madrugada` is **Apache-2.0** (Tokyo Night), so any
-  change to it must be recorded in `NOTICE` under section 4(b); the other three
-  are MIT.
+- **Agent surfaces are derived, and their signal hues are deliberately not the
+  palette's.** `pi_surfaces()` in `scripts/generate.py` builds the ten tool,
+  diff, panel, selection and message backgrounds from the accent's hue and
+  chroma and the background's lightness, but "added" is always green at 135° and
+  "removed" always red at 2°. Three flavors name a `green` that is a teal or a
+  blue, so a palette-faithful diff read as two shades of one hue. Do not "fix"
+  this back to palette fidelity; `docs/manifest.md` has the measurements.
+
+- **Five of the six day-cycle themes are ports; their colours are not ours to
+  tune.** `themes/pi/{madrugada,amanecer,mediodia,atardecer,anochecer}.json`
+  reproduce upstream palettes byte for byte (`ocaso` has no identified upstream).
+  Never run the palette pipeline over them and never "fix" a colour to match
+  house contrast — the fidelity is the point. Ours are the six `thinking*`
+  values, `bashMode`, and the agent surfaces the upstream palettes do not define.
+  `madrugada` is **Apache-2.0** (Tokyo Night), so any change to it must be
+  recorded in `NOTICE` under section 4(b); the other four are MIT.
 
 - **Palette-first:** hand-edit only `palette/*.yaml`. Generated outputs
   (`themes/{alacritty,ghostty,iterm2,kitty,pi,wezterm,windows-terminal}/`,

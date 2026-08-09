@@ -20,6 +20,16 @@ These are the only hand-edited palette inputs that define the four flavors:
 These files are generated from the palettes and should not be edited by hand:
 
 - Terminal exports in `themes/alacritty/`, `themes/ghostty/`, `themes/iterm2/`, `themes/kitty/`, `themes/pi/`, `themes/wezterm/`, and `themes/windows-terminal/`
+- `themes/theme-schema.json` — the agent-theme contract, hand-maintained. It is the
+  union of pi's and Prime Agent's schemas: Prime's 55 tokens are required,
+  `scrollbarThumb` and `thinkingMax` are pi-only and optional. `themes/pi/*.json`
+  reference it as `../theme-schema.json` and serve **both** agents from one file set —
+  pi's runtime validator is non-strict, so it ignores the four tokens it does not
+  define (`toolPanelBg`, `toolDiffAddedBg`, `toolDiffRemovedBg`, `toolDiffText`).
+  There is deliberately no second `themes/prime/` copy: it existed briefly and
+  differed by exactly one line, which is the drift this repo exists to prevent.
+  Install with `bash scripts/install.sh pi` and `bash scripts/install.sh prime`;
+  the latter links into `~/.prime/agent/themes/`, Prime's global theme directory.
 - Repo visuals in `assets/flavors.svg`, `assets/palette-strips.svg`, and `assets/preview.svg`
 - Portable preview export in `assets/preview.png`, derived from `assets/preview.svg`
 - Design tokens in `tokens/` (`design-tokens.json`, per-flavor `.json`, `random-access-theme.css`, `tailwind.js`)
@@ -81,9 +91,35 @@ ladder — which is not a limitation of the mapping, it is what the hardware did
 across all ten pi themes, and a 3:1 floor on every ANSI slot in the phosphor
 exports against its own background.
 
+## Agent surfaces are derived too
+
+pi and Prime Agent draw their own UI — tool beds, diff rows, the panel, the
+selection, message blocks — on backgrounds no palette names. `pi_surfaces()` in
+`scripts/generate.py` derives all ten for the flavors from three facts: the
+accent's hue and chroma, the background's lightness, and two fixed signal hues.
+Elevation is lightness (ground +3.5 for a panel, +9.5 for a selection) and tint
+is the accent's, scaled by its own saturation, so a vivid flavor gets a tinted
+plate and a muted one gets something near grey.
+
+The two signal hues — green at 135°, red at 2° — are **not** taken from the
+palette, and that is the one place semantics beat fidelity here. Three of the
+four flavors name a `green` that is really a teal (166°, 175°) or, in amnesiac,
+a blue (231°); a diff drawn in the palette's own colours read as two shades of
+one hue, and "removed" that is not red is not readable as removed. Tinting these
+beds back toward the accent was tried and measured: at 10% blend the red
+dominance on `toolDiffRemovedBg` collapses from +18 to 0.
+
+Where the accent is itself a green, an accent-tinted `toolPendingBg` collides
+with `toolSuccessBg` by construction, so pending goes neutral there and
+finishing a tool call becomes a change of hue rather than of lightness.
+
+The hand-held families follow the same rules by hand, and `NOTICE` records them
+as authored surfaces for the ports, because the upstream palettes do not define
+these roles at all.
+
 ## The third family — day cycle
 
-Five hand-held pi themes, `themes/pi/{madrugada,amanecer,atardecer,ocaso,anochecer}.json`,
+Six hand-held pi themes, `themes/pi/{madrugada,amanecer,mediodia,atardecer,ocaso,anochecer}.json`,
 absorbed from what used to be a separate `reckoner-themes` repo.
 
 They have **no pipeline at all** — neither direction. They are not generated from
@@ -92,6 +128,12 @@ They have **no pipeline at all** — neither direction. They are not generated f
 - no terminal exports, because the upstream projects publish their own and a
   second-hand copy would silently drift from them
 - no palette YAML, because the colours are not ours to parameterise
+
+`mediodia` is a port like the rest — Catppuccin Latte — so the export rule binds
+it too: if you want one of these in a terminal, install the upstream project's
+own build. Only `ocaso` has no identified upstream (see `NOTICE`), and it has no
+export either, because a single exception would be the start of a second
+pipeline over sources that are meant to stay hand-held.
 
 The only thing this repo authors in them is the six `thinking*` colours, and the
 only check that applies is `validate_thinking_ramps`, which globs all of

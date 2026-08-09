@@ -11,10 +11,10 @@ background    = "#16100a"
 cursor_bg     = "#ffd280"
 cursor_border = "#ffd280"
 cursor_fg     = "#16100a"
-selection_bg  = "#241a0e"
+selection_bg  = "#40382d"
 selection_fg  = "#ffb753"
-ansi          = ["#241a0e", "#ff6242", "#9acc63", "#ffdf6b", "#b07f33", "#ffb753", "#ffd280", "#ffb753"]
-brights       = ["#5a3f1a", "#ff6242", "#9acc63", "#ffdf6b", "#ffd280", "#ffe9bd", "#ffe9bd", "#ffe9bd"]
+ansi          = ["#40382d", "#ff6242", "#9acc63", "#ffdf6b", "#b07f33", "#ffb753", "#ffd280", "#ffb753"]
+brights       = ["#796344", "#ff6242", "#9acc63", "#ffdf6b", "#ffd280", "#ffe9bd", "#ffe9bd", "#ffe9bd"]
 
 [metadata]
 name       = "Amber EXECT"

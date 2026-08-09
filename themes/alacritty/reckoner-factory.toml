@@ -11,11 +11,11 @@ cursor = "#ef6f2e"
 text   = "#020202"
 
 [colors.selection]
-background = "#1f1d1c"
+background = "#35261f"
 text       = "#eeeeee"
 
 [colors.normal]
-black    = "#1f1d1c"
+black    = "#35261f"
 red      = "#e54048"
 green    = "#6fab78"
 yellow   = "#d8a657"
@@ -25,7 +25,7 @@ cyan     = "#ef6f2e"
 white    = "#eeeeee"
 
 [colors.bright]
-black    = "#5c5855"
+black    = "#63605d"
 red      = "#e54048"
 green    = "#6fab78"
 yellow   = "#d8a657"

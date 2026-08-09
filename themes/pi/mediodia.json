@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "$schema": "../theme-schema.json",
   "name": "mediodia",
   "vars": {
     "rosewater": "#dc8a78",
@@ -19,7 +19,17 @@
     "surface1": "#bcc0cc",
     "surface0": "#ccd0da",
     "mantle": "#e6e9ef",
-    "crust": "#dce0e8"
+    "crust": "#dce0e8",
+    "paToolPendingBg": "#e4e5ec",
+    "paToolSuccessBg": "#dceadd",
+    "paToolErrorBg": "#ecdfe2",
+    "paUserMessageBg": "#e8e7ee",
+    "paCustomMessageBg": "#eaeaf0",
+    "paToolPanelBg": "#dedde7",
+    "paSelectedBg": "#cfcbda",
+    "paDiffAddedBg": "#c9e3cb",
+    "paDiffRemovedBg": "#e5c8cf",
+    "paDiffText": "#4c4f69"
   },
   "colors": {
     "accent": "mauve",
@@ -33,15 +43,18 @@
     "dim": "overlay0",
     "text": "",
     "thinkingText": "overlay1",
-    "selectedBg": "surface0",
-    "userMessageBg": "surface0",
+    "selectedBg": "paSelectedBg",
+    "userMessageBg": "paUserMessageBg",
     "userMessageText": "",
-    "customMessageBg": "surface0",
+    "customMessageBg": "paCustomMessageBg",
     "customMessageText": "",
     "customMessageLabel": "mauve",
-    "toolPendingBg": "mantle",
-    "toolSuccessBg": "mantle",
-    "toolErrorBg": "#f6dfe3",
+    "toolPendingBg": "paToolPendingBg",
+    "toolSuccessBg": "paToolSuccessBg",
+    "toolErrorBg": "paToolErrorBg",
+    "toolDiffAddedBg": "paDiffAddedBg",
+    "toolDiffRemovedBg": "paDiffRemovedBg",
+    "toolPanelBg": "paToolPanelBg",
     "toolTitle": "blue",
     "toolOutput": "subtext",
     "mdHeading": "lavender",
@@ -56,6 +69,7 @@
     "mdListBullet": "mauve",
     "toolDiffAdded": "green",
     "toolDiffRemoved": "red",
+    "toolDiffText": "paDiffText",
     "toolDiffContext": "overlay1",
     "syntaxComment": "overlay0",
     "syntaxKeyword": "mauve",
@@ -72,6 +86,11 @@
     "thinkingMedium": "#7b3cce",
     "thinkingHigh": "#6521bd",
     "thinkingXhigh": "#4f0da5",
-    "bashMode": "green"
+    "bashMode": "peach"
+  },
+  "export": {
+    "pageBg": "#dce0e8",
+    "cardBg": "#e6e9ef",
+    "infoBg": "#bcc0cc"
   }
 }
