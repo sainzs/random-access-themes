@@ -16,7 +16,7 @@ text       = "#3ce6da"
 
 [colors.normal]
 black    = "#243635"
-red      = "#ff5f7a"
+red      = "#cf778c"
 green    = "#58ffb2"
 yellow   = "#e8d25f"
 blue     = "#1e8c85"
@@ -26,7 +26,7 @@ white    = "#3ce6da"
 
 [colors.bright]
 black    = "#376b70"
-red      = "#ff5f7a"
+red      = "#cf778c"
 green    = "#58ffb2"
 yellow   = "#e8d25f"
 blue     = "#7dfff2"
