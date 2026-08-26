@@ -125,10 +125,9 @@ install_windows_terminal() {
 
 install_pi() {
   section "Pi"
-  # This used to fetch one file, which meant installing from a repo of sixteen
-  # themes and coming away with one. raw.githubusercontent cannot list a
-  # directory, so the family ships a manifest; validate_theme.py fails if it
-  # drifts from themes/pi/, so it cannot silently go stale.
+  # Fetches every name in themes/pi/index.txt. raw.githubusercontent cannot
+  # list a directory, so the family ships a manifest; validate_theme.py fails
+  # if it drifts from themes/pi/, so it cannot silently go stale.
   local index
   index="$(fetch "$BASE/pi/index.txt")" || {
     echo "get.sh: could not fetch the theme index — is RAT_REF=$REF valid?" >&2
@@ -144,8 +143,8 @@ $index
 EOF
   [ "$DRY" -eq 1 ] && return
   info "$count themes installed"
-  echo "  → Set in ~/.pi/agent/settings.json:  \"theme\": \"mediodia/anochecer\""
-  echo "    Any one of them works alone; a single / is a light/dark pair."
+  echo "  → Set in ~/.pi/agent/settings.json:  \"theme\": \"reckoner-exect\""
+  echo "    Any one of the nine keepers works alone; a single / is a light/dark pair."
   echo "    Then run /reload in Pi."
 }
 

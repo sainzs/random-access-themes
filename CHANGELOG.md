@@ -28,6 +28,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Pi family consolidated to nine keepers. Seven hue-duplicates / broken themes
   archived to `archive/themes/pi/`: amnesiac, anochecer, atardecer, madrugada,
   ocaso, veridis, voyager. `themes/pi/index.txt` lists the nine.
+- README rebuilt around the nine: cinta GIFs for validate and install, keeper
+  cards in `assets/pi/`, dead day-cycle / sixteen-theme claims removed.
+- `scripts/get.sh` pi target no longer suggests the archived `mediodia/anochecer` pair.
 - amanecer and mediodia brought up to the contract (canonical skeleton, five
   empty color values wired, `paDim` added). reckoner-factory `border0/1` renamed
   to `bg3`/`line`. reckoner-dusk gained `paDim`.

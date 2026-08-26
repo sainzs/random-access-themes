@@ -2,11 +2,13 @@
 
 ## Purpose
 
-Design/theme system generating terminal and editor themes. Three families: six
-phosphor tubes, one colour each, whose pi themes are hand-authored and canonical;
-four OLED-black flavors generated from palette YAML; and the five-theme day
-cycle, hand-held ports of upstream palettes with no exports of their own. The canonical pipeline/architecture map is `docs/manifest.md` —
-read it before changing anything structural; do not restate it here.
+Design/theme system generating terminal and editor themes. The pi family is nine
+keepers: six phosphor tubes (hand-authored, canonical), the flagship
+`random-access-theme` (generated from palette YAML), and two day-cycle ports
+(`amanecer`, `mediodia`). Seven hue-duplicates live in `archive/themes/pi/`.
+Terminal/editor ports for the four flavors still generate from `palette/*.yaml`.
+The canonical pipeline map is `docs/manifest.md` — read it before changing
+anything structural; do not restate it here.
 
 **Frozen 2026-08-02, reopened once** (`~/Code/PLAN.md` Phase 5.2). The freeze
 still holds for the tubes and the flavors: maintenance only, no new flavors, no

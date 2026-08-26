@@ -4,7 +4,7 @@ Thanks for helping improve Random Access Themes.
 
 By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-See [docs/manifest.md](docs/manifest.md) for the canonical palette map and generated-vs-curated file split.
+See [docs/manifest.md](docs/manifest.md) for the canonical palette map and generated-vs-curated file split. The pi family is nine keepers; do not resurrect archived themes from `archive/themes/pi/` into the picker.
 
 ## Sources of truth
 

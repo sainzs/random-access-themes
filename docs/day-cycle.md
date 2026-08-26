@@ -1,9 +1,14 @@
 # The day cycle
 
-Six pi themes named for the hours, in the order the day runs. Unlike the other
-two families in this repo, five of these are **ports**: their colours belong to
-upstream projects and are reproduced unchanged. Attribution and the statement of
-changes Apache-2.0 requires are in [`NOTICE`](../NOTICE).
+Six pi themes named for the hours. Four of them — `madrugada`, `atardecer`,
+`ocaso`, `anochecer` — were archived to [`archive/themes/pi/`](../archive/themes/pi/)
+in the 2026-08-26 consolidation (hue-duplicates of healthy reckoners, or
+structurally broken). Two remain as keepers: `amanecer` (Rosé Pine dawn) and
+`mediodia` (Catppuccin Latte, the only light theme).
+
+Five of the six were **ports**: their colours belong to upstream projects and
+are reproduced unchanged. Attribution and the statement of changes Apache-2.0
+requires are in [`NOTICE`](../NOTICE).
 
 | Theme | Hour | Palette | Upstream | Licence |
 |---|---|---|---|---|

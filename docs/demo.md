@@ -1,7 +1,10 @@
 # Demo
 
-Random Access Themes is palette-first: the public previews are rendered from the
-same YAML palette data that generates terminal exports.
+Nine keepers. The public face is the contract cards in `assets/pi/` and the
+cinta captures of `validate` and `install`. The flagship SVG below is still
+rendered from the same YAML that generates the terminal exports.
+
+![validate the nine](../assets/validate.gif)
 
 ![Random Access Theme terminal preview](../assets/preview.svg)
 

@@ -6,7 +6,7 @@ each one a love letter to a real terminal tube, tuned to modern reading light.
 > The case is printed, the values are the phosphor.
 
 These set the standards in this repo. The thinking-ramp rule every flavor now
-uses came from here, along with the validator that enforces it across all ten pi
+uses came from here, along with the validator that enforces it across all nine pi
 themes, and the rule that nothing blinks — which the Ghostty exports now state
 outright instead of having the generator overrule them.
 
@@ -153,7 +153,7 @@ tables, so a picture here can never show an animation the footer does not play.
 | peak | `#ffe9bd` | `#dcffe7` | `#c4e6ff` | `#d2fffa` |
 | success | `#9acc63` | `#6fe392` | `#7de0a8` | `#58ffb2` |
 | warning | `#ffdf6b` | `#e8d25f` | `#ffd75f` | `#e8d25f` |
-| error | `#ff6242` | `#ff7a5c` | `#ff7a8a` | `#ff5f7a` |
+| error | `#ff6242` | `#ff7a5c` | `#cd8490` | `#cf778c` |
 
 ## Thinking levels
 

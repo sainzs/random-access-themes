@@ -2,12 +2,13 @@ Random Access Theme
 Copyright (c) 2026 sainzs
 
 This product includes work derived from third-party colour schemes. The files
-under themes/pi/ named for the hours of the day — madrugada, amanecer,
-atardecer, ocaso, anochecer — are ports: their syntax and interface colours are
-taken from the upstream projects below and are unchanged.
+named for the hours of the day — madrugada, amanecer, atardecer, ocaso,
+anochecer, mediodia — are ports: their syntax and interface colours are taken
+from the upstream projects below and are unchanged. Four of them now live in
+archive/themes/pi/; amanecer and mediodia remain in themes/pi/.
 
 --------------------------------------------------------------------------------
-Tokyo Night — themes/pi/madrugada.json
+Tokyo Night — archive/themes/pi/madrugada.json
 --------------------------------------------------------------------------------
 Copyright (c) folke and the tokyonight.nvim contributors
 Source:  https://github.com/folke/tokyonight.nvim
@@ -56,14 +57,14 @@ Source:  https://github.com/rose-pine/neovim
 License: MIT
 
 --------------------------------------------------------------------------------
-Gruvbox Material — themes/pi/atardecer.json
+Gruvbox Material — archive/themes/pi/atardecer.json
 --------------------------------------------------------------------------------
 Copyright (c) 2019 Sainnhe Park
 Source:  https://github.com/sainnhe/gruvbox-material
 License: MIT
 
 --------------------------------------------------------------------------------
-Catppuccin — themes/pi/anochecer.json, themes/pi/mediodia.json
+Catppuccin — archive/themes/pi/anochecer.json, themes/pi/mediodia.json
 --------------------------------------------------------------------------------
 Copyright (c) 2021 Catppuccin
 Source:  https://github.com/catppuccin/catppuccin
@@ -81,5 +82,5 @@ repointed to a warmer colour from the same palette so it stops colliding with
 surfaces. No syntax or interface colour was altered in any of them, and every
 value used is the upstream palette's own.
 
-themes/pi/ocaso.json has no upstream that could be identified and appears to be
+archive/themes/pi/ocaso.json has no upstream that could be identified and appears to be
 original work.

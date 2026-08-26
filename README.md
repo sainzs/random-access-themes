@@ -4,375 +4,155 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ffb2.svg)](LICENSE)
 [![Release](https://img.shields.io/badge/release-v0.1.2-00ffb2.svg)](https://github.com/sainzs/random-access-themes/releases)
 
-> Dark themes for terminals and editors — six phosphor tubes and four OLED-black flavors.
+Nine keepers. One phosphor each. Hierarchy from brightness, never from a second hue.
 
-![Random Access Themes flavor gallery](assets/flavors.svg)
+<p align="center"><img src="assets/validate.gif" alt="nine keepers, contract green" width="720"/></p>
 
 **At a glance**
-- **6 phosphor themes** — one terminal tube each, hierarchy from brightness alone
-- 4 OLED-black flavors: **Random Access**, **Veridis**, **Voyager**, **Amnesiac**
-- 6–7 terminal ports each: Ghostty, WezTerm, iTerm2, Alacritty, kitty, Windows Terminal, Pi
-- Editor ports today: VS Code, Sublime Text, Zed, Neovim (**Veridis**)
-- Two pipelines, both validated: flavors generate from palette YAML, phosphors
-  generate *from their pi theme* — see the [manifest](docs/manifest.md)
-- Every thinking ramp is derived and enforced: escalation is chroma, not lightness
-
-![Random Access Themes palette strips](assets/palette-strips.svg)
-
-See the [demo preview](docs/demo.md) for the flagship terminal render and
-rebuild commands.
+- **6 phosphor tubes** — amber, green, teal, blue, violet, orange
+- **1 flagship** — electric mint on true OLED black
+- **2 hours** — Rosé Pine dawn, Catppuccin noon (the only light theme)
+- Ports: Ghostty, WezTerm, iTerm2, Alacritty, kitty, Windows Terminal, Pi, Prime
+- Contract: `python3 themes/pi/validate_themes.py --strict`
 
 ---
 
-## The phosphor family
+## The nine
 
-Six themes, one terminal tube each. A real CRT could not show many hues, so it
-built hierarchy out of luminance — dim for what is resting, bright for what
-matters, a hot peak for what is happening now — and these spend a single phosphor
-the same way. Love letters to specific hardware: a VT520 under amber, a VT640
-radar scope, the WOPR's blue room.
+| Theme | Glow | Ground |
+|---|---|---|
+| `reckoner-exect` | amber 39° | `#16100a` — VT520 gold standard |
+| `reckoner-factory` | orange 20° | `#000000` — safety orange on true black |
+| `reckoner-scope` | green 138° | `#0a120c` — P1 phosphor, DEC VT640 |
+| `random-access-theme` | mint 162° | `#000000` — flagship, Daft Punk |
+| `reckoner-darkspace` | teal 174° | `#020b0c` — dark.spaceAMP wireframe |
+| `reckoner-wopr` | blue 205° | `#0b1d3a` — the WOPR console |
+| `reckoner-dusk` | violet 261° | `#1c1b29` — lavender twilight |
+| `amanecer` | rose 2° | `#191724` — Rosé Pine, dawn |
+| `mediodia` | paper 266° | `#e6e9ef` — Catppuccin Latte, noon |
 
-They are the refined half of this repo and they set its standards. The
-thinking-ramp rule every flavor now uses came from here, along with the validator
-that enforces it, and nothing in the family blinks — which the Ghostty exports now
-state outright rather than having the generator overrule.
+<p align="center">
+  <img src="assets/pi/reckoner-exect.png" alt="reckoner-exect" width="720"/>
+</p>
+<p align="center">
+  <img src="assets/pi/random-access-theme.png" alt="random-access-theme" width="720"/>
+</p>
+<p align="center">
+  <img src="assets/pi/mediodia.png" alt="mediodia — the only light theme" width="720"/>
+</p>
 
-Their pi themes are hand-authored and canonical: the terminal exports are derived
-*from* that JSON rather than the other way round, because these arrived finished
-and a pipeline built to spread a cool-spectrum palette across four flavors would
-only have made them worse.
-
-| Theme | Tube | Glow | Ports |
-|---|---|---|---|
-| `reckoner-exect` | EXECT-100 / DEC VT520 | amber phosphor | pi + 6 terminals |
-| `reckoner-scope` | DEC VT640 | P1 green | pi + 6 terminals |
-| `reckoner-wopr` | VT100 | navy + cyan | pi + 6 terminals |
-| `reckoner-darkspace` | dark.spaceAMP | teal wireframe | pi + 6 terminals |
-| `reckoner-dusk` | — | violet on blue-black | pi + 6 terminals |
-| `reckoner-factory` | — | safety orange on true black | pi + 6 terminals |
-
-<p align="center"><img src="assets/phosphor/reckoner-exect.png" alt="reckoner-exect — amber phosphor" width="760"/></p>
-
-Full descriptions, the brightness ladder, and the harness-footer vocabulary they
-were tuned against: **[docs/phosphor-themes.md](docs/phosphor-themes.md)**.
-
-They also brought the thinking-ramp rule the generator now uses — see below.
-
----
-
-## Flavors
-
-Four variants, one philosophy: dark surfaces, restrained UI chrome, and a cool-spectrum accent family.
-
-| Flavor | Named after | Accent | Background | Description |
-|--------|-------------|--------|------------|-------------|
-| **Random Access** | Daft Punk — *Random Access Memories* | `#00ffb2` mint | `#000000` pure OLED black | Flagship. Mint-forward, green-family syntax, zero warm hues |
-| **Veridis** | Daft Punk — *Veridis Quo* | `#00ffb2` mint | `#0f0e0d` warm black | Warm-dark base with crisp cream text and electric mint |
-| **Voyager** | Daft Punk — *Voyager* | `#2ccfc0` teal | `#0f0e0d` warm black | Warm-dark base with a brighter teal-led accent family |
-| **Amnesiac** | Radiohead — *Amnesiac* | `#7b93ff` indigo | `#0f0e0d` warm black | Warm-dark base with cool indigo contrast and sharper separation |
-
----
-
-## The day cycle
-
-Five themes named for the hours, darkest to brightest. Four are **ports** — their
-colours belong to upstream projects and are reproduced unchanged.
-
-| Theme | Hour | Palette | Upstream | Licence |
-|---|---|---|---|---|
-| `madrugada` | before dawn | blue-violet night | Tokyo Night | **Apache-2.0** |
-| `amanecer` | dawn | rose and gold | Rosé Pine | MIT |
-| `mediodia` | noon | Latte, ink on paper | Catppuccin | MIT |
-| `atardecer` | late afternoon | burnt ochre, olive | Gruvbox Material | MIT |
-| `ocaso` | sundown | amber on ink | none identified | — |
-| `anochecer` | nightfall | mauve | Catppuccin | MIT |
-
-Only pi's thinking ramp was rebuilt, because that ramp is not something those
-projects define and every port arrived with one that ended on its own error
-colour. Full detail, and the statement of changes Apache-2.0 requires, in
-[`docs/day-cycle.md`](docs/day-cycle.md) and [`NOTICE`](NOTICE).
-
-## Why it looks different
-
-Most dark themes spread warm accents across the screen. Random Access Themes deliberately compress the visual range:
-- **dark surfaces stay dark**
-- **syntax lives in a tight accent family**
-- **text stays high-contrast and calm**
-- **WCAG contrast is treated as a hard requirement, not a nice-to-have**
-
-The flagship Random Access palette reaches **17.44:1** text/background contrast and every foreground color clears **WCAG AA** against the base background.
-
-See the full rationale in [docs/design.md](docs/design.md).
-
----
-
-## Supported Ports
-
-### Terminals — phosphor family
-
-| Terminal | Amber EXECT | Green Scope | Cyan WOPR | Teal Darkspace | Violet Dusk | Orange Factory |
-|----------|:---:|:---:|:---:|:---:|:---:|:---:|
-| Ghostty | [conf](themes/ghostty/reckoner-exect.conf) | [conf](themes/ghostty/reckoner-scope.conf) | [conf](themes/ghostty/reckoner-wopr.conf) | [conf](themes/ghostty/reckoner-darkspace.conf) | [conf](themes/ghostty/reckoner-dusk.conf) | [conf](themes/ghostty/reckoner-factory.conf) |
-| WezTerm | [toml](themes/wezterm/reckoner-exect.toml) | [toml](themes/wezterm/reckoner-scope.toml) | [toml](themes/wezterm/reckoner-wopr.toml) | [toml](themes/wezterm/reckoner-darkspace.toml) | [toml](themes/wezterm/reckoner-dusk.toml) | [toml](themes/wezterm/reckoner-factory.toml) |
-| iTerm2 | [itermcolors](themes/iterm2/reckoner-exect.itermcolors) | [itermcolors](themes/iterm2/reckoner-scope.itermcolors) | [itermcolors](themes/iterm2/reckoner-wopr.itermcolors) | [itermcolors](themes/iterm2/reckoner-darkspace.itermcolors) | [itermcolors](themes/iterm2/reckoner-dusk.itermcolors) | [itermcolors](themes/iterm2/reckoner-factory.itermcolors) |
-| Alacritty | [toml](themes/alacritty/reckoner-exect.toml) | [toml](themes/alacritty/reckoner-scope.toml) | [toml](themes/alacritty/reckoner-wopr.toml) | [toml](themes/alacritty/reckoner-darkspace.toml) | [toml](themes/alacritty/reckoner-dusk.toml) | [toml](themes/alacritty/reckoner-factory.toml) |
-| kitty | [conf](themes/kitty/reckoner-exect.conf) | [conf](themes/kitty/reckoner-scope.conf) | [conf](themes/kitty/reckoner-wopr.conf) | [conf](themes/kitty/reckoner-darkspace.conf) | [conf](themes/kitty/reckoner-dusk.conf) | [conf](themes/kitty/reckoner-factory.conf) |
-| Windows Terminal | [json](themes/windows-terminal/reckoner-exect.json) | [json](themes/windows-terminal/reckoner-scope.json) | [json](themes/windows-terminal/reckoner-wopr.json) | [json](themes/windows-terminal/reckoner-darkspace.json) | [json](themes/windows-terminal/reckoner-dusk.json) | [json](themes/windows-terminal/reckoner-factory.json) |
-| Pi | [json](themes/pi/reckoner-exect.json) | [json](themes/pi/reckoner-scope.json) | [json](themes/pi/reckoner-wopr.json) | [json](themes/pi/reckoner-darkspace.json) | [json](themes/pi/reckoner-dusk.json) | [json](themes/pi/reckoner-factory.json) |
-
-Pi is the source for these six; the terminal rows are derived from it.
-
-### Terminals — flavors
-
-| Terminal | Random Access | Veridis | Voyager | Amnesiac |
-|----------|:---:|:---:|:---:|:---:|
-| Ghostty | [conf](themes/ghostty/random-access-theme.conf) | [conf](themes/ghostty/veridis.conf) | [conf](themes/ghostty/voyager.conf) | [conf](themes/ghostty/amnesiac.conf) |
-| WezTerm | [toml](themes/wezterm/random-access-theme.toml) | [toml](themes/wezterm/veridis.toml) | [toml](themes/wezterm/voyager.toml) | [toml](themes/wezterm/amnesiac.toml) |
-| iTerm2 | [itermcolors](themes/iterm2/random-access-theme.itermcolors) | [itermcolors](themes/iterm2/veridis.itermcolors) | [itermcolors](themes/iterm2/voyager.itermcolors) | [itermcolors](themes/iterm2/amnesiac.itermcolors) |
-| Alacritty | [toml](themes/alacritty/random-access-theme.toml) | [toml](themes/alacritty/veridis.toml) | [toml](themes/alacritty/voyager.toml) | [toml](themes/alacritty/amnesiac.toml) |
-| kitty | [conf](themes/kitty/random-access-theme.conf) | [conf](themes/kitty/veridis.conf) | [conf](themes/kitty/voyager.conf) | [conf](themes/kitty/amnesiac.conf) |
-| Windows Terminal | [json](themes/windows-terminal/random-access-theme.json) | [json](themes/windows-terminal/veridis.json) | [json](themes/windows-terminal/voyager.json) | [json](themes/windows-terminal/amnesiac.json) |
-| Pi | [json](themes/pi/random-access-theme.json) | [json](themes/pi/veridis.json) | [json](themes/pi/voyager.json) | [json](themes/pi/amnesiac.json) |
-
-### Editors
-
-| Editor | Flavor |
-|--------|--------|
-| VS Code | [Veridis](themes/vscode/veridis-color-theme.json) |
-| Sublime Text | [Veridis](themes/sublime/veridis.sublime-color-scheme) |
-| Zed | [Veridis](themes/zed/veridis.json) |
-| Neovim | [Veridis](themes/neovim/veridis.lua) |
+The other six cards live in [`assets/pi/`](assets/pi/). Seven hue-duplicates
+(amnesiac, anochecer, atardecer, madrugada, ocaso, veridis, voyager) sit in
+[`archive/themes/pi/`](archive/themes/pi/) — not gone, just off the picker.
 
 ---
 
 ## Install
 
-### One-line install (no clone)
+<p align="center"><img src="assets/install.gif" alt="install nine keepers" width="720"/></p>
 
-Fetch a generated theme straight to its standard location — no clone, no Python, no build step:
+### One line, no clone
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- ghostty
+curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- pi
 ```
 
-Targets: `alacritty` · `wezterm` · `ghostty` · `kitty` · `iterm2` · `windows-terminal` · `pi` · `all`. The `pi` target installs **every** theme in the family — all sixteen — not just one. Add `--dry-run` to preview, or pin a release with `RAT_REF=v0.1.2`. Existing files are backed up before they are overwritten. See [`scripts/get.sh`](scripts/get.sh).
+Targets: `alacritty` · `wezterm` · `ghostty` · `kitty` · `iterm2` · `windows-terminal` · `pi` · `all`.
+The `pi` target installs the nine keepers. Pin a release with `RAT_REF=v0.1.2`.
+Add `--dry-run` to preview.
 
 ### From a clone
 
-### Ghostty
+```bash
+bash scripts/install.sh --dry-run
+bash scripts/install.sh --theme reckoner-exect
+```
+
+Links every keeper into `~/.pi/agent/themes/` (and `~/.prime/agent/themes/`
+with the `prime` target), writes Ghostty from the generated export, backs up
+what it replaces. Then `/reload` in the agent.
 
 ```bash
-bash scripts/install.sh ghostty
+/theme reckoner-exect
 ```
 
-Writes the full config to `~/.config/ghostty/config` and stubs the macOS Library config to prevent duplicate entries.
+pi resolves a theme by the `name` inside the JSON, not the filename, and falls
+back to built-in `dark` **silently**. After install, the name in
+`~/.pi/agent/settings.json` must appear in `ls ~/.pi/agent/themes/`.
 
-### WezTerm
+### Terminals
 
-```bash
-cp themes/wezterm/random-access-theme.toml ~/.config/wezterm/colors/
-```
+| | exect | scope | wopr | darkspace | dusk | factory | random-access |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Ghostty | [conf](themes/ghostty/reckoner-exect.conf) | [conf](themes/ghostty/reckoner-scope.conf) | [conf](themes/ghostty/reckoner-wopr.conf) | [conf](themes/ghostty/reckoner-darkspace.conf) | [conf](themes/ghostty/reckoner-dusk.conf) | [conf](themes/ghostty/reckoner-factory.conf) | [conf](themes/ghostty/random-access-theme.conf) |
+| WezTerm | [toml](themes/wezterm/reckoner-exect.toml) | [toml](themes/wezterm/reckoner-scope.toml) | [toml](themes/wezterm/reckoner-wopr.toml) | [toml](themes/wezterm/reckoner-darkspace.toml) | [toml](themes/wezterm/reckoner-dusk.toml) | [toml](themes/wezterm/reckoner-factory.toml) | [toml](themes/wezterm/random-access-theme.toml) |
+| iTerm2 | [itermcolors](themes/iterm2/reckoner-exect.itermcolors) | [itermcolors](themes/iterm2/reckoner-scope.itermcolors) | [itermcolors](themes/iterm2/reckoner-wopr.itermcolors) | [itermcolors](themes/iterm2/reckoner-darkspace.itermcolors) | [itermcolors](themes/iterm2/reckoner-dusk.itermcolors) | [itermcolors](themes/iterm2/reckoner-factory.itermcolors) | [itermcolors](themes/iterm2/random-access-theme.itermcolors) |
+| Alacritty | [toml](themes/alacritty/reckoner-exect.toml) | [toml](themes/alacritty/reckoner-scope.toml) | [toml](themes/alacritty/reckoner-wopr.toml) | [toml](themes/alacritty/reckoner-darkspace.toml) | [toml](themes/alacritty/reckoner-dusk.toml) | [toml](themes/alacritty/reckoner-factory.toml) | [toml](themes/alacritty/random-access-theme.toml) |
+| kitty | [conf](themes/kitty/reckoner-exect.conf) | [conf](themes/kitty/reckoner-scope.conf) | [conf](themes/kitty/reckoner-wopr.conf) | [conf](themes/kitty/reckoner-darkspace.conf) | [conf](themes/kitty/reckoner-dusk.conf) | [conf](themes/kitty/reckoner-factory.conf) | [conf](themes/kitty/random-access-theme.conf) |
+| Windows Terminal | [json](themes/windows-terminal/reckoner-exect.json) | [json](themes/windows-terminal/reckoner-scope.json) | [json](themes/windows-terminal/reckoner-wopr.json) | [json](themes/windows-terminal/reckoner-darkspace.json) | [json](themes/windows-terminal/reckoner-dusk.json) | [json](themes/windows-terminal/reckoner-factory.json) | [json](themes/windows-terminal/random-access-theme.json) |
 
-Then in `wezterm.lua`:
-
-```lua
-config.color_scheme = "Random Access Theme"
-```
-
-### iTerm2
-
-```bash
-bash scripts/install.sh iterm2
-```
-
-Then: **Profiles > Colors > Color Presets > Import** and select the `.itermcolors` file.
-
-### Alacritty
-
-```toml
-# In alacritty.toml
-[import]
-paths = ["/path/to/themes/alacritty/random-access-theme.toml"]
-```
-
-### kitty
-
-```bash
-echo "include /path/to/themes/kitty/random-access-theme.conf" >> ~/.config/kitty/kitty.conf
-```
-
-### Windows Terminal
-
-Add the scheme from `themes/windows-terminal/random-access-theme.json` into the `"schemes"` array in your settings JSON.
-
-### Pi
-
-```bash
-bash scripts/install.sh pi --theme reckoner-scope
-```
-
-Links all ten themes into `~/.pi/agent/themes/` and sets that one active. Then
-`/reload`. By hand, if you prefer:
-
-```bash
-for t in themes/pi/*.json; do ln -sf "$PWD/$t" ~/.pi/agent/themes/; done
-```
-
-**Check that the theme actually took.** pi resolves a theme by the `name` field
-inside the JSON, not by filename, and if the name in `settings.json` does not
-resolve `initTheme` falls back to its built-in `dark` **silently** — no warning,
-no log line, and a dark theme is plausible enough that you can look straight at
-the fallback for weeks. A theme with a `/` in it, a package-qualified name, a
-typo: all identical from the outside.
-
-```bash
-python3 -c "import json;print(json.load(open('$HOME/.pi/agent/settings.json'))['theme'])"
-ls ~/.pi/agent/themes/ | sed 's/.json$//'
-```
-
-The first must appear in the second. `themes/pi/` holds ten: the four flavors and
-the six phosphor tubes in [docs/phosphor-themes.md](docs/phosphor-themes.md).
+amanecer and mediodia are pi-only (upstream already ships the terminals).
+Veridis, voyager and amnesiac still have terminal and editor ports; they are
+no longer in the pi picker.
 
 ---
 
-## Integrations
+## Why it looks like this
 
-Bonus configs for tools that inherit ANSI colors or benefit from explicit theming:
+A real CRT could not show many hues, so it built hierarchy out of luminance —
+dim for what is resting, bright for what matters, a hot peak for what is
+happening now. The six reckoners spend a single phosphor the same way. The
+flagship compresses the same idea onto OLED black with a mint family and
+**17.44:1** text contrast.
 
-| Tool | File | What it does |
-|------|------|-------------|
-| tmux | [`integrations/tmux.conf`](integrations/tmux.conf) | Status bar and pane border colors |
-| fzf | [`integrations/fzf-export.sh`](integrations/fzf-export.sh) | `FZF_DEFAULT_OPTS` color env vars |
-| bat | [`integrations/bat-config`](integrations/bat-config) | Syntax highlighting theme |
-| delta | [`integrations/gitconfig-delta`](integrations/gitconfig-delta) | Git diff colors |
-| Starship | [`integrations/starship.toml`](integrations/starship.toml) | Prompt styling |
-| eza | [`integrations/eza-export.sh`](integrations/eza-export.sh) | `EZA_COLORS` env vars |
+The thinking ramp is chroma, not lightness. Driven harder, a phosphor gets
+more vivid, never more white. `make validate` enforces it across all nine.
 
----
-
-## Palette
-
-Flagship Random Access palette — all colors stay in a green-family range, including ANSI remaps.
-
-| Role | Hex | Purpose |
-|------|-----|---------|
-| bg | `#000000` | Pure OLED black |
-| text | `#d8efe9` | Primary text — green-tinted near-white |
-| subtle | `#9cb7af` | Secondary text, labels |
-| dimText | `#6f8d86` | Comments, disabled |
-| mint | `#00ffb2` | Hero accent, cursor |
-| green | `#4ade80` | Functions, success |
-| teal | `#35d5c5` | Quotes, borders |
-| jade | `#66e3c4` | Keywords |
-| aqua | `#8bf5dd` | Numbers, highlights |
-| emerald | `#26c994` | Errors (no warm red) |
-| lime | `#a2e5b8` | Strings, warnings |
-
-All foreground colors pass **WCAG AA** against `#000000`. Most reach **AAA**.
-
-### Thinking levels
-
-Pi shows how hard the model is being driven as one escalating colour, six levels
-of it. **Escalation is chroma, not lightness.** Each ramp is derived in HSL from
-the palette's quiet text up to its hero accent, holds the accent's hue for the
-whole climb, and stops at the accent — never past it. A phosphor driven harder
-gets more vivid, not more white.
-
-It used to be six fixed palette slots — `subtle`, `emerald`, `teal`, `jade`,
-`mint`, `aqua` — the same list for every flavor, which was not a ramp at all: it
-fell at `minimal`, fell again at `high`, and finished on `aqua` at 75% lightness.
-Amnesiac was worse, ending at 89% having crossed 208° of hue, so asking for more
-reasoning turned the indicator pale and then a different colour entirely.
-
-| flavor | off | xhigh | hue held |
-|---|---|---|---|
-| Random Access | `#6f8d84` | `#00ffb2` | 0° |
-| Veridis | `#71817c` | `#00ffb2` | 1° |
-| Voyager | `#718180` | `#2ccfc0` | 2° |
-| Amnesiac | `#717481` | `#7a93ff` | 1° |
-
-`make validate` enforces it across every theme in `themes/pi/`, flavors and
-phosphors alike: no level above 74% lightness, none darker than the level below
-it, and no more than 40° of hue across the ramp. The check came from the reckoner
-project, where it was written after watching the top level go white on a screen
-recording.
+Full philosophy: [docs/phosphor-themes.md](docs/phosphor-themes.md) ·
+[docs/design.md](docs/design.md) · contract: [themes/pi/THEMES.md](themes/pi/THEMES.md).
 
 ---
 
 ## Development
 
-**Requirements:** Python 3.9+, `pyyaml`
-
-```bash
-pip install pyyaml
-```
+Python 3.9+, `pyyaml`. Two pipelines, opposite directions: flavors generate
+*from* `palette/*.yaml`; phosphors generate terminal exports *from*
+`themes/pi/reckoner-*.json`. Never run one over the other's source.
 
 | Command | What it does |
-|---------|-------------|
-| `make generate` | Regenerate terminal themes from palette YAML |
-| `make visuals` | Regenerate README SVG visuals from palette YAML |
-| `make validate` | Structural + freshness + drift checks |
-| `make contrast` | Full WCAG contrast report |
-| `make check` | Generate + validate + contrast |
-| `make phosphor-exports` | Derive phosphor terminal exports from `themes/pi/reckoner-*.json` |
-| `make phosphor` | Regenerate the phosphor screenshots in `assets/phosphor/` |
-| `make release` | Build release artifacts to `dist/` |
-
-Installing to this machine is `scripts/install.sh`, which takes `--theme <name>`
-(default `reckoner-scope`), links every pi theme, writes the Ghostty config from
-`themes/ghostty/<theme>.conf`, and backs up anything it replaces:
+|---|---|
+| `make generate` | Terminal themes from palette YAML |
+| `make phosphor-exports` | Phosphor terminals from the pi JSON |
+| `make validate` | Structure, freshness, ramps, no drift |
+| `make contrast` | Full WCAG report |
+| `make check` | generate + phosphor-exports + validate + contrast + tokens |
 
 ```bash
-bash scripts/install.sh --dry-run          # see it first
-bash scripts/install.sh --theme reckoner-wopr
-bash scripts/install.sh pi                 # one target only
+python3 themes/pi/validate_themes.py --strict
 ```
 
-Ghostty colours are read from the generated export rather than written into the
-installer. They used to be a heredoc in that script — a second copy of the
-flagship palette that no generator touched and no check compared, in the one file
-whose job is to be the last word on what lands on a machine.
-
-The source-of-truth map lives in [docs/manifest.md](docs/manifest.md), and the
-public preview flow is documented in [docs/demo.md](docs/demo.md).
-
-Each flavor has its own palette file in `palette/`. Edit the YAML, then regenerate the assets you changed.
-
-README visuals in `assets/*.svg` are generated by [`scripts/render_repo_visuals.py`](scripts/render_repo_visuals.py).
+Map of what is source and what is derived: [docs/manifest.md](docs/manifest.md).
 
 ---
 
-## Design Tokens
+## Integrations
 
-The canonical palette is also exported as reusable design tokens for web and UI projects:
+| Tool | File |
+|---|---|
+| tmux | [`integrations/tmux.conf`](integrations/tmux.conf) |
+| fzf | [`integrations/fzf-export.sh`](integrations/fzf-export.sh) |
+| bat | [`integrations/bat-config`](integrations/bat-config) |
+| delta | [`integrations/gitconfig-delta`](integrations/gitconfig-delta) |
+| Starship | [`integrations/starship.toml`](integrations/starship.toml) |
+| eza | [`integrations/eza-export.sh`](integrations/eza-export.sh) |
 
-| Artifact | Path | Use case |
-| --- | --- | --- |
-| W3C-style tokens | `tokens/design-tokens.json` | All four flavors in one importable file |
-| CSS variables | `tokens/random-access-theme.css` | Web projects using the flagship palette |
-| Tailwind config | `tokens/tailwind.js` | Tailwind `extend colors` snippet |
+Design tokens for web work live in [`tokens/`](tokens/). `make tokens` rebuilds them.
 
-Run `make tokens` to regenerate them after editing a palette.
-
-## Portfolio
-
-random-access-themes is the **design system** of the Random Access agent toolchain — four small packages that compose into one maintainer surface:
-
-| Package | Layer | What it does |
-| --- | --- | --- |
-| [santiagosainz-skills](https://github.com/sainzs/santiagosainz-skills) | Workflow | Portable maintainer skills: review, planning, debug, verify, handoff |
-| [reckoner](https://github.com/sainzs/reckoner) | Memory | Agent memory, auto-verification, and guardrails |
-| [registro](https://github.com/sainzs/registro) | Reporting | Agent work report CLI and dashboard |
-| **random-access-themes** | Design system | OLED-black themes and tokens shared across the toolchain |
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). The only files that should be edited manually are the palette YAML files in `palette/` plus repo docs / scripts. Theme files in `themes/` and README SVGs in `assets/` are generated.
+---
 
 ## License
 
 [MIT](LICENSE) for everything original here.
 
-The five day-cycle themes are ports and keep their upstream licences — Tokyo
-Night is **Apache-2.0**, the rest MIT. See [`NOTICE`](NOTICE) for the copyright
-holders and the record of what was changed.
+amanecer is a Rosé Pine port (MIT). mediodia is Catppuccin Latte (MIT).
+The archived day-cycle ports keep their upstream licences in [`NOTICE`](NOTICE).
