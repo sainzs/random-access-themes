@@ -1,0 +1,61 @@
+# pi theme package — contract & roster
+
+The package contract is distilled from **reckoner-exect**, the gold standard.
+Every theme in this directory must satisfy it. Enforced by
+`validate_themes.py --strict`; visualized by `render_preview.py`.
+
+## Anatomy of a reckoner-grade theme
+
+1. **Neutral skeleton** — `bg0 → bg1 → bg2 → bg3 → line → muted0 → muted1 → text1 → text0`,
+   a luminance ladder. Dark themes ascend, the one light theme (mediodia) inverts.
+   `bg0` is the page, `bg3` the quietest border, `line` the accent border,
+   `text0` the primary reading color.
+2. **Named accent roles** — at minimum a base accent plus a *hot* (bright) and,
+   where useful, a *peak* variant. Identity lives here (amberHot, tealHot, …).
+3. **Semantic trio, one job each** — success (green family), error (alarm),
+   warning (caution). Never borrow the identity accent for semantics.
+4. **Derived panel set** — all 11 `pa*` backgrounds pre-computed to harmonize
+   with the skeleton: `paToolPendingBg, paToolSuccessBg, paToolErrorBg,
+   paUserMessageBg, paCustomMessageBg, paToolPanelBg, paSelectedBg,
+   paDiffAddedBg, paDiffRemovedBg, paDiffText, paDim`.
+5. **Complete role map** — all 55 `colors` keys, values are hex or var refs,
+   never empty strings.
+6. **Export block** — `pageBg / cardBg / infoBg` for HTML export.
+
+Hard floors: `contrast(text0, bg0) ≥ 4.5` (WCAG), no dangling refs, `name`
+equals filename. See `../theme-schema.json` for the machine-readable shape.
+
+## Roster (locked 2026-08-26)
+
+Nine themes. Eight own a hue family; random-access-theme is the package
+flagship (electric mint, 24° from scope's phosphor green, different saturation
+and a true-black page). No other duplicates.
+
+| theme | hue | identity |
+|---|---|---|
+| reckoner-exect | amber 39° | **the gold standard** — amber phosphor CRT |
+| reckoner-factory | orange 20° | neutral slate, off-white text, orange signal |
+| reckoner-scope | green 138° | green phosphor oscilloscope |
+| random-access-theme | mint 162° | **the flagship** — electric mint on OLED black |
+| reckoner-darkspace | teal 174° | deep-space cyan-teal |
+| reckoner-wopr | blue 205° | WarGames WOPR console |
+| reckoner-dusk | violet 261° | lavender twilight |
+| amanecer | rose 2° | Rosé Pine dawn |
+| mediodia | violet 266° (light) | Catppuccin Latte — the only light theme |
+
+Archived to `archive/themes/pi/` in the random-access-themes repo: amnesiac,
+anochecer, atardecer, madrugada, ocaso, veridis, voyager. Each was a
+hue-duplicate of a keeper or structurally unsound (empty text, missing
+skeleton). Cross-app ports of the palette family (ghostty/vscode/zed/…) stay
+in `themes/<app>/` — this consolidation is pi-scoped.
+
+## Workflow
+
+```sh
+python3 render_preview.py <name>     # visual card -> previews/<name>.png
+python3 validate_themes.py --strict  # contract check, all themes
+```
+
+Adding a theme: pick an **unowned hue family**, copy the exect skeleton, derive
+the pa* set from your neutrals, preview, validate. If the hue you want is taken,
+replace the incumbent deliberately — one owner per hue.

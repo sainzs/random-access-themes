@@ -169,6 +169,93 @@ def pi_surfaces(c: dict) -> dict:
     }
 
 
+# ── Neutral skeleton ─────────────────────────────────────────────────────────
+
+# The reckoner-grade contract (THEMES.md) wants every pi theme to carry the
+# canonical ladder bg0→bg3, line, muted0/1, text0/1, plus paDim. The rungs the
+# palettes do not name are derived, calibrated against reckoner-exect, the
+# package's gold standard — the constants below are its measured relationships.
+LINE_LIFT = 1.68   # line's HSL lightness as a multiple of bg3's (exect 13.5 → 22.7)
+TEXT1_LUM = 0.70   # text1 luminance as a fraction of text0's (exect 0.705)
+PADIM_SAT = 0.48   # paDim keeps this much of muted0's saturation
+PADIM_LUM = 0.94   # ... and lands at this fraction of its luminance, just below
+
+
+def _mix_hsl(a: str, b: str, t: float) -> str:
+    """Interpolate a → b in HSL, taking the short way round the hue circle."""
+    ha, sa, la = _hsl(a)
+    hb, sb, lb = _hsl(b)
+    dh = ((hb - ha + 180) % 360) - 180
+    return _hex(ha + dh * t, sa + (sb - sa) * t, la + (lb - la) * t)
+
+
+def _solve_lightness(hue: float, sat: float, target_lum: float) -> float:
+    """Binary-search the HSL lightness at which (hue, sat) reaches `target_lum`."""
+    lo, hi = 0.0, 100.0
+    for _ in range(48):
+        mid = (lo + hi) / 2
+        if _luminance(_hex(hue, sat, mid)) < target_lum:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def pi_skeleton(c: dict) -> dict:
+    """
+    The contract's neutral skeleton, derived from the flavor's own ramp.
+
+    The palettes name their neutrals bg/bg1/bg2/surface/overlay, but the
+    contract's ladder starts from the *practical* page: `bg` is the void
+    (#000000 in every flavor), the recessed inset a page is never painted with.
+    So bg0 = the palette's bg1, its bg1 = bg, and bg3 = overlay, the quietest
+    border. The inversion is the contract's own — reckoner-exect's bg1 (#100b06)
+    is likewise darker than its bg0 (#16100a).
+
+    Three rungs no palette names, calibrated against exect:
+      line  — the accent border: bg3 brightened toward muted0 to 1.68× its
+              lightness (exect: bg3 #332412 → line #5a3f1a).
+      text1 — text0 moved toward muted1 until its luminance is 0.70× text0's
+              (exect: #ffb753 → #e09a3f).
+      paDim — muted0 at half saturation, lightness solved so luminance lands at
+              0.94× muted0's (exect: #8a6224 → #796344): the dim tone sits just
+              *below* the quietest text, not above it.
+    """
+    bg3, muted0, muted1, text0 = c["overlay"], c["dimText"], c["subtle"], c["text"]
+
+    l3 = _hsl(bg3)[2]
+    lm = _hsl(muted0)[2]
+    rung = (l3 * LINE_LIFT - l3) / (lm - l3) if lm > l3 else 0.0
+    line = _mix_hsl(bg3, muted0, min(max(rung, 0.0), 1.0))
+
+    target = TEXT1_LUM * _luminance(text0)
+    lo, hi = 0.0, 1.0
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        if _luminance(_mix_hsl(text0, muted1, mid)) > target:
+            lo = mid
+        else:
+            hi = mid
+    text1 = _mix_hsl(text0, muted1, (lo + hi) / 2)
+
+    hd, sd, _ = _hsl(muted0)
+    pa_dim = _hex(hd, sd * PADIM_SAT,
+                  _solve_lightness(hd, sd * PADIM_SAT, PADIM_LUM * _luminance(muted0)))
+
+    return {
+        "bg0":    c["bg1"],
+        "bg1":    c["bg"],
+        "bg2":    c["bg2"],
+        "bg3":    bg3,
+        "line":   line,
+        "muted0": muted0,
+        "muted1": muted1,
+        "text1":  text1,
+        "text0":  text0,
+        "paDim":  pa_dim,
+    }
+
+
 def write_or_print(path: Path, content: str, dry_run: bool) -> None:
     if dry_run:
         print(f"\n{'─'*60}")
@@ -424,6 +511,7 @@ def gen_pi(p: dict) -> str:
     meta = p["meta"]
     ramp = thinking_ramp(c["dimText"], c["mint"])
     surfaces = pi_surfaces(c)
+    skeleton = pi_skeleton(c)
     dim_keys = lift(c["dimText"], c["bg"], DIM_FLOOR)
 
     theme = {
@@ -434,11 +522,18 @@ def gen_pi(p: dict) -> str:
         "name": meta["name"],
         "vars": {
             "bg":      c["bg"],
-            "bg1":     c["bg1"],
+            "bg0":     skeleton["bg0"],   # practical page (palette's bg1)
+            "bg1":     skeleton["bg1"],   # recessed inset (palette's bg) — darker than bg0
             "bg2":     c["bg2"],
+            "bg3":     skeleton["bg3"],   # quietest border (palette's overlay)
             "surface": c["surface"],
             "overlay": c["overlay"],
+            "line":    skeleton["line"],
+            "muted0":  skeleton["muted0"],
+            "muted1":  skeleton["muted1"],
             "text":    c["text"],
+            "text0":   skeleton["text0"],
+            "text1":   skeleton["text1"],
             "subtle":  c["subtle"],
             "dimText": c["dimText"],
             "cyan":    c["cyan"],     # alias for mint — keeps original role
@@ -449,26 +544,27 @@ def gen_pi(p: dict) -> str:
             "aqua":    c["aqua"],
             "emerald": c["emerald"],
             "lime":    c["lime"],
+            "paDim":   skeleton["paDim"],
             **({"paDimKeys": dim_keys} if dim_keys != c["dimText"] else {}),
             **surfaces,
         },
         "colors": {
             "accent":             "mint",
-            "border":             "subtle",
+            "border":             "bg2",
             "borderAccent":       "mint",
-            "borderMuted":        "subtle",
+            "borderMuted":        "bg3",
             "success":            "green",
             "error":              "emerald",
             "warning":            "lime",
             "muted":              "subtle",
-            "dim":                "paDimKeys" if dim_keys != c["dimText"] else "dimText",
-            "text":               "text",
+            "dim":                "paDim",
+            "text":               "text0",
             "thinkingText":       "jade",
             "selectedBg":         "paSelectedBg",
             "userMessageBg":      "paUserMessageBg",
-            "userMessageText":    "text",
+            "userMessageText":    "text0",
             "customMessageBg":    "paCustomMessageBg",
-            "customMessageText":  "text",
+            "customMessageText":  "text0",
             "customMessageLabel": "mint",
             "toolPendingBg":      "paToolPendingBg",
             "toolSuccessBg":      "paToolSuccessBg",
@@ -482,11 +578,11 @@ def gen_pi(p: dict) -> str:
             "mdLink":             "cyan",
             "mdLinkUrl":          "subtle",
             "mdCode":             "cyan",
-            "mdCodeBlock":        "text",
-            "mdCodeBlockBorder":  "subtle",
+            "mdCodeBlock":        "text1",
+            "mdCodeBlockBorder":  "bg3",
             "mdQuote":            "subtle",
-            "mdQuoteBorder":      "teal",
-            "mdHr":               "subtle",
+            "mdQuoteBorder":      "bg3",
+            "mdHr":               "bg3",
             "mdListBullet":       "mint",
             "toolDiffAdded":      "green",
             "toolDiffRemoved":    "emerald",
@@ -495,7 +591,7 @@ def gen_pi(p: dict) -> str:
             "syntaxComment":      "dimText",
             "syntaxKeyword":      "jade",
             "syntaxFunction":     "green",
-            "syntaxVariable":     "text",
+            "syntaxVariable":     "text0",
             "syntaxString":       "lime",
             "syntaxNumber":       "aqua",
             "syntaxType":         "cyan",

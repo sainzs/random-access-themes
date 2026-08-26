@@ -212,7 +212,7 @@ def validate_pi_theme() -> None:
             return 0 <= v <= 255
         if not isinstance(v, str):
             return False
-        return v == "" or RE_HEX.match(v) is not None or v in vars_map
+        return RE_HEX.match(v) is not None or v in vars_map
 
     bad = [k for k, v in colors.items() if not valid_value(v)]
     if bad:
@@ -330,7 +330,7 @@ def validate_thinking_ramps() -> None:
     it was added — amnesiac finished at 89% lightness having crossed 208° of hue.
 
     Applied to every theme in themes/pi/, generated or hand-authored, because
-    the previous pi check looked at one file by name and the family has seven.
+    the previous pi check looked at one file by name and the family has nine.
     """
     paths = sorted((THEMES_DIR / "pi").glob("*.json"))
     if not paths:

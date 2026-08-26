@@ -29,6 +29,7 @@
     "paDiffAddedBg": "#284130",
     "paDiffRemovedBg": "#463038",
     "paDiffText": "#cccccc",
+    "paDim": "#706985",
     "paBashMode": "#e7c76b",
     "paPhosphorTrace": "#706985",
     "paPhosphorTrace2": "#4c4563"
@@ -42,7 +43,7 @@
     "error": "pink",
     "warning": "gold",
     "muted": "muted1",
-    "dim": "paPhosphorTrace",
+    "dim": "paDim",
     "text": "text0",
     "thinkingText": "muted1",
     "selectedBg": "paSelectedBg",

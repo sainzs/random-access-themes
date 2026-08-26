@@ -8,6 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- Pi package contract: `themes/pi/THEMES.md`, `validate_themes.py`,
+  `render_preview.py`. Distilled from reckoner-exect. Enforced by
+  `python3 themes/pi/validate_themes.py --strict`.
+- `pi_skeleton()` in `scripts/generate.py` — every generated pi theme now emits
+  the contract ladder (`bg0`–`bg3`, `line`, `muted0/1`, `text0/1`, `paDim`)
+  derived from the flavor's own ramp, calibrated against reckoner-exect.
 - Prime Agent support: `themes/theme-schema.json`, the union of pi's and Prime's
   contracts, and `bash scripts/install.sh prime`. One file set serves both agents
 - Agent surfaces in every pi theme — `toolPanelBg`, `toolDiffAddedBg`,
@@ -19,6 +25,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- Pi family consolidated to nine keepers. Seven hue-duplicates / broken themes
+  archived to `archive/themes/pi/`: amnesiac, anochecer, atardecer, madrugada,
+  ocaso, veridis, voyager. `themes/pi/index.txt` lists the nine.
+- amanecer and mediodia brought up to the contract (canonical skeleton, five
+  empty color values wired, `paDim` added). reckoner-factory `border0/1` renamed
+  to `bg3`/`line`. reckoner-dusk gained `paDim`.
+- `scripts/validate_theme.py` no longer treats empty-string color values as valid.
 - `toolPendingBg`, `toolSuccessBg` and `toolErrorBg` no longer all resolve to the
   background, so a tool call now shows its state; diff rows read green and red
   even where the palette names no red

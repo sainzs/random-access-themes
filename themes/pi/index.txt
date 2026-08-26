@@ -1,10 +1,5 @@
 amanecer
-amnesiac
-anochecer
-atardecer
-madrugada
 mediodia
-ocaso
 random-access-theme
 reckoner-darkspace
 reckoner-dusk
@@ -12,5 +7,3 @@ reckoner-exect
 reckoner-factory
 reckoner-scope
 reckoner-wopr
-veridis
-voyager
