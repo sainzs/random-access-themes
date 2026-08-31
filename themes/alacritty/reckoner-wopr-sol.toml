@@ -1,0 +1,35 @@
+# reckoner-wopr-sol — Alacritty
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#eef0f4"
+foreground = "#084c91"
+
+[colors.cursor]
+cursor = "#096bae"
+text   = "#eef0f4"
+
+[colors.selection]
+background = "#d7dde5"
+text       = "#084c91"
+
+[colors.normal]
+black    = "#d7dde5"
+red      = "#ae4758"
+green    = "#1c7744"
+yellow   = "#836407"
+blue     = "#366aa5"
+magenta  = "#084c91"
+cyan     = "#096bae"
+white    = "#084c91"
+
+[colors.bright]
+black    = "#6c88b2"
+red      = "#ae4758"
+green    = "#1c7744"
+yellow   = "#836407"
+blue     = "#096bae"
+magenta  = "#096bb3"
+cyan     = "#096bb3"
+white    = "#096bb3"

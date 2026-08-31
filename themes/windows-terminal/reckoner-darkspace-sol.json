@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-darkspace-sol",
+    "background": "#edf4f4",
+    "foreground": "#0b5651",
+    "cursorColor": "#067469",
+    "selectionBackground": "#d7e4e4",
+    "black": "#d7e4e4",
+    "red": "#b5405c",
+    "green": "#067944",
+    "yellow": "#786811",
+    "blue": "#197670",
+    "purple": "#0b5651",
+    "cyan": "#067469",
+    "white": "#0b5651",
+    "brightBlack": "#4a9096",
+    "brightRed": "#b5405c",
+    "brightGreen": "#067944",
+    "brightYellow": "#786811",
+    "brightBlue": "#067469",
+    "brightPurple": "#067468",
+    "brightCyan": "#067468",
+    "brightWhite": "#067468"
+}

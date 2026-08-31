@@ -1,9 +1,17 @@
 aerodynamic
+aerodynamic-sol
 amanecer
+amanecer-sol
 mediodia
 reckoner-darkspace
+reckoner-darkspace-sol
 reckoner-dusk
+reckoner-dusk-sol
 reckoner-exect
+reckoner-exect-sol
 reckoner-factory
+reckoner-factory-sol
 reckoner-scope
+reckoner-scope-sol
 reckoner-wopr
+reckoner-wopr-sol

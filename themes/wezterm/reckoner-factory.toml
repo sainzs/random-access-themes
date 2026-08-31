@@ -14,7 +14,7 @@ cursor_fg     = "#020202"
 selection_bg  = "#35261f"
 selection_fg  = "#eeeeee"
 ansi          = ["#35261f", "#e54048", "#6fab78", "#d8a657", "#8a8380", "#eeeeee", "#ef6f2e", "#eeeeee"]
-brights       = ["#63605d", "#e54048", "#6fab78", "#d8a657", "#ef6f2e", "#ef6f2e", "#ef6f2e", "#ef6f2e"]
+brights       = ["#767370", "#e54048", "#6fab78", "#d8a657", "#ef6f2e", "#ef6f2e", "#ef6f2e", "#ef6f2e"]
 
 [metadata]
 name       = "Orange Factory"

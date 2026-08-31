@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-dusk-sol",
+    "background": "#f0f0f2",
+    "foreground": "#46496d",
+    "cursorColor": "#774fc5",
+    "selectionBackground": "#dbd9e2",
+    "black": "#dbd9e2",
+    "red": "#ca164c",
+    "green": "#08719b",
+    "yellow": "#7f6415",
+    "blue": "#616794",
+    "purple": "#46496d",
+    "cyan": "#774fc5",
+    "white": "#46496d",
+    "brightBlack": "#88819c",
+    "brightRed": "#ca164c",
+    "brightGreen": "#08719b",
+    "brightYellow": "#7f6415",
+    "brightBlue": "#774fc5",
+    "brightPurple": "#7e37f0",
+    "brightCyan": "#7e37f0",
+    "brightWhite": "#7e37f0"
+}

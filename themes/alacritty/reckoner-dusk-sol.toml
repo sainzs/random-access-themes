@@ -1,0 +1,35 @@
+# reckoner-dusk-sol — Alacritty
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#f0f0f2"
+foreground = "#46496d"
+
+[colors.cursor]
+cursor = "#774fc5"
+text   = "#f0f0f2"
+
+[colors.selection]
+background = "#dbd9e2"
+text       = "#46496d"
+
+[colors.normal]
+black    = "#dbd9e2"
+red      = "#ca164c"
+green    = "#08719b"
+yellow   = "#7f6415"
+blue     = "#616794"
+magenta  = "#46496d"
+cyan     = "#774fc5"
+white    = "#46496d"
+
+[colors.bright]
+black    = "#88819c"
+red      = "#ca164c"
+green    = "#08719b"
+yellow   = "#7f6415"
+blue     = "#774fc5"
+magenta  = "#7e37f0"
+cyan     = "#7e37f0"
+white    = "#7e37f0"

@@ -16,13 +16,13 @@
         "pane.focused_border": "#8a8380",
         "text": "#eeeeee",
         "text.muted": "#8a8380",
-        "text.placeholder": "#63605d",
-        "text.disabled": "#63605d",
+        "text.placeholder": "#767370",
+        "text.disabled": "#767370",
         "text.accent": "#ef6f2e",
         "icon": "#8a8380",
-        "icon.muted": "#63605d",
-        "icon.disabled": "#63605d",
-        "icon.placeholder": "#63605d",
+        "icon.muted": "#767370",
+        "icon.disabled": "#767370",
+        "icon.placeholder": "#767370",
         "icon.accent": "#ef6f2e",
         "border": "#2e2c2b",
         "border.variant": "#020202",
@@ -35,13 +35,13 @@
         "element.active": "#35261f",
         "element.selected": "#020202",
         "element.disabled": "#35261f",
-        "element.placeholder": "#63605d",
+        "element.placeholder": "#767370",
         "element.drop_target": "#ef6f2e11",
         "ghost_element.background": "#00000000",
         "ghost_element.hover": "#35261f",
         "ghost_element.active": "#020202",
         "ghost_element.selected": "#35261f",
-        "ghost_element.disabled": "#63605d",
+        "ghost_element.disabled": "#767370",
         "drop_target.background": "#ef6f2e11",
         "accent": "#ef6f2e",
         "link_text.hover": "#ef6f2e",
@@ -57,7 +57,7 @@
         "editor.subheader.background": "#35261f",
         "editor.active_line.background": "#35261f",
         "editor.highlighted_line.background": "#020202",
-        "editor.line_number": "#63605d",
+        "editor.line_number": "#767370",
         "editor.active_line_number": "#8a8380",
         "editor.invisible": "#35261f",
         "editor.wrap_guide": "#2e2c2b",
@@ -66,7 +66,7 @@
         "editor.document_highlight.write_background": "#ef6f2e22",
         "terminal.background": "#020202",
         "terminal.foreground": "#eeeeee",
-        "terminal.dim_foreground": "#63605d",
+        "terminal.dim_foreground": "#767370",
         "terminal.bright_foreground": "#eeeeee",
         "terminal.ansi.black": "#35261f",
         "terminal.ansi.red": "#e54048",
@@ -76,7 +76,7 @@
         "terminal.ansi.magenta": "#eeeeee",
         "terminal.ansi.cyan": "#ef6f2e",
         "terminal.ansi.white": "#eeeeee",
-        "terminal.ansi.bright_black": "#63605d",
+        "terminal.ansi.bright_black": "#767370",
         "terminal.ansi.bright_red": "#e54048",
         "terminal.ansi.bright_green": "#6fab78",
         "terminal.ansi.bright_yellow": "#d8a657",
@@ -99,7 +99,7 @@
             "color": "#ef6f2e"
           },
           "comment": {
-            "color": "#63605d",
+            "color": "#767370",
             "font_style": "italic"
           },
           "comment.doc": {
@@ -130,7 +130,7 @@
             "color": "#ef6f2e"
           },
           "hint": {
-            "color": "#63605d"
+            "color": "#767370"
           },
           "keyword": {
             "color": "#ef6f2e"
@@ -153,7 +153,7 @@
             "color": "#8a8380"
           },
           "predictive": {
-            "color": "#63605d",
+            "color": "#767370",
             "font_style": "italic"
           },
           "preproc": {

@@ -14,7 +14,12 @@ anything structural; do not restate it here.
 still holds for the tubes and the flavors: maintenance only, no new flavors, no
 new output targets. The day cycle was folded in afterwards on the owner's
 instruction, consolidating what had been a second theme repo; that is the one
-exception, and it is not a precedent for a fourth family.
+exception, and it is not a precedent for a fourth family. Reopened a
+second time 2026-08-31 on the owner's instruction: the `-sol` light twins
+(one per dark keeper) for pi's terminal light/dark auto-pairing, derived
+by `scripts/generate_sol.py`; `amanecer-sol` is hand-authored from
+upstream Rosé Pine Dawn. Same rule applies: not a precedent for anything
+else.
 
 ## Commands
 

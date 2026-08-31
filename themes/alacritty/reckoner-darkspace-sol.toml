@@ -1,0 +1,35 @@
+# reckoner-darkspace-sol — Alacritty
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#edf4f4"
+foreground = "#0b5651"
+
+[colors.cursor]
+cursor = "#067469"
+text   = "#edf4f4"
+
+[colors.selection]
+background = "#d7e4e4"
+text       = "#0b5651"
+
+[colors.normal]
+black    = "#d7e4e4"
+red      = "#b5405c"
+green    = "#067944"
+yellow   = "#786811"
+blue     = "#197670"
+magenta  = "#0b5651"
+cyan     = "#067469"
+white    = "#0b5651"
+
+[colors.bright]
+black    = "#4a9096"
+red      = "#b5405c"
+green    = "#067944"
+yellow   = "#786811"
+blue     = "#067469"
+magenta  = "#067468"
+cyan     = "#067468"
+white    = "#067468"

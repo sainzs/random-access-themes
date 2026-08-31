@@ -1,0 +1,35 @@
+# reckoner-factory-sol — Alacritty
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#f6f6f6"
+foreground = "#5b4848"
+
+[colors.cursor]
+cursor = "#b4460e"
+text   = "#f6f6f6"
+
+[colors.selection]
+background = "#e5dbd7"
+text       = "#5b4848"
+
+[colors.normal]
+black    = "#e5dbd7"
+red      = "#ce1c25"
+green    = "#44744b"
+yellow   = "#896020"
+blue     = "#78665e"
+magenta  = "#5b4848"
+cyan     = "#b4460e"
+white    = "#5b4848"
+
+[colors.bright]
+black    = "#918273"
+red      = "#ce1c25"
+green    = "#44744b"
+yellow   = "#896020"
+blue     = "#b4460e"
+magenta  = "#b4460e"
+cyan     = "#b4460e"
+white    = "#b4460e"

@@ -1,0 +1,21 @@
+# reckoner-factory-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-factory-sol"
+
+[colors]
+foreground    = "#5b4848"
+background    = "#f6f6f6"
+cursor_bg     = "#b4460e"
+cursor_border = "#b4460e"
+cursor_fg     = "#f6f6f6"
+selection_bg  = "#e5dbd7"
+selection_fg  = "#5b4848"
+ansi          = ["#e5dbd7", "#ce1c25", "#44744b", "#896020", "#78665e", "#5b4848", "#b4460e", "#5b4848"]
+brights       = ["#918273", "#ce1c25", "#44744b", "#896020", "#b4460e", "#b4460e", "#b4460e", "#b4460e"]
+
+[metadata]
+name       = "reckoner-factory-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"

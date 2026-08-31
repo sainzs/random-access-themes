@@ -1,0 +1,35 @@
+# reckoner-scope-sol — Alacritty
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+
+[colors.primary]
+background = "#f0f2f0"
+foreground = "#115525"
+
+[colors.cursor]
+cursor = "#067929"
+text   = "#f0f2f0"
+
+[colors.selection]
+background = "#dae2dc"
+text       = "#115525"
+
+[colors.normal]
+black    = "#dae2dc"
+red      = "#c72d0a"
+green    = "#115525"
+yellow   = "#786811"
+blue     = "#3e754e"
+magenta  = "#115525"
+cyan     = "#067929"
+white    = "#115525"
+
+[colors.bright]
+black    = "#688d72"
+red      = "#c72d0a"
+green    = "#115525"
+yellow   = "#786811"
+blue     = "#067929"
+magenta  = "#06792a"
+cyan     = "#06792a"
+white    = "#06792a"

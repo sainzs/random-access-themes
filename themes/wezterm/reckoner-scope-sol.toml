@@ -1,0 +1,21 @@
+# reckoner-scope-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-scope-sol"
+
+[colors]
+foreground    = "#115525"
+background    = "#f0f2f0"
+cursor_bg     = "#067929"
+cursor_border = "#067929"
+cursor_fg     = "#f0f2f0"
+selection_bg  = "#dae2dc"
+selection_fg  = "#115525"
+ansi          = ["#dae2dc", "#c72d0a", "#115525", "#786811", "#3e754e", "#115525", "#067929", "#115525"]
+brights       = ["#688d72", "#c72d0a", "#115525", "#786811", "#067929", "#06792a", "#06792a", "#06792a"]
+
+[metadata]
+name       = "reckoner-scope-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"

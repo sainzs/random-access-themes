@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-scope-sol",
+    "background": "#f0f2f0",
+    "foreground": "#115525",
+    "cursorColor": "#067929",
+    "selectionBackground": "#dae2dc",
+    "black": "#dae2dc",
+    "red": "#c72d0a",
+    "green": "#115525",
+    "yellow": "#786811",
+    "blue": "#3e754e",
+    "purple": "#115525",
+    "cyan": "#067929",
+    "white": "#115525",
+    "brightBlack": "#688d72",
+    "brightRed": "#c72d0a",
+    "brightGreen": "#115525",
+    "brightYellow": "#786811",
+    "brightBlue": "#067929",
+    "brightPurple": "#06792a",
+    "brightCyan": "#06792a",
+    "brightWhite": "#06792a"
+}

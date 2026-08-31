@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-exect-sol",
+    "background": "#f3f1ef",
+    "foreground": "#6f4306",
+    "cursorColor": "#8d5d07",
+    "selectionBackground": "#e4dfd8",
+    "black": "#e4dfd8",
+    "red": "#c72a0a",
+    "green": "#4e7326",
+    "yellow": "#7e6407",
+    "blue": "#866127",
+    "purple": "#6f4306",
+    "cyan": "#8d5d07",
+    "white": "#6f4306",
+    "brightBlack": "#9d8058",
+    "brightRed": "#c72a0a",
+    "brightGreen": "#4e7326",
+    "brightYellow": "#7e6407",
+    "brightBlue": "#8d5d07",
+    "brightPurple": "#8d6007",
+    "brightCyan": "#8d6007",
+    "brightWhite": "#8d6007"
+}

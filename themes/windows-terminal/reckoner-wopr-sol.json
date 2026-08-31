@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-wopr-sol",
+    "background": "#eef0f4",
+    "foreground": "#084c91",
+    "cursorColor": "#096bae",
+    "selectionBackground": "#d7dde5",
+    "black": "#d7dde5",
+    "red": "#ae4758",
+    "green": "#1c7744",
+    "yellow": "#836407",
+    "blue": "#366aa5",
+    "purple": "#084c91",
+    "cyan": "#096bae",
+    "white": "#084c91",
+    "brightBlack": "#6c88b2",
+    "brightRed": "#ae4758",
+    "brightGreen": "#1c7744",
+    "brightYellow": "#836407",
+    "brightBlue": "#096bae",
+    "brightPurple": "#096bb3",
+    "brightCyan": "#096bb3",
+    "brightWhite": "#096bb3"
+}

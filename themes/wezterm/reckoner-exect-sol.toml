@@ -1,0 +1,21 @@
+# reckoner-exect-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-exect-sol"
+
+[colors]
+foreground    = "#6f4306"
+background    = "#f3f1ef"
+cursor_bg     = "#8d5d07"
+cursor_border = "#8d5d07"
+cursor_fg     = "#f3f1ef"
+selection_bg  = "#e4dfd8"
+selection_fg  = "#6f4306"
+ansi          = ["#e4dfd8", "#c72a0a", "#4e7326", "#7e6407", "#866127", "#6f4306", "#8d5d07", "#6f4306"]
+brights       = ["#9d8058", "#c72a0a", "#4e7326", "#7e6407", "#8d5d07", "#8d6007", "#8d6007", "#8d6007"]
+
+[metadata]
+name       = "reckoner-exect-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"

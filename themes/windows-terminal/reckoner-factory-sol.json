@@ -1,0 +1,23 @@
+{
+    "name": "reckoner-factory-sol",
+    "background": "#f6f6f6",
+    "foreground": "#5b4848",
+    "cursorColor": "#b4460e",
+    "selectionBackground": "#e5dbd7",
+    "black": "#e5dbd7",
+    "red": "#ce1c25",
+    "green": "#44744b",
+    "yellow": "#896020",
+    "blue": "#78665e",
+    "purple": "#5b4848",
+    "cyan": "#b4460e",
+    "white": "#5b4848",
+    "brightBlack": "#918273",
+    "brightRed": "#ce1c25",
+    "brightGreen": "#44744b",
+    "brightYellow": "#896020",
+    "brightBlue": "#b4460e",
+    "brightPurple": "#b4460e",
+    "brightCyan": "#b4460e",
+    "brightWhite": "#b4460e"
+}

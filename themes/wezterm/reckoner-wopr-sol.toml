@@ -1,0 +1,21 @@
+# reckoner-wopr-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-wopr-sol"
+
+[colors]
+foreground    = "#084c91"
+background    = "#eef0f4"
+cursor_bg     = "#096bae"
+cursor_border = "#096bae"
+cursor_fg     = "#eef0f4"
+selection_bg  = "#d7dde5"
+selection_fg  = "#084c91"
+ansi          = ["#d7dde5", "#ae4758", "#1c7744", "#836407", "#366aa5", "#084c91", "#096bae", "#084c91"]
+brights       = ["#6c88b2", "#ae4758", "#1c7744", "#836407", "#096bae", "#096bb3", "#096bb3", "#096bb3"]
+
+[metadata]
+name       = "reckoner-wopr-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"

@@ -1,0 +1,21 @@
+# reckoner-darkspace-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-darkspace-sol"
+
+[colors]
+foreground    = "#0b5651"
+background    = "#edf4f4"
+cursor_bg     = "#067469"
+cursor_border = "#067469"
+cursor_fg     = "#edf4f4"
+selection_bg  = "#d7e4e4"
+selection_fg  = "#0b5651"
+ansi          = ["#d7e4e4", "#b5405c", "#067944", "#786811", "#197670", "#0b5651", "#067469", "#0b5651"]
+brights       = ["#4a9096", "#b5405c", "#067944", "#786811", "#067469", "#067468", "#067468", "#067468"]
+
+[metadata]
+name       = "reckoner-darkspace-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"

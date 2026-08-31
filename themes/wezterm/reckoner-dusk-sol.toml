@@ -1,0 +1,21 @@
+# reckoner-dusk-sol — WezTerm color scheme
+# Phosphor theme.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "reckoner-dusk-sol"
+
+[colors]
+foreground    = "#46496d"
+background    = "#f0f0f2"
+cursor_bg     = "#774fc5"
+cursor_border = "#774fc5"
+cursor_fg     = "#f0f0f2"
+selection_bg  = "#dbd9e2"
+selection_fg  = "#46496d"
+ansi          = ["#dbd9e2", "#ca164c", "#08719b", "#7f6415", "#616794", "#46496d", "#774fc5", "#46496d"]
+brights       = ["#88819c", "#ca164c", "#08719b", "#7f6415", "#774fc5", "#7e37f0", "#7e37f0", "#7e37f0"]
+
+[metadata]
+name       = "reckoner-dusk-sol"
+origin_url = "https://github.com/sainzs/random-access-themes"
