@@ -10,7 +10,7 @@ meta:
   name:         voyager
   display_name: "Voyager"
   description:  "Warm-black dark palette. Vibrant electric teal accent. Named after Daft Punk's Voyager."
-  version:      "0.1.1"
+  version:      "0.2.0"
   author:       sainzs
   github:       sainzs/random-access-themes
 
@@ -38,24 +38,30 @@ palette:
   emerald: "#0f7a6e"   # dark teal (errors)
   lime:    "#ddf4f2"   # teal-white (strings / warnings)
 
+  # ── Diff backgrounds (editor ports) ─────────────────────────────────────────
+  diffAddBg: "#001a17"   # added-line background
+  diffRemBg: "#0a1412"   # removed-line background
+
 # ── ANSI 16-color palette ────────────────────────────────────────────────────
 # Warm-grey neutral base + vibrant teal accent family.
 ansi:
+  # Phosphor ramp — cyan CRT (dark.spaceAMP family), warm-black glass.
+  # One hue in luminance steps + shared warm LED pair (house standard).
   normal:
     black:   "#0f0e0d"   # bg1
-    red:     "#0f7a6e"   # dark teal (error signal)
-    green:   "#7dd4cc"   # muted teal (success)
-    yellow:  "#ddf4f2"   # teal-white (strings)
-    blue:    "#22b8ab"   # saturated teal (paths / links)
-    magenta: "#1a9e91"   # deep teal
-    cyan:    "#a8ddd9"   # soft teal-grey
+    red:     "#ff7a5c"   # LED red-orange (signal)
+    green:   "#7dd4cc"   # soft teal
+    yellow:  "#e8c878"   # phosphor amber (signal)
+    blue:    "#22b8ab"   # base teal
+    magenta: "#2ccfc0"   # hero — electric teal
+    cyan:    "#a8ddd9"   # pale teal
     white:   "#f2efec"   # text
   bright:
     black:   "#817771"   # dimText
-    red:     "#22b8ab"   # saturated teal
-    green:   "#7dd4cc"   # muted teal
-    yellow:  "#c5ebe8"   # pale teal
+    red:     "#ff9377"   # bright LED
+    green:   "#7dd4cc"   # soft step
+    yellow:  "#f2d8a0"   # bright amber
     blue:    "#2ccfc0"   # hero teal
-    magenta: "#1a9e91"   # deep teal
-    cyan:    "#a8ddd9"   # soft teal-grey
-    white:   "#f2efec"   # text
+    magenta: "#a8ddd9"   # pale teal
+    cyan:    "#c5ebe8"   # bright teal
+    white:   "#ddf4f2"   # bright text

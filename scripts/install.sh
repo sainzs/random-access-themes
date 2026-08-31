@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install Random Access Theme to local system locations.
+# Install Random Access Themes to local system locations.
 #
 # Installs:
 #   Pi       → every theme into ~/.pi/agent/themes/, and sets the active one
@@ -29,7 +29,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PALETTE="$ROOT/palette/random-access-theme.yaml"
+PALETTE="$ROOT/palette/aerodynamic-theme.yaml"
 DRY=0
 TARGET="all"
 CLEAN_DYNAMIC=0
@@ -309,7 +309,7 @@ $personal"
       mkdir -p "$(dirname "$lib")/backups"
       cp "$lib" "$(dirname "$lib")/backups/config.$(date +%Y%m%d-%H%M%S)"
     fi
-    printf '# Random Access Theme\n# All config lives in ~/.config/ghostty/config\n' > "$lib"
+    printf '# Random Access Themes\n# All config lives in ~/.config/ghostty/config\n' > "$lib"
     ok "$lib (stub)"
 
     /Applications/Ghostty.app/Contents/MacOS/ghostty +validate-config \
@@ -363,7 +363,7 @@ install_iterm2() {
     [[ "$cleared" -gt 0 ]] && ok "archived $cleared dynamic profile(s)" \
                             || ok "no dynamic profiles found"
   else
-    for f in "$dprofiles"/$THEME.json "$dprofiles"/random-access-theme.json "$dprofiles"/random-access-memories.json; do
+    for f in "$dprofiles"/$THEME.json "$dprofiles"/aerodynamic.json "$dprofiles"/random-access-memories.json; do
       [[ -f "$f" ]] || continue
       mv "$f" "$dprofiles/backups/$(basename "$f").$(date +%Y%m%d-%H%M%S)"
       (( cleared++ )) || true

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""WCAG contrast matrix for Random Access Theme.
+"""WCAG contrast matrix for Random Access Themes.
 
 Computes contrast ratios for all accent/text colors vs background.
 Prints a table with WCAG AA (≥4.5) and AAA (≥7.0) pass/fail.
 
 Usage:
     python3 scripts/contrast_matrix.py
-    python3 scripts/contrast_matrix.py --palette palette/random-access-theme.yaml
+    python3 scripts/contrast_matrix.py --palette palette/aerodynamic-theme.yaml
     python3 scripts/contrast_matrix.py --fail-fast   # non-zero exit if any AA fail
 """
 
@@ -56,7 +56,7 @@ def grade(ratio: float) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--palette", default=str(ROOT / "palette" / "random-access-theme.yaml"))
+    parser.add_argument("--palette", default=str(ROOT / "palette" / "aerodynamic-theme.yaml"))
     parser.add_argument("--fail-fast", action="store_true")
     args = parser.parse_args()
 

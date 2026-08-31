@@ -1,4 +1,4 @@
-// Tailwind color config snippet for Random Access Theme
+// Tailwind color config snippet for Random Access Themes
 // Copy into tailwind.config.js / extend colors
 module.exports = {
   "colors": {
@@ -24,23 +24,23 @@ module.exports = {
     "rat-ansi": {
       "normal": {
         "black": "#090a0b",
-        "red": "#26c994",
+        "red": "#ff7a5c",
         "green": "#4ade80",
-        "yellow": "#a2e5b8",
-        "blue": "#00ffb2",
-        "magenta": "#35d5c5",
+        "yellow": "#e8c878",
+        "blue": "#26c994",
+        "magenta": "#00ffb2",
         "cyan": "#66e3c4",
         "white": "#d8efe9"
       },
       "bright": {
         "black": "#6f8d86",
-        "red": "#00ffb2",
-        "green": "#4ade80",
-        "yellow": "#8bf5dd",
+        "red": "#ff9377",
+        "green": "#7de8a6",
+        "yellow": "#f2d8a0",
         "blue": "#00ffb2",
         "magenta": "#35d5c5",
-        "cyan": "#66e3c4",
-        "white": "#d8efe9"
+        "cyan": "#8bf5dd",
+        "white": "#eef8f3"
       }
     }
   }

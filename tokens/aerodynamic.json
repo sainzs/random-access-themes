@@ -2,15 +2,15 @@
   "meta": {
     "name": {
       "$type": "string",
-      "$value": "random-access-theme"
+      "$value": "aerodynamic"
     },
     "displayName": {
       "$type": "string",
-      "$value": "Random Access Theme"
+      "$value": "Aerodynamic"
     },
     "version": {
       "$type": "string",
-      "$value": "0.1.1"
+      "$value": "0.2.0"
     },
     "github": {
       "$type": "string",
@@ -101,7 +101,7 @@
       },
       "red": {
         "$type": "color",
-        "$value": "#26c994"
+        "$value": "#ff7a5c"
       },
       "green": {
         "$type": "color",
@@ -109,15 +109,15 @@
       },
       "yellow": {
         "$type": "color",
-        "$value": "#a2e5b8"
+        "$value": "#e8c878"
       },
       "blue": {
         "$type": "color",
-        "$value": "#00ffb2"
+        "$value": "#26c994"
       },
       "magenta": {
         "$type": "color",
-        "$value": "#35d5c5"
+        "$value": "#00ffb2"
       },
       "cyan": {
         "$type": "color",
@@ -135,15 +135,15 @@
       },
       "red": {
         "$type": "color",
-        "$value": "#00ffb2"
+        "$value": "#ff9377"
       },
       "green": {
         "$type": "color",
-        "$value": "#4ade80"
+        "$value": "#7de8a6"
       },
       "yellow": {
         "$type": "color",
-        "$value": "#8bf5dd"
+        "$value": "#f2d8a0"
       },
       "blue": {
         "$type": "color",
@@ -155,11 +155,11 @@
       },
       "cyan": {
         "$type": "color",
-        "$value": "#66e3c4"
+        "$value": "#8bf5dd"
       },
       "white": {
         "$type": "color",
-        "$value": "#d8efe9"
+        "$value": "#eef8f3"
       }
     }
   }

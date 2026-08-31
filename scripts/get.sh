@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# get.sh — clone-free installer for Random Access Theme.
+# get.sh — clone-free installer for Random Access Themes.
 #
 # Fetches the generated theme file for a terminal from the committed themes/
 # directory on GitHub and writes it to the standard location for that terminal.
 # No clone, no Python, no build step — just curl.
 #
 # Run remotely:
-#   curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- ghostty
-#   curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- --dry-run wezterm
+#   curl -fsSL https://raw.githubusercontent.com/sainzs/aerodynamics/main/scripts/get.sh | bash -s -- ghostty
+#   curl -fsSL https://raw.githubusercontent.com/sainzs/aerodynamics/main/scripts/get.sh | bash -s -- --dry-run wezterm
 #
 # Or from a clone:
 #   bash scripts/get.sh kitty
@@ -17,7 +17,7 @@
 
 set -euo pipefail
 
-REPO="sainzs/random-access-themes"
+REPO="sainzs/aerodynamics"
 REF="${RAT_REF:-main}"
 BASE="https://raw.githubusercontent.com/${REPO}/${REF}/themes"
 
@@ -75,22 +75,22 @@ place() {
 
 install_alacritty() {
   section "Alacritty"
-  fetch "$BASE/alacritty/random-access-theme.toml" | place "$HOME/.config/alacritty/themes/random-access-theme.toml"
+  fetch "$BASE/alacritty/aerodynamic.toml" | place "$HOME/.config/alacritty/themes/aerodynamic.toml"
   [ "$DRY" -eq 1 ] && return
-  echo "  → Add to alacritty.toml:  import = [\"~/.config/alacritty/themes/random-access-theme.toml\"]"
+  echo "  → Add to alacritty.toml:  import = [\"~/.config/alacritty/themes/aerodynamic.toml\"]"
 }
 
 install_wezterm() {
   section "WezTerm"
-  fetch "$BASE/wezterm/random-access-theme.toml" | place "$HOME/.config/wezterm/colors/random-access-theme.toml"
+  fetch "$BASE/wezterm/aerodynamic.toml" | place "$HOME/.config/wezterm/colors/aerodynamic.toml"
   [ "$DRY" -eq 1 ] && return
   echo "  → In wezterm.lua:  config.color_scheme_dirs = { '\$HOME/.config/wezterm/colors' }"
-  echo "                     config.color_scheme = 'Random Access Theme'"
+  echo "                     config.color_scheme = 'Aerodynamic'"
 }
 
 install_kitty() {
   section "kitty"
-  fetch "$BASE/kitty/random-access-theme.conf" | place "$HOME/.config/kitty/theme.conf"
+  fetch "$BASE/kitty/aerodynamic.conf" | place "$HOME/.config/kitty/theme.conf"
   [ "$DRY" -eq 1 ] && return
   echo "  → Add to kitty.conf:  include theme.conf"
 }
@@ -99,25 +99,25 @@ install_ghostty() {
   section "Ghostty"
   # Non-destructive: write the color config to a separate file and include it,
   # so an existing ghostty config is never overwritten.
-  fetch "$BASE/ghostty/random-access-theme.conf" | place "$HOME/.config/ghostty/random-access-theme"
+  fetch "$BASE/ghostty/aerodynamic.conf" | place "$HOME/.config/ghostty/aerodynamic"
   [ "$DRY" -eq 1 ] && return
-  echo "  → Add to ~/.config/ghostty/config:  config-file = random-access-theme"
+  echo "  → Add to ~/.config/ghostty/config:  config-file = aerodynamic"
 }
 
 install_iterm2() {
   section "iTerm2"
-  fetch "$BASE/iterm2/random-access-theme.itermcolors" \
-    | place "$HOME/Library/Application Support/iTerm2/random-access-theme.itermcolors"
+  fetch "$BASE/iterm2/aerodynamic.itermcolors" \
+    | place "$HOME/Library/Application Support/iTerm2/aerodynamic.itermcolors"
   [ "$DRY" -eq 1 ] && return
   echo "  → iTerm2 → Settings → Profiles → Colors → Color Presets… → Import →"
-  echo "    $HOME/Library/Application Support/iTerm2/random-access-theme.itermcolors"
+  echo "    $HOME/Library/Application Support/iTerm2/aerodynamic.itermcolors"
 }
 
 install_windows_terminal() {
   section "Windows Terminal"
   # WT has no on-disk theme file; save the scheme JSON for manual paste.
-  fetch "$BASE/windows-terminal/random-access-theme.json" \
-    | place "$HOME/random-access-theme-windows-terminal.json"
+  fetch "$BASE/windows-terminal/aerodynamic.json" \
+    | place "$HOME/aerodynamic-windows-terminal.json"
   [ "$DRY" -eq 1 ] && return
   echo "  → Open Windows Terminal → Settings → 'Open JSON file' (Ctrl+Shift+,)"
   echo "    Paste the contents into the \"schemes\" array, then pick it under a profile's appearance."
@@ -164,7 +164,7 @@ run_target() {
   esac
 }
 
-printf "Random Access Theme — get.sh (%s @ %s)" "$REPO" "$REF"
+printf "Random Access Themes — get.sh (%s @ %s)" "$REPO" "$REF"
 [ "$DRY" -eq 1 ] && printf " [dry-run]"
 printf "\n"
 

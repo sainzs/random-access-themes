@@ -4,8 +4,8 @@
 <text x="88" y="118" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="38" font-weight="700" fill="#f2efec">Flavor palette strips</text>
 <text x="88" y="156" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="400" fill="#9cb7af">A quick visual read of the four flavors: neutral base, text color, and core accent family.</text>
 <rect x="88" y="214" width="1424" height="104" fill="#0b0c0e" stroke="#101214" stroke-width="2" rx="20" />
-<text x="116" y="253" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#d8efe9">Random Access Theme</text>
-<text x="116" y="282" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#9cb7af">OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.</text>
+<text x="116" y="253" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#d8efe9">Aerodynamic</text>
+<text x="116" y="282" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#9cb7af">OLED-black dark palette. Mint-forward, green-family syntax, minimal noise. Named after Daft Punk's Aerodynamic.</text>
 <rect x="520" y="240" width="92" height="30" fill="#000000" rx="10" />
 <text x="524" y="302" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#b1a8a2">bg</text>
 <rect x="624" y="240" width="92" height="30" fill="#d8efe9" rx="10" />

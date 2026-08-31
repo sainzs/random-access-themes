@@ -1,0 +1,225 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "bg": "#1c1b29",
+    "bg1": "#2c2b38",
+    "bg2": "#2c2b38",
+    "surface": "#1c1b29",
+    "overlay": "#2c2b38",
+    "text": "#d8d9e6",
+    "subtle": "#8b90b3",
+    "dim": "#494954",
+    "mint": "#a489d8",
+    "cyan": "#a489d8",
+    "green": "#67d4ff",
+    "teal": "#8b90b3",
+    "jade": "#a489d8",
+    "aqua": "#c099ff",
+    "emerald": "#f49ab5",
+    "lime": "#e7c76b",
+    "diffAddBg": "#253143",
+    "diffRemBg": "#362a3a"
+  },
+  "theme": {
+    "primary": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "secondary": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "accent": {
+      "dark": "teal",
+      "light": "teal"
+    },
+    "error": {
+      "dark": "emerald",
+      "light": "emerald"
+    },
+    "warning": {
+      "dark": "aqua",
+      "light": "aqua"
+    },
+    "success": {
+      "dark": "green",
+      "light": "green"
+    },
+    "info": {
+      "dark": "jade",
+      "light": "jade"
+    },
+    "text": {
+      "dark": "text",
+      "light": "text"
+    },
+    "textMuted": {
+      "dark": "subtle",
+      "light": "subtle"
+    },
+    "background": {
+      "dark": "bg",
+      "light": "bg"
+    },
+    "backgroundPanel": {
+      "dark": "bg1",
+      "light": "bg1"
+    },
+    "backgroundElement": {
+      "dark": "surface",
+      "light": "surface"
+    },
+    "border": {
+      "dark": "bg2",
+      "light": "bg2"
+    },
+    "borderActive": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "borderSubtle": {
+      "dark": "surface",
+      "light": "surface"
+    },
+    "diffAdded": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "diffRemoved": {
+      "dark": "emerald",
+      "light": "emerald"
+    },
+    "diffContext": {
+      "dark": "subtle",
+      "light": "subtle"
+    },
+    "diffHunkHeader": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "diffHighlightAdded": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "diffHighlightRemoved": {
+      "dark": "emerald",
+      "light": "emerald"
+    },
+    "diffAddedBg": {
+      "dark": "diffAddBg",
+      "light": "diffAddBg"
+    },
+    "diffRemovedBg": {
+      "dark": "diffRemBg",
+      "light": "diffRemBg"
+    },
+    "diffContextBg": {
+      "dark": "bg1",
+      "light": "bg1"
+    },
+    "diffLineNumber": {
+      "dark": "dim",
+      "light": "dim"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "diffAddBg",
+      "light": "diffAddBg"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "diffRemBg",
+      "light": "diffRemBg"
+    },
+    "markdownText": {
+      "dark": "text",
+      "light": "text"
+    },
+    "markdownHeading": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "markdownLink": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "markdownLinkText": {
+      "dark": "jade",
+      "light": "jade"
+    },
+    "markdownCode": {
+      "dark": "jade",
+      "light": "jade"
+    },
+    "markdownBlockQuote": {
+      "dark": "subtle",
+      "light": "subtle"
+    },
+    "markdownEmph": {
+      "dark": "subtle",
+      "light": "subtle"
+    },
+    "markdownStrong": {
+      "dark": "text",
+      "light": "text"
+    },
+    "markdownHorizontalRule": {
+      "dark": "overlay",
+      "light": "overlay"
+    },
+    "markdownListItem": {
+      "dark": "teal",
+      "light": "teal"
+    },
+    "markdownListEnumeration": {
+      "dark": "dim",
+      "light": "dim"
+    },
+    "markdownImage": {
+      "dark": "cyan",
+      "light": "cyan"
+    },
+    "markdownImageText": {
+      "dark": "jade",
+      "light": "jade"
+    },
+    "markdownCodeBlock": {
+      "dark": "text",
+      "light": "text"
+    },
+    "syntaxComment": {
+      "dark": "dim",
+      "light": "dim"
+    },
+    "syntaxKeyword": {
+      "dark": "jade",
+      "light": "jade"
+    },
+    "syntaxFunction": {
+      "dark": "green",
+      "light": "green"
+    },
+    "syntaxVariable": {
+      "dark": "text",
+      "light": "text"
+    },
+    "syntaxString": {
+      "dark": "lime",
+      "light": "lime"
+    },
+    "syntaxNumber": {
+      "dark": "aqua",
+      "light": "aqua"
+    },
+    "syntaxType": {
+      "dark": "mint",
+      "light": "mint"
+    },
+    "syntaxOperator": {
+      "dark": "teal",
+      "light": "teal"
+    },
+    "syntaxPunctuation": {
+      "dark": "subtle",
+      "light": "subtle"
+    }
+  }
+}

@@ -13,8 +13,8 @@ cursor_border = "#7b93ff"
 cursor_fg     = "#000000"
 selection_bg  = "#2a2623"
 selection_fg  = "#f2efec"
-ansi          = ["#0f0e0d", "#4d5ec8", "#9baaf2", "#dce2ff", "#6b7ef5", "#5c70d8", "#b4bef0", "#f2efec"]
-brights       = ["#817771", "#6b7ef5", "#9baaf2", "#c8d2ff", "#7b93ff", "#5c70d8", "#b4bef0", "#f2efec"]
+ansi          = ["#0f0e0d", "#ff7a5c", "#9baaf2", "#e8c878", "#6b7ef5", "#7b93ff", "#b4bef0", "#f2efec"]
+brights       = ["#817771", "#ff9377", "#9baaf2", "#f2d8a0", "#7b93ff", "#b4bef0", "#c8d2ff", "#dce2ff"]
 
 [metadata]
 name       = "Amnesiac"

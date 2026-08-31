@@ -10,7 +10,7 @@ meta:
   name:         veridis
   display_name: "Veridis"
   description:  "Warm-black dark palette. Electric mint accent. Named after Daft Punk's Veridis Quo."
-  version:      "0.1.1"
+  version:      "0.2.0"
   author:       sainzs
   github:       sainzs/random-access-themes
 
@@ -38,24 +38,30 @@ palette:
   emerald: "#00a878"   # dark mint (errors)
   lime:    "#d0f7ec"   # mint-white (strings / warnings)
 
+  # ── Diff backgrounds (editor ports) ─────────────────────────────────────────
+  diffAddBg: "#001a10"   # added-line background
+  diffRemBg: "#0a1410"   # removed-line background
+
 # ── ANSI 16-color palette ────────────────────────────────────────────────────
 # Warm-grey neutral base + electric mint accent family.
 ansi:
+  # Phosphor ramp — green phosphor (P1 handheld / Synclavier family).
+  # One hue in luminance steps + shared warm LED pair (house standard).
   normal:
     black:   "#0f0e0d"   # bg1
-    red:     "#00a878"   # dark mint (error signal)
-    green:   "#4de8c0"   # vivid mint-green (success)
-    yellow:  "#d0f7ec"   # mint-white (strings)
-    blue:    "#00e0a0"   # deeper mint (paths / links)
-    magenta: "#00c490"   # deep mint
-    cyan:    "#7adec8"   # soft mint-grey
+    red:     "#ff7a5c"   # LED red-orange (signal)
+    green:   "#4de8c0"   # soft mint
+    yellow:  "#e8c878"   # phosphor amber (signal)
+    blue:    "#00e0a0"   # deep mint
+    magenta: "#00ffb2"   # hero mint
+    cyan:    "#7adec8"   # pale jade
     white:   "#f2efec"   # text
   bright:
     black:   "#817771"   # dimText
-    red:     "#00e0a0"   # deeper mint
-    green:   "#4de8c0"   # vivid mint-green
-    yellow:  "#a8f0de"   # pale mint
+    red:     "#ff9377"   # bright LED
+    green:   "#4de8c0"   # soft step
+    yellow:  "#f2d8a0"   # bright amber
     blue:    "#00ffb2"   # hero mint
-    magenta: "#00c490"   # deep mint
-    cyan:    "#7adec8"   # soft mint-grey
-    white:   "#f2efec"   # text
+    magenta: "#7adec8"   # pale jade
+    cyan:    "#a8f0de"   # bright jade
+    white:   "#d0f7ec"   # bright text

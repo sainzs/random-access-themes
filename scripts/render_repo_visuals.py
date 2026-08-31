@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 PREVIEW_CHECKSUM = ASSETS / ".preview-checksum"
 PALETTES = [
-    ROOT / "palette" / "random-access-theme.yaml",
+    ROOT / "palette" / "aerodynamic-theme.yaml",
     ROOT / "palette" / "veridis-theme.yaml",
     ROOT / "palette" / "voyager-theme.yaml",
     ROOT / "palette" / "amnesiac-theme.yaml",
@@ -221,7 +221,7 @@ def render_preview_svg(data: dict) -> str:
     out.append(circle(140, 105, 7, fill="#febc2e"))
     out.append(circle(164, 105, 7, fill="#28c840"))
     out.append(text(198, 112, f'{meta["display_name"]} — flagship terminal preview', size=22, weight=700, fill=p["text"], family="system-ui, -apple-system, Segoe UI, sans-serif"))
-    out.append(text(120, 174, 'Exact colors from palette/random-access-theme.yaml / rendered without external syntax theme guessing', size=17, fill=p["subtle"], family="system-ui, -apple-system, Segoe UI, sans-serif"))
+    out.append(text(120, 174, 'Exact colors from palette/aerodynamic-theme.yaml / rendered without external syntax theme guessing', size=17, fill=p["subtle"], family="system-ui, -apple-system, Segoe UI, sans-serif"))
 
     code_x, code_y = 120, 214
     code_w, code_h = 1440, 528
@@ -229,7 +229,7 @@ def render_preview_svg(data: dict) -> str:
     out.append(text(code_x + 24, code_y + 34, '$ cat preview.py', size=18, fill=p["dimText"]))
 
     preview_lines = [
-        [("# Random Access Theme — OLED-black, mint-forward, zero warm hues", "dimText")],
+        [("# Aerodynamic — OLED-black, mint-forward, zero warm hues", "dimText")],
         [],
         [("from", "jade"), (" dataclasses ", "text"), ("import", "jade"), (" dataclass", "text")],
         [("from", "jade"), (" typing ", "text"), ("import", "jade"), (" Literal", "text")],

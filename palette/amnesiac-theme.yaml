@@ -10,7 +10,7 @@ meta:
   name:         amnesiac
   display_name: "Amnesiac"
   description:  "Warm-black dark palette. Indigo accent. Named after Radiohead's Amnesiac."
-  version:      "0.1.1"
+  version:      "0.2.0"
   author:       sainzs
   github:       sainzs/random-access-themes
 
@@ -38,24 +38,30 @@ palette:
   emerald: "#4d5ec8"   # strong deep indigo (errors)
   lime:    "#dce2ff"   # vivid soft indigo (strings, warnings)
 
+  # ── Diff backgrounds (editor ports) ─────────────────────────────────────────
+  diffAddBg: "#0d1033"   # added-line background
+  diffRemBg: "#160f2a"   # removed-line background
+
 # ── ANSI 16-color palette ────────────────────────────────────────────────────
 # Warm-grey neutral base + vibrant indigo accent family.
 ansi:
+  # Phosphor ramp — blue-white CRT (VT100 replica family).
+  # One hue in luminance steps + shared warm LED pair (house standard).
   normal:
     black:   "#0f0e0d"   # bg1
-    red:     "#4d5ec8"   # strong deep indigo
-    green:   "#9baaf2"   # vivid muted violet (functions / success)
-    yellow:  "#dce2ff"   # vivid soft indigo
-    blue:    "#6b7ef5"   # saturated indigo (paths / links)
-    magenta: "#5c70d8"   # punchy deep indigo
-    cyan:    "#b4bef0"   # crisp lavender
+    red:     "#ff7a5c"   # LED red-orange (signal)
+    green:   "#9baaf2"   # soft periwinkle
+    yellow:  "#e8c878"   # phosphor amber (signal)
+    blue:    "#6b7ef5"   # base indigo
+    magenta: "#7b93ff"   # hero indigo
+    cyan:    "#b4bef0"   # pale lavender
     white:   "#f2efec"   # text
   bright:
     black:   "#817771"   # dimText
-    red:     "#6b7ef5"   # saturated indigo
-    green:   "#9baaf2"   # vivid muted violet
-    yellow:  "#c8d2ff"   # vivid periwinkle
+    red:     "#ff9377"   # bright LED
+    green:   "#9baaf2"   # soft step
+    yellow:  "#f2d8a0"   # bright amber
     blue:    "#7b93ff"   # hero indigo
-    magenta: "#5c70d8"   # punchy deep
-    cyan:    "#b4bef0"   # crisp lavender
-    white:   "#f2efec"   # text
+    magenta: "#b4bef0"   # pale lavender
+    cyan:    "#c8d2ff"   # bright periwinkle
+    white:   "#dce2ff"   # bright text

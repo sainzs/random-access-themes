@@ -38,8 +38,10 @@ from generate import (  # noqa: E402  — same directory, deliberate
     gen_ghostty,
     gen_iterm2,
     gen_kitty,
+    gen_opencode,
     gen_wezterm,
     gen_windows_terminal,
+    gen_zed,
 )
 
 ROOT = Path(__file__).parent.parent
@@ -54,6 +56,8 @@ OUTPUTS = {
     "alacritty": (gen_alacritty, "alacritty/{name}.toml"),
     "kitty": (gen_kitty, "kitty/{name}.conf"),
     "windows-terminal": (gen_windows_terminal, "windows-terminal/{name}.json"),
+    "opencode": (gen_opencode, "opencode/{name}.json"),
+    "zed": (gen_zed, "zed/{name}.json"),
 }
 
 # What each tube is, for the export headers. The pi themes carry no prose.
@@ -138,7 +142,31 @@ def as_palette(theme: dict) -> dict:
         "aqua": peak,
         "emerald": resolve(theme, "error"),
         "lime": resolve(theme, "warning"),
+        # Diff rows tinted toward the tube's own add/remove signals.
+        "diffAddBg": _diff_bg(background, resolve(theme, "success")),
+        "diffRemBg": _diff_bg(background, resolve(theme, "error")),
     }
+
+
+def _diff_bg(bg: str, hue_hex: str) -> str:
+    """A diff row background: the hue pulled most of the way down to the ground.
+
+    The flavors keep these as fixed palette slots, but a phosphor tube has one
+    hue, so a hardcoded green tint would be a foreign colour on an amber or
+    violet screen. Blend the signal hue toward the background at 12%: present
+    enough to read as a tint, quiet enough to sit under text.
+    """
+    def rgb(h: str) -> tuple[int, int, int]:
+        h = h.lstrip("#")
+        return int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+
+    br, bg_, bb = rgb(bg)
+    hr, hg, hb = rgb(hue_hex)
+    t = 0.12
+    r = round(br + (hr - br) * t)
+    g = round(bg_ + (hg - bg_) * t)
+    b = round(bb + (hb - bb) * t)
+    return "#%02x%02x%02x" % (r, g, b)
 
 
 def as_ansi(theme: dict, palette: dict) -> dict:

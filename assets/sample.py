@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-FlavorName = Literal["random-access-theme", "veridis", "voyager", "amnesiac"]
+FlavorName = Literal["aerodynamic", "veridis", "voyager", "amnesiac"]
 
 
 @dataclass(frozen=True)
@@ -29,7 +29,7 @@ class PreviewTheme:
 
 THEMES: list[PreviewTheme] = [
     PreviewTheme(
-        name="random-access-theme",
+        name="aerodynamic",
         accent="#00ffb2",
         background="#000000",
         contrast_ratio=17.44,

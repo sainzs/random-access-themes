@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Flavor ANSI ramps rebuilt to the phosphor standard (0.1.1 → 0.2.0, all four
+  flavors).** The generated 16-color ramps had flattened every slot into the
+  accent family with no luminance structure — aerodynamic's red slot was
+  emerald, voyager's dark teal, amnesiac's indigo, veridis's dark mint, and
+  aerodynamic duplicated `bright.red`/`bright.blue` (#00ffb2 in both). Each
+  flavor now follows the phosphor-tube pattern the repo standardizes on: one
+  identity hue in luminance steps (deep / base / hero / soft / pale), plus the
+  shared warm signal pair — LED red-orange `#ff7a5c` and phosphor amber
+  `#e8c878` — for red and yellow slots. aerodynamic reads as green phosphor,
+  veridis as P1 handheld, amnesiac as blue-white CRT, voyager as cyan CRT on
+  warm black. UI accent families and thinking ramps are untouched: this fixes
+  terminal semantics, not palette identity.
+
 ### Added
 
 - Pi package contract: `themes/pi/THEMES.md`, `validate_themes.py`,
@@ -19,6 +34,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Agent surfaces in every pi theme — `toolPanelBg`, `toolDiffAddedBg`,
   `toolDiffRemovedBg`, `toolDiffText`, and dedicated tool, selection and message
   beds — derived in `pi_surfaces()` for the flavors and hand-held for the rest
+- **OpenCode and Zed editor themes for all ten themes** — the four flavors
+  (palette-driven via new `gen_opencode`/`gen_zed` in `scripts/generate.py`) and
+  the six phosphor tubes (via `scripts/generate_phosphor.py`). `themes/opencode/`
+  and `themes/zed/` are now generated, not curated. Diff backgrounds added to each
+  palette (`diffAddBg`/`diffRemBg`); phosphor diff rows are tinted toward each
+  tube's own add/remove signals.
 - Generated README visuals: `assets/flavors.svg` and `assets/palette-strips.svg`
 - Visual renderer: `scripts/render_repo_visuals.py`
 - `make visuals` target for regenerating repo presentation assets
@@ -38,6 +59,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `toolPendingBg`, `toolSuccessBg` and `toolErrorBg` no longer all resolve to the
   background, so a tool call now shows its state; diff rows read green and red
   even where the palette names no red
+- **Ghostty exports carry their own split chrome.** `themes/ghostty/*.conf` now
+  ship `split-divider-color` and `unfocused-split-fill`, both set to the theme's
+  background. They used to be written into the user's main config (by hand or by
+  `install.sh` awk-ing them out of the export), and Ghostty's main config always
+  overrides theme files — so a divider hardcoded there followed no theme but the
+  one it was written for. Each export now also emits `cursor-text` with single
+  spaces around the `=`.
+- **Renamed the flagship flavor** `random-access-theme` → `aerodynamic` (Daft Punk,
+  *Aerodynamic*, Discovery 2001) so the theme sits beside `veridis`, `voyager`, and
+  `amnesiac` as a single-word album/song name, and stops colliding with the bundle
+  name. Palette file is now `palette/aerodynamic-theme.yaml`; all generated exports,
+  tokens, and docs updated.
+- **Renamed the bundle** to Random Access Themes (`random-access-themes`), matching
+  the GitHub repo; Python package name follows.
+>>>>>>> 5c2773d (Regenerate theme system: flagship rename, phosphor-standard flavor ANSI)
 - README refreshed with a stronger visual hierarchy, hero gallery, and palette overview
 - Release packaging now includes README SVG assets used by the repo landing page
 - Contributing guide updated to document generated visuals and palette-driven workflow

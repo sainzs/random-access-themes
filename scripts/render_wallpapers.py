@@ -31,7 +31,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 WALLPAPERS = ROOT / "wallpapers"
 PALETTES = [
-    ROOT / "palette" / "random-access-theme.yaml",
+    ROOT / "palette" / "aerodynamic-theme.yaml",
     ROOT / "palette" / "veridis-theme.yaml",
     ROOT / "palette" / "voyager-theme.yaml",
     ROOT / "palette" / "amnesiac-theme.yaml",

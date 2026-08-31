@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "random-access-theme"
+name = "random-access-themes"
 version = "0.1.1"
 description = "OLED-black dark themes for terminals and editors — four flavors, zero warm syntax hues."
 readme = "README.md"

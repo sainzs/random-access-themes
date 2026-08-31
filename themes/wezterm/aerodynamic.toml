@@ -1,0 +1,21 @@
+# Aerodynamic — WezTerm color scheme
+# OLED-black dark palette. Mint-forward, green-family syntax, minimal noise. Named after Daft Punk's Aerodynamic.
+# https://github.com/sainzs/random-access-themes
+#
+# Place in ~/.config/wezterm/colors/
+# Then set: config.color_scheme = "Aerodynamic"
+
+[colors]
+foreground    = "#d8efe9"
+background    = "#000000"
+cursor_bg     = "#00ffb2"
+cursor_border = "#00ffb2"
+cursor_fg     = "#000000"
+selection_bg  = "#1a1c20"
+selection_fg  = "#d8efe9"
+ansi          = ["#090a0b", "#ff7a5c", "#4ade80", "#e8c878", "#26c994", "#00ffb2", "#66e3c4", "#d8efe9"]
+brights       = ["#6f8d86", "#ff9377", "#7de8a6", "#f2d8a0", "#00ffb2", "#35d5c5", "#8bf5dd", "#eef8f3"]
+
+[metadata]
+name       = "Aerodynamic"
+origin_url = "https://github.com/sainzs/random-access-themes"

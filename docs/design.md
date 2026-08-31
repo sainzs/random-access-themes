@@ -1,6 +1,6 @@
 # Design
 
-Random Access Theme is a dark terminal palette built around a single constraint:
+Aerodynamic is a dark terminal palette built around a single constraint:
 **no warm hues**. No orange, no yellow, no purple, no red in syntax — only greens.
 
 ---
@@ -11,7 +11,7 @@ Most dark themes scatter warm accents (orange strings, yellow keywords, purple t
 across the screen. They're readable, but visually noisy. The eye has to jump across
 the color wheel on every glance.
 
-Random Access Theme collapses the syntax palette to a single hue family — green —
+Aerodynamic collapses the syntax palette to a single hue family — green —
 differentiated by saturation and brightness rather than hue. The result is a screen
 that reads like a single coherent surface instead of a collection of competing signals.
 

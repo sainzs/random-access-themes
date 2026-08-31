@@ -13,8 +13,8 @@ cursor_border = "#2ccfc0"
 cursor_fg     = "#000000"
 selection_bg  = "#2a2623"
 selection_fg  = "#f2efec"
-ansi          = ["#0f0e0d", "#0f7a6e", "#7dd4cc", "#ddf4f2", "#22b8ab", "#1a9e91", "#a8ddd9", "#f2efec"]
-brights       = ["#817771", "#22b8ab", "#7dd4cc", "#c5ebe8", "#2ccfc0", "#1a9e91", "#a8ddd9", "#f2efec"]
+ansi          = ["#0f0e0d", "#ff7a5c", "#7dd4cc", "#e8c878", "#22b8ab", "#2ccfc0", "#a8ddd9", "#f2efec"]
+brights       = ["#817771", "#ff9377", "#7dd4cc", "#f2d8a0", "#2ccfc0", "#a8ddd9", "#c5ebe8", "#ddf4f2"]
 
 [metadata]
 name       = "Voyager"

@@ -1,5 +1,5 @@
-/* Random Access Theme — random-access-theme */
-/* Auto-generated from palette/random-access-theme.yaml */
+/* Random Access Theme — aerodynamic */
+/* Auto-generated from palette/aerodynamic.yaml */
 :root {
   --rat-bg: #000000;
   --rat-bg1: #090a0b;
@@ -19,19 +19,19 @@
   --rat-lime: #a2e5b8;
   --rat-cursor: #00ffb2;
   --rat-ansi-normal-black: #090a0b;
-  --rat-ansi-normal-red: #26c994;
+  --rat-ansi-normal-red: #ff7a5c;
   --rat-ansi-normal-green: #4ade80;
-  --rat-ansi-normal-yellow: #a2e5b8;
-  --rat-ansi-normal-blue: #00ffb2;
-  --rat-ansi-normal-magenta: #35d5c5;
+  --rat-ansi-normal-yellow: #e8c878;
+  --rat-ansi-normal-blue: #26c994;
+  --rat-ansi-normal-magenta: #00ffb2;
   --rat-ansi-normal-cyan: #66e3c4;
   --rat-ansi-normal-white: #d8efe9;
   --rat-ansi-bright-black: #6f8d86;
-  --rat-ansi-bright-red: #00ffb2;
-  --rat-ansi-bright-green: #4ade80;
-  --rat-ansi-bright-yellow: #8bf5dd;
+  --rat-ansi-bright-red: #ff9377;
+  --rat-ansi-bright-green: #7de8a6;
+  --rat-ansi-bright-yellow: #f2d8a0;
   --rat-ansi-bright-blue: #00ffb2;
   --rat-ansi-bright-magenta: #35d5c5;
-  --rat-ansi-bright-cyan: #66e3c4;
-  --rat-ansi-bright-white: #d8efe9;
+  --rat-ansi-bright-cyan: #8bf5dd;
+  --rat-ansi-bright-white: #eef8f3;
 }

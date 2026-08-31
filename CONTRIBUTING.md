@@ -18,7 +18,7 @@ Do not hand-edit generated files in `themes/` or generated README visuals in `as
 
 ```bash
 # 1. Edit one or more palettes
-$EDITOR palette/random-access-theme.yaml
+$EDITOR palette/aerodynamic-theme.yaml
 
 # 2. Regenerate theme outputs
 python3 scripts/generate.py

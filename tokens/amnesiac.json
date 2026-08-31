@@ -10,7 +10,7 @@
     },
     "version": {
       "$type": "string",
-      "$value": "0.1.1"
+      "$value": "0.2.0"
     },
     "github": {
       "$type": "string",
@@ -101,7 +101,7 @@
       },
       "red": {
         "$type": "color",
-        "$value": "#4d5ec8"
+        "$value": "#ff7a5c"
       },
       "green": {
         "$type": "color",
@@ -109,7 +109,7 @@
       },
       "yellow": {
         "$type": "color",
-        "$value": "#dce2ff"
+        "$value": "#e8c878"
       },
       "blue": {
         "$type": "color",
@@ -117,7 +117,7 @@
       },
       "magenta": {
         "$type": "color",
-        "$value": "#5c70d8"
+        "$value": "#7b93ff"
       },
       "cyan": {
         "$type": "color",
@@ -135,7 +135,7 @@
       },
       "red": {
         "$type": "color",
-        "$value": "#6b7ef5"
+        "$value": "#ff9377"
       },
       "green": {
         "$type": "color",
@@ -143,7 +143,7 @@
       },
       "yellow": {
         "$type": "color",
-        "$value": "#c8d2ff"
+        "$value": "#f2d8a0"
       },
       "blue": {
         "$type": "color",
@@ -151,15 +151,15 @@
       },
       "magenta": {
         "$type": "color",
-        "$value": "#5c70d8"
+        "$value": "#b4bef0"
       },
       "cyan": {
         "$type": "color",
-        "$value": "#b4bef0"
+        "$value": "#c8d2ff"
       },
       "white": {
         "$type": "color",
-        "$value": "#f2efec"
+        "$value": "#dce2ff"
       }
     }
   }

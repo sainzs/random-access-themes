@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Random Access Theme assets.
+"""Validate Random Access Themes assets.
 
 Checks:
   1. Canonical palette YAML is well-formed.
@@ -29,25 +29,27 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-PALETTE_FILE  = ROOT / "palette" / "random-access-theme.yaml"
+PALETTE_FILE  = ROOT / "palette" / "aerodynamic-theme.yaml"
 PALETTE_DIR   = ROOT / "palette"
 THEMES_DIR    = ROOT / "themes"
 CHECKSUM_FILE = THEMES_DIR / ".checksum"
 PREVIEW_SVG      = ROOT / "assets" / "preview.svg"
 PREVIEW_PNG      = ROOT / "assets" / "preview.png"
 PREVIEW_CHECKSUM = ROOT / "assets" / ".preview-checksum"
-INSTALLED_PI  = Path.home() / ".pi" / "agent" / "themes" / "random-access-theme.json"
+INSTALLED_PI  = Path.home() / ".pi" / "agent" / "themes" / "aerodynamic.json"
 
 RE_HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 
 EXPECTED_THEMES = [
-    "alacritty/random-access-theme.toml",
-    "ghostty/random-access-theme.conf",
-    "iterm2/random-access-theme.itermcolors",
-    "kitty/random-access-theme.conf",
-    "pi/random-access-theme.json",
-    "wezterm/random-access-theme.toml",
-    "windows-terminal/random-access-theme.json",
+    "alacritty/aerodynamic.toml",
+    "ghostty/aerodynamic.conf",
+    "iterm2/aerodynamic.itermcolors",
+    "kitty/aerodynamic.conf",
+    "pi/aerodynamic.json",
+    "wezterm/aerodynamic.toml",
+    "windows-terminal/aerodynamic.json",
+    "opencode/aerodynamic.json",
+    "zed/aerodynamic.json",
 ]
 
 REQUIRED_PI_TOKENS = {
@@ -185,7 +187,7 @@ def validate_generated_themes() -> None:
 # ── Check 4: Pi theme tokens ───────────────────────────────────────────────────
 
 def validate_pi_theme() -> None:
-    pi_path = THEMES_DIR / "pi" / "random-access-theme.json"
+    pi_path = THEMES_DIR / "pi" / "aerodynamic.json"
     if not pi_path.exists():
         fail(f"Pi theme not found: {pi_path}")
 
@@ -194,8 +196,8 @@ def validate_pi_theme() -> None:
     except Exception as e:
         fail(f"Pi theme invalid JSON: {e}")
 
-    if theme.get("name") != "random-access-theme":
-        fail(f"Pi theme name must be 'random-access-theme', got: {theme.get('name')!r}")
+    if theme.get("name") != "aerodynamic":
+        fail(f"Pi theme name must be 'aerodynamic', got: {theme.get('name')!r}")
 
     colors   = theme.get("colors", {})
     vars_map = theme.get("vars", {})
@@ -260,7 +262,7 @@ def validate_installed(skip: bool) -> None:
         )
         return
 
-    generated = (THEMES_DIR / "pi" / "random-access-theme.json").read_text()
+    generated = (THEMES_DIR / "pi" / "aerodynamic.json").read_text()
     installed = INSTALLED_PI.read_text()
 
     if generated != installed:
@@ -399,6 +401,8 @@ PHOSPHOR_FORMATS = {
     "alacritty": "{name}.toml",
     "kitty": "{name}.conf",
     "windows-terminal": "{name}.json",
+    "opencode": "{name}.json",
+    "zed": "{name}.json",
 }
 
 
@@ -464,7 +468,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    print("Validating Random Access Theme...\n")
+    print("Validating Random Access Themes...\n")
     validate_palette()
     validate_freshness()
     validate_generated_themes()

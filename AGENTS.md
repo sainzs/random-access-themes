@@ -35,7 +35,7 @@ make             # default: generate + validate
 ```
 
 Scripts can be invoked directly, e.g.
-`python3 scripts/generate.py --palette palette/random-access-theme.yaml --dry-run`.
+`python3 scripts/generate.py --palette palette/aerodynamic-theme.yaml --dry-run`.
 
 ## Gotchas
 
@@ -64,11 +64,11 @@ Scripts can be invoked directly, e.g.
   recorded in `NOTICE` under section 4(b); the other four are MIT.
 
 - **Palette-first:** hand-edit only `palette/*.yaml`. Generated outputs
-  (`themes/{alacritty,ghostty,iterm2,kitty,pi,wezterm,windows-terminal}/`,
+  (`themes/{alacritty,ghostty,iterm2,kitty,pi,wezterm,windows-terminal,opencode,zed}/`,
   `tokens/`, `assets/` visuals) are produced by the pipeline — change them
   by regenerating, never by hand.
 - Curated hand-authored exceptions: `integrations/`,
-  `themes/{vscode,sublime,zed,neovim,opencode}/`.
+  `themes/{vscode,sublime,neovim}/`.
 - **There are two pipelines and they run in opposite directions.** The flavors
   generate everything from `palette/*.yaml`. The phosphor family generates its
   terminal exports **from** `themes/pi/reckoner-*.json`, which is hand-authored
@@ -91,8 +91,9 @@ Scripts can be invoked directly, e.g.
   fails to `dark` silently.** `initTheme` catches any resolution error and swaps
   in the built-in dark theme with no warning, so an unresolvable name looks
   exactly like a working install of a dark theme. This family has hit it twice:
-  `/tone random` asks for `random-access`, which is registered as
-  `random-access-theme` (`PLAN.md` task 0). A second value, a `settings.json`
+  `/tone random` asks for `random-access`, which was registered as
+  `random-access-theme` before the flagship was renamed `aerodynamic`
+  (`PLAN.md` task 0). A second value, a `settings.json`
   holding `tokyo-night/reckoner-scope`, was recorded here as a package-qualified
   form pi does not support. It is not — verified against pi 0.83.0: a single
   slash is pi's light/dark pair syntax, so that value resolves to `tokyo-night`

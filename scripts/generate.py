@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Generate Random Access Theme exports from the canonical palette.
+"""Generate Random Access Themes exports from the canonical palette.
 
-Source:   palette/random-access-theme.yaml
+Source:   palette/aerodynamic-theme.yaml
 Outputs:  themes/{alacritty,ghostty,iterm2,kitty,pi,wezterm,windows-terminal}/
 
 Usage:
     python3 scripts/generate.py
-    python3 scripts/generate.py --palette palette/random-access-theme.yaml
+    python3 scripts/generate.py --palette palette/aerodynamic-theme.yaml
     python3 scripts/generate.py --dry-run   # print without writing
 """
 
@@ -287,7 +287,7 @@ def gen_ghostty(p: dict) -> str:
         f"foreground = {strip(c['text'])}",
         f"",
         f"cursor-color = {strip(c['cursor'])}",
-        f"cursor-text  = {strip(c['bg'])}",
+        f"cursor-text = {strip(c['bg'])}",
         f"cursor-style       = block",
         # A blinking cursor is a decision the theme gets to make. The phosphor
         # family says nothing on the screen ever blinks — stillness is severity —
@@ -296,6 +296,14 @@ def gen_ghostty(p: dict) -> str:
         f"",
         f"selection-background = {strip(c['overlay'])}",
         f"selection-foreground = {strip(c['text'])}",
+        f"",
+        # The split divider and the fill behind an unfocused split read as
+        # chrome, so they take the theme's own background. They have to ride
+        # here, not in the user's main config: the main config always
+        # overrides theme files, so a value hardcoded there follows no theme
+        # but the one it was written for.
+        f"split-divider-color = {strip(c['bg'])}",
+        f"unfocused-split-fill = {strip(c['bg'])}",
         f"",
         f"minimum-contrast = 1.2",
         f"",
@@ -615,6 +623,200 @@ def gen_pi(p: dict) -> str:
     return json.dumps(theme, indent=2) + "\n"
 
 
+def gen_opencode(p: dict) -> str:
+    c = p["palette"]
+
+    defs = {
+        "bg": c["bg"], "bg1": c["bg1"], "bg2": c["bg2"],
+        "surface": c["surface"], "overlay": c["overlay"],
+        "text": c["text"], "subtle": c["subtle"], "dim": c["dimText"],
+        "mint": c["mint"], "cyan": c["cyan"], "green": c["green"],
+        "teal": c["teal"], "jade": c["jade"], "aqua": c["aqua"],
+        "emerald": c["emerald"], "lime": c["lime"],
+        "diffAddBg": c["diffAddBg"], "diffRemBg": c["diffRemBg"],
+    }
+
+    def ref(val: str) -> dict:
+        # Dark carries the palette value; light reuses it (these are dark themes).
+        return {"dark": val, "light": val}
+
+    theme = {
+        "primary": ref("mint"), "secondary": ref("cyan"), "accent": ref("teal"),
+        "error": ref("emerald"), "warning": ref("aqua"), "success": ref("green"),
+        "info": ref("jade"),
+        "text": ref("text"), "textMuted": ref("subtle"),
+        "background": ref("bg"), "backgroundPanel": ref("bg1"),
+        "backgroundElement": ref("surface"),
+        "border": ref("bg2"), "borderActive": ref("mint"), "borderSubtle": ref("surface"),
+        "diffAdded": ref("mint"), "diffRemoved": ref("emerald"),
+        "diffContext": ref("subtle"), "diffHunkHeader": ref("cyan"),
+        "diffHighlightAdded": ref("mint"), "diffHighlightRemoved": ref("emerald"),
+        "diffAddedBg": ref("diffAddBg"), "diffRemovedBg": ref("diffRemBg"),
+        "diffContextBg": ref("bg1"), "diffLineNumber": ref("dim"),
+        "diffAddedLineNumberBg": ref("diffAddBg"),
+        "diffRemovedLineNumberBg": ref("diffRemBg"),
+        "markdownText": ref("text"), "markdownHeading": ref("mint"),
+        "markdownLink": ref("cyan"), "markdownLinkText": ref("jade"),
+        "markdownCode": ref("jade"), "markdownBlockQuote": ref("subtle"),
+        "markdownEmph": ref("subtle"), "markdownStrong": ref("text"),
+        "markdownHorizontalRule": ref("overlay"), "markdownListItem": ref("teal"),
+        "markdownListEnumeration": ref("dim"), "markdownImage": ref("cyan"),
+        "markdownImageText": ref("jade"), "markdownCodeBlock": ref("text"),
+        "syntaxComment": ref("dim"), "syntaxKeyword": ref("jade"),
+        "syntaxFunction": ref("green"), "syntaxVariable": ref("text"),
+        "syntaxString": ref("lime"), "syntaxNumber": ref("aqua"),
+        "syntaxType": ref("mint"), "syntaxOperator": ref("teal"),
+        "syntaxPunctuation": ref("subtle"),
+    }
+    return json.dumps({"$schema": "https://opencode.ai/theme.json", "defs": defs, "theme": theme}, indent=2) + "\n"
+
+
+def gen_zed(p: dict) -> str:
+    c = p["palette"]
+    meta = p["meta"]
+    ansi = p["ansi"]
+    an = ansi["normal"]
+    ab = ansi["bright"]
+    name = meta["display_name"]
+    mint = c["mint"]
+
+    style = {
+        "background": c["bg"],
+        "background.appearance": "opaque",
+        "surface.background": c["bg1"],
+        "elevated_surface.background": c["surface"],
+        "overlay.background": c["surface"],
+        "panel.background": c["bg1"],
+        "panel.focused_border": mint,
+        "pane.focused_border": c["teal"],
+        "text": c["text"],
+        "text.muted": c["subtle"],
+        "text.placeholder": c["dimText"],
+        "text.disabled": c["dimText"],
+        "text.accent": mint,
+        "icon": c["subtle"],
+        "icon.muted": c["dimText"],
+        "icon.disabled": c["dimText"],
+        "icon.placeholder": c["dimText"],
+        "icon.accent": mint,
+        "border": c["bg2"],
+        "border.variant": c["surface"],
+        "border.focused": c["teal"],
+        "border.selected": mint,
+        "border.transparent": "#00000000",
+        "border.disabled": c["bg2"],
+        "element.background": c["surface"],
+        "element.hover": c["bg2"],
+        "element.active": c["overlay"],
+        "element.selected": c["surface"],
+        "element.disabled": c["bg1"],
+        "element.placeholder": c["dimText"],
+        "element.drop_target": mint + "11",
+        "ghost_element.background": "#00000000",
+        "ghost_element.hover": c["bg1"],
+        "ghost_element.active": c["surface"],
+        "ghost_element.selected": c["bg1"],
+        "ghost_element.disabled": c["dimText"],
+        "drop_target.background": mint + "11",
+        "accent": mint,
+        "link_text.hover": c["cyan"],
+        "status_bar.background": c["bg"],
+        "title_bar.background": c["bg"],
+        "title_bar.inactive_background": c["bg"],
+        "toolbar.background": c["bg1"],
+        "tab_bar.background": c["bg1"],
+        "tab.inactive_background": c["bg1"],
+        "tab.active_background": c["bg"],
+        "editor.background": c["bg"],
+        "editor.gutter.background": c["bg"],
+        "editor.subheader.background": c["bg1"],
+        "editor.active_line.background": c["bg1"],
+        "editor.highlighted_line.background": c["surface"],
+        "editor.line_number": c["dimText"],
+        "editor.active_line_number": c["subtle"],
+        "editor.invisible": c["overlay"],
+        "editor.wrap_guide": c["bg2"],
+        "editor.active_wrap_guide": c["overlay"],
+        "editor.document_highlight.read_background": c["teal"] + "22",
+        "editor.document_highlight.write_background": mint + "22",
+        "terminal.background": c["bg"],
+        "terminal.foreground": c["text"],
+        "terminal.dim_foreground": c["dimText"],
+        "terminal.bright_foreground": c["text"],
+        "terminal.ansi.black": an["black"],
+        "terminal.ansi.red": an["red"],
+        "terminal.ansi.green": an["green"],
+        "terminal.ansi.yellow": an["yellow"],
+        "terminal.ansi.blue": an["blue"],
+        "terminal.ansi.magenta": an["magenta"],
+        "terminal.ansi.cyan": an["cyan"],
+        "terminal.ansi.white": an["white"],
+        "terminal.ansi.bright_black": ab["black"],
+        "terminal.ansi.bright_red": ab["red"],
+        "terminal.ansi.bright_green": ab["green"],
+        "terminal.ansi.bright_yellow": ab["yellow"],
+        "terminal.ansi.bright_blue": ab["blue"],
+        "terminal.ansi.bright_magenta": ab["magenta"],
+        "terminal.ansi.bright_cyan": ab["cyan"],
+        "terminal.ansi.bright_white": ab["white"],
+        "search.match_background": mint + "33",
+        "selection": c["overlay"],
+        "scrollbar.thumb.background": c["overlay"] + "55",
+        "scrollbar.thumb.hover_background": c["overlay"] + "aa",
+        "scrollbar.thumb.border": c["overlay"],
+        "scrollbar.track.background": c["bg"],
+        "scrollbar.track.border": c["bg2"],
+        "syntax": {
+            "attribute": {"color": c["jade"]},
+            "boolean": {"color": c["jade"]},
+            "comment": {"color": c["dimText"], "font_style": "italic"},
+            "comment.doc": {"color": c["subtle"], "font_style": "italic"},
+            "constant": {"color": c["jade"]},
+            "constructor": {"color": mint},
+            "embedded": {"color": c["text"]},
+            "emphasis": {"color": c["subtle"], "font_style": "italic"},
+            "emphasis.strong": {"color": c["text"], "font_style": "bold"},
+            "enum": {"color": c["cyan"]},
+            "function": {"color": c["cyan"]},
+            "hint": {"color": c["dimText"]},
+            "keyword": {"color": c["jade"]},
+            "label": {"color": c["teal"]},
+            "link_text": {"color": mint, "font_style": "underline"},
+            "link_uri": {"color": c["cyan"], "font_style": "underline"},
+            "number": {"color": c["aqua"]},
+            "operator": {"color": c["teal"]},
+            "predictive": {"color": c["dimText"], "font_style": "italic"},
+            "preproc": {"color": c["jade"]},
+            "primary": {"color": c["text"]},
+            "property": {"color": c["cyan"]},
+            "punctuation": {"color": c["subtle"]},
+            "punctuation.bracket": {"color": c["subtle"]},
+            "punctuation.delimiter": {"color": c["subtle"]},
+            "punctuation.list_marker": {"color": c["teal"]},
+            "punctuation.special": {"color": c["teal"]},
+            "string": {"color": c["lime"]},
+            "string.escape": {"color": c["aqua"]},
+            "string.regex": {"color": c["green"]},
+            "string.special": {"color": c["aqua"]},
+            "string.special.symbol": {"color": c["jade"]},
+            "tag": {"color": mint},
+            "text.literal": {"color": c["jade"]},
+            "title": {"color": mint, "font_style": "bold"},
+            "type": {"color": mint},
+            "variable": {"color": c["text"]},
+            "variable.special": {"color": c["aqua"]},
+            "variant": {"color": mint},
+        },
+    }
+
+    theme = {
+        "name": name,
+        "author": meta.get("author", "sainzs"),
+        "themes": [{"name": name, "appearance": "dark", "style": style}],
+    }
+    return json.dumps(theme, indent=2) + "\n"
+
+
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 TARGETS = {
@@ -625,12 +827,14 @@ TARGETS = {
     "kitty":            (gen_kitty,             "kitty/{name}.conf"),
     "windows-terminal": (gen_windows_terminal,  "windows-terminal/{name}.json"),
     "pi":               (gen_pi,                "pi/{name}.json"),
+    "opencode":         (gen_opencode,          "opencode/{name}.json"),
+    "zed":              (gen_zed,               "zed/{name}.json"),
 }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--palette", default=str(ROOT / "palette" / "random-access-theme.yaml"))
+    parser.add_argument("--palette", default=str(ROOT / "palette" / "aerodynamic-theme.yaml"))
     parser.add_argument("--dry-run", action="store_true", help="Print output instead of writing")
     parser.add_argument("--target", choices=list(TARGETS), help="Generate a single target only")
     args = parser.parse_args()

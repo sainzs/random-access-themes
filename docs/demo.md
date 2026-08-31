@@ -6,14 +6,14 @@ rendered from the same YAML that generates the terminal exports.
 
 ![validate the nine](../assets/validate.gif)
 
-![Random Access Theme terminal preview](../assets/preview.svg)
+![Aerodynamic terminal preview](../assets/preview.svg)
 
 ## What This Proves
 
-- The flagship Random Access palette is rendered without external syntax-theme
+- The flagship Aerodynamic palette is rendered without external syntax-theme
   guessing.
 - The preview uses the same canonical colors as
-  `palette/random-access-theme.yaml`.
+  `palette/aerodynamic-theme.yaml`.
 - The release visuals are reproducible with the repo scripts.
 - The PNG preview in `assets/preview.png` is a portable export of the generated
   SVG for social cards and package listings.

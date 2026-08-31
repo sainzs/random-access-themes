@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build release artifacts for Random Access Theme.
+# Build release artifacts for Random Access Themes.
 # Outputs to dist/ (gitignored).
 #
 # Usage:
@@ -45,12 +45,12 @@ rm -f "$DIST"/*.zip "$DIST"/*.md "$DIST/SHA256SUMS"
 rm -f "$DIST/assets"/* "$DIST/tokens"/*
 
 # Copy theme files
-cp "$ROOT/themes/pi/random-access-theme.json"               "$DIST/"
-cp "$ROOT/themes/alacritty/random-access-theme.toml"        "$DIST/"
-cp "$ROOT/themes/ghostty/random-access-theme.conf"          "$DIST/"
-cp "$ROOT/themes/kitty/random-access-theme.conf"            "$DIST/random-access-theme-kitty.conf"
-cp "$ROOT/themes/wezterm/random-access-theme.toml"          "$DIST/random-access-theme-wezterm.toml"
-cp "$ROOT/themes/windows-terminal/random-access-theme.json" "$DIST/random-access-theme-windows-terminal.json"
+cp "$ROOT/themes/pi/aerodynamic.json"               "$DIST/"
+cp "$ROOT/themes/alacritty/aerodynamic.toml"        "$DIST/"
+cp "$ROOT/themes/ghostty/aerodynamic.conf"          "$DIST/"
+cp "$ROOT/themes/kitty/aerodynamic.conf"            "$DIST/aerodynamic-kitty.conf"
+cp "$ROOT/themes/wezterm/aerodynamic.toml"          "$DIST/aerodynamic-wezterm.toml"
+cp "$ROOT/themes/windows-terminal/aerodynamic.json" "$DIST/aerodynamic-windows-terminal.json"
 cp "$ROOT/README.md"                                        "$DIST/"
 cp "$ROOT/assets/flavors.svg"                               "$DIST/assets/"
 cp "$ROOT/assets/palette-strips.svg"                        "$DIST/assets/"
@@ -58,11 +58,11 @@ cp "$ROOT/assets/preview.svg"                               "$DIST/assets/"
 cp "$ROOT/assets/preview.png"                               "$DIST/assets/"
 
 # iTerm2 — single .itermcolors file
-cp "$ROOT/themes/iterm2/random-access-theme.itermcolors"    "$DIST/"
+cp "$ROOT/themes/iterm2/aerodynamic.itermcolors"    "$DIST/"
 
 # Design tokens
 cp "$ROOT/tokens/design-tokens.json"                        "$DIST/tokens/"
-cp "$ROOT/tokens/random-access-theme.css"                   "$DIST/tokens/"
+cp "$ROOT/tokens/aerodynamic.css"                   "$DIST/tokens/"
 cp "$ROOT/tokens/tailwind.js"                               "$DIST/tokens/"
 
 # Checksums

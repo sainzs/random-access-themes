@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Export Random Access Theme design tokens for web, CSS, and Tailwind consumers.
+"""Export Random Access Themes design tokens for web, CSS, and Tailwind consumers.
 
 Source:   palette/*.yaml
-Outputs:  tokens/{random-access-theme,veridis,voyager,amnesiac}.json
+Outputs:  tokens/{aerodynamic,veridis,voyager,amnesiac}.json
           tokens/design-tokens.json      (W3C Design Tokens format)
-          tokens/random-access-theme.css (CSS custom properties)
+          tokens/aerodynamic.css (CSS custom properties)
           tokens/tailwind.js             (Tailwind color config snippet)
 
 Usage:
@@ -26,7 +26,7 @@ PALETTE_DIR = ROOT / "palette"
 TOKENS_DIR = ROOT / "tokens"
 
 FLAVORS = [
-    ("random-access-theme", "random-access-theme"),
+    ("aerodynamic", "aerodynamic-theme"),
     ("veridis", "veridis-theme"),
     ("voyager", "voyager-theme"),
     ("amnesiac", "amnesiac-theme"),
@@ -121,7 +121,7 @@ def tailwind_config(tokens: dict) -> str:
     }
 
     return (
-        "// Tailwind color config snippet for Random Access Theme\n"
+        "// Tailwind color config snippet for Random Access Themes\n"
         "// Copy into tailwind.config.js / extend colors\n"
         f"module.exports = {json.dumps(config, indent=2)};\n"
     )
@@ -146,7 +146,7 @@ def main() -> None:
 
     all_tokens: dict = {
         "$schema": "https://design-tokens.github.io/community-group/format/",
-        "name": "Random Access Theme",
+        "name": "Random Access Themes",
         "version": "0.1.1",
         "flavors": {},
     }
@@ -163,7 +163,7 @@ def main() -> None:
         tokens = palette_tokens(palette)
         all_tokens["flavors"][flavor] = tokens
 
-        if flavor == "random-access-theme":
+        if flavor == "aerodynamic":
             flagship_tokens = tokens
 
         out_path = TOKENS_DIR / f"{flavor}.json"
@@ -182,8 +182,8 @@ def main() -> None:
         raise SystemExit(1)
 
     write_or_print(
-        TOKENS_DIR / "random-access-theme.css",
-        css_variables("random-access-theme", flagship_tokens),
+        TOKENS_DIR / "aerodynamic.css",
+        css_variables("aerodynamic", flagship_tokens),
         args.dry_run,
     )
 

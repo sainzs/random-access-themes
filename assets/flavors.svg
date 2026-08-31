@@ -21,8 +21,8 @@
 <circle cx="112" cy="296" r="6" fill="#ff5f57" />
 <circle cx="132" cy="296" r="6" fill="#febc2e" />
 <circle cx="152" cy="296" r="6" fill="#28c840" />
-<text x="180" y="301" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#d8efe9">Random Access Theme</text>
-<text x="112" y="362" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#9cb7af">OLED-black dark palette. Mint-forward, green-family syntax, minimal noise.</text>
+<text x="180" y="301" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#d8efe9">Aerodynamic</text>
+<text x="112" y="362" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#9cb7af">OLED-black dark palette. Mint-forward, green-family syntax, minimal noise. Named after Daft Punk's Aerodynamic.</text>
 <rect x="112" y="384" width="54" height="16" fill="#000000" rx="8" />
 <rect x="174" y="384" width="54" height="16" fill="#d8efe9" rx="8" />
 <rect x="236" y="384" width="54" height="16" fill="#00ffb2" rx="8" />
@@ -32,7 +32,7 @@
 <rect x="112" y="420" width="628" height="148" fill="#000000" stroke="#1a1c20" stroke-width="1" rx="16" />
 <text x="130" y="448" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#6f8d86">$ palette preview.py</text>
 <text x="130" y="478" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#6f8d86"># OLED-black themes / generated ports</tspan></text>
-<text x="130" y="500" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">flavor</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#a2e5b8">"Random Access Theme"</tspan></text>
+<text x="130" y="500" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">flavor</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#a2e5b8">"Aerodynamic"</tspan></text>
 <text x="130" y="522" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">accent</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#8bf5dd">"#00ffb2"</tspan><tspan fill="#6f8d86">  # hero accent</tspan></text>
 <text x="130" y="544" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">ports</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#9cb7af">[</tspan><tspan fill="#a2e5b8">"ghostty"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"wezterm"</tspan><tspan fill="#9cb7af">, </tspan><tspan fill="#a2e5b8">"kitty"</tspan><tspan fill="#9cb7af">]</tspan></text>
 <text x="130" y="566" xml:space="preserve" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="400"><tspan fill="#66e3c4">contrast</tspan><tspan fill="#d8efe9"> = </tspan><tspan fill="#8bf5dd">17.4</tspan><tspan fill="#6f8d86">  # flagship text/bg</tspan></text>
