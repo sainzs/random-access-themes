@@ -2,23 +2,23 @@
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
     "bg": "#020b0c",
-    "bg1": "#062226",
+    "bg1": "#243635",
     "bg2": "#062226",
     "surface": "#020b0c",
-    "overlay": "#062226",
+    "overlay": "#243635",
     "text": "#3ce6da",
     "subtle": "#1e8c85",
-    "dim": "#0f4d53",
+    "dim": "#376b70",
     "mint": "#7dfff2",
     "cyan": "#7dfff2",
     "green": "#58ffb2",
     "teal": "#1e8c85",
     "jade": "#3ce6da",
     "aqua": "#d2fffa",
-    "emerald": "#ff5f7a",
+    "emerald": "#cf778c",
     "lime": "#e8d25f",
     "diffAddBg": "#0c2820",
-    "diffRemBg": "#201519"
+    "diffRemBg": "#1b181b"
   },
   "theme": {
     "primary": {

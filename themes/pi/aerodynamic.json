@@ -1,6 +1,6 @@
 {
   "$schema": "../theme-schema.json",
-  "name": "random-access-theme",
+  "name": "aerodynamic",
   "vars": {
     "bg": "#000000",
     "bg0": "#090a0b",
