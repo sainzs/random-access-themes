@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml/badge.svg)](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ffb2.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v0.1.2-00ffb2.svg)](https://github.com/sainzs/random-access-themes/releases)
+[![Release](https://img.shields.io/badge/release-v0.1.1-00ffb2.svg)](https://github.com/sainzs/random-access-themes/releases)
 
 Nine keepers. One phosphor each. Hierarchy from brightness, never from a second hue.
 
