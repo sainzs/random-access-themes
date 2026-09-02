@@ -1,3 +1,9 @@
+# Moved
+
+This repository moved to https://github.com/sainzs/agent-workbench/tree/main/themes. History was preserved via subtree, and this repository is frozen at its last version. The existing curl one-liner still works (`scripts/get.sh` now fetches from the monorepo). Preferred install: `curl -fsSL https://raw.githubusercontent.com/sainzs/agent-workbench/main/themes/scripts/get.sh | bash -s -- pi`.
+
+---
+
 # Random Access Themes
 
 [![CI](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml/badge.svg)](https://github.com/sainzs/random-access-themes/actions/workflows/validate.yml)

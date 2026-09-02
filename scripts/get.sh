@@ -5,9 +5,11 @@
 # directory on GitHub and writes it to the standard location for that terminal.
 # No clone, no Python, no build step — just curl.
 #
-# Run remotely:
-#   curl -fsSL https://raw.githubusercontent.com/sainzs/aerodynamics/main/scripts/get.sh | bash -s -- ghostty
-#   curl -fsSL https://raw.githubusercontent.com/sainzs/aerodynamics/main/scripts/get.sh | bash -s -- --dry-run wezterm
+# Run remotely (this repo stays the curl URL; payloads come from the monorepo):
+#   curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- ghostty
+#   curl -fsSL https://raw.githubusercontent.com/sainzs/random-access-themes/main/scripts/get.sh | bash -s -- --dry-run wezterm
+# Preferred, after the move:
+#   curl -fsSL https://raw.githubusercontent.com/sainzs/agent-workbench/main/themes/scripts/get.sh | bash -s -- ghostty
 #
 # Or from a clone:
 #   bash scripts/get.sh kitty
@@ -17,9 +19,9 @@
 
 set -euo pipefail
 
-REPO="sainzs/aerodynamics"
+REPO="sainzs/agent-workbench"
 REF="${RAT_REF:-main}"
-BASE="https://raw.githubusercontent.com/${REPO}/${REF}/themes"
+BASE="https://raw.githubusercontent.com/${REPO}/${REF}/themes/themes"
 
 DRY=0
 TARGETS=()
