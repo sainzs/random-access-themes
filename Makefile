@@ -1,4 +1,4 @@
-.PHONY: all generate visuals validate contrast tokens install check release clean
+.PHONY: pi-panels all generate visuals validate contrast tokens install check release clean
 
 # Use project venv if present, otherwise system python3
 PYTHON := $(shell test -x .venv/bin/python3 && echo .venv/bin/python3 || echo python3)
@@ -13,6 +13,12 @@ generate:
 # Derive the phosphor family's terminal exports from its pi themes
 phosphor-exports:
 	$(PYTHON) scripts/generate_phosphor.py
+
+# Re-derive the pi themes' pa* panels on the terminal surface (THEMES.md Surface rule),
+# then validate the contract. Run after changing a theme's identity colours or the surface.
+pi-panels:
+	python3 themes/pi/derive_panels.py
+	python3 themes/pi/validate_themes.py --strict
 
 # Regenerate the phosphor-family screenshots (themes/pi/reckoner-*.json)
 # Needs Pillow, which the project .venv does not carry; the system interpreter

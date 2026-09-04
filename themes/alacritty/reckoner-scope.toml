@@ -11,11 +11,11 @@ cursor = "#a8ffc2"
 text   = "#0a120c"
 
 [colors.selection]
-background = "#2f3c32"
+background = "#395040"
 text       = "#6fe392"
 
 [colors.normal]
-black    = "#2f3c32"
+black    = "#395040"
 red      = "#ff7a5c"
 green    = "#6fe392"
 yellow   = "#e8d25f"

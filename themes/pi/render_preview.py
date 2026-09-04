@@ -66,7 +66,9 @@ def render(theme):
     c = {k: res(v) for k, v in theme.get('colors', {}).items()}
     v = theme.get('vars', {})
     name = theme.get('name', '?')
-    bg = res(v.get('bg0') or v.get('bg') or '#111111')
+    # RECKONER_SURFACE overrides the card background: pi draws prose on the
+    # terminal surface, not bg0, so preview on what the operator actually sees.
+    bg = os.environ.get('RECKONER_SURFACE') or res(v.get('bg0') or v.get('bg') or '#111111')
     muted_lab = c.get('muted', '#888888')
 
     H = 1900

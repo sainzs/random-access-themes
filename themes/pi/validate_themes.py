@@ -51,6 +51,28 @@ def contrast(a, b):
     return (hi + 0.05) / (lo + 0.05)
 
 
+def _lab(hexc):
+    def lin(c): return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    h = hexc.lstrip('#')
+    r, g, b = (lin(int(h[i:i + 2], 16) / 255) * 100 for i in (0, 2, 4))
+    x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 95.047
+    y = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 100.0
+    z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 108.883
+    f = lambda t: t ** (1 / 3) if t > 0.008856 else 7.787 * t + 16 / 116
+    fx, fy, fz = f(x), f(y), f(z)
+    return 116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)
+
+
+def delta_e(a, b):
+    """CIE76 ΔE — ~2 just noticeable, 5+ clearly different panels."""
+    return sum((p - q) ** 2 for p, q in zip(_lab(a), _lab(b))) ** 0.5
+
+
+SURFACE = os.environ.get('RECKONER_SURFACE', '#121212')   # terminal background pi draws on
+PA_MIN_FROM_SURFACE = 6.0
+PA_MIN_PAIRWISE = 5.0
+
+
 def resolve(vars_, v, depth=0):
     if depth > 8 or not isinstance(v, str):
         return ''
@@ -121,6 +143,21 @@ def validate(path):
                else any(b > a + 1e-9 for a, b in zip(lums, lums[1:])))
         if bad:
             warns.append('bg0->bg2->bg3 ladder moves the wrong way for this polarity')
+
+    # Surface rule (THEMES.md): panels must be visible on the terminal surface
+    # and distinguishable from each other. Dark themes only.
+    if lum(rv('bg0') or '#000000') < 0.5:
+        panels = {k: rv(k) for k in PA_SET if k.endswith('Bg') and rv(k)}
+        for k, h in panels.items():
+            d = delta_e(h, SURFACE)
+            if d < PA_MIN_FROM_SURFACE:
+                errs.append(f'{k} {h} ΔE {d:.1f} from surface {SURFACE} (< {PA_MIN_FROM_SURFACE})')
+        keys = list(panels)
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                d = delta_e(panels[a], panels[b])
+                if d < PA_MIN_PAIRWISE:
+                    errs.append(f'{a} vs {b} ΔE {d:.1f} (< {PA_MIN_PAIRWISE}) — panels indistinguishable')
 
     return errs, warns
 

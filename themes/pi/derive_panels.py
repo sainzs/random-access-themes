@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+"""Re-derive the pa* panel backgrounds of dark pi themes against the terminal
+surface they are actually drawn on.
+
+pi never paints bg0 over the whole screen: prose sits on the terminal's own
+background, and only tool/user/diff panels get an explicit bg. So pa* must be
+derived from the *terminal* surface (Matte Black HC: #121212), tinted lightly
+with the theme's own accent / success / error hues. Identity colours are not
+touched; paDiffText and paDim are kept.
+
+Usage: python3 derive_panels.py [--surface '#121212'] [--dry-run] [theme ...]
+Default: every dark theme in this directory (mediodia, the light theme, is skipped).
+A timestamped copy of each rewritten file lands in backups/.
+"""
+import glob, json, os, shutil, sys, time
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SKIP = {"mediodia"}   # light theme: its panels are derived from a light page
+
+# role → (source colour role, tint alpha over the surface)
+# "neutral" = white: the tool/code panel is a plain matte raised surface; the
+# message and semantic panels carry hue. Alphas are staggered so every pair of
+# panels is ≥ ΔE 5 apart (gated by validate_themes.py) on a #121212 surface.
+RECIPE = {
+    "paToolPanelBg":     ("neutral", 0.07),
+    "paCustomMessageBg": ("neutral", 0.13),
+    "paToolPendingBg":   ("accent",  0.11),
+    "paUserMessageBg":   ("accent",  0.18),
+    "paToolSuccessBg":   ("success", 0.16),
+    "paToolErrorBg":     ("error",   0.18),
+    "paSelectedBg":      ("accent",  0.26),
+    "paDiffAddedBg":     ("success", 0.28),
+    "paDiffRemovedBg":   ("error",   0.30),
+}
+
+MIN_SURFACE, MIN_PAIR = 6.0, 5.0   # mirrors validate_themes.py
+
+def _lab(hexc):
+    def lin(c): return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (lin(c / 255) * 100 for c in rgb(hexc))
+    x = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 95.047
+    y = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 100.0
+    z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 108.883
+    f = lambda t: t ** (1 / 3) if t > 0.008856 else 7.787 * t + 16 / 116
+    fx, fy, fz = f(x), f(y), f(z)
+    return 116 * fy - 16, 500 * (fx - fy), 200 * (fy - fz)
+
+def delta_e(a, b): return sum((p - q) ** 2 for p, q in zip(_lab(a), _lab(b))) ** 0.5
+
+def rgb(h): h = h.lstrip("#"); return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+def hexs(t): return "#%02x%02x%02x" % t
+def blend(fg, bg, a): return hexs(tuple(round(f * a + b * (1 - a)) for f, b in zip(rgb(fg), rgb(bg))))
+
+def resolver(theme):
+    vars_ = theme["vars"]
+    def res(v, seen=()):
+        if v in seen: raise ValueError(f"cycle at {v}")
+        if isinstance(v, str) and v.startswith("#"): return v
+        if v in vars_: return res(vars_[v], seen + (v,))
+        raise KeyError(v)
+    return res
+
+def derive(path, surface, dry):
+    theme = json.load(open(path))
+    name = theme["name"]
+    if name in SKIP: return None
+    res = resolver(theme)
+    colors = theme["colors"]
+    src = {"neutral": "#ffffff", "text1": res("text1"), "accent": res(colors["accent"]),
+           "success": res(colors["success"]), "error": res(colors["error"])}
+    alphas = {k: a for k, (_, a) in RECIPE.items()}
+    def panels(): return {k: blend(src[RECIPE[k][0]], surface, alphas[k]) for k in RECIPE}
+    # Separation pass: monochrome themes (accent ≈ success ≈ error) collapse
+    # same-hue panels; push the higher-alpha member of any close pair up until
+    # every pair is ≥ MIN_PAIR ΔE and every panel ≥ MIN_SURFACE from the surface.
+    for _ in range(60):
+        pan = panels(); moved = False
+        for k in RECIPE:
+            if delta_e(pan[k], surface) < MIN_SURFACE and alphas[k] < 0.6:
+                alphas[k] += 0.02; moved = True
+        keys = list(RECIPE)
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                if delta_e(pan[a], pan[b]) < MIN_PAIR:
+                    hi = a if alphas[a] >= alphas[b] else b
+                    if alphas[hi] < 0.6: alphas[hi] += 0.02; moved = True
+        if not moved: break
+    changes = {}
+    for key, new in panels().items():
+        if theme["vars"].get(key) != new:
+            changes[key] = (theme["vars"].get(key), new)
+            theme["vars"][key] = new
+    if changes and not dry:
+        stamp = time.strftime("%Y%m%d-%H%M%S")
+        os.makedirs(os.path.join(HERE, "backups"), exist_ok=True)
+        shutil.copy2(path, os.path.join(HERE, "backups", f"{name}.json.{stamp}"))
+        with open(path, "w") as f:
+            json.dump(theme, f, indent=2, ensure_ascii=False); f.write("\n")
+    return name, changes
+
+def main(argv):
+    surface, dry, names = "#121212", False, []
+    it = iter(argv)
+    for a in it:
+        if a == "--surface": surface = next(it)
+        elif a == "--dry-run": dry = True
+        else: names.append(a)
+    paths = [os.path.join(HERE, f"{n}.json") for n in names] or sorted(glob.glob(os.path.join(HERE, "*.json")))
+    for p in paths:
+        out = derive(p, surface, dry)
+        if not out: continue
+        name, changes = out
+        print(f"{'would rewrite' if dry else 'rewrote':<14} {name:<22} {len(changes)} panel(s)")
+        for k, (old, new) in changes.items():
+            print(f"    {k:<20} {old} → {new}")
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

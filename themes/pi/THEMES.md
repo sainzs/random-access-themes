@@ -18,6 +18,13 @@ Every theme in this directory must satisfy it. Enforced by
    with the skeleton: `paToolPendingBg, paToolSuccessBg, paToolErrorBg,
    paUserMessageBg, paCustomMessageBg, paToolPanelBg, paSelectedBg,
    paDiffAddedBg, paDiffRemovedBg, paDiffText, paDim`.
+   **Surface rule (2026-09-03):** pi never paints `bg0` over the page — prose
+   sits on the *terminal's* background and only panels get an explicit bg. So
+   the `pa*` set is derived against the terminal surface (Matte Black HC
+   `#121212`, see `~/.config/terminal-theme/theme.toml`), tinted 6–22 % with the
+   theme's own text1 / accent / success / error. `derive_panels.py` does this
+   for every dark theme (recipe in the file); rerun it if the surface changes.
+   Preview on the surface with `RECKONER_SURFACE='#121212' python3 render_preview.py`.
 5. **Complete role map** — all 55 `colors` keys, values are hex or var refs,
    never empty strings.
 6. **Export block** — `pageBg / cardBg / infoBg` for HTML export.
@@ -52,7 +59,8 @@ in `themes/<app>/` — this consolidation is pi-scoped.
 ## Workflow
 
 ```sh
-python3 render_preview.py <name>     # visual card -> previews/<name>.png
+python3 derive_panels.py [--dry-run] [name ...]   # pa* on the terminal surface
+RECKONER_SURFACE='#121212' python3 render_preview.py <name>   # card -> previews/<name>.png
 python3 validate_themes.py --strict  # contract check, all themes
 ```
 
