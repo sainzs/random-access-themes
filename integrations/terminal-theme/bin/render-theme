@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/python3
+#!/usr/bin/env python3
 """Render theme.toml into every terminal's native theme format.
 
 Writes (all files carry a GENERATED header; edit theme.toml, not them):
@@ -30,11 +30,26 @@ def palette_for(term):
     subs = {"@accent": acc["accent"], "@accent_bright": acc["accent_bright"]}
     return [subs.get(T["palette"][k], T["palette"][k]) for k in ORDER], acc
 
+import shutil, time
+STAMP = time.strftime("%Y%m%d-%H%M%S")
+BACKUP = ROOT / "backups" / STAMP          # gitignored; one dir per render
+ROLLBACK = []
+
 def write(path, content):
+    """Write a target, backing up whatever it replaces and recording the undo."""
     path = pathlib.Path(path).expanduser()
     if DRY:
         print(f"\n### {path}\n{content}")
         return
+    if path.exists() and path.read_text() == content:
+        print(f"same  {path}"); return
+    if path.exists():
+        BACKUP.mkdir(parents=True, exist_ok=True)
+        dst = BACKUP / path.name
+        shutil.copy2(path, dst)
+        ROLLBACK.append(f'cp -p "$B/{path.name}" "{str(path).replace(str(HOME), "$HOME")}"')
+    else:
+        ROLLBACK.append(f'rm -f "{str(path).replace(str(HOME), "$HOME")}"')
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content)
     print(f"wrote {path}")
@@ -136,7 +151,6 @@ warp = f"""# {NAME} — Warp
 # {HDR}
 name: "{NAME}"
 scheme: "{NAME}"
-author: "ssainz"
 details: darker
 
 background: "{B['background']}"
@@ -204,3 +218,13 @@ write(HOME / ".config/shell/palette.sh", sh)
 dump = {"name": NAME, "slug": SLUG, "base": B, "glass": glass, "font": T["font"],
         "palette": {k: T["palette"][k] for k in ORDER}, "terminals": T["terminals"]}
 write(ROOT / "palette.json", json.dumps(dump, indent=2) + "\n")
+
+# ── rollback for this render ───────────────────────────────────────────────
+if not DRY and ROLLBACK:
+    BACKUP.mkdir(parents=True, exist_ok=True)
+    (BACKUP / "rollback.sh").write_text("#!/bin/sh\n# Undo the render of " + STAMP + "\nset -e\nB=\"$(cd \"$(dirname \"$0\")\" && pwd)\"\n" + "\n".join(ROLLBACK) + "\necho restored\n")
+    (BACKUP / "rollback.sh").chmod(0o755)
+    latest = ROOT / "backups" / "latest"
+    if latest.is_symlink() or latest.exists(): latest.unlink()
+    latest.symlink_to(BACKUP)
+    print(f"backup + rollback: {BACKUP}")

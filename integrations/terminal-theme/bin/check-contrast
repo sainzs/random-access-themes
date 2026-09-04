@@ -1,8 +1,8 @@
-#!/opt/homebrew/bin/python3
+#!/usr/bin/env python3
 """Deterministic gate: every text role in theme.toml must clear WCAG contrast
 against the background — both solid and glass-composited (opacity over a
 mid-grey wallpaper, the worst realistic case). Exit 1 on any failure."""
-import sys, tomllib, pathlib
+import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent)); import palette_lib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent

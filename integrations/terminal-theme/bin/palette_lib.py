@@ -1,8 +1,18 @@
 """Shared loader: theme.toml with accents resolved from the pi theme JSONs."""
-import colorsys, json, pathlib, tomllib
+import colorsys, json, os, pathlib, sys
+try:
+    import tomllib                      # Python 3.11+
+except ImportError:                     # pragma: no cover
+    sys.exit("terminal-theme needs Python 3.11+ (tomllib). Try: python3.11+ or the project .venv")
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
-PI_THEMES = HERE.parent.parent / "themes" / "pi"
+# The repo root: this dir lives at <repo>/integrations/terminal-theme. RAT_REPO
+# overrides for copies that are not inside (or symlinked into) the repo.
+REPO = pathlib.Path(os.environ.get("RAT_REPO") or HERE.parent.parent)
+PI_THEMES = REPO / "themes" / "pi"
+if not PI_THEMES.is_dir():
+    sys.exit(f"themes/pi not found at {PI_THEMES}. Run from the random-access-themes checkout "
+             "(or a symlink into it), or set RAT_REPO=/path/to/random-access-themes.")
 
 def _rgb(h): h = h.lstrip("#"); return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 def _hex(t): return "#%02x%02x%02x" % t

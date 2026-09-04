@@ -5,3 +5,4 @@ __pycache__/
 *.tmp
 .venv/
 wallpapers/*.png
+themes/pi/backups/

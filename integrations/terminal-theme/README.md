@@ -1,19 +1,21 @@
 # terminal-theme — Matte Black HC
 
-Lives in the random-access-themes package; `~/.config/terminal-theme` is a symlink here.
-Accents are read from `../../themes/pi/*.json` (`accent_from` in theme.toml).
+Lives at `integrations/terminal-theme/` in the random-access-themes package; the
+operator's `~/.config/terminal-theme` is a symlink here (or set `RAT_REPO`).
+Accents are read from `themes/pi/*.json` (`accent_from` in theme.toml). Python 3.11+.
 
 One palette for Ghostty, kitty, iTerm2, Warp and the shell layer. Omarchy
-Matte Black lineage (charcoal `#121212`, amber accent), contrast lifted so
-every text role clears WCAG AA on the glass-composited background.
+Matte Black lineage (charcoal `#121212`; amber upstream, replaced here by the
+reckoner greens), contrast lifted so every text role clears WCAG AA on the
+glass-composited background.
 
 ```
 theme.toml            source of truth (palette, glass, fonts, per-terminal accents)
 bin/render-theme      theme.toml → native theme files (see list below)
 bin/check-contrast    WCAG (solid/grey-glass/white-glass) + ΔE76 separation; exit 1 on failure
 bin/theme-check       runs EVERY gate below in one go — run after any edit
-bin/winid <app>       CGWindowID helper for `screencapture -l`
-backup-latest/        snapshot of every touched file + rollback.sh
+bin/winid.swift       CGWindowID helper for `screencapture -l` (build: `swiftc -O bin/winid.swift -o bin/winid`)
+backups/<stamp>/      every file a render replaced + rollback.sh (`backups/latest` → newest)
 plans/modernize.md    the plan and gate log
 ```
 
@@ -76,7 +78,7 @@ directories-first, zsh completion menu colours. All ANSI-slot based.
 
 pi draws prose on the terminal surface and only paints panels, so every dark
 reckoner theme's `pa*` set is now derived against `#121212`
-(`~/.pi/agent/themes/derive_panels.py`; rule recorded in THEMES.md). Rerun it
+(`themes/pi/derive_panels.py`; rule recorded in THEMES.md). Rerun it
 if `base.background` changes here.
 
 ## Gates (`bin/theme-check` runs them all)
@@ -89,4 +91,5 @@ double load) · glslang on both shaders · kitty `load_config(accumulate_bad_lin
 
 ## Rollback
 
-`~/.config/terminal-theme/backup-latest/rollback.sh` (local, gitignored)
+`backups/latest/rollback.sh` undoes the most recent render (local, gitignored).
+The original 2026-09-03 migration snapshot is `backup-20260903-1723/rollback.sh`.

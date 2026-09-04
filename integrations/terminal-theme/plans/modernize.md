@@ -121,7 +121,7 @@ Critic: claude-opus-5 `reviewer`, read-only. 13 findings, all addressed:
 5. check-contrast composites over grey **and white** wallpaper; red/accents lifted to clear 4.5 on `#2e2e2e`.
 6. `black` slot `#404040`, checked as a surface (≥1.3:1).
 7. rollback.sh restores `keybindings.conf`, the symlink, and removes generated files.
-8. kitty gate recorded properly: `kitty +runpy 'from kitty.config import load_config; b=[]; load_config("/Users/ssainz/.config/kitty/kitty.conf", accumulate_bad_lines=b)'` → `[]`.
+8. kitty gate recorded properly: `kitty +runpy 'from kitty.config import load_config; b=[]; load_config("$HOME/.config/kitty/kitty.conf", accumulate_bad_lines=b)'` → `[]`.
 9–10. dead `bold-is-bright` removed; `window-theme` back to `system`.
 11. iTerm2 profile inherits cursor type/blink from "Default"; min contrast 0.15. Operator-visible bugs from first launch fixed: `Use Tab Color` off (was tinting the whole titlebar lilac), `Show Mark Indicators` off (blue gutter triangles).
 12. iTerm2 + Warp launched and screenshotted (operator: "exquisite… right direction"). Ghostty screenshot still needs operator reload (Cmd+Shift+,).

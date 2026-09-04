@@ -151,6 +151,7 @@ Map of what is source and what is derived: [docs/manifest.md](docs/manifest.md).
 | delta | [`integrations/gitconfig-delta`](integrations/gitconfig-delta) |
 | Starship | [`integrations/starship.toml`](integrations/starship.toml) |
 | eza | [`integrations/eza-export.sh`](integrations/eza-export.sh) |
+| shell extras (optional) | [`integrations/shell-extras.sh`](integrations/shell-extras.sh) — eza aliases, fzf previews, man via bat |
 | Terminals as a set | [`integrations/terminal-theme/`](integrations/terminal-theme/) — one `theme.toml` → Ghostty, kitty, iTerm2 (dynamic profile), Warp, shell palette; glass + motion; WCAG + ΔE gates |
 
 The integrations are written against **ANSI slots**, not hex: `blue`/colour4 is

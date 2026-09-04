@@ -1,4 +1,4 @@
-.PHONY: pi-panels terminal-theme all generate visuals validate contrast tokens install check release clean
+.PHONY: pi-panels terminal-theme terminal-theme-dry all generate visuals validate contrast tokens install check release clean
 
 # Use project venv if present, otherwise system python3
 PYTHON := $(shell test -x .venv/bin/python3 && echo .venv/bin/python3 || echo python3)
@@ -20,10 +20,18 @@ pi-panels:
 	python3 themes/pi/derive_panels.py
 	python3 themes/pi/validate_themes.py --strict
 
-# Render the Matte Black HC terminal set (Ghostty/kitty/iTerm2/Warp/shell) into the
-# user's config dirs and run its 13 gates. Accents come from themes/pi/*.json.
+# Preview / render the Matte Black HC terminal set (Ghostty/kitty/iTerm2/Warp/shell).
+# Needs Python 3.11+ (tomllib). `terminal-theme-dry` prints what would be written;
+# `terminal-theme` writes into the user's config dirs, backing up every file it
+# replaces to integrations/terminal-theme/backups/<stamp>/ with a rollback.sh, then
+# runs the gates. Accents come from themes/pi/*.json.
+PYTHON311 := $(shell for p in .venv/bin/python3 python3 python3.14 python3.13 python3.12 python3.11; do command -v $$p >/dev/null 2>&1 && $$p -c 'import tomllib' >/dev/null 2>&1 && echo $$p && break; done)
+terminal-theme-dry:
+	@test -n "$(PYTHON311)" || { echo "terminal-theme needs Python 3.11+ (tomllib)"; exit 1; }
+	$(PYTHON311) integrations/terminal-theme/bin/render-theme --dry-run
 terminal-theme:
-	/opt/homebrew/bin/python3 integrations/terminal-theme/bin/render-theme
+	@test -n "$(PYTHON311)" || { echo "terminal-theme needs Python 3.11+ (tomllib)"; exit 1; }
+	$(PYTHON311) integrations/terminal-theme/bin/render-theme
 	integrations/terminal-theme/bin/theme-check
 
 # Regenerate the phosphor-family screenshots (themes/pi/reckoner-*.json)

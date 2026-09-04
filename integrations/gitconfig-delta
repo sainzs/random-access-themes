@@ -12,6 +12,7 @@
     line-numbers = true
     side-by-side = false
     syntax-theme = ansi
+    dark = true            # flip to `light = true` for mediodia / any light terminal
     file-style = bold blue
     file-decoration-style = blue ul
     hunk-header-style = file line-number syntax

@@ -1,4 +1,5 @@
 # bat — Random Access Themes: the terminal's ANSI palette, so the accent follows the app.
 --theme=ansi
---style=numbers,changes,header,grid
+--style=numbers,changes,header
 --italic-text=always
+--paging=never

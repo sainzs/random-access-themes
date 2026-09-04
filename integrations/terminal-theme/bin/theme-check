@@ -1,35 +1,60 @@
 #!/bin/sh
-# One-shot gate runner for the terminal theme. Exit 1 if any gate fails.
-# Gates: contrast/ΔE, Ghostty config (+ single load, shader compile), kitty parse,
-# iTerm2 profile JSON, Warp yaml, starship, zsh syntax, pi theme contract.
+# Gate runner for terminal-theme. Exit 1 if any gate FAILS.
+# Portable: gates whose tool or target is absent on this machine are SKIPPED, not failed.
+# Always run: contrast/ΔE on theme.toml, the pi theme contract in the repo.
+# Run when present: Ghostty (config valid, loaded once, shaders compile), kitty parse,
+# iTerm2 profile JSON, Warp yaml/toml, starship, zsh syntax.
 set -u
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="${RAT_REPO:-$(cd "$HERE/../.." && pwd)}"
+export RAT_REPO="$REPO"
 G=/Applications/Ghostty.app/Contents/MacOS/ghostty
 K=/Applications/kitty.app/Contents/MacOS/kitty
 fail=0
-ok()  { printf 'ok    %s\n' "$1"; }
-bad() { printf 'FAIL  %s\n' "$1"; fail=1; }
+ok()   { printf 'ok    %s\n' "$1"; }
+skip() { printf 'skip  %s\n' "$1"; }
+bad()  { printf 'FAIL  %s\n' "$1"; fail=1; }
 
-"$HERE/bin/check-contrast" >/tmp/theme-check.contrast 2>&1 && ok "check-contrast (WCAG ×3 + ΔE)" || { bad "check-contrast"; grep -E 'BAD|FAIL' /tmp/theme-check.contrast; }
+# Python with tomllib (3.11+): project .venv, then explicit versions, then python3.
+PY=""
+for p in "$REPO/.venv/bin/python3" python3 python3.14 python3.13 python3.12 python3.11; do
+  if command -v "$p" >/dev/null 2>&1 && "$p" -c 'import tomllib' >/dev/null 2>&1; then PY="$p"; break; fi
+done
+[ -n "$PY" ] || { bad "no Python 3.11+ (tomllib) found"; echo FAIL; exit 1; }
 
-"$G" +validate-config >/dev/null 2>&1 && ok "ghostty +validate-config" || bad "ghostty +validate-config"
-n=$("$G" +show-config 2>/dev/null | grep -c '^custom-shader = ')
-[ "$n" = "$(grep -c '^custom-shader = ' "$HOME/.config/ghostty/config")" ] && ok "ghostty loads config once ($n shaders)" || bad "ghostty double-load? show-config has $n custom-shader lines"
-[ -e "$HOME/Library/Application Support/com.mitchellh.ghostty/config" ] && bad "App Support ghostty config exists (double load)" || ok "no App Support ghostty config"
-if command -v glslangValidator >/dev/null; then
-  for sh in "$HOME"/.config/ghostty/shaders/*.glsl; do
-    { cat /tmp/ghostty-shader-stub.glsl 2>/dev/null || cat "$HERE/ghostty-shader-stub.glsl"; cat "$sh"; printf '\nvoid main(){ mainImage(_fragColor, gl_FragCoord.xy); }\n'; } > /tmp/theme-check.frag
-    glslangValidator -S frag /tmp/theme-check.frag >/dev/null 2>&1 && ok "shader $(basename "$sh") compiles" || bad "shader $(basename "$sh")"
-  done
+"$PY" "$HERE/bin/check-contrast" >/tmp/theme-check.contrast 2>&1 && ok "check-contrast (WCAG ×3 + ΔE)" || { bad "check-contrast"; grep -E 'BAD|FAIL' /tmp/theme-check.contrast; }
+"$PY" "$REPO/themes/pi/validate_themes.py" --strict >/dev/null 2>&1 && ok "pi themes --strict (repo themes/pi)" || bad "pi themes --strict"
+
+if [ -x "$G" ] && [ -f "$HOME/.config/ghostty/config" ]; then
+  "$G" +validate-config >/dev/null 2>&1 && ok "ghostty +validate-config" || bad "ghostty +validate-config"
+  want=$(grep -c '^custom-shader = ' "$HOME/.config/ghostty/config"); have=$("$G" +show-config 2>/dev/null | grep -c '^custom-shader = ')
+  [ "$have" = "$want" ] && ok "ghostty loads config once ($have shaders)" || bad "ghostty double-load? show-config has $have custom-shader lines, config has $want"
+  [ -e "$HOME/Library/Application Support/com.mitchellh.ghostty/config" ] && bad "App Support ghostty config exists (double load)" || ok "no App Support ghostty config"
+  if command -v glslangValidator >/dev/null 2>&1; then
+    for sh in "$HOME"/.config/ghostty/shaders/*.glsl; do
+      [ -f "$sh" ] || continue
+      { cat "$HERE/ghostty-shader-stub.glsl"; cat "$sh"; printf '\nvoid main(){ mainImage(_fragColor, gl_FragCoord.xy); }\n'; } > /tmp/theme-check.frag
+      glslangValidator -S frag /tmp/theme-check.frag >/dev/null 2>&1 && ok "shader $(basename "$sh") compiles" || bad "shader $(basename "$sh")"
+    done
+  else skip "shader compile (glslangValidator not installed)"; fi
+else skip "ghostty (not installed or no config)"; fi
+
+if [ -x "$K" ] && [ -f "$HOME/.config/kitty/kitty.conf" ]; then
+  "$K" +runpy 'import sys, os; from kitty.config import load_config; b=[]; load_config(os.path.expanduser("~/.config/kitty/kitty.conf"), accumulate_bad_lines=b); sys.exit(1 if b else 0)' >/dev/null 2>&1 && ok "kitty config parses (0 bad lines)" || bad "kitty config has bad lines"
+else skip "kitty (not installed or no config)"; fi
+
+P="$HOME/Library/Application Support/iTerm2/DynamicProfiles/matte-black-hc.json"
+if [ -f "$P" ]; then "$PY" -c "import json,sys; json.load(open(sys.argv[1]))['Profiles'][0]['Name']" "$P" >/dev/null 2>&1 && ok "iTerm2 dynamic profile JSON" || bad "iTerm2 dynamic profile JSON"; else skip "iTerm2 profile (absent)"; fi
+
+if [ -f "$HOME/.warp/themes/matte-black-hc.yaml" ]; then
+  if command -v yq >/dev/null 2>&1; then yq -e '.terminal_colors.normal.blue' "$HOME/.warp/themes/matte-black-hc.yaml" >/dev/null 2>&1 && ok "warp theme yaml" || bad "warp theme yaml"; else skip "warp yaml (yq not installed)"; fi
+  "$PY" -c 'import tomllib,pathlib; tomllib.loads(pathlib.Path.home().joinpath(".warp/settings.toml").read_text())' 2>/dev/null && ok "warp settings.toml" || bad "warp settings.toml"
+else skip "warp (absent)"; fi
+
+command -v starship >/dev/null 2>&1 && { starship print-config >/dev/null 2>&1 && ok "starship config" || bad "starship config"; } || skip "starship (not installed)"
+if command -v zsh >/dev/null 2>&1; then
+  z=0; for f in "$HOME/.zshrc" "$HOME/.config/shell/env.sh" "$HOME/.config/shell/palette.sh"; do [ -f "$f" ] && { zsh -n "$f" || z=1; }; done
+  [ $z = 0 ] && ok "zsh syntax (.zshrc, env.sh, palette.sh where present)" || bad "zsh syntax"
 fi
-
-"$K" +runpy 'import sys; from kitty.config import load_config; b=[]; load_config("'"$HOME"'/.config/kitty/kitty.conf", accumulate_bad_lines=b); sys.exit(1 if b else 0)' >/dev/null 2>&1 && ok "kitty config parses (0 bad lines)" || bad "kitty config has bad lines"
-
-jq -e '.Profiles[0].Name' "$HOME/Library/Application Support/iTerm2/DynamicProfiles/matte-black-hc.json" >/dev/null 2>&1 && ok "iTerm2 dynamic profile JSON" || bad "iTerm2 dynamic profile JSON"
-yq -e '.terminal_colors.normal.blue' "$HOME/.warp/themes/matte-black-hc.yaml" >/dev/null 2>&1 && ok "warp theme yaml" || bad "warp theme yaml"
-/opt/homebrew/bin/python3 -c 'import tomllib,pathlib; tomllib.loads(pathlib.Path.home().joinpath(".warp/settings.toml").read_text())' 2>/dev/null && ok "warp settings.toml" || bad "warp settings.toml"
-starship print-config >/dev/null 2>&1 && ok "starship.toml" || bad "starship.toml"
-zsh -n "$HOME/.zshrc" && zsh -n "$HOME/.config/shell/env.sh" && zsh -n "$HOME/.config/shell/palette.sh" && ok "zsh syntax (.zshrc, env.sh, palette.sh)" || bad "zsh syntax"
-( cd "$HOME/.pi/agent/themes" && python3 validate_themes.py --strict >/dev/null 2>&1 ) && ok "pi themes --strict (surface rule)" || bad "pi themes --strict"
 
 [ $fail = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }

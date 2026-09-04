@@ -1,2 +1,4 @@
 backup-*/
 backup-latest
+backups/
+bin/winid
