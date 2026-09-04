@@ -157,7 +157,7 @@ Map of what is source and what is derived: [docs/manifest.md](docs/manifest.md).
 The integrations are written against **ANSI slots**, not hex: `blue`/colour4 is
 whatever accent the terminal theme puts in slot 4, so one starship/tmux/fzf/eza/
 bat/delta config serves every flavor and tube. `terminal-theme` puts a different
-tube's green in slot 4 per terminal (scope in Ghostty, random-access mint in
+tube's green in slot 4 per terminal (scope in Ghostty, aerodynamic mint in
 kitty, darkspace teal in iTerm2, exect phosGreen in Warp), read straight from
 `themes/pi/*.json`.
 

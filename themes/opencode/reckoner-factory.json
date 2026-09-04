@@ -2,10 +2,10 @@
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
     "bg": "#020202",
-    "bg1": "#35261f",
+    "bg1": "#4b2a19",
     "bg2": "#2e2c2b",
     "surface": "#020202",
-    "overlay": "#35261f",
+    "overlay": "#4b2a19",
     "text": "#eeeeee",
     "subtle": "#8a8380",
     "dim": "#767370",

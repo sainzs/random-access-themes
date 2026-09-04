@@ -23,7 +23,7 @@ plans/modernize.md    the plan and gate log
 
 Each terminal gets its own accent in **ANSI slot 4/12 (blue)** of its theme —
 the four greens of the pi *reckoner* theme package: Ghostty scope phosphor
-`#6fe392` · kitty random-access mint `#00ffb2` · iTerm2 darkspace teal `#3ce6da`
+`#6fe392` · kitty aerodynamic mint `#00ffb2` · iTerm2 darkspace teal `#3ce6da`
 · Warp exect phosGreen `#9acc63`. Semantic green is a muted sage so success
 never impersonates the accent (gated by ΔE ≥ 25). The shell layer
 (starship, zsh-syntax-highlighting, fzf, eza, tmux) only ever says `blue`,

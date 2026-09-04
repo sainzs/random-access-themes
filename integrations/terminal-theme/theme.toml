@@ -60,7 +60,7 @@ bright_white = "#ffffff"
 [terminals.ghostty]
 accent_from = "reckoner-scope:text0"             # phosphor green #6fe392
 [terminals.kitty]
-accent_from = "random-access-theme:mint"         # electric mint #00ffb2 (the flagship)
+accent_from = "aerodynamic:mint"                 # electric mint #00ffb2 (the flagship)
 [terminals.iterm2]
 accent_from = "reckoner-darkspace:text0"         # teal #3ce6da
 accent_bright_from = "reckoner-darkspace:tealHot"
