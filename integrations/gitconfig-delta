@@ -1,19 +1,25 @@
-# Random Access Theme colors for delta (https://github.com/dandavison/delta)
-# Add this to your ~/.gitconfig include path, e.g.:
+# delta (https://github.com/dandavison/delta) — Random Access Themes
+# Works with every flavor and tube: ANSI slots, `blue` = the terminal's accent.
+# Add to ~/.gitconfig:
 #   [include]
 #       path = /path/to/integrations/gitconfig-delta
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [delta]
-    syntax-theme = ansi
-    dark = true
+    navigate = true
     line-numbers = true
-    plus-style = syntax "#0b3318"
-    plus-emph-style = syntax "#1a5c2e"
-    minus-style = syntax "#33150b"
-    minus-emph-style = syntax "#5c261a"
-    line-numbers-zero-style = "#6f8d86"
-    line-numbers-plus-style = "#4ade80"
-    line-numbers-minus-style = "#26c994"
-    line-numbers-left-format = "{nm:>4}┊"
-    line-numbers-right-format = "{np:>4}┊"
-    file-style = bold "#00ffb2"
-    hunk-header-style = "#9cb7af"
+    side-by-side = false
+    syntax-theme = ansi
+    file-style = bold blue
+    file-decoration-style = blue ul
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = 8 box
+    line-numbers-left-style = 8
+    line-numbers-right-style = 8
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+    minus-style = syntax auto
+    plus-style = syntax auto
+    zero-style = syntax

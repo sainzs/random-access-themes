@@ -1,0 +1,68 @@
+# Matte Black HC — single source of truth for every terminal.
+# Lineage: Omarchy themes/matte-black (bg #121212, fg #bebebe); accents are the
+# pi reckoner greens instead of Omarchy's amber (operator choice, 2026-09-03).
+# HC = every text role ≥ 4.5:1 on the glass-composited background (bin/check-contrast).
+# Render: bin/render-theme      Rollback: backup-latest/rollback.sh
+
+[meta]
+name = "Matte Black HC"
+slug = "matte-black-hc"
+
+[font]
+family = "Berkeley Mono Variable"
+symbols = "BerkeleyMono Nerd Font"          # icon fallback (static patched face)
+alt = "JetBrainsMono Nerd Font"             # Omarchy-faithful alternate (brew cask)
+size = 16
+
+[glass]
+opacity = 0.88          # window background alpha; 1.0 = solid
+blur = 24               # fallback radius where native glass is unavailable
+ghostty_blur = "macos-glass-regular"   # Ghostty 1.3 + macOS 26 native Liquid Glass
+
+[base]
+background = "#121212"
+foreground = "#d6d6d6"
+selection_background = "#3a3a3a"
+selection_foreground = "#ffffff"
+split_divider = "#2a2a2a"
+# muted UI surface (tab bar, inactive title bars)
+surface = "#0c0c0c"
+surface_raised = "#1c1c1c"
+
+# 16-slot palette. Slot 4/12 (blue) is REPLACED per terminal by its accent —
+# so `ls` dirs, starship `blue`, tmux colour4, zsh `fg=blue` all carry the tint.
+# Semantic slots keep their own hue family (red 8°, green 100°, yellow 45°,
+# magenta 340°, cyan 175°) so diffs/ls/syntax stay distinguishable from the
+# accent; saturation is kept low so the whole thing still reads "matte".
+[palette]
+black = "#404040"          # bg-ish; exempt from the text floor (see check-contrast)
+red = "#ee7a6e"
+green = "#93b58f"          # matte sage — success stays green but yields the stage to the accent
+yellow = "#e6c07b"
+blue = "@accent"
+magenta = "#d795ab"
+cyan = "#82bfe0"           # sky — the palette's one cool tone (accents are greens)
+white = "#d6d6d6"
+bright_black = "#9a9a9e"   # comments / muted — lifted from #8a8a8d
+bright_red = "#ff9a8f"
+bright_green = "#b3d3ae"
+bright_yellow = "#f0d29a"
+bright_blue = "@accent_bright"
+bright_magenta = "#e9b3c4"
+bright_cyan = "#aed6ee"
+bright_white = "#ffffff"
+
+# Per-terminal accent → slot 4/12, cursor, active borders, prompt glyph.
+# Operator choice: the reckoner (pi theme package) greens, one per terminal,
+# referenced by "<pi-theme>:<var>" and resolved from ../../themes/pi/*.json by
+# render-theme, so the hex lives in exactly one place. accent_bright is derived
+# (a "hot" variant: +8 % lightness, +35 % saturation) unless a `_from` ref is given.
+[terminals.ghostty]
+accent_from = "reckoner-scope:text0"             # phosphor green #6fe392
+[terminals.kitty]
+accent_from = "random-access-theme:mint"         # electric mint #00ffb2 (the flagship)
+[terminals.iterm2]
+accent_from = "reckoner-darkspace:text0"         # teal #3ce6da
+accent_bright_from = "reckoner-darkspace:tealHot"
+[terminals.warp]
+accent_from = "reckoner-exect:phosGreen"         # #9acc63

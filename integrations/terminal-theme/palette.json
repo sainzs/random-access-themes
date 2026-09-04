@@ -1,0 +1,65 @@
+{
+  "name": "Matte Black HC",
+  "slug": "matte-black-hc",
+  "base": {
+    "background": "#121212",
+    "foreground": "#d6d6d6",
+    "selection_background": "#3a3a3a",
+    "selection_foreground": "#ffffff",
+    "split_divider": "#2a2a2a",
+    "surface": "#0c0c0c",
+    "surface_raised": "#1c1c1c"
+  },
+  "glass": {
+    "opacity": 0.88,
+    "blur": 24,
+    "ghostty_blur": "macos-glass-regular"
+  },
+  "font": {
+    "family": "Berkeley Mono Variable",
+    "symbols": "BerkeleyMono Nerd Font",
+    "alt": "JetBrainsMono Nerd Font",
+    "size": 16
+  },
+  "palette": {
+    "black": "#404040",
+    "red": "#ee7a6e",
+    "green": "#93b58f",
+    "yellow": "#e6c07b",
+    "blue": "@accent",
+    "magenta": "#d795ab",
+    "cyan": "#82bfe0",
+    "white": "#d6d6d6",
+    "bright_black": "#9a9a9e",
+    "bright_red": "#ff9a8f",
+    "bright_green": "#b3d3ae",
+    "bright_yellow": "#f0d29a",
+    "bright_blue": "@accent_bright",
+    "bright_magenta": "#e9b3c4",
+    "bright_cyan": "#aed6ee",
+    "bright_white": "#ffffff"
+  },
+  "terminals": {
+    "ghostty": {
+      "accent_from": "reckoner-scope:text0",
+      "accent": "#6fe392",
+      "accent_bright": "#7cffa3"
+    },
+    "kitty": {
+      "accent_from": "random-access-theme:mint",
+      "accent": "#00ffb2",
+      "accent_bright": "#29ffbe"
+    },
+    "iterm2": {
+      "accent_from": "reckoner-darkspace:text0",
+      "accent_bright_from": "reckoner-darkspace:tealHot",
+      "accent": "#3ce6da",
+      "accent_bright": "#7dfff2"
+    },
+    "warp": {
+      "accent_from": "reckoner-exect:phosGreen",
+      "accent": "#9acc63",
+      "accent_bright": "#aff365"
+    }
+  }
+}

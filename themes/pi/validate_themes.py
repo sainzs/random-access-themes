@@ -71,6 +71,8 @@ def delta_e(a, b):
 SURFACE = os.environ.get('RECKONER_SURFACE', '#121212')   # terminal background pi draws on
 PA_MIN_FROM_SURFACE = 6.0
 PA_MIN_PAIRWISE = 5.0
+# Surface rule applies to the hand-authored tubes only (see derive_panels.SKIP).
+SURFACE_EXEMPT = {'mediodia', 'random-access-theme', 'amanecer'}
 
 
 def resolve(vars_, v, depth=0):
@@ -146,7 +148,7 @@ def validate(path):
 
     # Surface rule (THEMES.md): panels must be visible on the terminal surface
     # and distinguishable from each other. Dark themes only.
-    if lum(rv('bg0') or '#000000') < 0.5:
+    if name not in SURFACE_EXEMPT and lum(rv('bg0') or '#000000') < 0.5:
         panels = {k: rv(k) for k in PA_SET if k.endswith('Bg') and rv(k)}
         for k, h in panels.items():
             d = delta_e(h, SURFACE)

@@ -1,1 +1,8 @@
-export EZA_COLORS="di=1;38;2;242;239;236:ln=38;2;177;168;162:ex=1;38;2;0;255;178:or=1;4;38;2;106;122;209:sp=38;2;129;119;113:hd=4;38;2;129;119;113:xx=38;2;129;119;113:da=38;2;177;168;162:lp=38;2;177;168;162:uu=38;2;242;239;236:un=38;2;129;119;113:gu=38;2;177;168;162:gn=38;2;129;119;113:ur=38;2;242;239;236:uw=38;2;0;255;178:ux=38;2;176;187;239:gr=38;2;177;168;162:gw=38;2;129;119;113:gx=38;2;129;119;113:tr=38;2;129;119;113:tw=38;2;129;119;113:tx=38;2;129;119;113:su=1;38;2;106;122;209:ga=38;2;176;187;239:gm=38;2;0;255;178:gd=38;2;106;122;209:gv=38;2;177;168;162:gt=38;2;135;150;234:gi=38;2;129;119;113:gc=1;38;2;106;122;209:Gc=38;2;176;187;239:Gd=38;2;0;255;178:Gm=38;2;242;239;236:Go=38;2;177;168;162:*.md=38;2;242;239;236:*.txt=38;2;242;239;236:*.json=38;2;177;168;162:*.yaml=38;2;177;168;162:*.yml=38;2;177;168;162:*.toml=38;2;177;168;162:*.ts=38;2;0;255;178:*.tsx=38;2;0;255;178:*.js=38;2;0;255;178:*.jsx=38;2;0;255;178:*.css=38;2;177;168;162:*.sh=38;2;176;187;239:README*=1;38;2;242;239;236:CHANGELOG*=38;2;177;168;162:LICENSE*=38;2;129;119;113"
+# eza — Random Access Themes
+# Works with every flavor and tube: 34 = blue = the terminal's accent; directories and
+# executables carry the tint, everything else stays neutral so listings read as text.
+export EZA_COLORS="di=1;34:ex=33:ln=36:so=35:pi=35:bd=35:cd=35:or=31:mi=31:uu=0:un=8:gu=0:gn=8:da=8:sb=0:sn=0:ur=0:uw=0:ux=33:ue=33:gr=8:gw=8:gx=8:tr=8:tw=8:tx=8:xa=8:hd=4;8:*.md=0:*.lock=8:*.log=8"
+alias ls='eza --icons=always --group-directories-first'
+alias ll='eza -lh --icons=always --git --group-directories-first'
+alias la='eza -lah --icons=always --git --group-directories-first'
+alias lt='eza --tree --icons=always --level=2 --group-directories-first'

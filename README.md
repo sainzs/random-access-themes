@@ -151,6 +151,14 @@ Map of what is source and what is derived: [docs/manifest.md](docs/manifest.md).
 | delta | [`integrations/gitconfig-delta`](integrations/gitconfig-delta) |
 | Starship | [`integrations/starship.toml`](integrations/starship.toml) |
 | eza | [`integrations/eza-export.sh`](integrations/eza-export.sh) |
+| Terminals as a set | [`integrations/terminal-theme/`](integrations/terminal-theme/) — one `theme.toml` → Ghostty, kitty, iTerm2 (dynamic profile), Warp, shell palette; glass + motion; WCAG + ΔE gates |
+
+The integrations are written against **ANSI slots**, not hex: `blue`/colour4 is
+whatever accent the terminal theme puts in slot 4, so one starship/tmux/fzf/eza/
+bat/delta config serves every flavor and tube. `terminal-theme` puts a different
+tube's green in slot 4 per terminal (scope in Ghostty, random-access mint in
+kitty, darkspace teal in iTerm2, exect phosGreen in Warp), read straight from
+`themes/pi/*.json`.
 
 Design tokens for web work live in [`tokens/`](tokens/). `make tokens` rebuilds them.
 

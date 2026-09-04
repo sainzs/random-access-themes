@@ -1,4 +1,4 @@
-.PHONY: pi-panels all generate visuals validate contrast tokens install check release clean
+.PHONY: pi-panels terminal-theme all generate visuals validate contrast tokens install check release clean
 
 # Use project venv if present, otherwise system python3
 PYTHON := $(shell test -x .venv/bin/python3 && echo .venv/bin/python3 || echo python3)
@@ -19,6 +19,12 @@ phosphor-exports:
 pi-panels:
 	python3 themes/pi/derive_panels.py
 	python3 themes/pi/validate_themes.py --strict
+
+# Render the Matte Black HC terminal set (Ghostty/kitty/iTerm2/Warp/shell) into the
+# user's config dirs and run its 13 gates. Accents come from themes/pi/*.json.
+terminal-theme:
+	/opt/homebrew/bin/python3 integrations/terminal-theme/bin/render-theme
+	integrations/terminal-theme/bin/theme-check
 
 # Regenerate the phosphor-family screenshots (themes/pi/reckoner-*.json)
 # Needs Pillow, which the project .venv does not carry; the system interpreter
