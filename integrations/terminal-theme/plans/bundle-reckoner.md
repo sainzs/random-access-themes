@@ -66,3 +66,27 @@ flowchart LR
 | fix | done | surface rule scoped to the six tubes: random-access-theme (generated) + amanecer (port) exempt; amanecer restored; random-access regenerated |
 Commits: `~/random-access-themes` 46152a4 (on top of cf75399; ahead of origin by 2, **not pushed**); `~/.pi` 2055fb3 (previews).
 Gate 2: critic pending.
+
+## Gate 2 (2026-09-03) — critic PARTIAL → fixed in dc3d332
+12 findings: tracked arm64 binary (removed+ignored); theme-check hard-wired to one machine
+(now skips absent tools, finds Python 3.11+, gates the repo's themes/pi); /opt/homebrew python in
+Makefile/shebangs (PYTHON311 discovery, env shebangs, clear tomllib error); render-theme had no
+backup/rollback despite README claim (now backups/<stamp>/ + rollback.sh, unchanged targets untouched);
+manifest didn't say derive_panels owns pa*Bg (now does, plus consumer-not-member wording for
+terminal-theme); themes/pi/backups/ unignored (ignored); fzf hex fallback → bg+:0; delta dark=true
+kept; behaviour split out of colour files into shell-extras.sh; tmux no longer leans on slot 0;
+$HOME instead of user paths; stale "amber" wording.
+Critic's candid read on the freeze, recorded: letter holds (no palette flavor, no themes/ export);
+spirit is thin — a satellite emitting five terminal formats under integrations/ is a loophole unless
+the manifest names it a consumer-of, not member-of, the family. It now does; operator approved B.
+
+## Concurrent peer lane — needs operator decision
+A non-bus agent (opencode/herdr focus; `~/.config/opencode2/bin/theme-audit`) is editing theme.toml
+and bin/render-theme in this dir: `[terminals.opencode]`, `[terminals.herdr]`, OpenCode theme JSON
+emitted to `themes/opencode/matte-black-hc.json` **in the repo** (a new export in a frozen repo) and
+to `~/.config/opencode{,2}/themes/`, a Herdr `[theme]` block spliced into `~/.config/herdr/config.toml`,
+plus edits to `themes/opencode/{amnesiac,random-access-theme,veridis,voyager}.json`.
+Left intact and UNSTAGED (recovered from stash after a pop mishap; verified: dry-run + theme-check PASS
+with their code present). Not committed. Decide: (a) accept as the agent-surfaces extension and
+amend the freeze note for `themes/opencode/`; (b) keep the user-dir outputs, drop the repo export;
+(c) revert. Bus notice sent.
