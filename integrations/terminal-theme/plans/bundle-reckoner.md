@@ -54,3 +54,15 @@ flowchart LR
 
 ## Gate log
 - Gate 1 (2026-09-03, operator): **B** approved. theme.toml stays TOML. No push.
+
+## Execution (2026-09-03)
+| node | status | evidence |
+|---|---|---|
+| b1 | done | toolkit at `integrations/terminal-theme/`; `~/.config/terminal-theme` → symlink; backups local (gitignored) |
+| b2 | done | `accent_from` refs resolved by `bin/palette_lib.py` from `themes/pi/*.json`; brights derived by `hot()` (+8 % L, +35 % S) — a white blend greyed toward sage and failed ΔE; check-contrast PASS |
+| b3 | done | six integrations on ANSI slots; starship print-config / zsh -n / tmux test server / git include all OK |
+| b5 | done | README row + slot explanation, manifest.md, `make terminal-theme` |
+| b6 | done | `make check` all passed; validate_themes --strict 9/9; theme-check PASS; pty shells ×4 |
+| fix | done | surface rule scoped to the six tubes: random-access-theme (generated) + amanecer (port) exempt; amanecer restored; random-access regenerated |
+Commits: `~/random-access-themes` 46152a4 (on top of cf75399; ahead of origin by 2, **not pushed**); `~/.pi` 2055fb3 (previews).
+Gate 2: critic pending.
